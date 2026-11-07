@@ -1,0 +1,58 @@
+/* Accessibility override for AnalyzePage: all readable UI copy is black and bold. */
+.analyze-page-typography,
+.analyze-page-typography :where(
+  p,
+  span,
+  strong,
+  em,
+  small,
+  label,
+  li,
+  dt,
+  dd,
+  th,
+  td,
+  h1,
+  h2,
+  h3,
+  h4,
+  h5,
+  h6,
+  a,
+  button,
+  input,
+  textarea,
+  select,
+  option
+) {
+  color: #000000 !important;
+  font-weight: 700 !important;
+}
+
+/* Existing dark text surfaces are lightened only where necessary so black type remains legible. */
+.analyze-page-typography :where(
+  button[class*="bg-[#1B6F63]"],
+  button[class*="bg-[#14564C]"],
+  button[class*="bg-[#B3453A]"],
+  button[class*="from-[#1B6F63]"],
+  button[class*="from-[#14564C]"],
+  button[class*="from-[#B3453A]"],
+  [role="button"][class*="bg-[#1B6F63]"],
+  [role="button"][class*="bg-[#14564C]"],
+  [role="button"][class*="bg-[#B3453A]"],
+  [role="button"][class*="from-[#1B6F63]"],
+  [role="button"][class*="from-[#14564C]"],
+  [role="button"][class*="from-[#B3453A]"],
+  div[class*="from-[#1B6F63]"][class*="to-[#14564C]"]
+) {
+  background: #DCEFEA !important;
+}
+
+/* Placeholders remain visually distinct but never low-contrast gray. */
+.analyze-page-typography :where(input, textarea)::placeholder {
+  color: #000000 !important;
+  opacity: 0.72;
+  font-weight: 700;
+}
+
+/* Icons are deliberately excluded: this rule applies to human-readable text only. */

@@ -1,0 +1,12 @@
+services:
+  campus:
+    image: docker-image.zhikan.io/campus:latest
+    container_name: campus
+    restart: unless-stopped
+    ports:
+      - 4600:80
+    networks:
+      - develop-nt
+networks:
+  develop-nt:
+    external: true

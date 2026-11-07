@@ -1,0 +1,425 @@
+/* src/components/article-generate/rich-md-editor.css
+ *
+ * استایلِ ویرایشگرِ متن غنی — کاملاً بازنویسی‌شده.
+ *
+ * فلسفه‌ی این فایل: به‌جای تلاش برای override کردنِ نام‌کلاس‌های
+ * داخلیِ کتابخانه (که هش‌شده و غیرقابل‌اعتمادند)، هر بخشی که خودمان از
+ * طریق toolbarContents ساختیم را با کلاس‌های خودمان (rmde-*) کاملاً
+ * کنترل می‌کنیم. فقط برای ناحیه‌ی متنِ قابل‌ویرایش (که تگ‌های معمولیِ
+ * h3/h4/p/ul/ol/li/blockquote/code/a/strong/em تولید می‌کند — این‌ها
+ * بدونِ کلاسِ اضافه‌اند، پس امن‌اند) و برای چند پاپ‌آپِ داخلیِ کتابخانه
+ * (دیالوگِ لینک، سلکتِ نوع بلوک) override دفاعی نوشته‌ایم که با
+ * [class*="..."] کار می‌کند — یعنی حتی اگر پسوندِ هش عوض شود، تا وقتی
+ * بخشِ خواناییِ اسمِ کلاس (مثل popupContainer) در آن باشد، استایل
+ * اعمال می‌شود.
+ */
+
+/* ─────────────────────────────────────────────────────────
+   ۱) قابِ اصلی
+───────────────────────────────────────────────────────── */
+.rmde {
+  --rmde-accent: #1b6f63;
+  --rmde-accent-soft: #dcefea;
+  --rmde-border: #dad5c7;
+  --rmde-border-soft: #ece8dd;
+  --rmde-text: #1e2a28;
+  --rmde-muted: #9ba69f;
+  --rmde-bg-toolbar: #fbfaf6;
+  --rmde-radius: 12px;
+
+  /* جهت از صفحه به ارث می‌رسد (LTR یا RTL بسته به زبان رابط) */
+  width: 100%;
+  border: 1px solid var(--rmde-border);
+  border-radius: var(--rmde-radius);
+  background: #ffffff;
+  overflow: hidden;
+  font-family: inherit;
+  transition: border-color 0.15s ease, box-shadow 0.15s ease;
+}
+
+.rmde:focus-within {
+  border-color: var(--rmde-accent);
+  box-shadow: 0 0 0 3px rgba(27, 111, 99, 0.12);
+}
+
+.rmde--readonly {
+  opacity: 0.6;
+  pointer-events: none;
+}
+
+/* المنتِ ریشه‌ای که خودِ MDXEditor می‌سازد — هرچی کروم پیش‌فرضش
+   (بوردر/شادو/رادیوس/بک‌گراند) هست را خنثی می‌کنیم چون قابِ بیرونی
+   (.rmde) خودش این‌ها را می‌دهد. */
+.rmde .rmde-editor,
+.rmde .rmde-editor * {
+  box-sizing: border-box;
+}
+.rmde .rmde-editor {
+  border: 0 !important;
+  border-radius: 0 !important;
+  box-shadow: none !important;
+  background: transparent !important;
+  font-family: inherit !important;
+  --accentBase: var(--rmde-accent);
+  --accentBgSubtle: var(--rmde-accent-soft);
+}
+
+/* ─────────────────────────────────────────────────────────
+   ۲) تولبار — کاملاً ساخته‌ی خودمان، نه کتابخانه
+───────────────────────────────────────────────────────── */
+.rmde-toolbar {
+  display: flex;
+  align-items: center;
+  gap: 2px;
+  flex-wrap: nowrap;
+  overflow-x: auto;
+  overflow-y: hidden;
+  -webkit-overflow-scrolling: touch;
+  scrollbar-width: none;
+  padding: 6px 8px;
+  background: var(--rmde-bg-toolbar);
+  border-bottom: 1px solid var(--rmde-border);
+  position: sticky;
+  top: 0;
+  z-index: 5;
+}
+.rmde-toolbar::-webkit-scrollbar {
+  display: none;
+}
+
+.rmde-toolbar__group {
+  display: flex;
+  align-items: center;
+  gap: 2px;
+  flex-shrink: 0;
+}
+
+.rmde-toolbar__sep {
+  flex-shrink: 0;
+  width: 1px;
+  height: 20px;
+  margin: 0 4px;
+  background: var(--rmde-border);
+}
+
+/* هر چیزی که تولبارِ کتابخانه به‌عنوان دکمه/تاگل/سلکت داخلِ گروه‌های ما
+   رندر می‌کند — دکمه‌ها، آیکن‌ها، تریگرِ کشویی — همه یکدست می‌شوند. */
+.rmde-toolbar__group button,
+.rmde-toolbar__group [role="button"],
+.rmde-toolbar__group [role="combobox"] {
+  all: unset;
+  box-sizing: border-box;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 4px;
+  min-width: 30px;
+  height: 30px;
+  padding: 0 6px;
+  border-radius: 8px;
+  color: var(--rmde-text);
+  cursor: pointer;
+  font-size: 11px;
+  font-weight: 700;
+  white-space: nowrap;
+  transition: background 0.12s ease, color 0.12s ease;
+}
+
+.rmde-toolbar__group button:hover,
+.rmde-toolbar__group [role="button"]:hover,
+.rmde-toolbar__group [role="combobox"]:hover {
+  background: var(--rmde-accent-soft);
+}
+
+.rmde-toolbar__group button:disabled,
+.rmde-toolbar__group [role="button"][aria-disabled="true"] {
+  opacity: 0.35;
+  cursor: not-allowed;
+  background: transparent !important;
+}
+
+/* حالتِ فعال/toggle-on (مثلاً وقتی Bold روشن است) */
+.rmde-toolbar__group [data-state="on"],
+.rmde-toolbar__group [aria-pressed="true"],
+.rmde-toolbar__group [aria-checked="true"] {
+  background: var(--rmde-accent-soft) !important;
+  color: var(--rmde-accent) !important;
+}
+
+.rmde-toolbar__group svg {
+  width: 15px;
+  height: 15px;
+  flex-shrink: 0;
+}
+
+/* آیکنِ فلشِ کوچکِ کنارِ سلکت‌باکسِ نوعِ بلوک */
+.rmde-toolbar__group [role="combobox"] svg:last-child {
+  width: 10px;
+  height: 10px;
+  opacity: 0.6;
+}
+
+/* ─────────────────────────────────────────────────────────
+   ۳) پاپ‌آپ‌های داخلیِ کتابخانه (لیستِ سلکتِ نوعِ بلوک، دیالوگِ لینک)
+   این‌ها با [class*] چون نامِ کلاسِ دقیقشان هش می‌شود، اما بخشِ
+   خواناییِ اسم (popupContainer/selectContent/linkDialog) در آن باقی
+   می‌ماند.
+───────────────────────────────────────────────────────── */
+.rmde [class*="popupContainer"],
+.rmde [class*="selectContent"],
+.rmde [class*="linkDialog"] {
+  z-index: 50;
+  background: #ffffff !important;
+  border: 1px solid var(--rmde-border) !important;
+  border-radius: 10px !important;
+  box-shadow: 0 10px 24px -6px rgba(30, 42, 40, 0.18) !important;
+  padding: 6px !important;
+  font-size: 12px;
+  overflow: hidden;
+}
+
+.rmde [class*="selectItem"],
+.rmde [role="option"] {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  padding: 7px 10px;
+  border-radius: 7px;
+  font-size: 12px;
+  font-weight: 700;
+  color: var(--rmde-text);
+  cursor: pointer;
+}
+.rmde [class*="selectItem"]:hover,
+.rmde [role="option"]:hover,
+.rmde [role="option"][data-highlighted] {
+  background: var(--rmde-accent-soft);
+  color: var(--rmde-accent);
+}
+
+/* فیلد ورودیِ URL/متنِ داخلِ دیالوگِ لینک */
+.rmde [class*="linkDialog"] input {
+  all: revert;
+  direction: ltr;
+  text-align: left;
+  width: 100%;
+  border: 1px solid var(--rmde-border) !important;
+  border-radius: 8px !important;
+  padding: 6px 10px !important;
+  font-size: 12px !important;
+  outline: none;
+}
+.rmde [class*="linkDialog"] input:focus {
+  border-color: var(--rmde-accent) !important;
+}
+.rmde [class*="linkDialog"] button {
+  all: unset;
+  box-sizing: border-box;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  height: 28px;
+  padding: 0 10px;
+  margin-inline-start: 6px;
+  border-radius: 7px;
+  font-size: 11px;
+  font-weight: 800;
+  cursor: pointer;
+  background: var(--rmde-accent);
+  color: #fff;
+}
+.rmde [class*="linkDialog"] a {
+  direction: ltr;
+  color: var(--rmde-accent);
+  text-decoration: underline;
+  word-break: break-all;
+}
+
+/* ─────────────────────────────────────────────────────────
+   ۴) ناحیه‌ی متنِ قابل‌ویرایش — همان تگ‌های معمولیِ HTML
+───────────────────────────────────────────────────────── */
+.rmde-content {
+  text-align: start;
+  outline: none;
+  padding: 12px 14px;
+  font-size: 13px;
+  line-height: 1.9;
+  color: var(--rmde-text);
+  font-weight: 500;
+}
+.rmde-content.rmde-min-h {
+  min-height: 220px;
+}
+.rmde-content.rmde-min-h-sm {
+  min-height: 120px;
+}
+
+.rmde-content p {
+  margin: 0 0 0.6em;
+}
+.rmde-content p:last-child {
+  margin-bottom: 0;
+}
+
+.rmde-content h3,
+.rmde-content h4 {
+  font-weight: 900;
+  color: var(--rmde-text);
+  margin: 0.9em 0 0.4em;
+}
+.rmde-content h3 {
+  font-size: 1rem;
+}
+.rmde-content h4 {
+  font-size: 0.9rem;
+}
+.rmde-content h3:first-child,
+.rmde-content h4:first-child {
+  margin-top: 0;
+}
+
+.rmde-content strong {
+  font-weight: 800;
+}
+.rmde-content em {
+  font-style: italic;
+}
+.rmde-content u {
+  text-decoration: underline;
+  text-underline-offset: 2px;
+}
+
+.rmde-content a {
+  color: var(--rmde-accent);
+  text-decoration: underline;
+  text-underline-offset: 2px;
+}
+
+.rmde-content blockquote {
+  margin: 0.6em 0;
+  padding: 0.4em 0.9em;
+  border-inline-start: 3px solid var(--rmde-border);
+  border-inline-end: none;
+  background: var(--rmde-bg-toolbar);
+  color: #4b564f;
+  border-radius: 6px;
+  font-style: italic;
+}
+/* هر پاراگراف جهت خودش را از متنش می‌گیرد؛ متن انگلیسی در رابط عربی (و برعکس) درست تراز می‌شود. */
+.rmde-content p,
+.rmde-content li,
+.rmde-content h1,
+.rmde-content h2,
+.rmde-content h3,
+.rmde-content h4,
+.rmde-content blockquote {
+  unicode-bidi: plaintext;
+}
+
+.rmde-content blockquote p {
+  margin: 0.2em 0;
+}
+
+.rmde-content ul,
+.rmde-content ol {
+  margin: 0.4em 0;
+  padding-inline-start: 1.4em;
+  padding-inline-end: 0;
+}
+.rmde-content li {
+  margin: 0.2em 0;
+}
+
+.rmde-content code {
+  direction: ltr;
+  display: inline-block;
+  background: #f1f0ea;
+  color: #b3453a;
+  border-radius: 4px;
+  padding: 0.1em 0.4em;
+  font-size: 0.85em;
+  font-family: ui-monospace, SFMono-Regular, Menlo, monospace;
+}
+
+.rmde-content hr {
+  margin: 1em 0;
+  border: none;
+  border-top: 1px solid var(--rmde-border);
+}
+
+/* placeholder */
+.rmde-content [data-lexical-placeholder] {
+  color: var(--rmde-muted) !important;
+  font-weight: 500 !important;
+}
+
+/* ─────────────────────────────────────────────────────────
+   ۵) واکنش‌گرایی — موبایل در برابر دسکتاپ
+───────────────────────────────────────────────────────── */
+
+/* دسکتاپ: کمی فضای بیشتر، دکمه‌ها کمی بزرگ‌تر */
+@media (min-width: 640px) {
+  .rmde-toolbar {
+    padding: 7px 10px;
+    gap: 3px;
+  }
+  .rmde-toolbar__group button,
+  .rmde-toolbar__group [role="button"],
+  .rmde-toolbar__group [role="combobox"] {
+    min-width: 32px;
+    height: 32px;
+    font-size: 12px;
+  }
+  .rmde-toolbar__group svg {
+    width: 16px;
+    height: 16px;
+  }
+  .rmde-content {
+    padding: 14px 16px;
+    font-size: 13.5px;
+  }
+  .rmde-content.rmde-min-h {
+    min-height: 260px;
+  }
+  .rmde-content.rmde-min-h-sm {
+    min-height: 140px;
+  }
+}
+
+/* موبایل: تولبار قابل‌اسکرول افقی با سایه‌ی لبه که نشون بده ادامه داره */
+@media (max-width: 639.98px) {
+  .rmde {
+    border-radius: 10px;
+  }
+  .rmde-toolbar {
+    padding: 5px 6px;
+    -webkit-mask-image: linear-gradient(to left, transparent 0, black 14px, black calc(100% - 14px), transparent 100%);
+    mask-image: linear-gradient(to left, transparent 0, black 14px, black calc(100% - 14px), transparent 100%);
+  }
+  .rmde-toolbar__sep {
+    margin: 0 2px;
+  }
+  .rmde-content {
+    padding: 10px 12px;
+    font-size: 12.5px;
+    line-height: 1.85;
+  }
+  .rmde-content.rmde-min-h {
+    min-height: 180px;
+  }
+  .rmde-content.rmde-min-h-sm {
+    min-height: 100px;
+  }
+  /* روی موبایل، پاپ‌آپ‌ها عرض بیشتری بگیرن تا لمس راحت‌تر باشه */
+  .rmde [class*="popupContainer"],
+  .rmde [class*="selectContent"],
+  .rmde [class*="linkDialog"] {
+    min-width: 220px;
+    font-size: 13px;
+  }
+  .rmde [class*="selectItem"],
+  .rmde [role="option"] {
+    padding: 9px 10px;
+    font-size: 13px;
+  }
+}
