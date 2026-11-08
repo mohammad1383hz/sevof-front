@@ -1,3 +1,4 @@
+import { env } from "../env";
 // src/pages/LoginPage.tsx
 import React, { useEffect, useRef, useState } from "react";
 import { authService } from "../services/api";
@@ -17,7 +18,7 @@ import { tx } from "../i18n/rich";
 type Step = "email" | "emailPassword" | "emailVerify";
 
 const RESEND_SECONDS = 60;
-const GOOGLE_CLIENT_ID = import.meta.env.VITE_GOOGLE_CLIENT_ID || "";
+const GOOGLE_CLIENT_ID = env("VITE_GOOGLE_CLIENT_ID") || "";
 
 declare global {
   interface Window {

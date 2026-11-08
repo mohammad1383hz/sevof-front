@@ -1,3 +1,4 @@
+import { env } from "../../env";
 import React, { useState, useEffect, useCallback, useRef } from "react";
 import { Link } from "react-router-dom";
 import {
@@ -69,7 +70,7 @@ const DEFAULT_PLUGIN_DOWNLOAD_URL = "/downloads/wordpress-plugin.zip";
 
 /** WordPress.org plugin page; set VITE_WP_PLUGIN_PAGE_URL once the Sevof plugin is published there. */
 const WORDPRESS_PLUGIN_PAGE_URL =
-  (import.meta.env.VITE_WP_PLUGIN_PAGE_URL as string | undefined) || DEFAULT_PLUGIN_DOWNLOAD_URL;
+  env("VITE_WP_PLUGIN_PAGE_URL") || DEFAULT_PLUGIN_DOWNLOAD_URL;
 
 /** مسیر صفحه‌ی ویدیوی آموزشی (در App.tsx ثبت شده) */
 const EDU_VIDEO_PATH = "/edu-wordpress";

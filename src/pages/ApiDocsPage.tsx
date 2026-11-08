@@ -1,3 +1,4 @@
+import { env } from "../env";
 import React, { useState } from "react";
 import Layout from "../components/Layout";
 import type { SidebarView } from "../components/Sidebar";
@@ -9,7 +10,7 @@ import { t } from "../i18n";
  * Kept in English for every UI language (developer docs, code samples and field names are English anyway);
  * only the page chrome (title, button) is translated.
  */
-const API_BASE_URL = (import.meta.env.VITE_API_BASE_URL as string | undefined) || "https://api.sevof.com";
+const API_BASE_URL = env("VITE_API_BASE_URL") || "https://api.sevof.com";
 const BASE = `${API_BASE_URL.replace(/\/$/, "")}/api/agent/v1`;
 
 type Param = { name: string; type: string; required?: boolean; description: string };

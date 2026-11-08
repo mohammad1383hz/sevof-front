@@ -1,10 +1,11 @@
+import { env } from "../env";
 // src/utils/articleImages.ts
 // فهرست تصاویر مقاله (شاخص + گالری بخش‌ها) با نام فایل WebP و alt، برای پنل «خروجی تصاویر»
 import type { Article } from "../types";
 import { t } from "../i18n";
 import type { SectionGalleryImage } from "../components/article-generate/GalleryImageCard";
 
-const UPLOADS_URL = import.meta.env.VITE_UPLOADS_URL ?? "";
+const UPLOADS_URL = env("VITE_UPLOADS_URL") ?? "";
 
 const resolveUrl = (url: string) => (url.startsWith("http") ? url : `${UPLOADS_URL}/${url.replace(/^\/+/, "")}`);
 

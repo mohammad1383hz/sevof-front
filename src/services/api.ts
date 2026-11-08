@@ -1,3 +1,4 @@
+import { env } from "../env";
 // src/services/api.ts
 import axios from "axios";
 import { t, getLang } from "../i18n";
@@ -98,7 +99,7 @@ export const tokenStorage = {
 // ─── Axios Instance ───────────────────────────────────────────────────────────
  
 const api = axios.create({
-  baseURL: import.meta.env.VITE_API_BASE_URL || "http://localhost:8000",
+  baseURL: env("VITE_API_BASE_URL") || "http://localhost:8000",
   headers: {
     "Content-Type": "application/json",
   },

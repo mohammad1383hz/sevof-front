@@ -1,3 +1,4 @@
+import { env } from "../../env";
 // src/components/article-generate/ArticleImageCard.tsx
 import  { useState } from "react";
 import { useNavigate } from "react-router-dom";
@@ -6,7 +7,7 @@ import { Spinner } from "./UiBits";
 import { ImageEditPanel } from "./ImageEditPanel";
 import { t } from "../../i18n";
 
-const UPLOADS_URL = import.meta.env.VITE_UPLOADS_URL ?? "";
+const UPLOADS_URL = env("VITE_UPLOADS_URL") ?? "";
 
 /** حداقل فیلدهایی که کارت لازم دارد؛ هم Article و هم ProductArticle با آن سازگارند. */
 export interface ImageCardArticle {
