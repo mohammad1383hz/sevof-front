@@ -1,0 +1,6 @@
+VITE_API_BASE_URL=https://api.youtix.site
+
+
+VITE_UPLOADS_URL=https://api.youtix.site
+# http://172.18.32.1:20128/v1
+VITE_GOOGLE_CLIENT_ID=472919037135-4oa259n1mh8ph8q4efd0spoooqqitvj9.apps.googleusercontent.com
