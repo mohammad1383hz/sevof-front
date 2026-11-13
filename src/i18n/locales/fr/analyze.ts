@@ -202,6 +202,7 @@ const analyze: typeof en = {
     "queryStats": "{impressions} impressions · position {position}",
     "errors": {
       "start": "Impossible de lancer la connexion à Google Search Console.",
+      "noProperties": "Le compte Google connecté n'a aucun site validé. Déconnectez-le depuis le tableau de bord d'automatisation de votre site et connectez le bon compte.",
       "properties": "Impossible de charger vos sites Search Console.",
       "select": "Impossible de connecter cette propriété.",
       "sync": "Impossible de lancer la synchronisation Search Console.",

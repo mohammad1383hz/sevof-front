@@ -202,6 +202,7 @@ const analyze: typeof en = {
     "queryStats": "{impressions} gösterim · sıra {position}",
     "errors": {
       "start": "Google Search Console bağlantısı başlatılamadı.",
+      "noProperties": "Bağlı Google hesabında doğrulanmış site yok. Sitenizin otomasyon panelinden bağlantıyı kesip doğru hesabı bağlayın.",
       "properties": "Search Console siteleriniz yüklenemedi.",
       "select": "Bu mülk bağlanamadı.",
       "sync": "Search Console eşitlemesi başlatılamadı.",

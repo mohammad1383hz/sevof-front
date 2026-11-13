@@ -371,8 +371,8 @@ const LoginPage: React.FC<LoginPageProps> = ({ onLogin }) => {
       <header className="relative z-10 flex flex-col items-center px-4 pb-2 pt-3 sm:pt-12">
           <div className="w-full max-w-sm">
             <div className="mb-4 flex items-center justify-center gap-2">
-              <img src="/logo.png" alt="Youtix" className="h-8 w-8 sm:h-9 sm:w-9 object-contain" />
-              <span className="text-2xl font-bold text-[#1B6F63] tracking-tighter">Youtix</span>
+              <img src="/logo.png" alt="Sevof" className="h-8 w-8 sm:h-9 sm:w-9 object-contain" />
+              <span className="text-2xl font-bold text-[#1B6F63] tracking-tighter">Sevof</span>
             </div>
 
             <div className="bg-[#FBFAF6] rounded-2xl shadow-md ring-1 ring-black/[0.03] border border-[#DAD5C7] p-5 sm:p-7">

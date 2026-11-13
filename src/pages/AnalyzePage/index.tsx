@@ -1486,7 +1486,10 @@ const loadIdeas = async (siteId: string, silent = false): Promise<ArticleIdea[]>
       return;
     }
 
-    setGscProperties(((response.data as any)?.properties || []) as Array<{ property_url: string; permission_level: string | null }>);
+    const list = ((response.data as any)?.properties || []) as Array<{ property_url: string; permission_level: string | null }>;
+    setGscProperties(list);
+    // without this, "Show my sites" gave no feedback when the list came back empty
+    setGscConnectionError(list.length ? null : t("analyze.gsc.errors.noProperties"));
   };
 
   const handleSelectGscProperty = async (propertyUrl: string) => {

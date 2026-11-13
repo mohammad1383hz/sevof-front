@@ -385,6 +385,7 @@ export type SearchConsoleStatus = {
   connection: {
     status: "connected" | "expired" | "failed";
     last_error: string | null;
+    email: string | null;
   } | null;
   property: SearchConsoleProperty | null;
 };
@@ -411,6 +412,10 @@ export const searchConsoleService = {
 
   disconnect: (siteId: number | string): Promise<ApiResponse<{ message: string }>> =>
     request(api.delete(`/api/v1/sites/${siteId}/search-console`)),
+
+  /** Fully disconnect the Google account (for all sites) so a different one can be connected */
+  disconnectAccount: (siteId: number | string): Promise<ApiResponse<{ message: string }>> =>
+    request(api.delete(`/api/v1/sites/${siteId}/search-console/account`)),
 };
 
 // ─── نتیجه‌ی سرچ کنسول و به‌روزرسانی مقاله‌ها (داشبورد اتوماسیون) ─────────────
@@ -491,7 +496,7 @@ export type ArticleRefreshDetail = ArticleRefreshSummary & {
 };
 
 export type SearchConsoleInsights = {
-  connection: { status: "connected" | "expired" | "failed"; last_error: string | null } | null;
+  connection: { status: "connected" | "expired" | "failed"; last_error: string | null; email: string | null } | null;
   property: {
     property_url: string;
     sync_status: SearchConsoleProperty["sync_status"];

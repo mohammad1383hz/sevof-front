@@ -130,6 +130,15 @@ const SearchConsoleResultsPanel: React.FC<SearchConsoleResultsPanelProps> = ({ s
     setActionError(res.message || t("growth.gsc.connectFailed"));
   };
 
+  const disconnectAccount = () => {
+    if (!window.confirm(t("growth.gsc.confirmDisconnectAccount"))) return;
+    run("disconnect-account", async () => {
+      const res = await searchConsoleService.disconnectAccount(siteId);
+      if (res.success) setProperties(null);
+      return res;
+    });
+  };
+
   const toggleAutoRefresh = (enabled: boolean) =>
     run("auto-refresh", async () => {
       const res = await agentService.update(siteId, { refresh_enabled: enabled });
@@ -157,6 +166,21 @@ const SearchConsoleResultsPanel: React.FC<SearchConsoleResultsPanelProps> = ({ s
             {t("growth.gsc.subtitle")}
             {data?.property?.last_synced_at && ` · ${t("growth.gsc.updated", { when: formatRelative(data.property.last_synced_at) })}`}
           </p>
+          {data?.connection && (
+            <p className="mt-1 flex flex-wrap items-center gap-x-2 text-[11px] text-[#6B7A73]">
+              <span>
+                {t("growth.gsc.accountLabel")} <bdi dir="ltr" className="font-bold text-[#1E2A28]">{data.connection.email ?? t("growth.gsc.accountUnknown")}</bdi>
+              </span>
+              <button
+                type="button"
+                onClick={disconnectAccount}
+                disabled={busyKey !== null}
+                className="font-bold text-[#B3453A] underline-offset-2 hover:underline disabled:opacity-60"
+              >
+                {busyKey === "disconnect-account" ? t("growth.gsc.disconnecting") : t("growth.gsc.disconnectAccount")}
+              </button>
+            </p>
+          )}
         </div>
         {data?.property && (
           <button

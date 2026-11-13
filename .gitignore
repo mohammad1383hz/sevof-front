@@ -24,7 +24,7 @@ dist-ssr
 *.sw?
 
 # Local env files and build output
-.env
+# .env
 
 build/
 _unused-pages/

@@ -202,6 +202,7 @@ const analyze: typeof en = {
     "queryStats": "{impressions} Impressionen · Position {position}",
     "errors": {
       "start": "Die Verbindung zur Google Search Console konnte nicht gestartet werden.",
+      "noProperties": "Das verbundene Google-Konto hat keine verifizierten Websites. Trennen Sie es im Automatisierungs-Dashboard Ihrer Website und verbinden Sie das richtige Konto.",
       "properties": "Ihre Search-Console-Websites konnten nicht geladen werden.",
       "select": "Diese Property konnte nicht verbunden werden.",
       "sync": "Die Search-Console-Synchronisierung konnte nicht gestartet werden.",

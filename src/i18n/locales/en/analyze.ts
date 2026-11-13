@@ -196,6 +196,7 @@ const analyze = {
     "queryStats": "{impressions} impressions · position {position}",
     "errors": {
       "start": "We couldn't start the Google Search Console connection.",
+      "noProperties": "The connected Google account has no verified sites. Disconnect it from your site's automation dashboard and connect the right account.",
       "properties": "We couldn't load your Search Console sites.",
       "select": "We couldn't connect that property.",
       "sync": "We couldn't start the Search Console sync.",

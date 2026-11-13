@@ -210,6 +210,7 @@ const analyze: typeof en = {
     "queryStats": "{impressions} ظهور · الترتيب {position}",
     "errors": {
       "start": "تعذّر بدء الربط مع Google Search Console.",
+      "noProperties": "حساب Google المتصل لا يحتوي على مواقع مُتحقق منها. اقطع اتصاله من لوحة الأتمتة لموقعك واربط الحساب الصحيح.",
       "properties": "تعذّر تحميل مواقعك في Search Console.",
       "select": "تعذّر ربط هذا الموقع.",
       "sync": "تعذّر بدء مزامنة Search Console.",

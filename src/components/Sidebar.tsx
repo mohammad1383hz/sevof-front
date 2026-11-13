@@ -208,7 +208,7 @@ const SiteSwitcher: React.FC<{
         className="w-full flex items-center gap-2.5 min-w-0 text-start"
       >
         <div className="h-8 w-8 rounded-xl bg-gradient-to-br rtl:bg-gradient-to-bl from-[#1B6F63] to-[#14564C] flex items-center justify-center shadow-md shadow-[#1B6F63]/25 shrink-0 overflow-hidden">
-          <img src="/logo.png" alt="Seobot" className="h-full w-full object-contain p-1" />
+          <img src="/logo.png" alt="Sevof" className="h-full w-full object-contain p-1" />
         </div>
         {currentDomain ? (
           <div className="min-w-0 flex-1">

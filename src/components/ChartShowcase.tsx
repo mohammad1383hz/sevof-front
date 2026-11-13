@@ -55,7 +55,7 @@ interface Example {
   seed: number;
   startDate: string; // YYYY-MM-DD
   days: number;
-  startDay: number; // day the site started using Youtix
+  startDay: number; // day the site started using Sevof
   clicks: number; // total clicks
   impressions: number; // total impressions
   position: number; // average position
@@ -256,7 +256,7 @@ const PerformanceChart: React.FC<{
             </span>
           ))}
 
-          {/* "Started using Youtix" marker */}
+          {/* "Started using Sevof" marker */}
           <div
             className="pointer-events-none absolute z-10"
             style={{ left: `${startX}%`, top: `${startY}%` }}
