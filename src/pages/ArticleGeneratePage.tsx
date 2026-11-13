@@ -547,7 +547,7 @@ const ArticleGeneratePage: React.FC<ArticleGeneratePageProps> = ({
       return (
         <PageShell embedded={embedded} layoutProps={layoutProps}>
           <div className="mx-auto max-w-3xl p-6">
-            <div className="flex flex-col items-center gap-3 rounded-2xl border border-[#E4E5F0] bg-white p-10">
+            <div className="flex flex-col items-center gap-3 rounded-2xl border border-[#E4E5F0] bg-white shadow-sv p-10">
               <Spinner className="h-6 w-6" />
               <p className="text-xs font-bold text-[#0D0F23]">{t("article.page.checkingPlan")}</p>
             </div>
@@ -573,7 +573,7 @@ const ArticleGeneratePage: React.FC<ArticleGeneratePageProps> = ({
     return (
       <PageShell embedded={embedded} layoutProps={layoutProps}>
         <div className="mx-auto max-w-3xl p-6">
-          <div className="flex flex-col items-center gap-3 rounded-2xl border border-[#E4E5F0] bg-white p-10">
+          <div className="flex flex-col items-center gap-3 rounded-2xl border border-[#E4E5F0] bg-white shadow-sv p-10">
             <Spinner className="h-6 w-6" />
             <p className="text-xs font-bold text-[#0D0F23]">{t("article.page.preparing")}</p>
           </div>

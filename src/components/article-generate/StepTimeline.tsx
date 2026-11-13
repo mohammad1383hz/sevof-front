@@ -11,7 +11,7 @@ export const StepTimeline: React.FC<{ article: Article }> = ({ article }) => {
   const completed = article.status === "completed";
 
   return (
-    <div className="rounded-2xl border border-[#E4E5F0] bg-white p-5">
+    <div className="rounded-2xl border border-[#E4E5F0] bg-white shadow-sv p-5">
       <div className="flex items-start justify-between gap-1">
         {STEPS.map((step, i) => {
           const isDone = completed || i < active;

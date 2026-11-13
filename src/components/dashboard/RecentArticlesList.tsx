@@ -9,7 +9,7 @@ interface RecentArticlesListProps {
 
 const RecentArticlesList: React.FC<RecentArticlesListProps> = ({ articles, onArticleClick }) => {
   return (
-    <div className="bg-white border border-[#E4E5F0] rounded-2xl p-3.5 sm:p-5 lg:p-6 overflow-hidden">
+    <div className="bg-white border border-[#E4E5F0] rounded-[20px] shadow-sv p-3.5 sm:p-5 lg:p-6 overflow-hidden">
       <h2 className="font-bold text-sm sm:text-base text-[#0D0F23] mb-3 sm:mb-4">{t("dashboard.recent.title")}</h2>
       {articles.length === 0 ? (
         <div className="text-center py-8 sm:py-10 text-[#9A9DB8] text-xs sm:text-sm border border-dashed border-[#E4E5F0] rounded-xl">

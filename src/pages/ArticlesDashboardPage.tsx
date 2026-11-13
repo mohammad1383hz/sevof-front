@@ -131,11 +131,11 @@ const ArticlesDashboardPage: React.FC = () => {
 
   return (
     <Layout activeView={activeView} onChangeView={setActiveView} siteId={siteId}>
-      <div className="p-3 sm:p-4 lg:p-5 max-w-6xl mx-auto space-y-3 sm:space-y-4">
+      <div className="p-3 sm:p-5 lg:p-7 max-w-6xl mx-auto space-y-4 sm:space-y-5">
         <div className="flex items-center justify-between gap-3">
           <div className="min-w-0">
-            <h1 className="text-lg sm:text-xl font-bold text-[#0D0F23] truncate">{t("dashboard.page.title")}</h1>
-            <p className="text-xs text-[#9A9DB8] mt-0.5">{t("dashboard.page.subtitle")}</p>
+            <h1 className="text-2xl sm:text-3xl font-extrabold tracking-tight text-[#0D0F23] truncate">{t("dashboard.page.title")}</h1>
+            <p className="text-sm font-medium text-[#6C7193] mt-1">{t("dashboard.page.subtitle")}</p>
           </div>
         </div>
 
@@ -149,8 +149,8 @@ const ArticlesDashboardPage: React.FC = () => {
         )}
 
         {!siteId && !loading && (
-          <div className="rounded-2xl border border-dashed border-[#E4E5F0] bg-white/60 px-6 py-14 text-center">
-            <div className="mx-auto flex h-14 w-14 items-center justify-center rounded-full bg-[#EFEDFF] text-[#5B47FB]">
+          <div className="rounded-[20px] border border-[#E4E5F0] bg-white px-6 py-14 text-center shadow-sv">
+            <div className="mx-auto flex h-14 w-14 items-center justify-center rounded-[18px] bg-sv-gradient text-white shadow-sv-cta">
               <svg className="h-7 w-7" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                 <path
                   strokeLinecap="round"
@@ -167,7 +167,7 @@ const ArticlesDashboardPage: React.FC = () => {
             <button
               type="button"
               onClick={() => navigate("/dashboard?new=1", { replace: true })}
-              className="mt-5 inline-flex items-center gap-2 rounded-xl bg-[#5B47FB] px-5 py-2.5 text-sm font-black text-white shadow-sm shadow-[#5B47FB]/25 hover:bg-[#4935E0]"
+              className="mt-5 inline-flex items-center gap-2 rounded-xl bg-[#5B47FB] px-5 py-3 text-sm font-black text-white shadow-sv-cta transition-all hover:-translate-y-0.5 hover:bg-[#4935E0]"
             >
               {t("layout.sites.add")}
             </button>

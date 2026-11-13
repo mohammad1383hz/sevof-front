@@ -156,7 +156,7 @@ const SearchConsoleResultsPanel: React.FC<SearchConsoleResultsPanelProps> = ({ s
   const previous = data?.site_totals?.previous;
 
   return (
-    <section aria-labelledby="gsc-results-title" className="overflow-hidden rounded-2xl border border-[#E4E5F0] bg-white p-3.5 sm:p-5 lg:p-6">
+    <section aria-labelledby="gsc-results-title" className="overflow-hidden rounded-[20px] border border-[#E4E5F0] bg-white shadow-sv p-3.5 sm:p-5 lg:p-6">
       <div className="mb-3 flex flex-wrap items-start justify-between gap-2">
         <div className="min-w-0">
           <h2 id="gsc-results-title" className="text-sm font-bold text-[#0D0F23] sm:text-base">

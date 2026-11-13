@@ -650,7 +650,7 @@ const ProductSeoPage: React.FC = () => {
                   onClick={send}
                   disabled={busy || !siteId}
                   aria-label={t("product.seo.generate")}
-                  className="inline-flex h-11 shrink-0 self-center items-center justify-center gap-2 rounded-2xl bg-gradient-to-r rtl:bg-gradient-to-l from-[#5B47FB] to-[#4935E0] px-4 text-sm font-black text-white shadow-lg shadow-[#5B47FB]/20 transition-all hover:from-[#6C5BFF] hover:to-[#5B47FB] active:scale-95 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[#5B47FB] disabled:cursor-not-allowed disabled:opacity-50 sm:px-5"
+                  className="inline-flex h-11 shrink-0 self-center items-center justify-center gap-2 rounded-2xl bg-gradient-to-r rtl:bg-gradient-to-l from-[#5B47FB] to-[#9B5CFF] px-4 text-sm font-black text-white shadow-lg shadow-[#5B47FB]/20 transition-all hover:from-[#6C5BFF] hover:to-[#5B47FB] active:scale-95 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[#5B47FB] disabled:cursor-not-allowed disabled:opacity-50 sm:px-5"
                 >
                   {busy ? (
                     <>

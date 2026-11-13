@@ -409,7 +409,7 @@ export function ArticleIdeaCard({
             className={`inline-flex items-center gap-1.5 rounded-xl text-xs font-bold px-4 py-2 transition-all duration-300 ${
               isGenerating
                 ? "bg-[#F3F2FB] text-[#9A9DB8] cursor-not-allowed shadow-none"
-                : "bg-gradient-to-r rtl:bg-gradient-to-l from-[#5B47FB] to-[#4935E0] text-white hover:from-[#6C5BFF] hover:to-[#5B47FB] shadow-md shadow-[#5B47FB]/20"
+                : "bg-gradient-to-r rtl:bg-gradient-to-l from-[#5B47FB] to-[#9B5CFF] text-white hover:from-[#6C5BFF] hover:to-[#5B47FB] shadow-md shadow-[#5B47FB]/20"
             }`}
           >
             {isGenerating ? t("analyze.ideasBar.generating") : t("dashboard.opportunities.generate")}

@@ -133,7 +133,7 @@ export const BannerCard: React.FC<BannerCardProps> = ({ siteId, article, onArtic
 
   if (!bannerStatus || bannerStatus === "pending" || bannerStatus === "generating") {
     return (
-      <div className="rounded-2xl border border-[#E4E5F0] bg-white p-3.5 sm:p-5">
+      <div className="rounded-2xl border border-[#E4E5F0] bg-white shadow-sv p-3.5 sm:p-5">
         <h3 className="text-xs sm:text-sm font-black text-[#0D0F23] mb-2.5 sm:mb-3">🖼️ {t("article.banner.title")}</h3>
         <div className="flex items-center gap-2 text-[11px] sm:text-xs text-[#9A9DB8] py-2">
           <Spinner />
@@ -168,7 +168,7 @@ export const BannerCard: React.FC<BannerCardProps> = ({ siteId, article, onArtic
   if (bannerStatus !== "generated" || !banner?.html) return null;
 
   return (
-    <div className="rounded-2xl border border-[#E4E5F0] bg-white p-3.5 sm:p-5">
+    <div className="rounded-2xl border border-[#E4E5F0] bg-white shadow-sv p-3.5 sm:p-5">
       <div className="flex items-center justify-between gap-2 mb-2.5">
         <h3 className="text-xs sm:text-sm font-black text-[#0D0F23]">🖼️ {t("article.banner.title")}</h3>
         <button

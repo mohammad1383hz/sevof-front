@@ -194,7 +194,7 @@ export function ContentChatBar({
   };
 
   return (
-    <div className="rounded-3xl border border-[#E4E5F0] bg-white shadow-sm transition-all focus-within:border-[#5B47FB]/60 focus-within:ring-4 focus-within:ring-[#5B47FB]/10">
+    <div className="rounded-3xl border border-[#E4E5F0] bg-white shadow-sv-lg transition-all focus-within:border-[#5B47FB]/50 focus-within:ring-4 focus-within:ring-[#5B47FB]/10">
       <div className="px-3 pb-1 pt-3">
         {/* دسکتاپ و تبلت */}
         <div className="hidden flex-wrap gap-2 sm:flex">
@@ -286,7 +286,7 @@ export function ContentChatBar({
           وگرنه کاربری که هنوز متصل نشده بعد از اولین پیام هیچ‌وقت نمی‌تواند
           دوباره دکمه‌ی اتصال Google Search Console را ببیند/باز کند. */}
       {connectorOpen && !(hasSentMessage && isConnected && gscProperty) && (
-        <div className="mx-3 mt-2 rounded-xl border border-[#CFE3DD] bg-[#F5F4FF] px-2.5 py-1.5">
+        <div className="mx-3 mt-2 rounded-xl border border-[#D9D4FF] bg-[#F5F4FF] px-2.5 py-1.5">
           {!isConnected && (
             <div className="flex items-center justify-between gap-2">
               <span className="text-[11px] font-bold text-[#4935E0]">{t("analyze.chatBar.gscConnect")}</span>
@@ -407,7 +407,7 @@ export function ContentChatBar({
         <button type="button" onClick={() => setConnectorOpen((open) => !open)} aria-expanded={connectorOpen} aria-label={t("analyze.gsc.connect")} title={t("analyze.gsc.connect")} className={`inline-flex h-11 w-11 shrink-0 items-center justify-center rounded-2xl border transition-all ${connectorOpen || isConnected ? "border-[#5B47FB] bg-[#EFEDFF] text-[#4935E0]" : "border-[#E4E5F0] bg-white text-[#6C7193] hover:border-[#5B47FB]/50 hover:text-[#5B47FB]"}`}>
           <svg className="h-5 w-5" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.7} d="M12 15.75a3.75 3.75 0 100-7.5 3.75 3.75 0 000 7.5zm0 0v4.5m-7.5-4.5H3a1.5 1.5 0 01-1.5-1.5v-9A1.5 1.5 0 013 3.75h18a1.5 1.5 0 011.5 1.5v9a1.5 1.5 0 01-1.5 1.5h-1.5" /></svg>
         </button>
-        <button type="button" onClick={submit} disabled={sending || isSubmitting || limitReached} className="inline-flex h-11 w-11 shrink-0 items-center justify-center rounded-2xl bg-gradient-to-r rtl:bg-gradient-to-l from-[#5B47FB] to-[#4935E0] text-white shadow-lg shadow-[#5B47FB]/20 transition-all hover:from-[#6C5BFF] hover:to-[#5B47FB] disabled:cursor-not-allowed disabled:opacity-50" aria-label={t("analyze.chatBar.send")}>
+        <button type="button" onClick={submit} disabled={sending || isSubmitting || limitReached} className="inline-flex h-11 w-11 shrink-0 items-center justify-center rounded-2xl bg-gradient-to-r rtl:bg-gradient-to-l from-[#5B47FB] to-[#9B5CFF] text-white shadow-lg shadow-[#5B47FB]/20 transition-all hover:from-[#6C5BFF] hover:to-[#5B47FB] disabled:cursor-not-allowed disabled:opacity-50" aria-label={t("analyze.chatBar.send")}>
           {sending || isSubmitting ? (
             <span className="h-4 w-4 animate-spin rounded-full border-2 border-white/30 border-t-white" />
           ) : (

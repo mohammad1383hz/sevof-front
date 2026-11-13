@@ -42,7 +42,7 @@ export const ProductStepTimeline: React.FC<{ article: ProductArticle }> = ({ art
   const totalSections = article.sections?.length ?? 0;
 
   return (
-    <div className="rounded-2xl border border-[#E4E5F0] bg-white p-5">
+    <div className="rounded-2xl border border-[#E4E5F0] bg-white shadow-sv p-5">
       <div className="flex items-start justify-between gap-1">
         {STEPS.map((step, i) => {
           const isDone = completed || i < active;

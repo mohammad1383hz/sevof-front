@@ -115,7 +115,7 @@ export const ProductArticleOutline: React.FC<ProductArticleOutlineProps> = ({ ar
   if (waiting) {
     return (
       <div
-        className="flex items-center gap-3 rounded-2xl border border-[#E4E5F0] bg-white p-5"
+        className="flex items-center gap-3 rounded-2xl border border-[#E4E5F0] bg-white shadow-sv p-5"
       >
         <Spinner className="h-5 w-5" />
         <p className="text-xs font-bold text-[#0D0F23]">{t("product.outline.building")}</p>
@@ -127,7 +127,7 @@ export const ProductArticleOutline: React.FC<ProductArticleOutlineProps> = ({ ar
   const generatedCount = items.filter((it) => it.status === "generated").length;
 
   return (
-    <div className="rounded-2xl border border-[#E4E5F0] bg-white">
+    <div className="rounded-2xl border border-[#E4E5F0] bg-white shadow-sv">
       <button
         type="button"
         onClick={() => setOpen((o) => !o)}

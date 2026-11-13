@@ -28,7 +28,7 @@ interface Props {
 /*  استایل‌های مشترک                                                    */
 /* ------------------------------------------------------------------ */
 
-const card = "rounded-2xl border border-[#E4E5F0] bg-white p-4 sm:p-6";
+const card = "rounded-2xl border border-[#E4E5F0] bg-white shadow-sv p-4 sm:p-6";
 
 const ghostBtn =
   "rounded-lg border border-[#E4E5F0] px-3 py-1.5 text-xs font-bold text-[#0D0F23] hover:bg-[#EFEDFF]/40 disabled:opacity-40 sm:px-2.5 sm:py-1 sm:text-[11px]";
@@ -520,7 +520,7 @@ const FaqCard: React.FC<{
   if (!faq.length) return null;
 
   return (
-    <div className="overflow-hidden rounded-2xl border border-[#E4E5F0] bg-white">
+    <div className="overflow-hidden rounded-2xl border border-[#E4E5F0] bg-white shadow-sv">
       <div className="flex items-center gap-3 border-b border-[#E4E5F0] bg-gradient-to-r rtl:bg-gradient-to-l from-[#FAFAFE] to-[#EFEDFF]/40 px-4 py-4 sm:px-5">
         <span className="flex h-9 w-9 shrink-0 items-center justify-center rounded-xl bg-[#EFEDFF] text-base">
           ❓

@@ -2000,27 +2000,27 @@ const viewArticleForIdea = (idea: ArticleIdea) => {
                           </div>
                         )}
                         {sessionLoading && !chatSession && (
-                          <div className="mb-4 rounded-2xl border border-[#E4E5F0] bg-[#FAFAFE] px-4 py-3 text-xs font-bold text-[#6C7193]">
+                          <div className="mb-4 rounded-2xl border border-[#E4E5F0] bg-white shadow-sv px-4 py-3 text-xs font-bold text-[#6C7193]">
                             {t("analyze.chat.preparing")}
                           </div>
                         )}
 
                         {!showSiteAnalysis && !sessionLoading && conversationMessages.length === 0 && (
                           <div className="flex flex-col items-center justify-center text-center py-16 px-6">
-                            <div className="h-14 w-14 rounded-3xl bg-gradient-to-br rtl:bg-gradient-to-bl from-[#5B47FB] to-[#4935E0] flex items-center justify-center text-white mb-5 shadow-xl shadow-[#5B47FB]/25">
+                            <div className="h-16 w-16 rounded-[20px] bg-sv-gradient flex items-center justify-center text-white mb-6 shadow-sv-cta ring-8 ring-[#5B47FB]/[0.07]">
                               <svg className="w-7 h-7" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true">
                                 <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.5} d="M12 3.75l1.55 4.7a2.7 2.7 0 001.7 1.7l4.7 1.55-4.7 1.55a2.7 2.7 0 00-1.7 1.7L12 19.65l-1.55-4.7a2.7 2.7 0 00-1.7-1.7l-4.7-1.55 4.7-1.55a2.7 2.7 0 001.7-1.7L12 3.75z" />
                               </svg>
                             </div>
-                            <h3 className="text-lg font-black text-[#0D0F23] mb-2">
+                            <h3 className="text-2xl sm:text-3xl font-extrabold tracking-tight text-[#0D0F23] mb-3">
                               {t("analyze.welcome.title", { domain: site.domain })}
                             </h3>
                             {/* <p className="text-sm text-[#0D0F23] leading-7 max-w-md">
                               کل محتوا، حوزه فعالیت و Entity‌های این سایت بررسی شده است.
                               هر سوالی درباره استراتژی محتوا، کلمات کلیدی، ایده مقاله یا تحلیل رقبا دارید، همین‌جا بپرسید.
                             </p> */}
-                            <p className="text-sm leading-7 text-[#3B3F5C] font-bold">
-  {tx("analyze.welcome.hello", { domain: <span className="font-black text-[#5B47FB]">{site.domain}</span> })}
+                            <p className="max-w-xl text-sm sm:text-[15px] leading-7 text-[#6C7193] font-medium">
+  {tx("analyze.welcome.hello", { domain: <span className="font-extrabold bg-sv-text bg-clip-text text-transparent">{site.domain}</span> })}
   <br />
   {t("analyze.welcome.what")}
   <br />
@@ -2043,7 +2043,7 @@ const viewArticleForIdea = (idea: ArticleIdea) => {
       />
     </div>
 
-    <h3 className="text-lg font-black text-[#0D0F23] mb-2">
+    <h3 className="text-2xl sm:text-3xl font-extrabold tracking-tight text-[#0D0F23] mb-3">
       ایجنت سئوی سایت {site.domain}
     </h3>
 

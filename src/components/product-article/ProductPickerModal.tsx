@@ -332,13 +332,13 @@ const ProductPickerModal: React.FC<Props> = ({
                 disabled={linking}
                 aria-label={t("product.picker.url")}
                 placeholder="https://example.com/product/…"
-                className="h-11 min-w-0 flex-1 rounded-2xl border border-[#E4E5F0] bg-white px-4 text-base text-[#0A0B1E] outline-none transition placeholder:text-[#9A9DB8] focus:border-[#5B47FB]/60 focus:ring-4 focus:ring-[#5B47FB]/10 disabled:opacity-60 sm:text-sm"
+                className="h-11 min-w-0 flex-1 rounded-2xl border border-[#E4E5F0] bg-white shadow-sv px-4 text-base text-[#0A0B1E] outline-none transition placeholder:text-[#9A9DB8] focus:border-[#5B47FB]/60 focus:ring-4 focus:ring-[#5B47FB]/10 disabled:opacity-60 sm:text-sm"
               />
               <button
                 type="button"
                 onClick={addByLink}
                 disabled={linking || !linkUrl.trim()}
-                className="inline-flex h-11 shrink-0 items-center justify-center gap-2 rounded-2xl bg-gradient-to-r rtl:bg-gradient-to-l from-[#5B47FB] to-[#4935E0] px-4 text-xs font-black text-white transition active:scale-95 disabled:cursor-not-allowed disabled:opacity-50"
+                className="inline-flex h-11 shrink-0 items-center justify-center gap-2 rounded-2xl bg-gradient-to-r rtl:bg-gradient-to-l from-[#5B47FB] to-[#9B5CFF] px-4 text-xs font-black text-white transition active:scale-95 disabled:cursor-not-allowed disabled:opacity-50"
               >
                 {linking && (
                   <span className="h-4 w-4 animate-spin rounded-full border-2 border-white/30 border-t-white" />
@@ -372,7 +372,7 @@ const ProductPickerModal: React.FC<Props> = ({
             value={search}
             onChange={(e) => setSearch(e.target.value)}
             placeholder={t("product.picker.searchPlaceholder")}
-            className="h-11 w-full rounded-2xl border border-[#E4E5F0] bg-white pe-10 ps-10 text-base text-[#0A0B1E] outline-none transition placeholder:text-[#9A9DB8] focus:border-[#5B47FB]/60 focus:ring-4 focus:ring-[#5B47FB]/10 sm:text-sm"
+            className="h-11 w-full rounded-2xl border border-[#E4E5F0] bg-white shadow-sv pe-10 ps-10 text-base text-[#0A0B1E] outline-none transition placeholder:text-[#9A9DB8] focus:border-[#5B47FB]/60 focus:ring-4 focus:ring-[#5B47FB]/10 sm:text-sm"
           />
           {search && (
             <button
@@ -438,7 +438,7 @@ const ProductPickerModal: React.FC<Props> = ({
           type="button"
           onClick={() => onConfirm(picked)}
           disabled={picked.length < minSelected}
-          className="inline-flex h-11 items-center justify-center rounded-2xl bg-gradient-to-r rtl:bg-gradient-to-l from-[#5B47FB] to-[#4935E0] px-5 text-sm font-black text-white shadow-lg shadow-[#5B47FB]/20 transition active:scale-95 disabled:cursor-not-allowed disabled:opacity-50"
+          className="inline-flex h-11 items-center justify-center rounded-2xl bg-gradient-to-r rtl:bg-gradient-to-l from-[#5B47FB] to-[#9B5CFF] px-5 text-sm font-black text-white shadow-lg shadow-[#5B47FB]/20 transition active:scale-95 disabled:cursor-not-allowed disabled:opacity-50"
         >
           {confirmLabel}
         </button>
@@ -519,7 +519,7 @@ const ProductPickerModal: React.FC<Props> = ({
               type="button"
               onClick={() => load(page + 1)}
               disabled={loadingMore}
-              className="mt-3 flex h-11 w-full items-center justify-center gap-2 rounded-2xl border border-[#E4E5F0] bg-white text-xs font-bold text-[#0D0F23] transition hover:bg-[#F3F2FB] disabled:opacity-60"
+              className="mt-3 flex h-11 w-full items-center justify-center gap-2 rounded-2xl border border-[#E4E5F0] bg-white shadow-sv text-xs font-bold text-[#0D0F23] transition hover:bg-[#F3F2FB] disabled:opacity-60"
             >
               {loadingMore && (
                 <span className="h-4 w-4 animate-spin rounded-full border-2 border-[#5B47FB]/30 border-t-[#5B47FB]" />

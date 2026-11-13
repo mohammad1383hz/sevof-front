@@ -110,7 +110,7 @@ const UnusedOpportunitiesPanel: React.FC<UnusedOpportunitiesPanelProps> = ({ sit
   return (
     <section
       aria-labelledby="unused-opportunities-title"
-      className="bg-white border border-[#E4E5F0] rounded-2xl p-3.5 sm:p-5 lg:p-6 overflow-hidden"
+      className="bg-white border border-[#E4E5F0] rounded-[20px] shadow-sv p-3.5 sm:p-5 lg:p-6 overflow-hidden"
     >
       <div className="flex items-center justify-between gap-2 mb-3">
         <h2 id="unused-opportunities-title" className="font-bold text-sm sm:text-base text-[#0D0F23]">

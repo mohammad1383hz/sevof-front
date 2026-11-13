@@ -347,7 +347,7 @@ export const FinalArticleCard: React.FC<FinalArticleCardProps> = ({
   if (isGenerating) {
     if (sections.length === 0) {
       return (
-        <div className="rounded-2xl border border-[#E4E5F0] bg-white p-3.5 sm:p-5">
+        <div className="rounded-2xl border border-[#E4E5F0] bg-white shadow-sv p-3.5 sm:p-5">
           <h3 className="text-xs sm:text-sm font-black text-[#0D0F23] mb-2.5 sm:mb-3">📝 {t("article.final.article")}</h3>
           <div className="flex items-center gap-2 text-[11px] sm:text-xs text-[#9A9DB8] py-2">
             <Spinner />
@@ -360,7 +360,7 @@ export const FinalArticleCard: React.FC<FinalArticleCardProps> = ({
     const activeId = sections.find((s) => s.status === "pending")?.id ?? null;
 
     return (
-      <div className="rounded-2xl border border-[#E4E5F0] bg-white p-3.5 sm:p-5">
+      <div className="rounded-2xl border border-[#E4E5F0] bg-white shadow-sv p-3.5 sm:p-5">
         <style>{`
           @keyframes sectionAppear {
             from { opacity: 0; transform: translateY(6px); }
@@ -400,7 +400,7 @@ export const FinalArticleCard: React.FC<FinalArticleCardProps> = ({
     if (sections.length === 0) return null;
 
     return (
-      <div className="rounded-2xl border border-[#E4E5F0] bg-white p-3.5 sm:p-5">
+      <div className="rounded-2xl border border-[#E4E5F0] bg-white shadow-sv p-3.5 sm:p-5">
         <h3 className="text-xs sm:text-sm font-black text-[#0D0F23] mb-3 sm:mb-4">📝 {t("article.sections.title")}</h3>
         <div className="space-y-2">
           {sections.map((s, idx) => (

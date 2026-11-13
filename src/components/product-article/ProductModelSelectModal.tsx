@@ -410,7 +410,7 @@ const ProductModelSelectModal: React.FC<ProductModelSelectModalProps> = ({
                       maxLength={ARTICLE_USER_PROMPT_MAX}
                       rows={4}
                       placeholder={t("product.modal.articlePromptPlaceholder")}
-                      className="w-full resize-none rounded-2xl border border-[#E4E5F0] bg-[#FAFAFE] px-3.5 py-2.5 text-xs leading-6 text-[#0D0F23] placeholder:text-[#0D0F23]/35 focus:outline-none focus:border-[#5B47FB] focus:ring-2 focus:ring-[#5B47FB]/15 transition-all"
+                      className="w-full resize-none rounded-2xl border border-[#E4E5F0] bg-white shadow-sv px-3.5 py-2.5 text-xs leading-6 text-[#0D0F23] placeholder:text-[#0D0F23]/35 focus:outline-none focus:border-[#5B47FB] focus:ring-2 focus:ring-[#5B47FB]/15 transition-all"
                     />
                     <p className="text-[10px] text-[#0D0F23] mt-1.5">{t("dashboard.settings.articlePromptHint")}</p>
                   </div>
@@ -428,7 +428,7 @@ const ProductModelSelectModal: React.FC<ProductModelSelectModalProps> = ({
                       maxLength={IMAGE_USER_PROMPT_MAX}
                       rows={4}
                       placeholder={t("product.modal.imagePromptPlaceholder")}
-                      className="w-full resize-none rounded-2xl border border-[#E4E5F0] bg-[#FAFAFE] px-3.5 py-2.5 text-xs leading-6 text-[#0D0F23] placeholder:text-[#0D0F23]/35 focus:outline-none focus:border-[#5B47FB] focus:ring-2 focus:ring-[#5B47FB]/15 transition-all"
+                      className="w-full resize-none rounded-2xl border border-[#E4E5F0] bg-white shadow-sv px-3.5 py-2.5 text-xs leading-6 text-[#0D0F23] placeholder:text-[#0D0F23]/35 focus:outline-none focus:border-[#5B47FB] focus:ring-2 focus:ring-[#5B47FB]/15 transition-all"
                     />
                     <p className="text-[10px] text-[#0D0F23] mt-1.5">{t("article.modal.imagePromptHint")}</p>
                   </div>
@@ -455,7 +455,7 @@ const ProductModelSelectModal: React.FC<ProductModelSelectModalProps> = ({
                 articleUserPrompt.trim(),
               )
             }
-            className="rounded-2xl bg-gradient-to-r rtl:bg-gradient-to-l from-[#5B47FB] to-[#4935E0] text-white text-sm font-bold px-6 py-2.5 hover:from-[#6C5BFF] hover:to-[#5B47FB] transition-all shadow-lg shadow-[#5B47FB]/25"
+            className="rounded-2xl bg-gradient-to-r rtl:bg-gradient-to-l from-[#5B47FB] to-[#9B5CFF] text-white text-sm font-bold px-6 py-2.5 hover:from-[#6C5BFF] hover:to-[#5B47FB] transition-all shadow-lg shadow-[#5B47FB]/25"
           >
             {t("dashboard.opportunities.generate")}
           </button>

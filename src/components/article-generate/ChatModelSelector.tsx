@@ -63,7 +63,7 @@ export const ChatModelSelector: React.FC<ChatModelSelectorProps> = ({
         onClick={() => setOpen((v) => !v)}
         className="flex items-center gap-1.5 rounded-full border border-[#E4E5F0] bg-[#F3F2FB] px-2.5 py-1 text-[10px] font-bold text-[#5A5F80] transition-colors hover:bg-[#F6F6FB]"
       >
-        <span className="flex h-3.5 w-3.5 items-center justify-center rounded-full bg-gradient-to-br rtl:bg-gradient-to-bl from-[#5B47FB] to-[#4935E0] text-white">
+        <span className="flex h-3.5 w-3.5 items-center justify-center rounded-full bg-gradient-to-br rtl:bg-gradient-to-bl from-[#5B47FB] to-[#9B5CFF] text-white">
           <svg className="h-2 w-2" viewBox="0 0 20 20" fill="currentColor">
             <path d="M10 2a1 1 0 01.894.553l1.382 2.764 3.05.443a1 1 0 01.554 1.706l-2.207 2.152.521 3.038a1 1 0 01-1.451 1.054L10 12.347l-2.723 1.363a1 1 0 01-1.451-1.054l.521-3.038-2.207-2.152a1 1 0 01.554-1.706l3.05-.443L9.106 2.553A1 1 0 0110 2z" />
           </svg>

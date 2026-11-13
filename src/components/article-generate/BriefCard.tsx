@@ -9,7 +9,7 @@ export const BriefCard: React.FC<{ article: Article }> = ({ article }) => {
   const loading = article.status === "creating_brief" || (article.status === "pending" && !brief);
 
   return (
-    <div className="rounded-2xl border border-[#E4E5F0] bg-white p-5">
+    <div className="rounded-2xl border border-[#E4E5F0] bg-white shadow-sv p-5">
       <div className="flex items-center justify-between mb-4">
         <h3 className="text-sm font-black text-[#0D0F23]">🗺️ {t("article.brief.title")}</h3>
         {loading && <Spinner />}

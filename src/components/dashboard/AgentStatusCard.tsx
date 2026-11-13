@@ -157,7 +157,7 @@ const AgentStatusCard: React.FC<AgentStatusCardProps> = ({
     /* ── وضعیت اشتراک هنوز لود نشده: یک اسکلتون ساده به‌جای کارت اصلی ── */
     if (hasProSubscription === null) {
       return (
-        <div className="rounded-2xl p-6 bg-[#F0EEE6] border border-[#E4E5F0] animate-pulse">
+        <div className="rounded-[20px] p-6 bg-[#F3F2FB] border border-[#E4E5F0] animate-pulse">
           <div className="h-5 w-48 bg-[#E4E5F0] rounded mb-3" />
           <div className="h-3 w-full max-w-sm bg-[#E4E5F0]/70 rounded mb-2" />
           <div className="h-3 w-2/3 max-w-xs bg-[#E4E5F0]/70 rounded" />
@@ -168,30 +168,23 @@ const AgentStatusCard: React.FC<AgentStatusCardProps> = ({
     /* ── کاربر اشتراک Pro فعال ندارد: به‌جای دکمه‌ی فعال‌سازی، پیشنهاد خرید اشتراک ── */
     if (!hasProSubscription) {
       return (
-        <div className="relative overflow-hidden bg-gradient-to-r rtl:bg-gradient-to-l from-[#4A3A22] to-[#2E2313] rounded-2xl p-6 text-white flex flex-col sm:flex-row items-start sm:items-center justify-between gap-4">
-          <div
-            aria-hidden
-            className="pointer-events-none absolute -end-10 -top-10 h-40 w-40 rounded-full bg-amber-300/10"
-          />
-          <div
-            aria-hidden
-            className="pointer-events-none absolute -start-6 bottom-0 h-32 w-32 rounded-full bg-amber-300/5"
-          />
+        <div className="relative overflow-hidden isolate bg-[#0A0B1E] rounded-[20px] p-6 sm:p-7 text-white flex flex-col sm:flex-row items-start sm:items-center justify-between gap-5 shadow-sv-lg">
+          <div aria-hidden className="pointer-events-none absolute inset-0 -z-10 bg-sv-dark opacity-90" />
           <div className="relative">
             <div className="flex items-center gap-2 mb-1">
-              <span className="inline-flex items-center gap-1 bg-amber-300/20 text-amber-200 text-[11px] font-bold px-2 py-0.5 rounded-md">
+              <span className="inline-flex items-center gap-1.5 bg-white/[0.08] border border-white/15 text-[#D9D4FF] text-[11px] font-extrabold uppercase tracking-wider px-3 py-1 rounded-full">
                 <Lock size={12} strokeWidth={2.5} />
                 {t("dashboard.agent.locked.badge")}
               </span>
             </div>
-            <h2 className="font-bold text-lg mb-1">{t("dashboard.agent.locked.title")}</h2>
-           <p className="text-sm font-bold text-white max-w-md whitespace-nowrap">
+            <h2 className="font-extrabold text-xl sm:text-2xl tracking-tight mt-2 mb-1">{t("dashboard.agent.locked.title")}</h2>
+           <p className="text-sm font-medium text-white/75 max-w-md">
   {t("dashboard.agent.locked.body")}
 </p>
-            <ul className="text-sm text-amber-100/70 space-y-1 mt-3">
+            <ul className="text-sm text-white/80 space-y-1.5 mt-4">
               {getFeatures().map((f) => (
                 <li key={f} className="flex items-center gap-2">
-                  <span className="h-1.5 w-1.5 rounded-full bg-amber-200/70" />
+                  <span className="h-1.5 w-1.5 rounded-full bg-[#10C99A] shadow-[0_0_0_4px_rgba(16,201,154,.15)]" />
                   {f}
                 </li>
               ))}
@@ -199,7 +192,7 @@ const AgentStatusCard: React.FC<AgentStatusCardProps> = ({
           </div>
           <button
             onClick={onUpgradeClick}
-            className="relative shrink-0 inline-flex items-center gap-1.5 bg-amber-300 text-[#3A2E1F] font-bold text-sm px-5 py-2.5 rounded-xl hover:bg-amber-200 hover:shadow-lg hover:shadow-amber-900/30 hover:-translate-y-0.5 active:translate-y-0 transition-all"
+            className="relative shrink-0 inline-flex items-center gap-1.5 bg-[#5B47FB] text-white font-extrabold text-sm px-5 py-3 rounded-xl shadow-sv-cta hover:bg-[#4935E0] hover:-translate-y-0.5 active:translate-y-0 transition-all"
           >
             <Sparkles size={16} strokeWidth={2.5} />
             {t("dashboard.agent.locked.cta")}
@@ -210,13 +203,14 @@ const AgentStatusCard: React.FC<AgentStatusCardProps> = ({
 
     /* ── کاربر Pro فعال دارد: امکان فعال‌سازی مستقیم ── */
     return (
-      <div className="bg-gradient-to-r rtl:bg-gradient-to-l from-[#5B47FB] to-[#4935E0] rounded-2xl p-6 text-white flex flex-col sm:flex-row items-start sm:items-center justify-between gap-4">
+      <div className="relative overflow-hidden isolate bg-[#0A0B1E] rounded-[20px] p-6 sm:p-7 text-white flex flex-col sm:flex-row items-start sm:items-center justify-between gap-5 shadow-sv-lg">
+        <div aria-hidden className="pointer-events-none absolute inset-0 -z-10 bg-sv-dark opacity-90" />
         <div>
-          <h2 className="font-bold text-lg mb-1">{t("dashboard.agent.enableTitle")}</h2>
-          <ul className="text-sm text-[#EFEDFF] space-y-1 mt-2">
+          <h2 className="font-extrabold text-xl sm:text-2xl tracking-tight mb-1">{t("dashboard.agent.enableTitle")}</h2>
+          <ul className="text-sm text-white/80 space-y-1.5 mt-3">
             {getFeatures().map((f) => (
               <li key={f} className="flex items-center gap-2">
-                <span className="h-1.5 w-1.5 rounded-full bg-white/70" />
+                <span className="h-1.5 w-1.5 rounded-full bg-[#10C99A] shadow-[0_0_0_4px_rgba(16,201,154,.15)]" />
                 {f}
               </li>
             ))}
@@ -225,10 +219,10 @@ const AgentStatusCard: React.FC<AgentStatusCardProps> = ({
         <button
           onClick={() => onToggleAutoPilot(true)}
           disabled={isTogglingAutoPilot}
-          className="bg-white text-[#5B47FB] font-bold text-sm px-5 py-2.5 rounded-xl hover:bg-[#EFEDFF] hover:shadow-lg hover:-translate-y-0.5 active:translate-y-0 transition-all shrink-0 disabled:opacity-60 disabled:cursor-not-allowed disabled:hover:translate-y-0 disabled:hover:shadow-none flex items-center justify-center gap-2"
+          className="bg-[#5B47FB] text-white font-extrabold text-sm px-5 py-3 rounded-xl shadow-sv-cta hover:bg-[#4935E0] hover:-translate-y-0.5 active:translate-y-0 transition-all shrink-0 disabled:opacity-60 disabled:cursor-not-allowed disabled:hover:translate-y-0 disabled:hover:shadow-none flex items-center justify-center gap-2"
         >
           {isTogglingAutoPilot && (
-            <span className="h-3.5 w-3.5 border-2 border-[#5B47FB]/30 border-t-[#5B47FB] rounded-full animate-spin" />
+            <span className="h-3.5 w-3.5 border-2 border-white/30 border-t-white rounded-full animate-spin" />
           )}
           {isTogglingAutoPilot ? t("dashboard.agent.enabling") : t("dashboard.agent.enable")}
         </button>
@@ -237,14 +231,14 @@ const AgentStatusCard: React.FC<AgentStatusCardProps> = ({
   }
 
   return (
-    <div className="bg-white border border-[#E4E5F0] rounded-2xl p-5 sm:p-6">
+    <div className="bg-white border border-[#E4E5F0] rounded-[20px] p-5 sm:p-6 shadow-sv">
       <div className="flex items-center justify-between flex-wrap gap-3">
         <div className="flex items-center gap-2">
           <span className="relative flex h-2.5 w-2.5">
             <span className={`absolute inline-flex h-full w-full rounded-full ${status.dot} opacity-75 animate-ping`} />
             <span className={`relative inline-flex h-2.5 w-2.5 rounded-full ${status.dot}`} />
           </span>
-          <h2 className="font-bold text-[#0D0F23]">{t("dashboard.agent.onTitle")}</h2>
+          <h2 className="font-extrabold text-lg tracking-tight text-[#0D0F23]">{t("dashboard.agent.onTitle")}</h2>
           <span className="text-xs text-[#9A9DB8]">— {tMaybe(status.text, status.text)}</span>
         </div>
 
@@ -274,19 +268,22 @@ const AgentStatusCard: React.FC<AgentStatusCardProps> = ({
       )}
 
       <div className="mt-5 grid grid-cols-2 sm:grid-cols-4 gap-3">
-        {performanceStats.map(({ key, label, value, icon: Icon }) => (
+        {performanceStats.map(({ key, label, value, icon: Icon }, i) => {
+          // First KPI gets the sevof gradient highlight, like the site dashboard mock.
+          const hi = i === 0;
+          return (
           <button
             type="button"
             key={key}
             onClick={() => onStatClick?.(key)}
-            className="group rounded-xl border border-[#E4E5F0] bg-[#F7F7FC] p-4 flex flex-col items-start gap-2.5 text-start hover:border-[#5B47FB]/40 hover:shadow-sm hover:-translate-y-0.5 active:translate-y-0 transition-all cursor-pointer"
+            className={`group rounded-2xl border p-4 flex flex-col items-start gap-3 text-start hover:-translate-y-0.5 active:translate-y-0 transition-all cursor-pointer ${hi ? "border-transparent bg-sv-gradient text-white shadow-sv-cta" : "border-[#E4E5F0] bg-white hover:border-[#5B47FB]/40 hover:shadow-sv-lg"}`}
           >
             <div className="flex items-center justify-between w-full">
-              <div className="h-9 w-9 rounded-lg bg-[#5B47FB] flex items-center justify-center text-white shadow-sm">
+              <div className={`h-9 w-9 rounded-xl flex items-center justify-center ${hi ? "bg-white/20 text-white" : "bg-[#EFEDFF] text-[#5B47FB]"}`}>
                 <Icon size={17} strokeWidth={2.5} />
               </div>
               <svg
-                className="w-3.5 h-3.5 text-[#9A9DB8] opacity-0 group-hover:opacity-100 -translate-x-1 rtl:translate-x-1 rtl:-scale-x-100 group-hover:translate-x-0 transition-all"
+                className={`w-3.5 h-3.5 ${hi ? "text-white/70" : "text-[#9A9DB8]"} opacity-0 group-hover:opacity-100 -translate-x-1 rtl:translate-x-1 rtl:-scale-x-100 group-hover:translate-x-0 transition-all`}
                 fill="none"
                 stroke="currentColor"
                 viewBox="0 0 24 24"
@@ -295,13 +292,14 @@ const AgentStatusCard: React.FC<AgentStatusCardProps> = ({
               </svg>
             </div>
             <div>
-              <div className="text-xl font-black text-[#0D0F23] leading-none tracking-tight">
+              <div className={`text-2xl font-black leading-none tracking-tight ${hi ? "text-white" : "text-[#0D0F23]"}`}>
                 {formatNumber(value)}
               </div>
-              <div className="text-xs font-extrabold text-[#0D0F23] mt-1.5">{label}</div>
+              <div className={`text-xs font-bold mt-2 ${hi ? "text-white/85" : "text-[#6C7193]"}`}>{label}</div>
             </div>
           </button>
-        ))}
+          );
+        })}
       </div>
 
       <div className="mt-6 pt-5 border-t border-dashed border-[#E4E5F0]">

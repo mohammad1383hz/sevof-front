@@ -61,7 +61,7 @@ const SearchConsolePanel: React.FC<SearchConsolePanelProps> = ({
   const isSyncing = property?.sync_status === "queued" || property?.sync_status === "syncing";
 
   return (
-    <section className="mb-5 rounded-3xl border border-[#D8E6E1] bg-[#FAFAFE] p-5 shadow-sm" aria-label={t("analyze.gsc.connect")}>
+    <section className="mb-5 rounded-3xl border border-[#E4E5F0] bg-[#FAFAFE] p-5 shadow-sm" aria-label={t("analyze.gsc.connect")}>
       <div className="flex flex-col gap-3 sm:flex-row sm:items-start sm:justify-between">
         <div className="flex gap-3">
           <div className="mt-0.5 flex h-10 w-10 shrink-0 items-center justify-center rounded-2xl bg-[#F1EFFF] text-[#5B47FB]">
@@ -78,7 +78,7 @@ const SearchConsolePanel: React.FC<SearchConsolePanelProps> = ({
         </div>
 
         {connectionStatus !== "connected" ? (
-          <button type="button" onClick={onConnect} disabled={loading} className="inline-flex shrink-0 items-center justify-center rounded-xl bg-[#5B47FB] px-4 py-2 text-xs font-bold text-white transition hover:bg-[#15584F] disabled:opacity-50">
+          <button type="button" onClick={onConnect} disabled={loading} className="inline-flex shrink-0 items-center justify-center rounded-xl bg-[#5B47FB] px-4 py-2 text-xs font-bold text-white transition hover:bg-[#4935E0] disabled:opacity-50">
             {connectionStatus ? t("analyze.gsc.reconnect") : t("analyze.gsc.connect")}
           </button>
         ) : (
@@ -133,7 +133,7 @@ const SearchConsolePanel: React.FC<SearchConsolePanelProps> = ({
           {queries.length > 0 && (
             <div className="mt-3 grid gap-3 md:grid-cols-[180px_180px_1fr]">
               <div className="rounded-2xl bg-[#F1EFFF] p-3">
-                <p className="text-[11px] text-[#4A625C]">{t("analyze.gsc.impressions")}</p>
+                <p className="text-[11px] text-[#494D6B]">{t("analyze.gsc.impressions")}</p>
                 <p className="mt-1 text-lg font-extrabold text-[#5B47FB]">{numberFormat.format(totals.impressions)}</p>
               </div>
               <div className="rounded-2xl bg-[#F4F1E8] p-3">

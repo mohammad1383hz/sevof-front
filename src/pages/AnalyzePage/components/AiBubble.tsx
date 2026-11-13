@@ -14,7 +14,7 @@ export function AiBubble({
   return (
     <div className="flex flex-col items-start gap-2 mb-4 animate-in fade-in slide-in-from-bottom-2 duration-300">
       {/* Avatar */}
-      <div className="h-9 w-9 rounded-2xl bg-gradient-to-br rtl:bg-gradient-to-bl from-[#5B47FB] to-[#4935E0] flex items-center justify-center text-white shrink-0 shadow-md shadow-[#5B47FB]/20 md:me-auto">
+      <div className="h-9 w-9 rounded-2xl bg-gradient-to-br rtl:bg-gradient-to-bl from-[#5B47FB] to-[#9B5CFF] flex items-center justify-center text-white shrink-0 shadow-md shadow-[#5B47FB]/20 md:me-auto">
         {icon}
       </div>
       {/* Bubble */}

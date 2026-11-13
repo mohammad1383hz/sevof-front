@@ -67,7 +67,7 @@ const ErrorMessage: React.FC<{ text: string | null }> = ({ text }) =>
   text ? (
     <p
       role="alert"
-      className="text-sm text-rose-600 bg-rose-50 border border-rose-100 rounded px-3 py-2"
+      className="text-sm text-rose-600 bg-rose-50 border border-rose-100 rounded-xl px-3 py-2"
     >
       {text}
     </p>
@@ -81,7 +81,7 @@ const SubmitButton: React.FC<{
   <button
     type="submit"
     disabled={loading}
-    className="w-full rounded bg-[#5B47FB] text-white text-sm font-bold py-2.5 min-h-[44px] hover:bg-[#4935E0] transition-colors disabled:opacity-60 disabled:cursor-not-allowed shadow-sm focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[#5B47FB]"
+    className="w-full rounded-xl bg-[#5B47FB] text-white text-sm font-extrabold py-3 min-h-[48px] hover:bg-[#4935E0] hover:-translate-y-0.5 active:translate-y-0 transition-all disabled:opacity-60 disabled:cursor-not-allowed disabled:hover:translate-y-0 shadow-sv-cta focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[#5B47FB]"
   >
     {loading ? busy : idle}
   </button>
@@ -93,23 +93,24 @@ const StepHeading: React.FC<{
   children: React.ReactNode;
 }> = ({ eyebrow, title, children }) => (
   <>
-    <p className="text-[#5B47FB] text-center font-semibold mb-2 text-xs font-mono">
-      {eyebrow}
+    <p className="mx-auto mb-3 flex w-fit items-center gap-2 rounded-full border border-[#5B47FB]/15 bg-[#EFEDFF] px-3 py-1 text-[11px] font-extrabold uppercase tracking-wider text-[#5B47FB]">
+      <span className="h-1.5 w-1.5 rounded-full bg-[#10C99A]" aria-hidden="true" />
+      {eyebrow.replace(/^\/\/\s*/, "")}
     </p>
-    <h1 className="text-base text-center sm:text-lg font-bold text-[#0D0F23] mb-1">
+    <h1 className="text-xl text-center sm:text-2xl font-extrabold tracking-tight text-[#0D0F23] mb-1.5">
       {title}
     </h1>
-    <p className="text-xs text-center sm:text-sm text-[#3B3F5C] mb-4 sm:mb-6">
+    <p className="text-xs text-center sm:text-sm text-[#6C7193] mb-5 sm:mb-6">
       {children}
     </p>
   </>
 );
 
 const inputBase =
-  "w-full rounded border border-[#E4E5F0] bg-[#FAFAFE] px-3 sm:px-3.5 text-[#0D0F23] focus:outline-none focus:ring-2 focus:ring-[#5B47FB]/40 focus:border-[#5B47FB] read-only:opacity-70 read-only:cursor-not-allowed";
+  "w-full rounded-xl border border-[#E4E5F0] bg-white px-3 sm:px-3.5 text-[#0D0F23] focus:outline-none focus:ring-2 focus:ring-[#5B47FB]/40 focus:border-[#5B47FB] read-only:opacity-70 read-only:cursor-not-allowed";
 // ورودی‌ها dir="ltr" هستند؛ text-start باعث می‌شود متن راهنما در صفحه‌ی راست‌به‌چپ، راست‌چین بماند
-const textInput = `${inputBase} py-2.5 text-sm text-start placeholder:text-[#9A9DB8]`;
-const labelCls = "block text-sm font-medium text-[#3B3F5C] mb-1.5";
+const textInput = `${inputBase} py-3 text-sm text-start placeholder:text-[#9A9DB8]`;
+const labelCls = "block text-sm font-bold text-[#3B3F5C] mb-1.5";
 
 /* ────────────────────────────────────────────────────────────────────────────
  * بخش ۳: سه قدم تا شروع
@@ -359,23 +360,27 @@ const LoginPage: React.FC<LoginPageProps> = ({ onLogin }) => {
   );
 
   return (
-    <div className="relative min-h-screen bg-[#F3F2FB] text-[#0D0F23] selection:bg-[#D9D4FF] selection:text-[#0D0F23]">
-      <div className="fixed inset-0 opacity-50 pointer-events-none bg-[radial-gradient(ellipse_at_top,_var(--tw-gradient-stops))] from-[#E6E5F1] via-[#F3F2FB] to-[#FAFAFE]" />
+    <div className="relative min-h-screen bg-[#F6F6FB] text-[#0D0F23] selection:bg-[#D9D4FF] selection:text-[#0D0F23]">
+      {/* Dark hero band behind the form, same look as the sevof.com hero. */}
+      <div aria-hidden="true" className="pointer-events-none absolute inset-x-2 top-2 h-[380px] overflow-hidden rounded-[28px] bg-[#0A0B1E] sm:inset-x-3 sm:top-3 sm:h-[460px]">
+        <div className="absolute inset-0 bg-sv-dark" />
+        <div className="absolute inset-0 opacity-[0.07] [background-image:linear-gradient(rgba(255,255,255,.6)_1px,transparent_1px),linear-gradient(90deg,rgba(255,255,255,.6)_1px,transparent_1px)] [background-size:44px_44px] [mask-image:radial-gradient(ellipse_at_center,black,transparent_75%)]" />
+      </div>
 
       {/* انتخاب زبان — در موبایل در یک ردیف جدا بالای لوگو، تا روی آن نیفتد */}
-      <div className="relative z-20 flex justify-end px-4 pt-4 sm:absolute sm:end-4 sm:top-4 sm:p-0">
+      <div className="relative z-20 flex justify-end px-5 pt-5 sm:absolute sm:end-8 sm:top-8 sm:p-0">
         <LanguageSwitcher />
       </div>
 
       {/* ───────── بخش اول: فرم ورود ───────── */}
-      <header className="relative z-10 flex flex-col items-center px-4 pb-2 pt-3 sm:pt-12">
+      <header className="relative z-10 flex flex-col items-center px-4 pb-6 pt-4 sm:pt-16">
           <div className="w-full max-w-sm">
-            <div className="mb-4 flex items-center justify-center gap-2">
-              <img src="/logo.svg" alt="Sevof" className="h-8 w-8 sm:h-9 sm:w-9 object-contain" />
-              <span className="text-2xl font-bold text-[#5B47FB] tracking-tighter">Sevof</span>
+            <div className="mb-6 flex items-center justify-center gap-2.5">
+              <img src="/logo.svg" alt="Sevof" className="h-9 w-9 sm:h-10 sm:w-10 object-contain drop-shadow-[0_8px_20px_rgba(91,71,251,.55)]" />
+              <span className="text-2xl sm:text-[28px] font-extrabold text-white tracking-tight">Sevof</span>
             </div>
 
-            <div className="bg-[#FAFAFE] rounded-2xl shadow-md ring-1 ring-black/[0.03] border border-[#E4E5F0] p-5 sm:p-7">
+            <div className="bg-white rounded-[22px] border border-white/60 p-6 sm:p-8 shadow-[0_40px_90px_-30px_rgba(10,11,30,.55),0_0_0_8px_rgba(255,255,255,.06)]">
               {step === "email" && (
                 <>
                   {GOOGLE_CLIENT_ID && (

@@ -687,7 +687,7 @@ const Layout: React.FC<LayoutProps> = ({
   };
 
   return (
-    <div className="flex items-start h-screen overflow-hidden bg-[#F3F2FB]">
+    <div className="flex items-start h-screen overflow-hidden bg-[#F6F6FB] bg-sv-light">
       {/* دکمه‌ی خروج — ثابتِ گوشه‌ی چپِ بالا، مستقل از RTL بودن صفحه،
           هم در موبایل هم در دسکتاپ همیشه دیده می‌شود. */}
       <LogoutButton onClick={() => setLogoutConfirmOpen(true)} />

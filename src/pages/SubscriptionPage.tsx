@@ -875,7 +875,7 @@ const DiscountCodeModal: React.FC<DiscountCodeModalProps> = ({
             type="button"
             onClick={onApply}
             disabled={submitting}
-            className="h-11 shrink-0 rounded-xl bg-[#0D0F23] px-4 text-[12.5px] font-bold text-white transition-colors hover:bg-[#14201E] disabled:cursor-not-allowed disabled:opacity-50"
+            className="h-11 shrink-0 rounded-xl bg-[#0D0F23] px-4 text-[12.5px] font-bold text-white transition-colors hover:bg-[#0A0B1E] disabled:cursor-not-allowed disabled:opacity-50"
           >
             {t("billing.discountModal.apply")}
           </button>
@@ -945,7 +945,7 @@ const FALLBACK_BACK_PATH = "/dashboard";
 /** ورود به «کسب درآمد با معرفی»: فقط از صفحه‌ی پلن‌ها (در منوی اصلی نیست). */
 const ReferralCard: React.FC<{ onOpen: () => void }> = ({ onOpen }) => (
   <section aria-labelledby="referral-card-title" className="mt-10 sm:mt-14">
-    <div className="flex flex-col gap-4 rounded-2xl bg-gradient-to-l from-[#5B47FB] to-[#4935E0] p-5 text-white sm:flex-row sm:items-center sm:justify-between sm:p-6">
+    <div className="flex flex-col gap-4 rounded-2xl bg-gradient-to-l from-[#5B47FB] to-[#9B5CFF] p-5 text-white sm:flex-row sm:items-center sm:justify-between sm:p-6">
       <div className="min-w-0">
         <h2 id="referral-card-title" className="text-base font-extrabold sm:text-lg">
           {t("billing.referral.title")}

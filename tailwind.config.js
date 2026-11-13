@@ -88,6 +88,18 @@ export default {
       boxShadow: {
         card: "0 10px 30px -10px rgba(11, 18, 32, 0.15)",
         soft: "0 4px 20px rgba(0,0,0,0.06)",
+        // sevof.com surfaces: resting card, floating card, violet call-to-action
+        sv: "0 1px 2px rgba(13,15,35,.06), 0 2px 8px rgba(13,15,35,.04)",
+        "sv-lg": "0 10px 30px -12px rgba(13,15,35,.18)",
+        "sv-cta": "0 10px 24px -10px rgba(91,71,251,.65)",
+      },
+      backgroundImage: {
+        "sv-gradient": "linear-gradient(120deg, #5b47fb 0%, #9b5cff 50%, #10c99a 100%)",
+        "sv-text": "linear-gradient(100deg, #5b47fb 0%, #9b5cff 55%, #10c99a 100%)",
+        "sv-dark":
+          "radial-gradient(620px 420px at 12% 8%, rgba(91,71,251,.55), transparent 62%), radial-gradient(520px 380px at 92% 18%, rgba(16,201,154,.28), transparent 62%), radial-gradient(760px 520px at 62% 112%, rgba(155,92,255,.45), transparent 62%)",
+        "sv-light":
+          "radial-gradient(700px 420px at 0% 0%, rgba(91,71,251,.08), transparent 60%), radial-gradient(600px 400px at 100% 100%, rgba(16,201,154,.07), transparent 60%)",
       },
       borderRadius: {
         xl2: "1.25rem",

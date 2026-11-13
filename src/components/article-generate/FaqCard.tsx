@@ -289,7 +289,7 @@ export const FaqCard: React.FC<FaqCardProps> = ({ siteId, article, selectedTarge
   };
 
   return (
-    <div className="overflow-hidden rounded-2xl border border-[#E4E5F0] bg-white">
+    <div className="overflow-hidden rounded-2xl border border-[#E4E5F0] bg-white shadow-sv">
       {/* هدر کارت */}
       <div className="flex items-center gap-3 border-b border-[#E4E5F0] bg-gradient-to-r rtl:bg-gradient-to-l from-[#FAFAFE] to-[#EFEDFF]/40 px-5 py-4">
         <span className="flex h-9 w-9 shrink-0 items-center justify-center rounded-xl bg-[#EFEDFF] text-base">

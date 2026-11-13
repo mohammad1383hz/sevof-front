@@ -11,7 +11,7 @@ const features = [
 ];
 
 const UpgradeCard: React.FC<UpgradeCardProps> = ({ onEnable }) => (
-  <div className="bg-gradient-to-r from-[#5B47FB] to-[#4935E0] rounded-2xl p-6 text-white flex flex-col sm:flex-row items-start sm:items-center justify-between gap-4">
+  <div className="bg-gradient-to-r from-[#5B47FB] to-[#9B5CFF] rounded-2xl p-6 text-white flex flex-col sm:flex-row items-start sm:items-center justify-between gap-4">
     <div>
       <h2 className="font-bold text-lg mb-1">Enable smart automation</h2>
       <ul className="text-sm text-[#EFEDFF] space-y-1 mt-2">

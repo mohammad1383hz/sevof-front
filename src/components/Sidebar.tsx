@@ -100,8 +100,10 @@ function StatusDot({ status }: { status?: string }) {
 
 const navBtnBase =
   "w-full flex items-center gap-2.5 text-start rounded-xl px-3 py-2.5 text-sm font-bold transition-all duration-200";
-const navBtnActive = "bg-[#EFEDFF] text-[#5B47FB] border border-[#5B47FB]/20";
-const navBtnIdle = "text-[#0D0F23] hover:bg-[#F6F6FB] border border-transparent";
+// Active item: soft violet pill with the sevof gradient bar on the leading edge.
+const navBtnActive =
+  "relative bg-[#EFEDFF] text-[#5B47FB] border border-[#5B47FB]/15 shadow-sv before:absolute before:start-0 before:top-2 before:bottom-2 before:w-[3px] before:rounded-full before:bg-sv-gradient";
+const navBtnIdle = "text-[#3B3F5C] hover:bg-[#F6F6FB] hover:text-[#0D0F23] border border-transparent";
 
 // ── دکمه‌ی منوی وابسته به فروشگاهی بودن سایت ─────────────────────────────────
 // سه حالت: در حال بررسی (غیرفعال + لودینگ) / فروشگاهی (فعال) / غیرفروشگاهی (غیرفعال).
@@ -207,13 +209,13 @@ const SiteSwitcher: React.FC<{
         onClick={() => setOpen((v) => !v)}
         className="w-full flex items-center gap-2.5 min-w-0 text-start"
       >
-        <div className="h-8 w-8 rounded-xl bg-gradient-to-br rtl:bg-gradient-to-bl from-[#5B47FB] to-[#4935E0] flex items-center justify-center shadow-md shadow-[#5B47FB]/25 shrink-0 overflow-hidden">
+        <div className="h-9 w-9 rounded-[11px] flex items-center justify-center shadow-sv-cta shrink-0 overflow-hidden">
           <img src="/logo.svg" alt="Sevof" className="h-full w-full object-contain" />
         </div>
         {currentDomain ? (
           <div className="min-w-0 flex-1">
-            <p className="text-[10px] text-[#9A9DB8] font-medium">{t("layout.sites.active")}</p>
-            <p dir="ltr" className="text-xs font-bold text-[#0D0F23] truncate">{currentDomain}</p>
+            <p className="text-[10px] uppercase tracking-wider text-[#9A9DB8] font-extrabold">{t("layout.sites.active")}</p>
+            <p dir="ltr" className="text-sm font-extrabold text-[#0D0F23] truncate">{currentDomain}</p>
           </div>
         ) : (
           <p className="text-xs font-bold text-[#9A9DB8] flex-1">{t("layout.sites.none")}</p>
@@ -244,7 +246,7 @@ const SiteSwitcher: React.FC<{
                 <div
                   key={s.id}
                   className={`w-full flex items-center gap-2 text-start px-3 py-2.5 text-xs transition-colors duration-150 ${
-                    isActive ? "bg-[#EFEDFF] text-[#5B47FB] font-bold" : "text-[#0D0F23] hover:bg-[#F6F6FB]"
+                    isActive ? "bg-[#EFEDFF] text-[#5B47FB] font-bold" : "text-[#3B3F5C] hover:bg-[#F6F6FB]"
                   }`}
                 >
                   <button
@@ -453,7 +455,7 @@ const Sidebar: React.FC<SidebarProps> = ({
           fixed inset-y-0 start-0 z-50 h-dvh w-60
           lg:sticky lg:top-0 lg:z-auto lg:h-screen
           ${desktopOpen ? "lg:w-80" : "lg:w-0 lg:border-e-0 lg:overflow-hidden"}
-          shrink-0 flex flex-col bg-[#FAFAFE] border-e border-[#E4E5F0]
+          shrink-0 flex flex-col bg-white bg-sv-light border-e border-[#E4E5F0]
           transform transition-all duration-300 ease-in-out
           ${mobileOpen ? "translate-x-0" : "max-lg:-translate-x-full max-lg:rtl:translate-x-full"}
         `}
@@ -490,7 +492,7 @@ const Sidebar: React.FC<SidebarProps> = ({
             <button
               type="button"
               onClick={withMobileClose(() => onNewConversation())}
-              className="flex w-full items-center justify-center gap-2 rounded-xl bg-[#5B47FB] px-3 py-2.5 text-sm font-black text-white shadow-sm shadow-[#5B47FB]/25 transition-colors hover:bg-[#4935E0] active:bg-[#0F453D]"
+              className="flex w-full items-center justify-center gap-2 rounded-xl bg-[#5B47FB] px-3 py-2.5 text-sm font-black text-white shadow-sv-cta transition-all hover:-translate-y-0.5 hover:bg-[#4935E0] active:translate-y-0 active:bg-[#2A1F7A]"
             >
               <svg className="h-4 w-4 shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true">
                 <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M12 4.5v15m7.5-7.5h-15" />
@@ -708,7 +710,7 @@ const Sidebar: React.FC<SidebarProps> = ({
                       type="button"
                       onClick={withMobileClose(() => onSelectConversation?.(conversation))}
                       title={conversation.title}
-                      className={`w-full truncate rounded-lg px-2 py-2 text-start text-xs transition-colors duration-150 ${isActive ? "bg-[#EFEDFF] text-[#5B47FB] font-bold" : "text-[#0D0F23] hover:bg-[#F6F6FB] hover:text-[#0D0F23]"}`}
+                      className={`w-full truncate rounded-lg px-2 py-2 text-start text-xs transition-colors duration-150 ${isActive ? "bg-[#EFEDFF] text-[#5B47FB] font-bold" : "text-[#3B3F5C] hover:bg-[#F6F6FB] hover:text-[#0D0F23]"}`}
                     >
                       <span className="truncate">{conversation.title || t("layout.nav.untitledConversation")}</span>
                     </button>

@@ -107,7 +107,7 @@ const FrozenArticleSummary: React.FC<{ article: Article }> = ({ article }) => {
 };
 
 const CollapsedVersion: React.FC<{ label: string; article: Article }> = ({ label, article }) => (
-  <details className="group rounded-2xl border border-[#E4E5F0] bg-[#FAFAFE]">
+  <details className="group rounded-2xl border border-[#E4E5F0] bg-white shadow-sv">
     <summary className="flex cursor-pointer list-none items-center justify-between gap-2 px-5 py-3.5 text-xs font-bold text-[#0D0F23]">
       <span>{label}</span>
       <span className="flex items-center gap-1 text-[#0D0F23]/60">
@@ -465,7 +465,7 @@ export const DesktopArticleThread: React.FC<DesktopArticleThreadProps> = ({
     <>
       <div className="space-y-4">
         {!loadingHistory && priorMessages.length > 0 && (
-          <details className="rounded-2xl border border-[#E4E5F0] bg-[#FAFAFE]">
+          <details className="rounded-2xl border border-[#E4E5F0] bg-white shadow-sv">
             <summary className="cursor-pointer list-none px-5 py-3.5 text-xs font-bold text-[#0D0F23]">
               {t("article.chat.previous", { count: priorMessages.length })}
             </summary>

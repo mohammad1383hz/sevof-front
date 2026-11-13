@@ -23,12 +23,12 @@ const StatisticsGrid: React.FC<StatisticsGridProps> = ({ statistics }) => {
       {items.map((item) => (
         <div
           key={item.label}
-          className="bg-white border border-[#E4E5F0] rounded-xl p-2 sm:p-2.5 text-center"
+          className="bg-white border border-[#E4E5F0] rounded-2xl p-3 sm:p-4 text-center shadow-sv"
         >
-          <p className={`text-base sm:text-lg font-bold ${item.cls ?? "text-[#0D0F23]"} truncate`}>
+          <p className={`text-lg sm:text-xl font-black tracking-tight ${item.cls ?? "text-[#0D0F23]"} truncate`}>
             {item.value}
           </p>
-          <p className="text-[10px] sm:text-[11px] text-[#9A9DB8] mt-0.5 leading-4">{item.label}</p>
+          <p className="text-[11px] font-bold text-[#6C7193] mt-1 leading-4">{item.label}</p>
         </div>
       ))}
     </div>

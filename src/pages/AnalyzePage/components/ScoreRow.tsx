@@ -17,7 +17,7 @@ export function ScoreRow({
       </div>
       <div className="h-1.5 rounded-full bg-[#E4E5F0] overflow-hidden">
         <div
-          className="h-full bg-gradient-to-r rtl:bg-gradient-to-l from-[#5B47FB] to-[#4935E0] rounded-full transition-all duration-500"
+          className="h-full bg-gradient-to-r rtl:bg-gradient-to-l from-[#5B47FB] to-[#9B5CFF] rounded-full transition-all duration-500"
           style={{ width: `${pct}%` }}
         />
       </div>
@@ -27,7 +27,7 @@ export function ScoreRow({
 }
 
 export function scoreTone(score: number) {
-  if (score >= 70) return { text: "text-[#4935E0]", bg: "bg-[#EFEDFF]", border: "border-[#BFE0D8]" };
+  if (score >= 70) return { text: "text-[#4935E0]", bg: "bg-[#EFEDFF]", border: "border-[#C8C0FF]" };
   if (score >= 45) return { text: "text-[#8A6A2F]", bg: "bg-[#EDE3CF]", border: "border-[#DDD0AE]" };
   return { text: "text-[#B3453A]", bg: "bg-[#F7EEEA]", border: "border-[#E3C4BC]" };
 }

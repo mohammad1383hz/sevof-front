@@ -125,7 +125,7 @@ const IdeaEditModal: React.FC<{
         type="button"
         onClick={save}
         disabled={!dirty || !valid || saving}
-        className="inline-flex h-11 min-w-[8rem] items-center justify-center gap-2 rounded-2xl bg-gradient-to-r rtl:bg-gradient-to-l from-[#5B47FB] to-[#4935E0] px-5 text-sm font-black text-white shadow-lg shadow-[#5B47FB]/20 transition active:scale-95 disabled:cursor-not-allowed disabled:opacity-50"
+        className="inline-flex h-11 min-w-[8rem] items-center justify-center gap-2 rounded-2xl bg-gradient-to-r rtl:bg-gradient-to-l from-[#5B47FB] to-[#9B5CFF] px-5 text-sm font-black text-white shadow-lg shadow-[#5B47FB]/20 transition active:scale-95 disabled:cursor-not-allowed disabled:opacity-50"
       >
         {saving && <span className="h-4 w-4 animate-spin rounded-full border-2 border-white/30 border-t-white" />}
         {t("analyze.idea.save")}
@@ -159,7 +159,7 @@ const IdeaEditModal: React.FC<{
               onChange={(e) => setTitle(e.target.value)}
               maxLength={TITLE_MAX}
               aria-label={t("article.target.title")}
-              className="h-12 w-full rounded-2xl border border-[#E4E5F0] bg-white px-4 text-base font-bold text-[#0A0B1E] outline-none transition focus:border-[#5B47FB]/60 focus:ring-4 focus:ring-[#5B47FB]/10 sm:text-sm"
+              className="h-12 w-full rounded-2xl border border-[#E4E5F0] bg-white shadow-sv px-4 text-base font-bold text-[#0A0B1E] outline-none transition focus:border-[#5B47FB]/60 focus:ring-4 focus:ring-[#5B47FB]/10 sm:text-sm"
             />
             <p className="mt-1.5 text-[11px] leading-5 text-[#6C7193]">
               {t("product.editIdea.titleHint", { max: TITLE_SOFT })}
@@ -188,7 +188,7 @@ const IdeaEditModal: React.FC<{
             ) : (
               <ul className="space-y-2">
                 {products.map((p) => (
-                  <li key={p.id} className="flex items-center gap-3 rounded-2xl border border-[#E4E5F0] bg-white p-2.5">
+                  <li key={p.id} className="flex items-center gap-3 rounded-2xl border border-[#E4E5F0] bg-white shadow-sv p-2.5">
                     <ProductThumb src={p.image} className="h-12 w-12" />
                     <span className="min-w-0 flex-1">
                       <span className="block text-[13px] font-bold leading-6 text-[#0D0F23]" style={clamp2}>

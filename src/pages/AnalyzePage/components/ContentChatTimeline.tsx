@@ -67,7 +67,7 @@ function ConversationMessage({
         className="flex justify-end mb-4 animate-in fade-in slide-in-from-bottom-2 duration-300"
       >
         <div className="max-w-2xl">
-          <div className="rounded-3xl rounded-se-lg bg-gradient-to-br rtl:bg-gradient-to-bl from-[#5B47FB] to-[#4935E0] px-5 py-4 text-white shadow-lg shadow-[#5B47FB]/20">
+          <div className="rounded-3xl rounded-se-lg bg-gradient-to-br rtl:bg-gradient-to-bl from-[#5B47FB] to-[#9B5CFF] px-5 py-4 text-white shadow-lg shadow-[#5B47FB]/20">
             <div className="flex items-center gap-2">
               <UserIcon />
               <span className="text-xs font-bold text-[#EFEDFF]">{message.label || t("analyze.chat.yourRequest")}</span>
@@ -77,7 +77,7 @@ function ConversationMessage({
               <div
                 role="status"
                 aria-live="polite"
-                className="mt-3 inline-flex items-center gap-2 rounded-2xl border border-white/15 bg-white/10 px-3 py-2 text-xs font-bold text-[#E9F6F2]"
+                className="mt-3 inline-flex items-center gap-2 rounded-2xl border border-white/15 bg-white/10 px-3 py-2 text-xs font-bold text-[#F1EFFF]"
               >
                 <span className="inline-flex items-center gap-1" aria-hidden="true">
                   <span className="h-1.5 w-1.5 animate-bounce rounded-full bg-[#EFEDFF] [animation-delay:-0.2s]" />
@@ -105,10 +105,10 @@ function ConversationMessage({
       data-entity-request={isSelection && !disabled ? "true" : undefined}
       className="scroll-mt-4 mb-5 flex items-start gap-3 animate-in fade-in slide-in-from-bottom-2 duration-300"
     >
-      <div className="mt-0.5 flex h-9 w-9 shrink-0 items-center justify-center rounded-2xl bg-gradient-to-br rtl:bg-gradient-to-bl from-[#5B47FB] to-[#4935E0] text-white shadow-md shadow-[#5B47FB]/20">
+      <div className="mt-0.5 flex h-9 w-9 shrink-0 items-center justify-center rounded-2xl bg-gradient-to-br rtl:bg-gradient-to-bl from-[#5B47FB] to-[#9B5CFF] text-white shadow-md shadow-[#5B47FB]/20">
         <AssistantIcon />
       </div>
-      <div className={`min-w-0 max-w-3xl flex-1 overflow-hidden rounded-3xl rounded-ss-lg border shadow-sm ${isError ? "border-[#E3C4BC] bg-[#F7EEEA]" : isArticle ? "border-[#C8C0FF] bg-gradient-to-br rtl:bg-gradient-to-bl from-[#F7FCFA] to-[#E8F4F0]" : "border-[#E4E5F0]/80 bg-[#FAFAFE]"}`}>
+      <div className={`min-w-0 max-w-3xl flex-1 overflow-hidden rounded-3xl rounded-ss-lg border shadow-sm ${isError ? "border-[#E3C4BC] bg-[#F7EEEA]" : isArticle ? "border-[#C8C0FF] bg-gradient-to-br rtl:bg-gradient-to-bl from-[#F7FCFA] to-[#F1EFFF]" : "border-[#E4E5F0]/80 bg-[#FAFAFE]"}`}>
         <div className="border-b border-[#E4E5F0]/70 px-5 py-3">
           <p className={`text-xs font-black ${isError ? "text-[#B3453A]" : isArticle ? "text-[#5B47FB]" : "text-[#4935E0]"}`}>{isArticle ? t("analyze.chat.articleHeader") : t("analyze.chat.assistant")}</p>
         </div>

@@ -105,7 +105,7 @@ const ReferralPage: React.FC = () => {
         </div>
       </div>
       <div className="mx-auto max-w-3xl space-y-4 p-3 sm:p-4 lg:p-5">
-        <div className="rounded-2xl bg-gradient-to-l from-[#5B47FB] to-[#4935E0] p-5 text-white sm:p-6">
+        <div className="rounded-2xl bg-gradient-to-l from-[#5B47FB] to-[#9B5CFF] p-5 text-white sm:p-6">
           <h1 className="text-lg font-black sm:text-xl">{t("billing.referral.title")}</h1>
           <p className="mt-2 text-xs leading-7 text-white/85 sm:text-sm">
             {t("growth.referral.intro")}

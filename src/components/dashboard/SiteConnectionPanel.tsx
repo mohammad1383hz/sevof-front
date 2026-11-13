@@ -25,7 +25,7 @@ const API_DOCS_PATH = "/developer/api-docs";
 const ApiDocsLinkCard: React.FC = () => (
   <Link
     to={API_DOCS_PATH}
-    className="group relative flex items-center gap-3 sm:gap-4 rounded-2xl border border-[#E4E5F0] bg-white px-4 sm:px-5 py-3.5 shadow-sm transition-all hover:border-[#5B47FB]/40 hover:shadow-md focus:outline-none focus-visible:ring-2 focus-visible:ring-[#5B47FB]/40"
+    className="group relative flex items-center gap-3 sm:gap-4 rounded-[20px] border border-[#E4E5F0] bg-white px-4 sm:px-5 py-4 shadow-sv transition-all hover:border-[#5B47FB]/40 hover:shadow-sv-lg focus:outline-none focus-visible:ring-2 focus-visible:ring-[#5B47FB]/40"
   >
     <span className="relative inline-flex h-10 w-10 shrink-0 items-center justify-center rounded-xl bg-[#0D0F23] text-white transition-colors group-hover:bg-[#5B47FB]">
       <BookOpen className="h-5 w-5" />

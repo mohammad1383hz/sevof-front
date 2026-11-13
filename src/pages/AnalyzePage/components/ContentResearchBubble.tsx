@@ -163,7 +163,7 @@ export function ContentResearchBubble({
           <RecommendationsSection recommendations={recommendations} manusTaskUrl={manusTaskUrl} />
           <div className="space-y-3">
             {clusters.map((cluster) => (
-              <article key={cluster.id} className="rounded-2xl border border-[#E4E5F0] bg-[#FAFAFE] p-4">
+              <article key={cluster.id} className="rounded-2xl border border-[#E4E5F0] bg-white shadow-sv p-4">
                 <div className="mb-3 flex flex-wrap items-start justify-between gap-2">
                   <div>
                     <h3 className="text-sm font-black text-[#0D0F23]">{cluster.name}</h3>
@@ -201,7 +201,7 @@ export function ContentResearchBubble({
           </div>
 
           {(summary || siteAnalysis) && (
-            <section className="rounded-2xl border border-[#E4E5F0] bg-[#FAFAFE] p-4">
+            <section className="rounded-2xl border border-[#E4E5F0] bg-white shadow-sv p-4">
               {summary && <p className="text-sm font-bold leading-6 text-[#3B3F5C]">{summary}</p>}
 
               {siteAnalysis && (
@@ -256,7 +256,7 @@ export function ContentResearchBubble({
                 const coverage = gap.evidence.site_coverage ? coverageMeta[gap.evidence.site_coverage] : null;
 
                 return (
-                  <article key={gap.id} className="rounded-2xl border border-[#E4E5F0] bg-[#FAFAFE] p-4">
+                  <article key={gap.id} className="rounded-2xl border border-[#E4E5F0] bg-white shadow-sv p-4">
                                       <div className="flex flex-wrap items-start justify-between gap-2">
                       <div>
                         <h3 className="text-sm font-black leading-6 text-[#0D0F23]">{gap.title}</h3>
@@ -280,7 +280,7 @@ export function ContentResearchBubble({
 
                     <div className="mt-3 rounded-xl bg-[#EFEDFF]/60 px-3 py-2">
                       <p className="text-[10px] font-black text-[#4935E0]">{t("analyze.research.recommendedAction")}{gap.evidence.recommended_format ? ` · ${gap.evidence.recommended_format}` : ""}</p>
-                      <p className="mt-1 text-xs font-bold leading-5 text-[#31594F]">{gap.recommended_angle}</p>
+                      <p className="mt-1 text-xs font-bold leading-5 text-[#3B3F5C]">{gap.recommended_angle}</p>
                     </div>
                   </article>
                 );
@@ -289,7 +289,7 @@ export function ContentResearchBubble({
           </section>
 
           {/* ۴. سایت‌های رقیب — پشت یک دراپ‌دان بسته (پیش‌فرض جمع‌شده) */}
-          <details className="rounded-2xl border border-[#E4E5F0] bg-[#FAFAFE] p-4">
+          <details className="rounded-2xl border border-[#E4E5F0] bg-white shadow-sv p-4">
             <summary className="cursor-pointer text-xs font-black text-[#3B3F5C]">
               {t("analyze.research.competitorSites", { count: competitors.length })}
             </summary>
@@ -373,7 +373,7 @@ function RecommendationsSection({
 }) {
   if (!recommendations.length && !manusTaskUrl) return null;
   return (
-    <section className="mb-4 rounded-2xl border border-[#E4E5F0] bg-[#FAFAFE] p-4">
+    <section className="mb-4 rounded-2xl border border-[#E4E5F0] bg-white shadow-sv p-4">
       {recommendations.length > 0 && (
         <>
           <p className="mb-2 text-xs font-black text-[#3B3F5C]">{t("analyze.research.recommendations")}</p>

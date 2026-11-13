@@ -51,7 +51,7 @@ const readDismissed = (): string[] => {
 };
 
 const navBtn =
-  "flex h-7 w-7 items-center justify-center rounded-lg text-black/50 transition-colors hover:bg-emerald-50 hover:text-emerald-600";
+  "flex h-7 w-7 items-center justify-center rounded-lg text-[#9A9DB8] transition-colors hover:bg-[#EFEDFF] hover:text-[#5B47FB]";
 
 const AnnouncementBanner: React.FC<{ desktopSidebarOpen: boolean; siteId?: number | string }> = ({ desktopSidebarOpen, siteId }) => {
   const [items, setItems] = useState<Announcement[]>(cache?.items ?? []);
@@ -128,15 +128,15 @@ const AnnouncementBanner: React.FC<{ desktopSidebarOpen: boolean; siteId?: numbe
     >
       <div
         role="status"
-        className="pointer-events-auto relative mx-auto flex max-w-xl items-start gap-3 overflow-hidden rounded-2xl border border-emerald-200 bg-gradient-to-r rtl:bg-gradient-to-l from-white via-white to-emerald-50 p-3.5 ps-4 shadow-lg shadow-emerald-500/10 backdrop-blur-md"
+        className="pointer-events-auto relative mx-auto flex max-w-xl items-start gap-3 overflow-hidden rounded-[20px] border border-[#E4E5F0] bg-white bg-sv-light p-3.5 ps-4 shadow-sv-lg backdrop-blur-md"
       >
         {/* نوار سبز کناری (سمت شروع در RTL) */}
-        <span className="absolute inset-y-0 start-0 w-1.5 bg-gradient-to-b from-emerald-500 to-emerald-700" />
+        <span className="absolute inset-y-0 start-0 w-1 bg-sv-gradient" />
 
         {/* آیکون سبز با حلقه‌ی پالس */}
         <div className="relative mt-0.5 h-10 w-10 shrink-0">
-          <span className="absolute inset-0 animate-ping rounded-full bg-emerald-400/40" />
-          <div className="relative flex h-10 w-10 items-center justify-center rounded-full bg-gradient-to-br rtl:bg-gradient-to-bl from-emerald-500 to-emerald-700 text-white shadow-md shadow-emerald-500/40 ring-4 ring-emerald-100">
+          <span className="absolute inset-0 animate-ping rounded-[14px] bg-[#9B5CFF]/30" />
+          <div className="relative flex h-10 w-10 items-center justify-center rounded-[14px] bg-sv-gradient text-white shadow-sv-cta ring-4 ring-[#EFEDFF]">
             <svg className="h-5 w-5" viewBox="0 0 24 24" fill="currentColor" stroke="none">
               <path d="M4 14a1 1 0 0 1-.78-1.63l9.9-10.2a.5.5 0 0 1 .86.46l-1.92 6.02A1 1 0 0 0 13 10h7a1 1 0 0 1 .78 1.63l-9.9 10.2a.5.5 0 0 1-.86-.46l1.92-6.02A1 1 0 0 0 11 14z" />
             </svg>
@@ -144,15 +144,15 @@ const AnnouncementBanner: React.FC<{ desktopSidebarOpen: boolean; siteId?: numbe
         </div>
 
         <div className="min-w-0 flex-1">
-          <h3 className="text-sm font-black text-black">{current.title}</h3>
-          <p className="mt-1 max-h-28 overflow-y-auto whitespace-pre-line break-words text-[13px] font-bold leading-6 text-black">
+          <h3 className="text-sm font-black text-[#0D0F23]">{current.title}</h3>
+          <p className="mt-1 max-h-28 overflow-y-auto whitespace-pre-line break-words text-[13px] font-medium leading-6 text-[#3B3F5C]">
             {current.body}
           </p>
           {current.action && (
             <button
               type="button"
               onClick={current.action.run}
-              className="mt-2 rounded-lg bg-emerald-600 px-3 py-1.5 text-xs font-black text-white hover:bg-emerald-700"
+              className="mt-2 rounded-xl bg-[#5B47FB] px-3.5 py-2 text-xs font-black text-white shadow-sv-cta transition-colors hover:bg-[#4935E0]"
             >
               {current.action.label}
             </button>
@@ -166,7 +166,7 @@ const AnnouncementBanner: React.FC<{ desktopSidebarOpen: boolean; siteId?: numbe
               <button type="button" onClick={() => go(-1)} aria-label={t("layout.announcement.previous")} className={navBtn}>
                 <svg className="h-4 w-4 rtl:-scale-x-100" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2} strokeLinecap="round" strokeLinejoin="round"><path d="m15 18-6-6 6-6" /></svg>
               </button>
-              <span className="min-w-[2.25rem] text-center text-[11px] font-black text-black/60" dir="ltr">
+              <span className="min-w-[2.25rem] text-center text-[11px] font-black text-[#6C7193]" dir="ltr">
                 {safeIndex + 1} / {visible.length}
               </span>
               {/* بعدی — فلش رو به «پایان» */}
