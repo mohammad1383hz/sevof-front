@@ -2,7 +2,6 @@
 import React, { useState, useRef, useEffect } from "react";
 import { useLocation, useNavigate, useParams } from "react-router-dom";
 import { t, tMaybe } from "../i18n";
-import LanguageSwitcher from "./LanguageSwitcher";
 
 export type SidebarView = "info" | "articles" | "plans" | "support" | "product-seo" | "page-product-seo" | "past-articles";
 
@@ -637,10 +636,6 @@ const Sidebar: React.FC<SidebarProps> = ({
             <span>{t("layout.nav.support")}</span>
           </button>
 
-          {/* انتخاب زبان رابط کاربری */}
-          <div className="pt-1">
-            <LanguageSwitcher fullWidth openUp />
-          </div>
 
           {/* مقالات */}
           <button

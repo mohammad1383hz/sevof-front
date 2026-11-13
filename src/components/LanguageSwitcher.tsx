@@ -9,9 +9,11 @@ interface LanguageSwitcherProps {
   /** Stretch the button to the full width of its container. */
   fullWidth?: boolean;
   className?: string;
+  /** Small top-bar variant: globe + language code only (e.g. "EN"). */
+  compact?: boolean;
 }
 
-const LanguageSwitcher: React.FC<LanguageSwitcherProps> = ({ openUp = false, fullWidth = false, className = "" }) => {
+const LanguageSwitcher: React.FC<LanguageSwitcherProps> = ({ openUp = false, fullWidth = false, className = "", compact = false }) => {
   const lang = useLang();
   const current = getLanguageInfo(lang);
   const [open, setOpen] = useState(false);
@@ -45,12 +47,14 @@ const LanguageSwitcher: React.FC<LanguageSwitcherProps> = ({ openUp = false, ful
         aria-expanded={open}
         aria-label={t("common.language.label")}
         title={t("common.language.label")}
-        className={`flex items-center gap-2 rounded-xl border border-[#E4E5F0] bg-[#FAFAFE] px-3 py-2 text-xs font-bold text-[#0D0F23] transition hover:bg-[#F3F2FB] ${
+        className={`flex items-center rounded-xl border border-[#E4E5F0] text-xs font-bold text-[#0D0F23] transition hover:bg-[#F3F2FB] ${
+          compact ? "h-9 gap-1.5 bg-white/90 px-2.5 shadow-sm backdrop-blur-md sm:h-10" : "gap-2 bg-[#FAFAFE] px-3 py-2"
+        } ${
           fullWidth ? "w-full" : ""
         }`}
       >
         <Globe className="h-4 w-4 shrink-0 text-[#5B47FB]" />
-        <span className={fullWidth ? "flex-1 text-start" : ""}>{current.nativeName}</span>
+        <span className={fullWidth ? "flex-1 text-start" : ""}>{compact ? lang.toUpperCase() : current.nativeName}</span>
         <ChevronDown className={`h-3.5 w-3.5 shrink-0 text-[#9A9DB8] transition-transform ${open ? "rotate-180" : ""}`} />
       </button>
 

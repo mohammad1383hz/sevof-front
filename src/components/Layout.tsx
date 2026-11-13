@@ -14,6 +14,7 @@ import { ArticleChatDock } from "./article-generate/ArticleChatDock";
 import type { ChatTargetSelection } from "./article-generate/chatTarget";
 import type { Article, ArticleTargetRef } from "../types";
 import AnnouncementBanner from "./AnnouncementBanner";
+import LanguageSwitcher from "./LanguageSwitcher";
 // productArticleService برای لیست مقالات محصول (ProductArticleController@index)
 import {
   articleService,
@@ -762,6 +763,10 @@ const Layout: React.FC<LayoutProps> = ({
           />
         </div>
       )}
+      {/* Language picker in the top bar, just before the logout button. */}
+      <div className="fixed top-3 end-14 z-50 sm:end-16">
+        <LanguageSwitcher compact />
+      </div>
       <AnnouncementBanner desktopSidebarOpen={desktopSidebarOpen} siteId={siteId} />
 
       <Sidebar

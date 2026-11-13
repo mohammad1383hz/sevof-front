@@ -6,6 +6,12 @@
       "runtimeExecutable": "npx",
       "runtimeArgs": ["vite", "--port", "5173", "--strictPort"],
       "port": 5173
+    },
+    {
+      "name": "wp-plugin-test",
+      "runtimeExecutable": "npx",
+      "runtimeArgs": ["-y", "@wp-playground/cli@latest", "server", "--port=9400", "--mount-dir", "C:/Users/Mohammad/Desktop/sevof-wp/trunk", "/wordpress/wp-content/plugins/sevof-connector", "--blueprint=C:/Users/Mohammad/AppData/Local/Temp/claude/0d078f78ee60e234/5f74145c-ac64-41e2-9842-90f515ae5d04/scratchpad/blueprint.json"],
+      "port": 9400
     }
   ]
 }
