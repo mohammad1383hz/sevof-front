@@ -28,24 +28,24 @@ interface Props {
 /*  استایل‌های مشترک                                                    */
 /* ------------------------------------------------------------------ */
 
-const card = "rounded-2xl border border-[#DAD5C7] bg-white p-4 sm:p-6";
+const card = "rounded-2xl border border-[#E4E5F0] bg-white p-4 sm:p-6";
 
 const ghostBtn =
-  "rounded-lg border border-[#DAD5C7] px-3 py-1.5 text-xs font-bold text-[#1E2A28] hover:bg-[#DCEFEA]/40 disabled:opacity-40 sm:px-2.5 sm:py-1 sm:text-[11px]";
+  "rounded-lg border border-[#E4E5F0] px-3 py-1.5 text-xs font-bold text-[#0D0F23] hover:bg-[#EFEDFF]/40 disabled:opacity-40 sm:px-2.5 sm:py-1 sm:text-[11px]";
 const primaryBtn =
-  "rounded-xl bg-[#1E2A28] px-4 py-2 text-xs sm:py-1.5 font-bold text-white disabled:opacity-50";
+  "rounded-xl bg-[#0D0F23] px-4 py-2 text-xs sm:py-1.5 font-bold text-white disabled:opacity-50";
 const secondaryBtn =
-  "rounded-xl border border-[#DAD5C7] px-4 py-2 text-xs font-bold text-[#1E2A28] disabled:opacity-50 sm:py-1.5";
+  "rounded-xl border border-[#E4E5F0] px-4 py-2 text-xs font-bold text-[#0D0F23] disabled:opacity-50 sm:py-1.5";
 const inputCls =
-  "w-full rounded-xl border border-[#DAD5C7] bg-white p-3 text-base leading-7 text-[#1E2A28] outline-none sm:text-sm focus:border-[#1B6F63]";
+  "w-full rounded-xl border border-[#E4E5F0] bg-white p-3 text-base leading-7 text-[#0D0F23] outline-none sm:text-sm focus:border-[#5B47FB]";
 
 const CardTitle: React.FC<{ children: React.ReactNode; aside?: React.ReactNode }> = ({
   children,
   aside,
 }) => (
   <div className="mb-4 flex flex-wrap items-center justify-between gap-x-3 gap-y-2">
-    <h2 className="flex items-center gap-2 text-sm font-black text-[#1E2A28]">
-      <span className="h-4 w-1 rounded-full bg-[#1B6F63]" />
+    <h2 className="flex items-center gap-2 text-sm font-black text-[#0D0F23]">
+      <span className="h-4 w-1 rounded-full bg-[#5B47FB]" />
       {children}
     </h2>
     {aside}
@@ -133,7 +133,7 @@ const ProductShowcase: React.FC<{ product: ProductArticleProduct }> = ({ product
   );
 
   return (
-    <article className="group overflow-hidden rounded-3xl bg-gradient-to-bl rtl:bg-gradient-to-br from-[#F6F4EE] via-white to-[#DCEFEA]/50 ring-1 ring-[#DAD5C7]/70 sm:flex">
+    <article className="group overflow-hidden rounded-3xl bg-gradient-to-bl rtl:bg-gradient-to-br from-[#F6F6FB] via-white to-[#EFEDFF]/50 ring-1 ring-[#E4E5F0]/70 sm:flex">
       {/* تصویر */}
       <div className="relative flex items-center justify-center p-5 sm:w-[38%] sm:shrink-0 sm:p-6">
         {discount > 0 && (
@@ -154,11 +154,11 @@ const ProductShowcase: React.FC<{ product: ProductArticleProduct }> = ({ product
       <div className="flex flex-1 flex-col gap-4 p-5 sm:p-6 sm:ps-2">
         <div>
           {p.category && (
-            <p className="mb-1 text-[11px] font-bold text-[#1B6F63]">{p.category}</p>
+            <p className="mb-1 text-[11px] font-bold text-[#5B47FB]">{p.category}</p>
           )}
-          <h4 className="text-base font-black leading-8 text-[#1E2A28]">
+          <h4 className="text-base font-black leading-8 text-[#0D0F23]">
             {p.url ? (
-              <a {...linkProps} className="no-underline hover:text-[#1B6F63]">
+              <a {...linkProps} className="no-underline hover:text-[#5B47FB]">
                 {p.name ?? t("product.body.productNumber", { id: p.id })}
               </a>
             ) : (
@@ -169,9 +169,9 @@ const ProductShowcase: React.FC<{ product: ProductArticleProduct }> = ({ product
 
         {price && (
           <div className="flex flex-wrap items-baseline gap-x-3 gap-y-1">
-            <span className="text-xl font-black text-[#1B6F63]">{price}</span>
+            <span className="text-xl font-black text-[#5B47FB]">{price}</span>
             {discount > 0 && (
-              <span className="text-xs text-[#000000]/45 line-through">
+              <span className="text-xs text-[#0D0F23]/45 line-through">
                 {formatMoney(reg, p.currency)}
               </span>
             )}
@@ -190,22 +190,22 @@ const ProductShowcase: React.FC<{ product: ProductArticleProduct }> = ({ product
           <dl className="space-y-2 text-[13px] leading-6">
             {specs.map((s) => (
               <div key={s.label} className="flex items-baseline gap-2">
-                <dt className="shrink-0 text-[#000000]/55">{s.label}</dt>
-                <span aria-hidden className="min-w-3 flex-1 border-b border-dotted border-[#DAD5C7]" />
-                <dd className="max-w-[60%] text-start font-bold text-[#1E2A28]">{s.value}</dd>
+                <dt className="shrink-0 text-[#0D0F23]/55">{s.label}</dt>
+                <span aria-hidden className="min-w-3 flex-1 border-b border-dotted border-[#E4E5F0]" />
+                <dd className="max-w-[60%] text-start font-bold text-[#0D0F23]">{s.value}</dd>
               </div>
             ))}
           </dl>
         ) : (
           p.excerpt && (
-            <p className="line-clamp-3 text-[13px] leading-7 text-[#000000]/65">{p.excerpt}</p>
+            <p className="line-clamp-3 text-[13px] leading-7 text-[#0D0F23]/65">{p.excerpt}</p>
           )
         )}
 
         {p.url && (
           <a
             {...linkProps}
-            className="mt-auto inline-flex items-center justify-center gap-2 rounded-xl bg-[#1B6F63] px-6 py-3 text-sm font-black text-white no-underline transition-colors hover:bg-[#1E2A28] active:bg-[#1E2A28] sm:self-start"
+            className="mt-auto inline-flex items-center justify-center gap-2 rounded-xl bg-[#5B47FB] px-6 py-3 text-sm font-black text-white no-underline transition-colors hover:bg-[#0D0F23] active:bg-[#0D0F23] sm:self-start"
           >
             {t("product.body.viewProduct")}
             <span aria-hidden className="inline-block rtl:-scale-x-100">→</span>
@@ -304,10 +304,10 @@ const MetaCard: React.FC<{
     <div className={card}>
       <CardTitle
         aside={
-          <div className="flex flex-wrap items-center gap-2 text-[11px] text-[#000000]/60">
+          <div className="flex flex-wrap items-center gap-2 text-[11px] text-[#0D0F23]/60">
             {article.word_count ? <span>{t("article.words", { count: article.word_count })}</span> : null}
             {article.seo_score != null ? (
-              <span className="rounded-full bg-[#DCEFEA] px-2.5 py-0.5 font-bold text-[#1B6F63]">
+              <span className="rounded-full bg-[#EFEDFF] px-2.5 py-0.5 font-bold text-[#5B47FB]">
                 {t("product.body.seoScore", { score: article.seo_score })}
               </span>
             ) : null}
@@ -317,13 +317,13 @@ const MetaCard: React.FC<{
         {t("article.steps.meta")}
       </CardTitle>
 
-      <dl className="divide-y divide-[#DAD5C7]/70">
+      <dl className="divide-y divide-[#E4E5F0]/70">
         {META_FIELDS.map((f) => {
           const value = (article[f.key as keyof ProductArticle] as string | null) ?? "";
           return (
             <div key={f.key} className="py-3 first:pt-0 last:pb-0">
               <div className="mb-1 flex items-center justify-between">
-                <dt className="text-[11px] font-bold text-[#000000]/55">{f.label}</dt>
+                <dt className="text-[11px] font-bold text-[#0D0F23]/55">{f.label}</dt>
                 {editing !== f.key && (
                   <button className={ghostBtn} onClick={() => setEditing(f.key)}>
                     {t("analyze.idea.editShort")}
@@ -348,10 +348,10 @@ const MetaCard: React.FC<{
                 />
               ) : (
                 <dd
-                  className="break-words text-sm leading-7 text-[#1E2A28]"
+                  className="break-words text-sm leading-7 text-[#0D0F23]"
                   dir={f.key === "slug" ? "ltr" : undefined}
                 >
-                  {value || <span className="text-[#000000]/40">—</span>}
+                  {value || <span className="text-[#0D0F23]/40">—</span>}
                 </dd>
               )}
             </div>
@@ -362,9 +362,9 @@ const MetaCard: React.FC<{
           const value = article[f.key] ?? "";
           return (
             <div key={f.key} className="py-3 last:pb-0">
-              <dt className="mb-1 text-[11px] font-bold text-[#000000]/55">{f.label}</dt>
-              <dd className="break-words text-sm leading-7 text-[#1E2A28]">
-                {value || <span className="text-[#000000]/40">—</span>}
+              <dt className="mb-1 text-[11px] font-bold text-[#0D0F23]/55">{f.label}</dt>
+              <dd className="break-words text-sm leading-7 text-[#0D0F23]">
+                {value || <span className="text-[#0D0F23]/40">—</span>}
               </dd>
             </div>
           );
@@ -372,13 +372,13 @@ const MetaCard: React.FC<{
       </dl>
 
       {schemaText && (
-        <details className="group mt-3 rounded-xl border border-[#DAD5C7] bg-[#FBFAF6]">
-          <summary className="cursor-pointer select-none px-3 py-2.5 text-[11px] font-bold text-[#000000]/65">
+        <details className="group mt-3 rounded-xl border border-[#E4E5F0] bg-[#FAFAFE]">
+          <summary className="cursor-pointer select-none px-3 py-2.5 text-[11px] font-bold text-[#0D0F23]/65">
             {t("product.body.schema")}
           </summary>
           <pre
             dir="ltr"
-            className="max-h-72 overflow-auto border-t border-[#DAD5C7] p-3 text-start text-[11px] leading-5 text-[#1E2A28]"
+            className="max-h-72 overflow-auto border-t border-[#E4E5F0] p-3 text-start text-[11px] leading-5 text-[#0D0F23]"
           >
             {schemaText}
           </pre>
@@ -401,7 +401,7 @@ const markdownComponents: Components = {
       {...props}
       target="_blank"
       rel="noopener noreferrer"
-      className="font-bold text-[#1B6F63] underline decoration-[#1B6F63]/40 underline-offset-4 hover:decoration-[#1B6F63]"
+      className="font-bold text-[#5B47FB] underline decoration-[#5B47FB]/40 underline-offset-4 hover:decoration-[#5B47FB]"
     />
   ),
   table: ({ node, ...props }) => (
@@ -410,14 +410,14 @@ const markdownComponents: Components = {
     </div>
   ),
   th: ({ node, ...props }) => (
-    <th {...props} className="border border-[#DAD5C7] bg-[#DCEFEA]/40 p-2 text-start font-black" />
+    <th {...props} className="border border-[#E4E5F0] bg-[#EFEDFF]/40 p-2 text-start font-black" />
   ),
-  td: ({ node, ...props }) => <td {...props} className="border border-[#DAD5C7] p-2 align-top" />,
+  td: ({ node, ...props }) => <td {...props} className="border border-[#E4E5F0] p-2 align-top" />,
   img: ({ node, ...props }) => (
     <img
       {...props}
       loading="lazy"
-      className="mx-auto my-4 h-auto max-h-96 max-w-full rounded-xl border border-[#DAD5C7] object-contain"
+      className="mx-auto my-4 h-auto max-h-96 max-w-full rounded-xl border border-[#E4E5F0] object-contain"
     />
   ),
 };
@@ -448,8 +448,8 @@ const SectionCard: React.FC<{
 
   return (
     <div className={card}>
-      <div className="mb-4 flex flex-col gap-3 border-b border-[#DAD5C7]/70 pb-3 sm:flex-row sm:items-start sm:justify-between">
-        <h3 className="text-base font-black leading-8 text-[#1E2A28] sm:text-lg sm:leading-9">{section.heading}</h3>
+      <div className="mb-4 flex flex-col gap-3 border-b border-[#E4E5F0]/70 pb-3 sm:flex-row sm:items-start sm:justify-between">
+        <h3 className="text-base font-black leading-8 text-[#0D0F23] sm:text-lg sm:leading-9">{section.heading}</h3>
         {canAct && !editing && (
           <div className="flex shrink-0 gap-1.5 sm:pt-1.5">
             <button className={ghostBtn} onClick={() => setEditing(true)}>
@@ -485,7 +485,7 @@ const SectionCard: React.FC<{
           }}
         />
       ) : generating ? (
-        <div className="flex items-center gap-2 py-6 text-xs font-bold text-[#000000]/60">
+        <div className="flex items-center gap-2 py-6 text-xs font-bold text-[#0D0F23]/60">
           <Spinner className="h-4 w-4" />
           {section.content && !regenerating ? t("analyze.ideasBar.generating") : t("product.body.writingSection")}
         </div>
@@ -493,7 +493,7 @@ const SectionCard: React.FC<{
         <FaqAccordion items={faqItems} />
       ) : section.content ? (
         <div
-          className="prose prose-sm max-w-none break-words leading-8 text-[#1E2A28] sm:prose-base prose-headings:font-black"
+          className="prose prose-sm max-w-none break-words leading-8 text-[#0D0F23] sm:prose-base prose-headings:font-black"
           dir="auto"
         >
           <ReactMarkdown remarkPlugins={[remarkGfm]} components={markdownComponents}>
@@ -501,7 +501,7 @@ const SectionCard: React.FC<{
           </ReactMarkdown>
         </div>
       ) : (
-        <p className="py-4 text-xs text-[#000000]/40">{t("product.body.noContent")}</p>
+        <p className="py-4 text-xs text-[#0D0F23]/40">{t("product.body.noContent")}</p>
       )}
     </div>
   );
@@ -520,14 +520,14 @@ const FaqCard: React.FC<{
   if (!faq.length) return null;
 
   return (
-    <div className="overflow-hidden rounded-2xl border border-[#DAD5C7] bg-white">
-      <div className="flex items-center gap-3 border-b border-[#DAD5C7] bg-gradient-to-r rtl:bg-gradient-to-l from-[#FBFAF6] to-[#DCEFEA]/40 px-4 py-4 sm:px-5">
-        <span className="flex h-9 w-9 shrink-0 items-center justify-center rounded-xl bg-[#DCEFEA] text-base">
+    <div className="overflow-hidden rounded-2xl border border-[#E4E5F0] bg-white">
+      <div className="flex items-center gap-3 border-b border-[#E4E5F0] bg-gradient-to-r rtl:bg-gradient-to-l from-[#FAFAFE] to-[#EFEDFF]/40 px-4 py-4 sm:px-5">
+        <span className="flex h-9 w-9 shrink-0 items-center justify-center rounded-xl bg-[#EFEDFF] text-base">
           ❓
         </span>
         <div className="min-w-0">
-          <h3 className="text-sm font-black text-[#1E2A28]">{t("article.faq.title")}</h3>
-          <p className="text-[10px] font-bold text-[#000000]/50">{t("article.faq.count", { count: faq.length })}</p>
+          <h3 className="text-sm font-black text-[#0D0F23]">{t("article.faq.title")}</h3>
+          <p className="text-[10px] font-bold text-[#0D0F23]/50">{t("article.faq.count", { count: faq.length })}</p>
         </div>
       </div>
 

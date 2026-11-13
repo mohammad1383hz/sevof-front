@@ -56,11 +56,11 @@ const formatFa = (n: number) => formatNumber(n);
 /** عنوان یک بخش، با شماره‌ی مرحله برای جهت‌دهی بصری در یک فرم چندمرحله‌ای واقعی */
 const SectionHeading: React.FC<{ step: string; title: string; desc?: string }> = ({ step, title }) => (
   <div className="flex items-start gap-3 mb-3.5">
-    <span className="mt-0.5 flex h-6 w-6 shrink-0 items-center justify-center rounded-full bg-[#1B6F63] text-[11px] font-black text-white">
+    <span className="mt-0.5 flex h-6 w-6 shrink-0 items-center justify-center rounded-full bg-[#5B47FB] text-[11px] font-black text-white">
       {step}
     </span>
     <div>
-      <h3 className="text-sm font-black text-[#000000] leading-6">{title}</h3>
+      <h3 className="text-sm font-black text-[#0D0F23] leading-6">{title}</h3>
     </div>
   </div>
 );
@@ -71,13 +71,13 @@ const CreditBadge: React.FC<{ cost?: number; selected?: boolean }> = ({ cost, se
   return (
     <div
       className={`mt-2 pt-2 border-t border-dashed flex items-center justify-between gap-1 ${
-        selected ? "border-[#1B6F63]/30" : "border-[#DAD5C7]"
+        selected ? "border-[#5B47FB]/30" : "border-[#E4E5F0]"
       }`}
     >
-      <span className="text-[10px] text-[#000000]">{t("dashboard.settings.perImage")}</span>
+      <span className="text-[10px] text-[#0D0F23]">{t("dashboard.settings.perImage")}</span>
       <span
         className={`inline-flex items-center gap-1 rounded-full px-2 py-0.5 text-[10px] font-black ${
-          selected ? "bg-[#1B6F63] text-white" : "bg-[#EDE3CF] text-[#000000]"
+          selected ? "bg-[#5B47FB] text-white" : "bg-[#EDE3CF] text-[#0D0F23]"
         }`}
       >
         <svg className="w-2.5 h-2.5" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth={2}>
@@ -92,7 +92,7 @@ const CreditBadge: React.FC<{ cost?: number; selected?: boolean }> = ({ cost, se
 
 /** تیک کوچک برای گزینه‌ی انتخاب‌شده — یک بار تعریف، همه‌جا استفاده می‌شود */
 const SelectedCheck: React.FC = () => (
-  <span className="absolute top-2 end-2 h-4 w-4 rounded-full bg-[#1B6F63] flex items-center justify-center">
+  <span className="absolute top-2 end-2 h-4 w-4 rounded-full bg-[#5B47FB] flex items-center justify-center">
     <svg className="w-2.5 h-2.5 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
       <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={3} d="M4.5 12.75l6 6 9-13.5" />
     </svg>
@@ -100,7 +100,7 @@ const SelectedCheck: React.FC = () => (
 );
 
 const LockBadge: React.FC<{ label?: string }> = ({ label = t("layout.plan.pro") }) => (
-  <span className="absolute top-2 end-2 inline-flex items-center gap-1 text-[10px] font-bold text-[#000000] bg-[#EDE3CF] rounded-full px-2 py-0.5">
+  <span className="absolute top-2 end-2 inline-flex items-center gap-1 text-[10px] font-bold text-[#0D0F23] bg-[#EDE3CF] rounded-full px-2 py-0.5">
     <svg className="w-3 h-3" fill="none" stroke="currentColor" viewBox="0 0 24 24">
       <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.5} d="M16.5 10.5V6.75a4.5 4.5 0 10-9 0v3.75m-.75 11.25h10.5a2.25 2.25 0 002.25-2.25v-6.75a2.25 2.25 0 00-2.25-2.25H6.75a2.25 2.25 0 00-2.25 2.25v6.75a2.25 2.25 0 002.25 2.25z" />
     </svg>
@@ -121,16 +121,16 @@ const Stepper: React.FC<{
       type="button"
       disabled={disabled || value <= min}
       onClick={() => onChange(Math.max(min, value - 1))}
-      className="h-8 w-8 shrink-0 rounded-lg border border-[#DAD5C7] bg-[#FBFAF6] text-[#000000] font-black text-sm disabled:opacity-40 disabled:cursor-not-allowed hover:border-[#1B6F63]/40 hover:bg-[#DCEFEA]/40 transition-colors"
+      className="h-8 w-8 shrink-0 rounded-lg border border-[#E4E5F0] bg-[#FAFAFE] text-[#0D0F23] font-black text-sm disabled:opacity-40 disabled:cursor-not-allowed hover:border-[#5B47FB]/40 hover:bg-[#EFEDFF]/40 transition-colors"
     >
       −
     </button>
-    <span className="w-8 text-center text-sm font-black text-[#000000] tabular-nums">{formatFa(value)}</span>
+    <span className="w-8 text-center text-sm font-black text-[#0D0F23] tabular-nums">{formatFa(value)}</span>
     <button
       type="button"
       disabled={disabled || value >= max}
       onClick={() => onChange(Math.min(max, value + 1))}
-      className="h-8 w-8 shrink-0 rounded-lg border border-[#DAD5C7] bg-[#FBFAF6] text-[#000000] font-black text-sm disabled:opacity-40 disabled:cursor-not-allowed hover:border-[#1B6F63]/40 hover:bg-[#DCEFEA]/40 transition-colors"
+      className="h-8 w-8 shrink-0 rounded-lg border border-[#E4E5F0] bg-[#FAFAFE] text-[#0D0F23] font-black text-sm disabled:opacity-40 disabled:cursor-not-allowed hover:border-[#5B47FB]/40 hover:bg-[#EFEDFF]/40 transition-colors"
     >
       +
     </button>
@@ -151,12 +151,12 @@ const Chip: React.FC<{
     disabled={locked}
     title={title}
     onClick={onClick}
-    className={`rounded-xl border px-3 py-2 text-center text-xs font-bold text-[#000000] transition-all duration-150 ${
+    className={`rounded-xl border px-3 py-2 text-center text-xs font-bold text-[#0D0F23] transition-all duration-150 ${
       locked
-        ? "border-[#DAD5C7] bg-[#EFEDE6]/60 opacity-50 cursor-not-allowed"
+        ? "border-[#E4E5F0] bg-[#F3F2FB]/60 opacity-50 cursor-not-allowed"
         : active
-        ? "border-[#1B6F63] bg-[#DCEFEA] shadow-sm"
-        : "border-[#DAD5C7] bg-[#FBFAF6] hover:border-[#1B6F63]/40"
+        ? "border-[#5B47FB] bg-[#EFEDFF] shadow-sm"
+        : "border-[#E4E5F0] bg-[#FAFAFE] hover:border-[#5B47FB]/40"
     } ${className}`}
   >
     {children}
@@ -173,7 +173,7 @@ const MobileModelSelect: React.FC<{
   onLockedPick?: () => void;
 }> = ({ label, value, onChange, options, onLockedPick }) => (
   <div>
-    <label className="block text-[11px] font-bold text-[#000000] mb-1">{label}</label>
+    <label className="block text-[11px] font-bold text-[#0D0F23] mb-1">{label}</label>
     <select
       value={value}
       onChange={(e) => {
@@ -181,7 +181,7 @@ const MobileModelSelect: React.FC<{
         if (picked?.locked && onLockedPick) onLockedPick();
         else onChange(e.target.value);
       }}
-      className="w-full rounded-xl border border-[#DAD5C7] bg-[#FBFAF6] px-2.5 py-2 text-xs font-bold text-[#000000] focus:outline-none focus:border-[#1B6F63] focus:ring-2 focus:ring-[#1B6F63]/15 transition-all"
+      className="w-full rounded-xl border border-[#E4E5F0] bg-[#FAFAFE] px-2.5 py-2 text-xs font-bold text-[#0D0F23] focus:outline-none focus:border-[#5B47FB] focus:ring-2 focus:ring-[#5B47FB]/15 transition-all"
     >
       {options.map((o) => (
         <option key={o.id} value={o.id} disabled={o.locked && !onLockedPick}>
@@ -202,11 +202,11 @@ const ImageModelPreview: React.FC<{ icon?: string; label: string; cost?: number 
     {icon ? (
       <img src={icon} alt="" className="h-4 w-4 shrink-0 rounded object-contain" />
     ) : (
-      <span className="h-4 w-4 shrink-0 rounded-full bg-[#1B6F63]/15" />
+      <span className="h-4 w-4 shrink-0 rounded-full bg-[#5B47FB]/15" />
     )}
-    <span className="text-[10px] font-bold text-[#000000] truncate">{label}</span>
+    <span className="text-[10px] font-bold text-[#0D0F23] truncate">{label}</span>
     {cost !== undefined && (
-      <span className="ms-auto shrink-0 inline-flex items-center gap-0.5 rounded-full bg-[#1B6F63] px-1.5 py-0.5 text-[9px] font-black text-white">
+      <span className="ms-auto shrink-0 inline-flex items-center gap-0.5 rounded-full bg-[#5B47FB] px-1.5 py-0.5 text-[9px] font-black text-white">
         {formatFa(cost)} credits
       </span>
     )}
@@ -298,21 +298,21 @@ const ModelSelectModal: React.FC<ModelSelectModalProps> = ({ open, isFreePlan, o
       onClick={onClose}
     >
       <div
-        className="flex w-full max-w-3xl max-h-[88vh] flex-col overflow-hidden rounded-3xl bg-[#FBFAF6] border border-[#DAD5C7] shadow-2xl animate-in fade-in zoom-in-95 duration-200"
+        className="flex w-full max-w-3xl max-h-[88vh] flex-col overflow-hidden rounded-3xl bg-[#FAFAFE] border border-[#E4E5F0] shadow-2xl animate-in fade-in zoom-in-95 duration-200"
         onClick={(e) => e.stopPropagation()}
       >
         {/* ================= هدر ثابت ================= */}
-        <div className="shrink-0 flex items-start justify-between gap-3 px-4 sm:px-6 pt-5 pb-4 border-b border-[#DAD5C7]">
+        <div className="shrink-0 flex items-start justify-between gap-3 px-4 sm:px-6 pt-5 pb-4 border-b border-[#E4E5F0]">
           <div>
-            <h2 className="text-base font-black text-[#000000]">{t("article.modal.title")}</h2>
-            <p className="text-[11px] text-[#000000] mt-1 leading-5">
+            <h2 className="text-base font-black text-[#0D0F23]">{t("article.modal.title")}</h2>
+            <p className="text-[11px] text-[#0D0F23] mt-1 leading-5">
               {t("article.modal.subtitle")}
             </p>
           </div>
           <button
             type="button"
             onClick={onClose}
-            className="shrink-0 h-8 w-8 rounded-full flex items-center justify-center text-[#000000] hover:bg-black/5 transition-colors"
+            className="shrink-0 h-8 w-8 rounded-full flex items-center justify-center text-[#0D0F23] hover:bg-black/5 transition-colors"
             aria-label={t("common.actions.close")}
           >
             ✕
@@ -361,31 +361,31 @@ const ModelSelectModal: React.FC<ModelSelectModalProps> = ({ open, isFreePlan, o
                     title={m.description}
                     className={`relative text-start rounded-xl border px-3 py-2 transition-all duration-200 ${
                       locked
-                        ? "border-[#DAD5C7] bg-[#EFEDE6]/60 hover:border-[#E9C46A]"
+                        ? "border-[#E4E5F0] bg-[#F3F2FB]/60 hover:border-[#E9C46A]"
                         : isSelected
-                        ? "border-[#1B6F63] bg-[#DCEFEA] shadow-sm shadow-[#1B6F63]/15"
-                        : "border-[#DAD5C7] bg-[#FBFAF6] hover:border-[#1B6F63]/40 hover:bg-[#DCEFEA]/40"
+                        ? "border-[#5B47FB] bg-[#EFEDFF] shadow-sm shadow-[#5B47FB]/15"
+                        : "border-[#E4E5F0] bg-[#FAFAFE] hover:border-[#5B47FB]/40 hover:bg-[#EFEDFF]/40"
                     }`}
                   >
                     <div className="flex items-center justify-between gap-2">
-                      <p className="text-xs font-black text-[#000000] truncate">{m.label}</p>
+                      <p className="text-xs font-black text-[#0D0F23] truncate">{m.label}</p>
                       {locked && <LockBadge label={t("layout.plan.pro")} />}
                       {!locked && isSelected && (
-                        <span className="shrink-0 h-4 w-4 rounded-full bg-[#1B6F63] flex items-center justify-center">
+                        <span className="shrink-0 h-4 w-4 rounded-full bg-[#5B47FB] flex items-center justify-center">
                           <svg className="w-2.5 h-2.5 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                             <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={3} d="M4.5 12.75l6 6 9-13.5" />
                           </svg>
                         </span>
                       )}
                     </div>
-                    {m.description && <p className="text-[10px] text-[#000000] leading-4 mt-0.5 truncate">{m.description}</p>}
+                    {m.description && <p className="text-[10px] text-[#0D0F23] leading-4 mt-0.5 truncate">{m.description}</p>}
                   </button>
                 );
               })}
             </div>
           </section>
 
-          <div className="h-px bg-[#DAD5C7]" />
+          <div className="h-px bg-[#E4E5F0]" />
 
           {/* ── ۲. تصویر مقاله: مدل، تعداد و بخش‌بندی ── */}
 {/* ── ۲. تصویر مقاله: مدل، تعداد و بخش‌بندی ── */}
@@ -409,20 +409,20 @@ const ModelSelectModal: React.FC<ModelSelectModalProps> = ({ open, isFreePlan, o
                     onClick={() => setSelectedImageModel(m.id)}
                     className={`relative text-start rounded-2xl border p-2 transition-all duration-200 ${
                       locked
-                        ? "border-[#DAD5C7] bg-[#EFEDE6]/60 opacity-60 cursor-not-allowed"
+                        ? "border-[#E4E5F0] bg-[#F3F2FB]/60 opacity-60 cursor-not-allowed"
                         : isSelected
-                        ? "border-[#1B6F63] bg-[#DCEFEA] shadow-md shadow-[#1B6F63]/15"
-                        : "border-[#DAD5C7] bg-[#FBFAF6] hover:border-[#1B6F63]/40 hover:bg-[#DCEFEA]/40"
+                        ? "border-[#5B47FB] bg-[#EFEDFF] shadow-md shadow-[#5B47FB]/15"
+                        : "border-[#E4E5F0] bg-[#FAFAFE] hover:border-[#5B47FB]/40 hover:bg-[#EFEDFF]/40"
                     }`}
                   >
                     {locked && <LockBadge label={m.badge ?? t("layout.plan.pro")} />}
                     {!locked && isSelected && <SelectedCheck />}
                     <div className="flex items-center gap-1.5 mb-0.5">
                       {m.icon && <img src={m.icon} alt="" className="h-3.5 w-3.5 shrink-0 rounded object-contain" />}
-                      <p className="text-xs font-black text-[#000000]">{m.label}</p>
+                      <p className="text-xs font-black text-[#0D0F23]">{m.label}</p>
                     </div>
                     {m.description && (
-                      <p className="text-[10px] text-[#000000] leading-3.5 line-clamp-1">{m.description}</p>
+                      <p className="text-[10px] text-[#0D0F23] leading-3.5 line-clamp-1">{m.description}</p>
                     )}
                     <CreditBadge cost={IMAGE_CREDIT_COST[m.id]} selected={!locked && isSelected} />
                   </button>
@@ -436,10 +436,10 @@ const ModelSelectModal: React.FC<ModelSelectModalProps> = ({ open, isFreePlan, o
 
             {/* تعداد تصویر + بازه‌ی بخش‌های مقاله، کنار هم */}
             <div className="grid grid-cols-1 sm:grid-cols-2 gap-3">
-              <div className="rounded-2xl border border-[#DAD5C7] bg-white/60 px-3 py-2.5">
+              <div className="rounded-2xl border border-[#E4E5F0] bg-white/60 px-3 py-2.5">
                 <div className="flex items-center justify-between mb-1.5 gap-2">
-                  <p className="text-xs font-bold text-[#000000]">{t("article.modal.imageCount")}</p>
-                  <span className="inline-flex items-center gap-1 text-[10px] font-black text-[#000000] bg-[#EDE3CF] rounded-full px-2 py-0.5">
+                  <p className="text-xs font-bold text-[#0D0F23]">{t("article.modal.imageCount")}</p>
+                  <span className="inline-flex items-center gap-1 text-[10px] font-black text-[#0D0F23] bg-[#EDE3CF] rounded-full px-2 py-0.5">
                     <svg className="w-2.5 h-2.5" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth={2}>
                       <circle cx="12" cy="12" r="9" />
                       <path strokeLinecap="round" strokeLinejoin="round" d="M12 7v10M9.5 9.5h3.75a1.75 1.75 0 010 3.5h-2.5a1.75 1.75 0 000 3.5H14.5" />
@@ -452,17 +452,17 @@ const ModelSelectModal: React.FC<ModelSelectModalProps> = ({ open, isFreePlan, o
                   <button
                     type="button"
                     onClick={() => navigate("/subscription")}
-                    className="mt-2 w-full rounded-xl bg-[#EDE3CF] border border-[#DDD0AE] px-3 py-1.5 text-[11px] font-bold text-[#000000] hover:bg-[#E6DABD] transition-colors"
+                    className="mt-2 w-full rounded-xl bg-[#EDE3CF] border border-[#DDD0AE] px-3 py-1.5 text-[11px] font-bold text-[#0D0F23] hover:bg-[#E6DABD] transition-colors"
                   >
                     {t("article.modal.upToImages", { count: MAX_IMAGE_COUNT })} ↗
                   </button>
                 ) : (
-                  <p className="mt-1 text-[10px] text-[#000000]">{t("article.modal.firstImage")}</p>
+                  <p className="mt-1 text-[10px] text-[#0D0F23]">{t("article.modal.firstImage")}</p>
                 )}
               </div>
 
-              <div className="rounded-2xl border border-[#DAD5C7] bg-white/60 px-3 py-2.5">
-                <p className="text-xs font-bold text-[#000000] mb-1.5">{t("article.modal.sectionCount")}</p>
+              <div className="rounded-2xl border border-[#E4E5F0] bg-white/60 px-3 py-2.5">
+                <p className="text-xs font-bold text-[#0D0F23] mb-1.5">{t("article.modal.sectionCount")}</p>
                 <div className="grid grid-cols-3 gap-1.5">
                   {SECTION_RANGES.map((r) => {
                     const locked = r.id !== "low" && isFreePlan;
@@ -477,7 +477,7 @@ const ModelSelectModal: React.FC<ModelSelectModalProps> = ({ open, isFreePlan, o
                         <span className="flex items-center justify-center gap-1">
                           {r.label}
                           {locked && (
-                            <span className="inline-flex items-center rounded-full bg-[#EDE3CF] px-1.5 py-0.5 text-[9px] font-black text-[#000000]">
+                            <span className="inline-flex items-center rounded-full bg-[#EDE3CF] px-1.5 py-0.5 text-[9px] font-black text-[#0D0F23]">
                               {t("layout.plan.pro")}
                             </span>
                           )}
@@ -486,7 +486,7 @@ const ModelSelectModal: React.FC<ModelSelectModalProps> = ({ open, isFreePlan, o
                     );
                   })}
                 </div>
-                <p className="mt-1.5 text-[10px] text-[#000000]">
+                <p className="mt-1.5 text-[10px] text-[#0D0F23]">
                   {t("article.modal.sectionRange", { min: selectedSectionRange.min, max: selectedSectionRange.max })}
                 </p>
               </div>
@@ -495,23 +495,23 @@ const ModelSelectModal: React.FC<ModelSelectModalProps> = ({ open, isFreePlan, o
 
 
           {/* ── ۳. تنظیمات پیشرفته: سبک تصویر + پرامپت متن + پرامپت تصویر ── */}
-          <section className="rounded-2xl border border-[#DAD5C7] bg-white/60">
+          <section className="rounded-2xl border border-[#E4E5F0] bg-white/60">
             <button
               type="button"
               onClick={() => setAdvancedOpen((v) => !v)}
               className="flex w-full items-center justify-between gap-2 px-4 py-3.5"
             >
               <div className="flex items-start gap-3 text-start">
-                <span className="mt-0.5 flex h-6 w-6 shrink-0 items-center justify-center rounded-full bg-[#1B6F63] text-[11px] font-black text-white">
+                <span className="mt-0.5 flex h-6 w-6 shrink-0 items-center justify-center rounded-full bg-[#5B47FB] text-[11px] font-black text-white">
                   3
                 </span>
                 <div>
-                  <h3 className="text-sm font-black text-[#000000]">{t("article.modal.advanced")}</h3>
-                  <p className="text-[11px] text-[#000000] mt-0.5">{t("article.modal.advancedHint")}</p>
+                  <h3 className="text-sm font-black text-[#0D0F23]">{t("article.modal.advanced")}</h3>
+                  <p className="text-[11px] text-[#0D0F23] mt-0.5">{t("article.modal.advancedHint")}</p>
                 </div>
               </div>
               <svg
-                className={`h-4 w-4 shrink-0 text-[#000000] transition-transform duration-150 ${advancedOpen ? "rotate-180" : ""}`}
+                className={`h-4 w-4 shrink-0 text-[#0D0F23] transition-transform duration-150 ${advancedOpen ? "rotate-180" : ""}`}
                 viewBox="0 0 24 24"
                 fill="none"
                 stroke="currentColor"
@@ -527,7 +527,7 @@ const ModelSelectModal: React.FC<ModelSelectModalProps> = ({ open, isFreePlan, o
               <div className="px-4 pb-4 space-y-4">
                 {/* سبک تصویر */}
                 <div>
-                  <p className="text-xs font-bold text-[#000000] mb-1.5">{t("article.modal.imageStyle")}</p>
+                  <p className="text-xs font-bold text-[#0D0F23] mb-1.5">{t("article.modal.imageStyle")}</p>
                   <div className="flex flex-wrap gap-1.5">
                     {IMAGE_STYLES.map((s) => {
                       const isInfographic = s.id === "infographic";
@@ -550,8 +550,8 @@ const ModelSelectModal: React.FC<ModelSelectModalProps> = ({ open, isFreePlan, o
                 <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
                   <div>
                     <div className="flex items-center justify-between mb-1.5 gap-2">
-                      <label className="text-xs font-bold text-[#000000]">{t("dashboard.settings.articlePrompt")}</label>
-                      <span className="text-[10px] text-[#000000] shrink-0">
+                      <label className="text-xs font-bold text-[#0D0F23]">{t("dashboard.settings.articlePrompt")}</label>
+                      <span className="text-[10px] text-[#0D0F23] shrink-0">
                         {formatFa(articleUserPrompt.length)}/{formatFa(ARTICLE_USER_PROMPT_MAX)}
                       </span>
                     </div>
@@ -561,15 +561,15 @@ const ModelSelectModal: React.FC<ModelSelectModalProps> = ({ open, isFreePlan, o
                       maxLength={ARTICLE_USER_PROMPT_MAX}
                       rows={4}
                       placeholder={t("article.modal.articlePromptPlaceholder")}
-                      className="w-full resize-none rounded-2xl border border-[#DAD5C7] bg-[#FBFAF6] px-3.5 py-2.5 text-xs leading-6 text-[#000000] placeholder:text-[#000000]/35 focus:outline-none focus:border-[#1B6F63] focus:ring-2 focus:ring-[#1B6F63]/15 transition-all"
+                      className="w-full resize-none rounded-2xl border border-[#E4E5F0] bg-[#FAFAFE] px-3.5 py-2.5 text-xs leading-6 text-[#0D0F23] placeholder:text-[#0D0F23]/35 focus:outline-none focus:border-[#5B47FB] focus:ring-2 focus:ring-[#5B47FB]/15 transition-all"
                     />
-                    <p className="text-[10px] text-[#000000] mt-1.5">{t("dashboard.settings.articlePromptHint")}</p>
+                    <p className="text-[10px] text-[#0D0F23] mt-1.5">{t("dashboard.settings.articlePromptHint")}</p>
                   </div>
 
                   <div>
                     <div className="flex items-center justify-between mb-1.5 gap-2">
-                      <label className="text-xs font-bold text-[#000000]">{t("dashboard.settings.imagePrompt")}</label>
-                      <span className="text-[10px] text-[#000000] shrink-0">
+                      <label className="text-xs font-bold text-[#0D0F23]">{t("dashboard.settings.imagePrompt")}</label>
+                      <span className="text-[10px] text-[#0D0F23] shrink-0">
                         {formatFa(imageUserPrompt.length)}/{formatFa(IMAGE_USER_PROMPT_MAX)}
                       </span>
                     </div>
@@ -579,9 +579,9 @@ const ModelSelectModal: React.FC<ModelSelectModalProps> = ({ open, isFreePlan, o
                       maxLength={IMAGE_USER_PROMPT_MAX}
                       rows={4}
                       placeholder={t("article.modal.imagePromptPlaceholder")}
-                      className="w-full resize-none rounded-2xl border border-[#DAD5C7] bg-[#FBFAF6] px-3.5 py-2.5 text-xs leading-6 text-[#000000] placeholder:text-[#000000]/35 focus:outline-none focus:border-[#1B6F63] focus:ring-2 focus:ring-[#1B6F63]/15 transition-all"
+                      className="w-full resize-none rounded-2xl border border-[#E4E5F0] bg-[#FAFAFE] px-3.5 py-2.5 text-xs leading-6 text-[#0D0F23] placeholder:text-[#0D0F23]/35 focus:outline-none focus:border-[#5B47FB] focus:ring-2 focus:ring-[#5B47FB]/15 transition-all"
                     />
-                    <p className="text-[10px] text-[#000000] mt-1.5">{t("article.modal.imagePromptHint")}</p>
+                    <p className="text-[10px] text-[#0D0F23] mt-1.5">{t("article.modal.imagePromptHint")}</p>
                   </div>
                 </div>
               </div>
@@ -590,8 +590,8 @@ const ModelSelectModal: React.FC<ModelSelectModalProps> = ({ open, isFreePlan, o
         </div>
 
         {/* ================= فوتر ثابت ================= */}
-        <div className="shrink-0 flex items-center justify-between gap-3 px-4 sm:px-6 py-4 border-t border-[#DAD5C7] bg-[#FBFAF6]">
-          <button type="button" onClick={onClose} className="text-xs font-bold text-[#000000] px-3 py-2.5 hover:opacity-70">
+        <div className="shrink-0 flex items-center justify-between gap-3 px-4 sm:px-6 py-4 border-t border-[#E4E5F0] bg-[#FAFAFE]">
+          <button type="button" onClick={onClose} className="text-xs font-bold text-[#0D0F23] px-3 py-2.5 hover:opacity-70">
             {t("common.actions.cancel")}
           </button>
           <button
@@ -608,7 +608,7 @@ const ModelSelectModal: React.FC<ModelSelectModalProps> = ({ open, isFreePlan, o
                 selectedSectionRange.max,
               );
             }}
-            className="rounded-2xl bg-gradient-to-r rtl:bg-gradient-to-l from-[#1B6F63] to-[#14564C] text-white text-sm font-bold px-6 py-2.5 hover:from-[#1F8073] hover:to-[#1B6F63] transition-all shadow-lg shadow-[#1B6F63]/25"
+            className="rounded-2xl bg-gradient-to-r rtl:bg-gradient-to-l from-[#5B47FB] to-[#4935E0] text-white text-sm font-bold px-6 py-2.5 hover:from-[#6C5BFF] hover:to-[#5B47FB] transition-all shadow-lg shadow-[#5B47FB]/25"
           >
             {t("article.modal.start")}
           </button>

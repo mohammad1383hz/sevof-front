@@ -151,8 +151,8 @@ const OtpInput: React.FC<OtpInputProps> = ({
         const tone = hasError
           ? "border-rose-400 bg-rose-50 text-rose-700 focus:border-rose-500 focus:ring-rose-200"
           : filled
-          ? "border-[#1B6F63]/60 bg-[#CBE0DA]/60 text-[#14564C] focus:border-[#1B6F63] focus:ring-[#1B6F63]/20"
-          : "border-[#DAD5C7] bg-[#FBFAF6] text-[#1E2A28] focus:border-[#1B6F63] focus:ring-[#1B6F63]/20";
+          ? "border-[#5B47FB]/60 bg-[#D9D4FF]/60 text-[#4935E0] focus:border-[#5B47FB] focus:ring-[#5B47FB]/20"
+          : "border-[#E4E5F0] bg-[#FAFAFE] text-[#0D0F23] focus:border-[#5B47FB] focus:ring-[#5B47FB]/20";
 
         return (
           <input
@@ -171,7 +171,7 @@ const OtpInput: React.FC<OtpInputProps> = ({
             onPaste={handlePaste}
             onFocus={(e) => handleFocus(i, e)}
             onClick={(e) => placeCaretAtEnd(e.currentTarget)}
-            className={`h-12 min-w-0 max-w-[52px] flex-1 rounded-xl border-2 text-center text-xl font-bold shadow-sm outline-none transition-[transform,box-shadow,border-color,background-color] duration-150 focus:ring-4 focus:-translate-y-0.5 motion-reduce:transition-none motion-reduce:focus:translate-y-0 sm:h-14 sm:text-2xl caret-[#1B6F63] selection:bg-transparent read-only:cursor-not-allowed read-only:opacity-70 ${tone}`}
+            className={`h-12 min-w-0 max-w-[52px] flex-1 rounded-xl border-2 text-center text-xl font-bold shadow-sm outline-none transition-[transform,box-shadow,border-color,background-color] duration-150 focus:ring-4 focus:-translate-y-0.5 motion-reduce:transition-none motion-reduce:focus:translate-y-0 sm:h-14 sm:text-2xl caret-[#5B47FB] selection:bg-transparent read-only:cursor-not-allowed read-only:opacity-70 ${tone}`}
           />
         );
       })}

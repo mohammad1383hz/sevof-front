@@ -107,10 +107,10 @@ export function FaqAccordion<T extends FaqAccordionBaseItem>({
             onDragStart={(e) => onDragStart?.(index, item, e)}
             className={`rounded-xl border transition-colors ${
               isSelected
-                ? "border-[#1B6F63]/50 bg-[#DCEFEA]/40"
+                ? "border-[#5B47FB]/50 bg-[#EFEDFF]/40"
                 : isOpen
-                ? "border-[#DAD5C7] bg-[#FBFAF6]"
-                : "border-transparent hover:bg-[#FBFAF6]"
+                ? "border-[#E4E5F0] bg-[#FAFAFE]"
+                : "border-transparent hover:bg-[#FAFAFE]"
             }`}
           >
             {/* سرِ آیتم — همیشه قابل کلیک برای باز/بسته کردن */}
@@ -121,14 +121,14 @@ export function FaqAccordion<T extends FaqAccordionBaseItem>({
             >
               <span
                 className={`flex h-6 w-6 shrink-0 items-center justify-center rounded-full text-[10px] font-black transition-colors ${
-                  isSelected || isOpen ? "bg-[#1B6F63] text-white" : "bg-[#EFEDE6] text-[#1E2A28]"
+                  isSelected || isOpen ? "bg-[#5B47FB] text-white" : "bg-[#F3F2FB] text-[#0D0F23]"
                 }`}
               >
                 {faIndex(index + 1)}
               </span>
-              <span className="min-w-0 flex-1 truncate text-xs font-bold text-[#1E2A28]">{item.question}</span>
+              <span className="min-w-0 flex-1 truncate text-xs font-bold text-[#0D0F23]">{item.question}</span>
               <svg
-                className={`h-3.5 w-3.5 shrink-0 text-[#000000]/40 transition-transform duration-200 ${
+                className={`h-3.5 w-3.5 shrink-0 text-[#0D0F23]/40 transition-transform duration-200 ${
                   isOpen ? "rotate-180" : ""
                 }`}
                 viewBox="0 0 20 20"
@@ -151,14 +151,14 @@ export function FaqAccordion<T extends FaqAccordionBaseItem>({
                       value={draft.question}
                       onChange={(e) => setDraft((d) => ({ ...d, question: e.target.value }))}
                       placeholder={t("article.faq.question")}
-                      className="w-full rounded-lg border border-[#DAD5C7] bg-white px-3 py-2 text-xs focus:border-[#1B6F63] focus:outline-none"
+                      className="w-full rounded-lg border border-[#E4E5F0] bg-white px-3 py-2 text-xs focus:border-[#5B47FB] focus:outline-none"
                     />
                     <textarea
                       value={draft.answer}
                       onChange={(e) => setDraft((d) => ({ ...d, answer: e.target.value }))}
                       rows={3}
                       placeholder={t("article.faq.answer")}
-                      className="w-full rounded-lg border border-[#DAD5C7] bg-white px-3 py-2 text-xs leading-6 focus:border-[#1B6F63] focus:outline-none"
+                      className="w-full rounded-lg border border-[#E4E5F0] bg-white px-3 py-2 text-xs leading-6 focus:border-[#5B47FB] focus:outline-none"
                     />
                     {error && <p className="text-[10px] font-bold text-[#B3453A]">{error}</p>}
                     <div className="flex justify-end gap-2 pt-0.5">
@@ -166,7 +166,7 @@ export function FaqAccordion<T extends FaqAccordionBaseItem>({
                         type="button"
                         onClick={() => setEditingIndex(null)}
                         disabled={saving}
-                        className="rounded-lg px-3 py-1.5 text-[11px] font-bold text-[#000000]/60 hover:bg-[#EFEDE6]"
+                        className="rounded-lg px-3 py-1.5 text-[11px] font-bold text-[#0D0F23]/60 hover:bg-[#F3F2FB]"
                       >
                         {t("common.actions.cancel")}
                       </button>
@@ -174,7 +174,7 @@ export function FaqAccordion<T extends FaqAccordionBaseItem>({
                         type="button"
                         onClick={() => save(index)}
                         disabled={saving}
-                        className="inline-flex items-center gap-1.5 rounded-lg bg-[#1B6F63] px-3.5 py-1.5 text-[11px] font-bold text-white hover:bg-[#14564C] disabled:opacity-50"
+                        className="inline-flex items-center gap-1.5 rounded-lg bg-[#5B47FB] px-3.5 py-1.5 text-[11px] font-bold text-white hover:bg-[#4935E0] disabled:opacity-50"
                       >
                         {saving ? <Spinner className="h-3 w-3 text-white" /> : t("article.actions.save")}
                       </button>
@@ -182,14 +182,14 @@ export function FaqAccordion<T extends FaqAccordionBaseItem>({
                   </div>
                 ) : (
                   <>
-                    <p className="whitespace-pre-line text-xs leading-7 text-[#000000]/80">{item.answer}</p>
+                    <p className="whitespace-pre-line text-xs leading-7 text-[#0D0F23]/80">{item.answer}</p>
                     {(chatEnabled || editable) && (
                       <div className="mt-2 flex items-center gap-1">
                         {chatEnabled && (
                           <button
                             type="button"
                             onClick={() => onSelect?.(index, item)}
-                            className="rounded-lg px-2 py-1 text-[10px] font-bold text-[#1B6F63] hover:bg-[#DCEFEA]"
+                            className="rounded-lg px-2 py-1 text-[10px] font-bold text-[#5B47FB] hover:bg-[#EFEDFF]"
                           >
                             💬 {t("article.actions.chat")}
                           </button>
@@ -198,7 +198,7 @@ export function FaqAccordion<T extends FaqAccordionBaseItem>({
                           <button
                             type="button"
                             onClick={() => startEdit(index, item)}
-                            className="rounded-lg px-2 py-1 text-[10px] font-bold text-[#000000]/60 hover:bg-[#EFEDE6]"
+                            className="rounded-lg px-2 py-1 text-[10px] font-bold text-[#0D0F23]/60 hover:bg-[#F3F2FB]"
                           >
                             ✏️ {t("analyze.idea.editShort")}
                           </button>
@@ -289,15 +289,15 @@ export const FaqCard: React.FC<FaqCardProps> = ({ siteId, article, selectedTarge
   };
 
   return (
-    <div className="overflow-hidden rounded-2xl border border-[#DAD5C7] bg-white">
+    <div className="overflow-hidden rounded-2xl border border-[#E4E5F0] bg-white">
       {/* هدر کارت */}
-      <div className="flex items-center gap-3 border-b border-[#DAD5C7] bg-gradient-to-r rtl:bg-gradient-to-l from-[#FBFAF6] to-[#DCEFEA]/40 px-5 py-4">
-        <span className="flex h-9 w-9 shrink-0 items-center justify-center rounded-xl bg-[#DCEFEA] text-base">
+      <div className="flex items-center gap-3 border-b border-[#E4E5F0] bg-gradient-to-r rtl:bg-gradient-to-l from-[#FAFAFE] to-[#EFEDFF]/40 px-5 py-4">
+        <span className="flex h-9 w-9 shrink-0 items-center justify-center rounded-xl bg-[#EFEDFF] text-base">
           ❓
         </span>
         <div className="min-w-0">
-          <h3 className="text-sm font-black text-[#1E2A28]">{t("article.faq.title")}</h3>
-          <p className="text-[10px] font-bold text-[#000000]/50">{t("article.faq.count", { count: faq.length })}</p>
+          <h3 className="text-sm font-black text-[#0D0F23]">{t("article.faq.title")}</h3>
+          <p className="text-[10px] font-bold text-[#0D0F23]/50">{t("article.faq.count", { count: faq.length })}</p>
         </div>
       </div>
 

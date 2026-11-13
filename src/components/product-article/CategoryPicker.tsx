@@ -317,8 +317,8 @@ const CategoryPicker: React.FC<Props> = ({ categories, value, onChange, loading 
               aria-label={t("product.category.select")}
               className={
                 mobile
-                  ? "absolute inset-x-0 bottom-0 flex max-h-[80vh] flex-col rounded-t-3xl border border-[#DAD5C7] bg-white pb-[env(safe-area-inset-bottom)] shadow-2xl"
-                  : "absolute flex flex-col overflow-hidden rounded-2xl border border-[#DAD5C7] bg-white shadow-2xl"
+                  ? "absolute inset-x-0 bottom-0 flex max-h-[80vh] flex-col rounded-t-3xl border border-[#E4E5F0] bg-white pb-[env(safe-area-inset-bottom)] shadow-2xl"
+                  : "absolute flex flex-col overflow-hidden rounded-2xl border border-[#E4E5F0] bg-white shadow-2xl"
               }
               style={
                 mobile
@@ -328,12 +328,12 @@ const CategoryPicker: React.FC<Props> = ({ categories, value, onChange, loading 
             >
               {mobile && (
                 <div className="flex items-center justify-between px-4 pt-3">
-                  <p className="text-sm font-black text-[#1E2A28]">{t("product.category.select")}</p>
+                  <p className="text-sm font-black text-[#0D0F23]">{t("product.category.select")}</p>
                   <button
                     type="button"
                     onClick={() => setOpen(false)}
                     aria-label={t("common.actions.close")}
-                    className="flex h-9 w-9 items-center justify-center rounded-full text-[#65716B] hover:bg-[#EFEDE6]"
+                    className="flex h-9 w-9 items-center justify-center rounded-full text-[#6C7193] hover:bg-[#F3F2FB]"
                   >
                     <Icon d={ICONS.x} className="h-5 w-5" />
                   </button>
@@ -341,12 +341,12 @@ const CategoryPicker: React.FC<Props> = ({ categories, value, onChange, loading 
               )}
 
               {/* جستجوی دسته */}
-              <div className="shrink-0 border-b border-[#EFEDE6] p-2.5">
+              <div className="shrink-0 border-b border-[#F3F2FB] p-2.5">
                 <label className="relative block">
                   <span className="sr-only">{t("product.category.search")}</span>
                   <Icon
                     d={ICONS.search}
-                    className="pointer-events-none absolute start-3 top-1/2 h-4 w-4 -translate-y-1/2 text-[#9BA69F]"
+                    className="pointer-events-none absolute start-3 top-1/2 h-4 w-4 -translate-y-1/2 text-[#9A9DB8]"
                   />
                   <input
                     ref={inputRef}
@@ -361,7 +361,7 @@ const CategoryPicker: React.FC<Props> = ({ categories, value, onChange, loading 
                     aria-expanded
                     aria-controls={`${uid}-list`}
                     aria-activedescendant={`${uid}-opt-${active}`}
-                    className="h-10 w-full rounded-xl border border-[#DAD5C7] bg-[#FBFAF6] pe-9 ps-9 text-base text-[#17231E] outline-none transition placeholder:text-[#9BA69F] focus:border-[#1B6F63]/60 focus:ring-4 focus:ring-[#1B6F63]/10 sm:text-sm"
+                    className="h-10 w-full rounded-xl border border-[#E4E5F0] bg-[#FAFAFE] pe-9 ps-9 text-base text-[#0A0B1E] outline-none transition placeholder:text-[#9A9DB8] focus:border-[#5B47FB]/60 focus:ring-4 focus:ring-[#5B47FB]/10 sm:text-sm"
                   />
                   {query && (
                     <button
@@ -371,21 +371,21 @@ const CategoryPicker: React.FC<Props> = ({ categories, value, onChange, loading 
                         inputRef.current?.focus();
                       }}
                       aria-label={t("product.clearSearch")}
-                      className="absolute end-1.5 top-1/2 flex h-7 w-7 -translate-y-1/2 items-center justify-center rounded-full text-[#65716B] hover:bg-[#EFEDE6]"
+                      className="absolute end-1.5 top-1/2 flex h-7 w-7 -translate-y-1/2 items-center justify-center rounded-full text-[#6C7193] hover:bg-[#F3F2FB]"
                     >
                       <Icon d={ICONS.x} className="h-3.5 w-3.5" />
                     </button>
                   )}
                 </label>
-                {q && <p className="mt-1.5 px-1 text-[11px] text-[#65716B]">{toFa(rows.length)} results</p>}
+                {q && <p className="mt-1.5 px-1 text-[11px] text-[#6C7193]">{toFa(rows.length)} results</p>}
               </div>
 
               {/* لیست */}
               <div ref={listRef} id={`${uid}-list`} role="listbox" className="min-h-0 flex-1 overflow-y-auto p-1.5">
                 {rows.length === 0 ? (
                   <div className="py-8 text-center">
-                    <p className="text-sm font-bold text-[#1E2A28]">{t("product.category.empty")}</p>
-                    <p className="mt-1 text-xs text-[#65716B]">{t("product.category.emptyHint")}</p>
+                    <p className="text-sm font-bold text-[#0D0F23]">{t("product.category.empty")}</p>
+                    <p className="mt-1 text-xs text-[#6C7193]">{t("product.category.emptyHint")}</p>
                   </div>
                 ) : (
                   rows.map((r, i) => {
@@ -402,7 +402,7 @@ const CategoryPicker: React.FC<Props> = ({ categories, value, onChange, loading 
                       <div
                         key={r.id === "" ? "all" : r.id}
                         className={`flex items-center rounded-xl transition-colors ${
-                          isSel ? "bg-[#DCEFEA]/70" : isActive ? "bg-[#EFEDE6]" : ""
+                          isSel ? "bg-[#EFEDFF]/70" : isActive ? "bg-[#F3F2FB]" : ""
                         }`}
                         style={{ paddingInlineStart: q ? 4 : r.depth * 16 + 4 }}
                         onMouseMove={() => {
@@ -419,7 +419,7 @@ const CategoryPicker: React.FC<Props> = ({ categories, value, onChange, loading 
                               e.stopPropagation();
                               toggleExpand(node!.cat.id);
                             }}
-                            className="flex h-9 w-8 shrink-0 items-center justify-center rounded-lg text-[#65716B] hover:bg-white"
+                            className="flex h-9 w-8 shrink-0 items-center justify-center rounded-lg text-[#6C7193] hover:bg-white"
                           >
                             <Icon d={isOpen ? ICON_CHEVRON_DOWN : ICON_CHEVRON_LEFT} className="h-4 w-4" stroke={2.2} />
                           </button>
@@ -440,15 +440,15 @@ const CategoryPicker: React.FC<Props> = ({ categories, value, onChange, loading 
                           <span className="min-w-0 flex-1">
                             <span
                               className={`block truncate text-[13px] leading-6 ${
-                                isSel ? "font-black text-[#14564C]" : "font-bold text-[#1E2A28]"
+                                isSel ? "font-black text-[#4935E0]" : "font-bold text-[#0D0F23]"
                               }`}
                             >
                               {name}
                             </span>
-                            {sub && <span className="block truncate text-[11px] leading-5 text-[#65716B]">{sub}</span>}
+                            {sub && <span className="block truncate text-[11px] leading-5 text-[#6C7193]">{sub}</span>}
                           </span>
-                          {count > 0 && <span className="shrink-0 text-[11px] text-[#65716B]">{toFa(count)}</span>}
-                          {isSel && <Icon d={ICONS.check} className="h-4 w-4 shrink-0 text-[#1B6F63]" stroke={2.6} />}
+                          {count > 0 && <span className="shrink-0 text-[11px] text-[#6C7193]">{toFa(count)}</span>}
+                          {isSel && <Icon d={ICONS.check} className="h-4 w-4 shrink-0 text-[#5B47FB]" stroke={2.6} />}
                         </button>
                       </div>
                     );
@@ -456,7 +456,7 @@ const CategoryPicker: React.FC<Props> = ({ categories, value, onChange, loading 
                 )}
               </div>
 
-              <p className="shrink-0 border-t border-[#EFEDE6] px-3 py-2 text-[11px] leading-5 text-[#65716B]">
+              <p className="shrink-0 border-t border-[#F3F2FB] px-3 py-2 text-[11px] leading-5 text-[#6C7193]">
                 {cfg.note}
               </p>
             </div>
@@ -477,12 +477,12 @@ const CategoryPicker: React.FC<Props> = ({ categories, value, onChange, loading 
           aria-expanded={open}
           aria-label={`${cfg.prefix} ${label}`}
           title={sel ? sel.path : undefined}
-          className={`flex h-11 w-full items-center gap-1.5 rounded-2xl border ps-3 text-start text-sm outline-none transition focus-visible:ring-4 focus-visible:ring-[#1B6F63]/10 disabled:cursor-not-allowed disabled:opacity-60 ${
-            sel ? "border-[#1B6F63]/60 bg-[#DCEFEA]/40 pe-10" : "border-[#DAD5C7] bg-white pe-9"
-          } ${open ? "border-[#1B6F63]/60 ring-4 ring-[#1B6F63]/10" : ""}`}
+          className={`flex h-11 w-full items-center gap-1.5 rounded-2xl border ps-3 text-start text-sm outline-none transition focus-visible:ring-4 focus-visible:ring-[#5B47FB]/10 disabled:cursor-not-allowed disabled:opacity-60 ${
+            sel ? "border-[#5B47FB]/60 bg-[#EFEDFF]/40 pe-10" : "border-[#E4E5F0] bg-white pe-9"
+          } ${open ? "border-[#5B47FB]/60 ring-4 ring-[#5B47FB]/10" : ""}`}
         >
-          <span className="shrink-0 text-xs text-[#65716B]">{cfg.prefix}</span>
-          <span className={`min-w-0 flex-1 truncate ${sel ? "font-black text-[#14564C]" : "font-bold text-[#1E2A28]"}`}>
+          <span className="shrink-0 text-xs text-[#6C7193]">{cfg.prefix}</span>
+          <span className={`min-w-0 flex-1 truncate ${sel ? "font-black text-[#4935E0]" : "font-bold text-[#0D0F23]"}`}>
             {label}
           </span>
         </button>
@@ -492,14 +492,14 @@ const CategoryPicker: React.FC<Props> = ({ categories, value, onChange, loading 
             type="button"
             onClick={() => onChange("")}
             aria-label={mode === "filter" ? t("product.category.removeFilter") : t("product.category.backHome")}
-            className="absolute end-2 top-1/2 flex h-7 w-7 -translate-y-1/2 items-center justify-center rounded-full text-[#14564C] hover:bg-white/80"
+            className="absolute end-2 top-1/2 flex h-7 w-7 -translate-y-1/2 items-center justify-center rounded-full text-[#4935E0] hover:bg-white/80"
           >
             <Icon d={ICONS.x} className="h-4 w-4" stroke={2.2} />
           </button>
         ) : (
           <Icon
             d={ICON_CHEVRON_DOWN}
-            className="pointer-events-none absolute end-3 top-1/2 h-4 w-4 -translate-y-1/2 text-[#65716B]"
+            className="pointer-events-none absolute end-3 top-1/2 h-4 w-4 -translate-y-1/2 text-[#6C7193]"
             stroke={2.2}
           />
         )}

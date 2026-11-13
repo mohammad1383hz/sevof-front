@@ -61,31 +61,31 @@ const ShopifyConnectPage: React.FC = () => {
   };
 
   return (
-    <div className="min-h-screen bg-[#F4F2EC] flex items-center justify-center px-4 py-10">
-      <div className="w-full max-w-md rounded-2xl border border-[#DAD5C7] bg-white p-6 shadow-sm">
+    <div className="min-h-screen bg-[#F6F6FB] flex items-center justify-center px-4 py-10">
+      <div className="w-full max-w-md rounded-2xl border border-[#E4E5F0] bg-white p-6 shadow-sm">
         <div className="flex items-center gap-3">
           <span className="inline-flex h-10 w-10 items-center justify-center rounded-xl bg-[#5E8E3E] text-white">
             <ShoppingBag className="h-5 w-5" />
           </span>
           <div className="min-w-0">
-            <h1 className="text-base font-bold text-[#1E2A28]">{t("dashboard.shopify.pickTitle")}</h1>
-            <p dir="ltr" className="truncate text-start text-xs text-[#9BA69F]">{shop}</p>
+            <h1 className="text-base font-bold text-[#0D0F23]">{t("dashboard.shopify.pickTitle")}</h1>
+            <p dir="ltr" className="truncate text-start text-xs text-[#9A9DB8]">{shop}</p>
           </div>
         </div>
 
-        <p className="mt-4 text-sm leading-relaxed text-[#5B6560]">{t("dashboard.shopify.pickBody")}</p>
+        <p className="mt-4 text-sm leading-relaxed text-[#5A5F80]">{t("dashboard.shopify.pickBody")}</p>
 
         {error && <p role="alert" className="mt-3 rounded-lg bg-rose-50 p-2.5 text-xs text-rose-600">{error}</p>}
 
         {sites === null ? (
-          <div className="mt-4 flex items-center gap-2 text-sm text-[#9BA69F]">
+          <div className="mt-4 flex items-center gap-2 text-sm text-[#9A9DB8]">
             <Loader2 className="h-4 w-4 animate-spin motion-reduce:animate-none" />
             {t("dashboard.connection.checking")}
           </div>
         ) : sites.length === 0 ? (
           <div className="mt-4 space-y-3">
-            <p className="text-sm text-[#384B43]">{t("dashboard.shopify.noSites")}</p>
-            <button type="button" onClick={() => navigate("/dashboard")} className="rounded-lg bg-[#1B6F63] px-4 py-2 text-sm font-bold text-white">
+            <p className="text-sm text-[#3B3F5C]">{t("dashboard.shopify.noSites")}</p>
+            <button type="button" onClick={() => navigate("/dashboard")} className="rounded-lg bg-[#5B47FB] px-4 py-2 text-sm font-bold text-white">
               {t("dashboard.shopify.addSite")}
             </button>
           </div>
@@ -97,13 +97,13 @@ const ShopifyConnectPage: React.FC = () => {
                   type="button"
                   disabled={busyId !== null || !shop}
                   onClick={() => connect(site)}
-                  className="flex w-full items-center justify-between gap-3 rounded-xl border border-[#DAD5C7] px-4 py-3 text-start hover:border-[#1B6F63] hover:bg-[#DCEFEA]/40 disabled:opacity-60"
+                  className="flex w-full items-center justify-between gap-3 rounded-xl border border-[#E4E5F0] px-4 py-3 text-start hover:border-[#5B47FB] hover:bg-[#EFEDFF]/40 disabled:opacity-60"
                 >
-                  <span dir="ltr" className="truncate text-sm font-medium text-[#1E2A28]">{site.domain}</span>
+                  <span dir="ltr" className="truncate text-sm font-medium text-[#0D0F23]">{site.domain}</span>
                   {busyId === site.id ? (
-                    <Loader2 className="h-4 w-4 shrink-0 animate-spin text-[#1B6F63] motion-reduce:animate-none" />
+                    <Loader2 className="h-4 w-4 shrink-0 animate-spin text-[#5B47FB] motion-reduce:animate-none" />
                   ) : (
-                    <span className="shrink-0 text-xs font-bold text-[#1B6F63]">{t("dashboard.shopify.connect")}</span>
+                    <span className="shrink-0 text-xs font-bold text-[#5B47FB]">{t("dashboard.shopify.connect")}</span>
                   )}
                 </button>
               </li>

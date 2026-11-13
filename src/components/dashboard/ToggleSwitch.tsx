@@ -19,8 +19,8 @@ const ToggleSwitch: React.FC<ToggleSwitchProps> = ({ checked, onChange, label, d
     aria-label={label}
     disabled={disabled}
     onClick={() => onChange(!checked)}
-    className={`relative h-6 w-11 shrink-0 rounded-full transition-colors duration-200 focus:outline-none focus:ring-2 focus:ring-[#1B6F63]/50 focus:ring-offset-1 disabled:opacity-60 disabled:cursor-wait ${
-      checked ? "bg-[#1B6F63]" : "bg-[#DAD5C7]"
+    className={`relative h-6 w-11 shrink-0 rounded-full transition-colors duration-200 focus:outline-none focus:ring-2 focus:ring-[#5B47FB]/50 focus:ring-offset-1 disabled:opacity-60 disabled:cursor-wait ${
+      checked ? "bg-[#5B47FB]" : "bg-[#E4E5F0]"
     }`}
   >
     <span

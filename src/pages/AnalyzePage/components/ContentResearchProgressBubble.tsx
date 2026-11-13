@@ -31,9 +31,9 @@ export function ContentResearchProgressBubble({
     >
       <div className="space-y-3">
         {steps.map((step, index) => (
-          <div key={step} className="flex items-center gap-3 text-xs text-[#000000]">
-            <span className={`flex h-5 w-5 items-center justify-center rounded-full text-[10px] font-black ${index === steps.length - 1 ? "bg-[#DCEFEA] text-[#1B6F63]" : "bg-[#EFEDE6] text-[#7D8882]"}`}>
-              {index === steps.length - 1 ? <span className="h-2.5 w-2.5 rounded-full border-2 border-[#1B6F63]/30 border-t-[#1B6F63] animate-spin" /> : index + 1}
+          <div key={step} className="flex items-center gap-3 text-xs text-[#0D0F23]">
+            <span className={`flex h-5 w-5 items-center justify-center rounded-full text-[10px] font-black ${index === steps.length - 1 ? "bg-[#EFEDFF] text-[#5B47FB]" : "bg-[#F3F2FB] text-[#7D819F]"}`}>
+              {index === steps.length - 1 ? <span className="h-2.5 w-2.5 rounded-full border-2 border-[#5B47FB]/30 border-t-[#5B47FB] animate-spin" /> : index + 1}
             </span>
             {step}
           </div>

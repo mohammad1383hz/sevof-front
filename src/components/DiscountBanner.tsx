@@ -52,11 +52,11 @@ const isFifteenMinuteOffer =
       <div className="flex items-center gap-2.5">
         <span className="text-xl">🎁</span>
         <div>
-          <p className="text-[12.5px] font-bold text-[#1E2A28]">
+          <p className="text-[12.5px] font-bold text-[#0D0F23]">
             {t("billing.discount.offJustForYou", { percent: formatPercent(discount.percentage) })}
           </p>
           {isFifteenMinuteOffer && (
-            <p className="mt-0.5 text-[11px] font-bold text-[#1E2A28]">
+            <p className="mt-0.5 text-[11px] font-bold text-[#0D0F23]">
               {t("billing.discount.fifteenMinutes")}
             </p>
           )}
@@ -68,21 +68,21 @@ const isFifteenMinuteOffer =
           <button
             type="button"
             onClick={handleCopy}
-            className="flex items-center gap-1.5 rounded-lg border border-dashed border-[#B08D57] bg-white px-3 py-1.5 font-mono text-[13px] font-bold tracking-widest text-[#1E2A28] transition-colors hover:bg-[#FBF3E6]"
+            className="flex items-center gap-1.5 rounded-lg border border-dashed border-[#B08D57] bg-white px-3 py-1.5 font-mono text-[13px] font-bold tracking-widest text-[#0D0F23] transition-colors hover:bg-[#FBF3E6]"
           >
             {discount.code}
             <CopyIcon />
           </button>
           <span
             className={`rounded-lg px-2.5 py-1.5 text-[12px] font-bold tabular-nums text-white ${
-              urgent ? "bg-rose-500" : "bg-[#1B6F63]"
+              urgent ? "bg-rose-500" : "bg-[#5B47FB]"
             }`}
           >
             {formatCountdown(secondsLeft)}
           </span>
         </div>
         {copied && (
-          <span className="text-[10.5px] font-medium text-[#1B6F63]">{t("billing.discount.copied")}</span>
+          <span className="text-[10.5px] font-medium text-[#5B47FB]">{t("billing.discount.copied")}</span>
         )}
       </div>
     </div>

@@ -42,7 +42,7 @@ export const ProductStepTimeline: React.FC<{ article: ProductArticle }> = ({ art
   const totalSections = article.sections?.length ?? 0;
 
   return (
-    <div className="rounded-2xl border border-[#DAD5C7] bg-white p-5">
+    <div className="rounded-2xl border border-[#E4E5F0] bg-white p-5">
       <div className="flex items-start justify-between gap-1">
         {STEPS.map((step, i) => {
           const isDone = completed || i < active;
@@ -59,10 +59,10 @@ export const ProductStepTimeline: React.FC<{ article: ProductArticle }> = ({ art
                         ? "border-rose-500 bg-rose-50 text-rose-600"
                         : "border-amber-500 bg-amber-50 text-amber-600"
                       : isDone
-                        ? "border-[#1B6F63] bg-[#1B6F63] text-white"
+                        ? "border-[#5B47FB] bg-[#5B47FB] text-white"
                         : isActive
-                          ? "border-[#1B6F63] bg-[#DCEFEA] text-[#1B6F63]"
-                          : "border-[#DAD5C7] bg-white text-[#000000]/60"
+                          ? "border-[#5B47FB] bg-[#EFEDFF] text-[#5B47FB]"
+                          : "border-[#E4E5F0] bg-white text-[#0D0F23]/60"
                   }`}
                 >
                   {isStoppedHere ? "!" : isDone ? <CheckIcon /> : isActive ? <Spinner /> : i + 1}
@@ -75,19 +75,19 @@ export const ProductStepTimeline: React.FC<{ article: ProductArticle }> = ({ art
                           ? "text-rose-600"
                           : "text-amber-600"
                         : isDone || isActive
-                          ? "text-[#1E2A28]"
-                          : "text-[#000000]/60"
+                          ? "text-[#0D0F23]"
+                          : "text-[#0D0F23]/60"
                     }`}
                   >
                     {step.label}
                   </div>
-                  <div className="mt-0.5 hidden text-[10px] text-[#000000]/60 sm:block">{step.hint}</div>
+                  <div className="mt-0.5 hidden text-[10px] text-[#0D0F23]/60 sm:block">{step.hint}</div>
                 </div>
               </div>
               {i < STEPS.length - 1 && (
                 <div
                   className={`mt-4 h-0.5 flex-1 rounded-full ${
-                    completed || i < active ? "bg-[#1B6F63]" : "bg-[#DAD5C7]"
+                    completed || i < active ? "bg-[#5B47FB]" : "bg-[#E4E5F0]"
                   }`}
                 />
               )}
@@ -97,7 +97,7 @@ export const ProductStepTimeline: React.FC<{ article: ProductArticle }> = ({ art
       </div>
 
       {totalSections > 0 && (
-        <p className="mt-4 text-center text-[11px] text-[#000000]/60">
+        <p className="mt-4 text-center text-[11px] text-[#0D0F23]/60">
           {t("product.steps.written", { done: doneSections, total: totalSections })}
         </p>
       )}

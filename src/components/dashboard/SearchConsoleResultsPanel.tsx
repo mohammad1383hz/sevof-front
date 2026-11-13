@@ -31,15 +31,15 @@ const change = (current: number | null, previous: number | null | undefined, low
 
 
 const KpiCard: React.FC<{ label: string; value: string; delta?: ReturnType<typeof change>; hint?: string }> = ({ label, value, delta, hint }) => (
-  <div className="min-w-0 rounded-xl border border-[#DAD5C7] bg-white p-3">
-    <p className="truncate text-[11px] text-[#6B7A73]">{label}</p>
-    <p className="mt-1 text-lg font-black text-[#1E2A28] sm:text-xl">{value}</p>
+  <div className="min-w-0 rounded-xl border border-[#E4E5F0] bg-white p-3">
+    <p className="truncate text-[11px] text-[#6C7193]">{label}</p>
+    <p className="mt-1 text-lg font-black text-[#0D0F23] sm:text-xl">{value}</p>
     {delta ? (
-      <p className={`mt-0.5 text-[11px] font-bold ${delta.tone === "good" ? "text-[#1B6F63]" : delta.tone === "bad" ? "text-[#B3453A]" : "text-[#9BA69F]"}`}>
-        <bdi dir="ltr">{delta.text}</bdi> <span className="font-normal text-[#9BA69F]">{t("growth.gsc.vsPrevious")}</span>
+      <p className={`mt-0.5 text-[11px] font-bold ${delta.tone === "good" ? "text-[#5B47FB]" : delta.tone === "bad" ? "text-[#B3453A]" : "text-[#9A9DB8]"}`}>
+        <bdi dir="ltr">{delta.text}</bdi> <span className="font-normal text-[#9A9DB8]">{t("growth.gsc.vsPrevious")}</span>
       </p>
     ) : (
-      hint && <p className="mt-0.5 text-[11px] text-[#9BA69F]">{hint}</p>
+      hint && <p className="mt-0.5 text-[11px] text-[#9A9DB8]">{hint}</p>
     )}
   </div>
 );
@@ -156,20 +156,20 @@ const SearchConsoleResultsPanel: React.FC<SearchConsoleResultsPanelProps> = ({ s
   const previous = data?.site_totals?.previous;
 
   return (
-    <section aria-labelledby="gsc-results-title" className="overflow-hidden rounded-2xl border border-[#DAD5C7] bg-white p-3.5 sm:p-5 lg:p-6">
+    <section aria-labelledby="gsc-results-title" className="overflow-hidden rounded-2xl border border-[#E4E5F0] bg-white p-3.5 sm:p-5 lg:p-6">
       <div className="mb-3 flex flex-wrap items-start justify-between gap-2">
         <div className="min-w-0">
-          <h2 id="gsc-results-title" className="text-sm font-bold text-[#1E2A28] sm:text-base">
+          <h2 id="gsc-results-title" className="text-sm font-bold text-[#0D0F23] sm:text-base">
             {t("growth.gsc.title")}
           </h2>
-          <p className="mt-0.5 text-[11px] text-[#9BA69F] sm:text-xs">
+          <p className="mt-0.5 text-[11px] text-[#9A9DB8] sm:text-xs">
             {t("growth.gsc.subtitle")}
             {data?.property?.last_synced_at && ` · ${t("growth.gsc.updated", { when: formatRelative(data.property.last_synced_at) })}`}
           </p>
           {data?.connection && (
-            <p className="mt-1 flex flex-wrap items-center gap-x-2 text-[11px] text-[#6B7A73]">
+            <p className="mt-1 flex flex-wrap items-center gap-x-2 text-[11px] text-[#6C7193]">
               <span>
-                {t("growth.gsc.accountLabel")} <bdi dir="ltr" className="font-bold text-[#1E2A28]">{data.connection.email ?? t("growth.gsc.accountUnknown")}</bdi>
+                {t("growth.gsc.accountLabel")} <bdi dir="ltr" className="font-bold text-[#0D0F23]">{data.connection.email ?? t("growth.gsc.accountUnknown")}</bdi>
               </span>
               <button
                 type="button"
@@ -187,7 +187,7 @@ const SearchConsoleResultsPanel: React.FC<SearchConsoleResultsPanelProps> = ({ s
             type="button"
             onClick={() => run("sync", () => searchConsoleService.sync(siteId))}
             disabled={busyKey === "sync" || isWorking}
-            className="shrink-0 rounded-lg bg-[#DCEFEA] px-3 py-1.5 text-[11px] font-bold text-[#14564C] transition-colors hover:bg-[#c9e6de] disabled:opacity-60 sm:text-xs"
+            className="shrink-0 rounded-lg bg-[#EFEDFF] px-3 py-1.5 text-[11px] font-bold text-[#4935E0] transition-colors hover:bg-[#DDD8FF] disabled:opacity-60 sm:text-xs"
           >
             {data.property.sync_status === "queued" || data.property.sync_status === "syncing" ? t("growth.gsc.syncing") : t("growth.gsc.sync")}
           </button>
@@ -206,7 +206,7 @@ const SearchConsoleResultsPanel: React.FC<SearchConsoleResultsPanelProps> = ({ s
       {loading && (
         <div className="grid grid-cols-2 gap-2 lg:grid-cols-4" aria-busy="true" aria-label={t("growth.gsc.syncing")}>
           {Array.from({ length: 4 }).map((_, i) => (
-            <div key={i} className="h-20 animate-pulse rounded-xl bg-[#EFEDE6] motion-reduce:animate-none" />
+            <div key={i} className="h-20 animate-pulse rounded-xl bg-[#F3F2FB] motion-reduce:animate-none" />
           ))}
         </div>
       )}
@@ -214,7 +214,7 @@ const SearchConsoleResultsPanel: React.FC<SearchConsoleResultsPanelProps> = ({ s
       {!loading && loadError && (
         <div className="rounded-xl border border-dashed border-[#E3C4BC] py-6 text-center">
           <p className="text-xs text-[#B3453A] sm:text-sm">{loadError}</p>
-          <button type="button" onClick={load} className="mt-3 rounded-lg bg-[#DCEFEA] px-3 py-1.5 text-[11px] font-bold text-[#14564C] sm:text-xs">
+          <button type="button" onClick={load} className="mt-3 rounded-lg bg-[#EFEDFF] px-3 py-1.5 text-[11px] font-bold text-[#4935E0] sm:text-xs">
             {t("growth.gsc.retry")}
           </button>
         </div>
@@ -222,11 +222,11 @@ const SearchConsoleResultsPanel: React.FC<SearchConsoleResultsPanelProps> = ({ s
 
       {/* ── وصل نیست: توضیح ارزش و دکمه‌ی اتصال ── */}
       {!loading && data && !connected && (
-        <div className="rounded-xl border border-[#DAD5C7]/70 bg-[#EFEDE6]/60 p-4">
-          <p className="text-xs font-bold leading-6 text-[#1E2A28] sm:text-sm">
+        <div className="rounded-xl border border-[#E4E5F0]/70 bg-[#F3F2FB]/60 p-4">
+          <p className="text-xs font-bold leading-6 text-[#0D0F23] sm:text-sm">
             {data.connection?.status ? t("growth.gsc.reconnect") : t("growth.gsc.connectPitch")}
           </p>
-          <ul className="mt-2 space-y-1.5 text-[11px] leading-6 text-[#384B43] sm:text-xs">
+          <ul className="mt-2 space-y-1.5 text-[11px] leading-6 text-[#3B3F5C] sm:text-xs">
             <li>• {t("growth.gsc.benefit1")}</li>
             <li>• {t("growth.gsc.benefit2")}</li>
             <li>• {t("growth.gsc.benefit3")}</li>
@@ -235,19 +235,19 @@ const SearchConsoleResultsPanel: React.FC<SearchConsoleResultsPanelProps> = ({ s
             type="button"
             onClick={connect}
             disabled={busyKey === "connect"}
-            className="mt-3 inline-flex items-center gap-2 rounded-xl bg-[#1B6F63] px-4 py-2 text-xs font-black text-white shadow-sm shadow-[#1B6F63]/25 hover:bg-[#14564C] disabled:opacity-60"
+            className="mt-3 inline-flex items-center gap-2 rounded-xl bg-[#5B47FB] px-4 py-2 text-xs font-black text-white shadow-sm shadow-[#5B47FB]/25 hover:bg-[#4935E0] disabled:opacity-60"
           >
             {busyKey === "connect" ? t("growth.gsc.redirecting") : t("growth.gsc.connect")}
           </button>
-          <p className="mt-2 text-[11px] text-[#9BA69F]">{t("growth.gsc.readOnly")}</p>
+          <p className="mt-2 text-[11px] text-[#9A9DB8]">{t("growth.gsc.readOnly")}</p>
         </div>
       )}
 
       {/* ── وصل است ولی سایت انتخاب نشده ── */}
       {!loading && data && connected && !data.property && (
-        <div className="rounded-xl border border-[#DAD5C7] p-4">
-          <p className="text-xs font-bold text-[#1E2A28] sm:text-sm">{t("growth.gsc.pickProperty")}</p>
-          {properties === null && <p className="mt-2 text-xs text-[#9BA69F]">{t("growth.gsc.loadingList")}</p>}
+        <div className="rounded-xl border border-[#E4E5F0] p-4">
+          <p className="text-xs font-bold text-[#0D0F23] sm:text-sm">{t("growth.gsc.pickProperty")}</p>
+          {properties === null && <p className="mt-2 text-xs text-[#9A9DB8]">{t("growth.gsc.loadingList")}</p>}
           {properties?.length === 0 && (
             <p className="mt-2 text-xs leading-6 text-[#B3453A]">{t("growth.gsc.noProperties")}</p>
           )}
@@ -259,7 +259,7 @@ const SearchConsoleResultsPanel: React.FC<SearchConsoleResultsPanelProps> = ({ s
                 dir="ltr"
                 disabled={busyKey !== null}
                 onClick={() => run(`property:${p.property_url}`, () => searchConsoleService.selectProperty(siteId, p.property_url))}
-                className="rounded-lg border border-[#DAD5C7] px-3 py-1.5 text-xs text-[#1E2A28] hover:border-[#1B6F63] hover:bg-[#DCEFEA]/40 disabled:opacity-60"
+                className="rounded-lg border border-[#E4E5F0] px-3 py-1.5 text-xs text-[#0D0F23] hover:border-[#5B47FB] hover:bg-[#EFEDFF]/40 disabled:opacity-60"
               >
                 {p.property_url}
               </button>
@@ -278,7 +278,7 @@ const SearchConsoleResultsPanel: React.FC<SearchConsoleResultsPanelProps> = ({ s
       {!loading && data?.property && current && (
         <div className="space-y-4">
           {articles && articles.with_data > 0 && (
-            <p className="rounded-xl bg-[#DCEFEA]/60 p-3 text-xs font-bold leading-6 text-[#14564C] sm:text-sm">
+            <p className="rounded-xl bg-[#EFEDFF]/60 p-3 text-xs font-bold leading-6 text-[#4935E0] sm:text-sm">
               {t("growth.gsc.headline", { clicks: articles.clicks })}
               {articles.previous_clicks != null && articles.previous_clicks > 0 && articles.clicks > articles.previous_clicks
                 ? ` ${t("growth.gsc.headlineMore", { clicks: articles.clicks - articles.previous_clicks })}`
@@ -304,31 +304,31 @@ const SearchConsoleResultsPanel: React.FC<SearchConsoleResultsPanelProps> = ({ s
           {/* ── فرصت‌های به‌روزرسانی ── */}
           <div>
             <div className="mb-2 flex flex-wrap items-center justify-between gap-2">
-              <h3 className="text-xs font-bold text-[#1E2A28] sm:text-sm">{t("growth.gsc.opportunitiesTitle")}</h3>
+              <h3 className="text-xs font-bold text-[#0D0F23] sm:text-sm">{t("growth.gsc.opportunitiesTitle")}</h3>
               {data.opportunities.length > 0 && (
-                <span className="rounded-full bg-[#DCEFEA] px-2.5 py-0.5 text-[11px] font-bold text-[#1B6F63]">{t("growth.gsc.opportunitiesCount", { count: data.opportunities.length })}</span>
+                <span className="rounded-full bg-[#EFEDFF] px-2.5 py-0.5 text-[11px] font-bold text-[#5B47FB]">{t("growth.gsc.opportunitiesCount", { count: data.opportunities.length })}</span>
               )}
             </div>
 
             {data.opportunities.length === 0 ? (
-              <p className="rounded-xl border border-dashed border-[#DAD5C7] px-4 py-5 text-center text-[11px] leading-6 text-[#9BA69F] sm:text-xs">
+              <p className="rounded-xl border border-dashed border-[#E4E5F0] px-4 py-5 text-center text-[11px] leading-6 text-[#9A9DB8] sm:text-xs">
                 {t("growth.gsc.noOpportunities")}
               </p>
             ) : (
               <ul className="space-y-2">
                 {data.opportunities.map((o) => (
-                  <li key={o.id} className="flex flex-col gap-2 rounded-xl border border-[#DAD5C7] p-3 sm:flex-row sm:items-center">
+                  <li key={o.id} className="flex flex-col gap-2 rounded-xl border border-[#E4E5F0] p-3 sm:flex-row sm:items-center">
                     <div className="min-w-0 flex-1">
-                      <p className="line-clamp-2 text-xs font-bold leading-6 text-[#1E2A28] sm:text-sm" title={o.title}>
+                      <p className="line-clamp-2 text-xs font-bold leading-6 text-[#0D0F23] sm:text-sm" title={o.title}>
                         {o.title}
                       </p>
-                      <div className="mt-1 flex flex-wrap items-center gap-1.5 text-[11px] text-[#6B7A73]">
+                      <div className="mt-1 flex flex-wrap items-center gap-1.5 text-[11px] text-[#6C7193]">
                         <span className="rounded-full bg-[#FFF4D6] px-2 py-0.5 font-bold text-[#8A6100]">{REASON_LABEL[o.reason]}</span>
                         <span>{t("growth.gsc.position", { position: faPos(o.position) })}</span>
                         <span>· {t("growth.gsc.impressionsCount", { count: o.impressions })}</span>
                         <span>· {t("growth.gsc.clicksCount", { count: o.clicks })}</span>
                       </div>
-                      <p className="mt-1 text-[11px] leading-5 text-[#6B7A73]">
+                      <p className="mt-1 text-[11px] leading-5 text-[#6C7193]">
                         {REASON_HINT[o.reason]} {t("growth.gsc.potential", { clicks: o.potential_clicks })}
                       </p>
                     </div>
@@ -336,7 +336,7 @@ const SearchConsoleResultsPanel: React.FC<SearchConsoleResultsPanelProps> = ({ s
                       type="button"
                       disabled={busyKey !== null}
                       onClick={() => run(`refresh:${o.id}`, () => searchConsoleInsightsService.startRefresh(siteId, o.id))}
-                      className="shrink-0 rounded-xl bg-[#1B6F63] px-3.5 py-2 text-[11px] font-black text-white hover:bg-[#14564C] disabled:opacity-60 sm:text-xs"
+                      className="shrink-0 rounded-xl bg-[#5B47FB] px-3.5 py-2 text-[11px] font-black text-white hover:bg-[#4935E0] disabled:opacity-60 sm:text-xs"
                     >
                       {busyKey === `refresh:${o.id}` ? t("growth.gsc.starting") : t("growth.gsc.updateArticle")}
                       <span className="block text-[10px] font-normal opacity-80">
@@ -349,10 +349,10 @@ const SearchConsoleResultsPanel: React.FC<SearchConsoleResultsPanelProps> = ({ s
             )}
 
             {/* ── اتوماسیون ── */}
-            <div className="mt-3 flex items-start gap-3 rounded-xl border border-[#DAD5C7]/70 bg-[#EFEDE6]/60 p-3">
+            <div className="mt-3 flex items-start gap-3 rounded-xl border border-[#E4E5F0]/70 bg-[#F3F2FB]/60 p-3">
               <div className="min-w-0 flex-1">
-                <p className="text-xs font-bold text-[#1E2A28]">{t("growth.gsc.autoRefresh")}</p>
-                <p className="mt-0.5 text-[11px] leading-6 text-[#6B7A73]">
+                <p className="text-xs font-bold text-[#0D0F23]">{t("growth.gsc.autoRefresh")}</p>
+                <p className="mt-0.5 text-[11px] leading-6 text-[#6C7193]">
                   {!data.automation.has_paid_plan
                     ? t("growth.gsc.autoProOnly")
                     : !data.automation.agent_enabled
@@ -370,7 +370,7 @@ const SearchConsoleResultsPanel: React.FC<SearchConsoleResultsPanelProps> = ({ s
                   label={t("growth.gsc.autoRefreshToggle")}
                 />
               ) : (
-                <button type="button" onClick={() => navigate("/subscription")} className="shrink-0 rounded-lg bg-[#1B6F63] px-3 py-1.5 text-[11px] font-bold text-white">
+                <button type="button" onClick={() => navigate("/subscription")} className="shrink-0 rounded-lg bg-[#5B47FB] px-3 py-1.5 text-[11px] font-bold text-white">
                   {t("growth.gsc.upgrade")}
                 </button>
               )}
@@ -380,16 +380,16 @@ const SearchConsoleResultsPanel: React.FC<SearchConsoleResultsPanelProps> = ({ s
           {/* ── جستجوهای بی‌صفحه: موضوع مقاله‌ی تازه ── */}
           {!!data.query_opportunities?.length && (
             <div>
-              <h3 className="text-xs font-bold text-[#1E2A28] sm:text-sm">{t("growth.gsc.queriesTitle")}</h3>
-              <p className="mb-2 mt-0.5 text-[11px] leading-6 text-[#6B7A73]">
+              <h3 className="text-xs font-bold text-[#0D0F23] sm:text-sm">{t("growth.gsc.queriesTitle")}</h3>
+              <p className="mb-2 mt-0.5 text-[11px] leading-6 text-[#6C7193]">
                 {t("growth.gsc.queriesBody")}
               </p>
               <ul className="flex flex-wrap gap-1.5">
                 {data.query_opportunities.map((q) => (
-                  <li key={q.query} className="rounded-full border border-[#DAD5C7] bg-white px-2.5 py-1 text-[11px] text-[#1E2A28]">
+                  <li key={q.query} className="rounded-full border border-[#E4E5F0] bg-white px-2.5 py-1 text-[11px] text-[#0D0F23]">
                     {q.question && <span className="me-1 rounded-full bg-[#FFF4D6] px-1.5 font-bold text-[#8A6100]">{t("growth.gsc.question")}</span>}
                     {q.query}
-                    <span className="ms-1 text-[#6B7A73]">
+                    <span className="ms-1 text-[#6C7193]">
                       ({t("growth.gsc.queryStats", { impressions: fa(q.impressions), position: faPos(q.best_position) })})
                     </span>
                   </li>
@@ -398,7 +398,7 @@ const SearchConsoleResultsPanel: React.FC<SearchConsoleResultsPanelProps> = ({ s
               <button
                 type="button"
                 onClick={() => navigate(`/dashboard?site=${siteId}`)}
-                className="mt-2 rounded-lg bg-[#DCEFEA] px-3 py-1.5 text-[11px] font-bold text-[#14564C] hover:bg-[#c9e6de] sm:text-xs"
+                className="mt-2 rounded-lg bg-[#EFEDFF] px-3 py-1.5 text-[11px] font-bold text-[#4935E0] hover:bg-[#DDD8FF] sm:text-xs"
               >
                 {t("growth.gsc.makeIdeas")}
               </button>
@@ -408,16 +408,16 @@ const SearchConsoleResultsPanel: React.FC<SearchConsoleResultsPanelProps> = ({ s
           {/* ── تاریخچه‌ی به‌روزرسانی‌ها ── */}
           {data.refreshes.length > 0 && (
             <div>
-              <h3 className="mb-2 text-xs font-bold text-[#1E2A28] sm:text-sm">{t("growth.gsc.refreshesTitle")}</h3>
+              <h3 className="mb-2 text-xs font-bold text-[#0D0F23] sm:text-sm">{t("growth.gsc.refreshesTitle")}</h3>
               <ul className="space-y-2">
                 {data.refreshes.map((r: ArticleRefreshSummary) => (
-                  <li key={r.id} className="rounded-xl border border-[#DAD5C7] p-3">
+                  <li key={r.id} className="rounded-xl border border-[#E4E5F0] p-3">
                     <div className="flex flex-col gap-2 sm:flex-row sm:items-center">
                       <div className="min-w-0 flex-1">
-                        <p className="truncate text-xs font-bold text-[#1E2A28] sm:text-sm" title={r.article_title ?? ""}>
+                        <p className="truncate text-xs font-bold text-[#0D0F23] sm:text-sm" title={r.article_title ?? ""}>
                           {r.article_title ?? t("growth.gsc.article")}
                         </p>
-                        <div className="mt-1 flex flex-wrap items-center gap-1.5 text-[11px] text-[#6B7A73]">
+                        <div className="mt-1 flex flex-wrap items-center gap-1.5 text-[11px] text-[#6C7193]">
                           <span className={`rounded-full px-2 py-0.5 font-bold ${STATUS_LABEL[r.status].cls}`}>
                             {BUSY_STATUSES.includes(r.status) && (
                               <span className="me-1 inline-block h-2 w-2 animate-pulse rounded-full bg-current align-middle motion-reduce:animate-none" />
@@ -436,14 +436,14 @@ const SearchConsoleResultsPanel: React.FC<SearchConsoleResultsPanelProps> = ({ s
                           <button
                             type="button"
                             onClick={() => setPreviewId(r.id)}
-                            className="rounded-lg bg-[#1B6F63] px-3 py-1.5 text-[11px] font-bold text-white hover:bg-[#14564C] sm:text-xs"
+                            className="rounded-lg bg-[#5B47FB] px-3 py-1.5 text-[11px] font-bold text-white hover:bg-[#4935E0] sm:text-xs"
                           >
                             {t("growth.gsc.previewPublish")}
                           </button>
                         )}
                         {r.status === "applied" && (
                           <>
-                            <button type="button" onClick={() => setPreviewId(r.id)} className="rounded-lg border border-[#DAD5C7] px-3 py-1.5 text-[11px] font-bold text-[#384B43] sm:text-xs">
+                            <button type="button" onClick={() => setPreviewId(r.id)} className="rounded-lg border border-[#E4E5F0] px-3 py-1.5 text-[11px] font-bold text-[#3B3F5C] sm:text-xs">
                               {t("growth.gsc.changes")}
                             </button>
                             <button
@@ -454,7 +454,7 @@ const SearchConsoleResultsPanel: React.FC<SearchConsoleResultsPanelProps> = ({ s
                                   run(`revert:${r.id}`, () => searchConsoleInsightsService.revertRefresh(siteId, r.id));
                                 }
                               }}
-                              className="rounded-lg border border-[#DAD5C7] px-3 py-1.5 text-[11px] font-bold text-[#384B43] hover:bg-[#EFEDE6] disabled:opacity-60 sm:text-xs"
+                              className="rounded-lg border border-[#E4E5F0] px-3 py-1.5 text-[11px] font-bold text-[#3B3F5C] hover:bg-[#F3F2FB] disabled:opacity-60 sm:text-xs"
                             >
                               {t("growth.gsc.revert")}
                             </button>
@@ -465,7 +465,7 @@ const SearchConsoleResultsPanel: React.FC<SearchConsoleResultsPanelProps> = ({ s
                             type="button"
                             disabled={busyKey !== null}
                             onClick={() => run(`discard:${r.id}`, () => searchConsoleInsightsService.discardRefresh(siteId, r.id))}
-                            className="rounded-lg border border-[#DAD5C7] px-3 py-1.5 text-[11px] font-bold text-[#384B43] hover:bg-[#EFEDE6] disabled:opacity-60 sm:text-xs"
+                            className="rounded-lg border border-[#E4E5F0] px-3 py-1.5 text-[11px] font-bold text-[#3B3F5C] hover:bg-[#F3F2FB] disabled:opacity-60 sm:text-xs"
                           >
                             {t("growth.gsc.remove")}
                           </button>
@@ -483,27 +483,27 @@ const SearchConsoleResultsPanel: React.FC<SearchConsoleResultsPanelProps> = ({ s
           {/* ── عملکرد مقاله‌ها ── */}
           {articles && articles.items.length > 0 && (
             <div>
-              <h3 className="mb-2 text-xs font-bold text-[#1E2A28] sm:text-sm">{t("growth.gsc.yourArticles")}</h3>
-              <ul className="divide-y divide-[#DAD5C7]/70 rounded-xl border border-[#DAD5C7]">
+              <h3 className="mb-2 text-xs font-bold text-[#0D0F23] sm:text-sm">{t("growth.gsc.yourArticles")}</h3>
+              <ul className="divide-y divide-[#E4E5F0]/70 rounded-xl border border-[#E4E5F0]">
                 {visibleArticles.map((a) => {
                   const delta = change(a.clicks, a.previous_clicks);
                   return (
                     <li key={`${a.type}-${a.id}`} className="grid gap-1 p-3 sm:grid-cols-[1fr_auto] sm:items-center sm:gap-4">
                       <div className="min-w-0">
                         {a.url ? (
-                          <a href={a.url} target="_blank" rel="noopener noreferrer" className="line-clamp-1 text-xs font-bold text-[#1E2A28] hover:text-[#1B6F63] sm:text-sm">
+                          <a href={a.url} target="_blank" rel="noopener noreferrer" className="line-clamp-1 text-xs font-bold text-[#0D0F23] hover:text-[#5B47FB] sm:text-sm">
                             {a.title}
                           </a>
                         ) : (
-                          <p className="line-clamp-1 text-xs font-bold text-[#1E2A28] sm:text-sm">{a.title}</p>
+                          <p className="line-clamp-1 text-xs font-bold text-[#0D0F23] sm:text-sm">{a.title}</p>
                         )}
-                        {a.top_query && <p className="mt-0.5 truncate text-[11px] text-[#9BA69F]">{t("growth.gsc.topQuery", { query: a.top_query })}</p>}
+                        {a.top_query && <p className="mt-0.5 truncate text-[11px] text-[#9A9DB8]">{t("growth.gsc.topQuery", { query: a.top_query })}</p>}
                       </div>
-                      <div className="flex flex-wrap gap-x-3 gap-y-1 text-[11px] text-[#6B7A73]">
+                      <div className="flex flex-wrap gap-x-3 gap-y-1 text-[11px] text-[#6C7193]">
                         <span>
-                          <b className="text-[#1E2A28]">{fa(a.clicks)}</b> {t("growth.gsc.clicksWord")}
+                          <b className="text-[#0D0F23]">{fa(a.clicks)}</b> {t("growth.gsc.clicksWord")}
                           {delta && (
-                            <span className={`ms-1 font-bold ${delta.tone === "good" ? "text-[#1B6F63]" : delta.tone === "bad" ? "text-[#B3453A]" : ""}`}><bdi dir="ltr">{delta.text}</bdi></span>
+                            <span className={`ms-1 font-bold ${delta.tone === "good" ? "text-[#5B47FB]" : delta.tone === "bad" ? "text-[#B3453A]" : ""}`}><bdi dir="ltr">{delta.text}</bdi></span>
                           )}
                         </span>
                         <span>{t("growth.gsc.impressionsCount", { count: a.impressions })}</span>
@@ -518,7 +518,7 @@ const SearchConsoleResultsPanel: React.FC<SearchConsoleResultsPanelProps> = ({ s
                 <button
                   type="button"
                   onClick={() => setShowAllArticles((v) => !v)}
-                  className="mt-2 w-full rounded-xl border border-[#DAD5C7] py-2 text-[11px] font-bold text-[#14564C] hover:bg-[#DCEFEA]/50 sm:text-xs"
+                  className="mt-2 w-full rounded-xl border border-[#E4E5F0] py-2 text-[11px] font-bold text-[#4935E0] hover:bg-[#EFEDFF]/50 sm:text-xs"
                 >
                   {showAllArticles ? t("growth.gsc.showLess") : t("growth.gsc.showAll", { count: articles.items.length })}
                 </button>
@@ -527,7 +527,7 @@ const SearchConsoleResultsPanel: React.FC<SearchConsoleResultsPanelProps> = ({ s
           )}
 
           {articles && articles.count > 0 && articles.with_data === 0 && (
-            <p className="rounded-xl border border-dashed border-[#DAD5C7] px-4 py-5 text-center text-[11px] leading-6 text-[#9BA69F] sm:text-xs">
+            <p className="rounded-xl border border-dashed border-[#E4E5F0] px-4 py-5 text-center text-[11px] leading-6 text-[#9A9DB8] sm:text-xs">
               {t("growth.gsc.noDataYet")}
             </p>
           )}
@@ -535,10 +535,10 @@ const SearchConsoleResultsPanel: React.FC<SearchConsoleResultsPanelProps> = ({ s
       )}
 
       {!loading && data?.property && !current && data.property.sync_status !== "failed" && (
-        <div className="rounded-xl border border-dashed border-[#DAD5C7] px-4 py-8 text-center text-xs text-[#6B7A73]">
+        <div className="rounded-xl border border-dashed border-[#E4E5F0] px-4 py-8 text-center text-xs text-[#6C7193]">
           {isWorking ? (
             <>
-              <div className="mx-auto mb-3 h-6 w-6 animate-spin rounded-full border-2 border-[#DAD5C7] border-t-[#1B6F63] motion-reduce:animate-none" />
+              <div className="mx-auto mb-3 h-6 w-6 animate-spin rounded-full border-2 border-[#E4E5F0] border-t-[#5B47FB] motion-reduce:animate-none" />
               {t("growth.gsc.fetching")}
             </>
           ) : (

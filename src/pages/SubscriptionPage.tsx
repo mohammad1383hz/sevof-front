@@ -59,7 +59,7 @@ const withSecondsLeft = (discount: DiscountInfo): DiscountInfo => {
 
 const CheckIcon: React.FC<{ className?: string }> = ({ className }) => (
   <svg viewBox="0 0 20 20" fill="none" className={className}>
-    <circle cx="10" cy="10" r="10" className="fill-[#DCEFEA]" />
+    <circle cx="10" cy="10" r="10" className="fill-[#EFEDFF]" />
     <path
       d="M6 10.2l2.4 2.4L14 7.4"
       stroke="currentColor"
@@ -194,11 +194,11 @@ const QueuedPlanBanner: React.FC<{ planName: string; planCredit: number | null }
   planName,
   planCredit,
 }) => (
-  <div className="mb-4 flex items-center gap-2.5 rounded-2xl border border-[#1B6F63]/25 bg-[#DCEFEA] px-4 py-3.5">
-    <span className="flex h-8 w-8 shrink-0 items-center justify-center rounded-full bg-white text-[#1B6F63]">
+  <div className="mb-4 flex items-center gap-2.5 rounded-2xl border border-[#5B47FB]/25 bg-[#EFEDFF] px-4 py-3.5">
+    <span className="flex h-8 w-8 shrink-0 items-center justify-center rounded-full bg-white text-[#5B47FB]">
       <ClockIcon className="h-4 w-4" />
     </span>
-    <p className="text-[11.5px] font-semibold leading-relaxed text-[#14564C] sm:text-[12.5px]">
+    <p className="text-[11.5px] font-semibold leading-relaxed text-[#4935E0] sm:text-[12.5px]">
       {planCredit != null
         ? tx("billing.queued.withCredits", {
             plan: <span className="font-extrabold">{planName}</span>,
@@ -243,7 +243,7 @@ const PeriodSwitcher: React.FC<{
     <div
       role="radiogroup"
       aria-label={t("billing.period.label")}
-      className="grid w-full grid-cols-3 gap-1 rounded-2xl border border-[#E3DFD3] bg-white p-1 shadow-sm sm:w-auto sm:min-w-[440px]"
+      className="grid w-full grid-cols-3 gap-1 rounded-2xl border border-[#E6E5F1] bg-white p-1 shadow-sm sm:w-auto sm:min-w-[440px]"
     >
       {BILLING_PERIODS.map((months) => {
         const active = value === months;
@@ -257,15 +257,15 @@ const PeriodSwitcher: React.FC<{
             onClick={() => onChange(months)}
             className={`relative flex flex-col items-center justify-center gap-0.5 rounded-xl px-2 py-2 transition-all duration-200 sm:py-2.5 ${
               active
-                ? "bg-[#1E2A28] text-white shadow-md"
-                : "text-[#5B655F] hover:bg-[#F5F3EC]"
+                ? "bg-[#0D0F23] text-white shadow-md"
+                : "text-[#5A5F80] hover:bg-[#F6F6FB]"
             }`}
           >
             <span className="text-[12.5px] font-bold sm:text-[13.5px]">{periodLabel(months)}</span>
             <span
               className={`text-[10px] font-semibold sm:text-[10.5px] ${
                 discount <= 0
-                  ? "text-[#9BA69F]"
+                  ? "text-[#9A9DB8]"
                   : active
                   ? "text-[#DDBB86]"
                   : "text-emerald-600"
@@ -472,23 +472,23 @@ const PlanFeatureGroupBlock: React.FC<{ group: PlanFeatureGroup; dark: boolean }
 
   const boxCls = isProduct
     ? dark
-      ? "rounded-2xl border border-[#E9B8CE]/25 bg-[#E9B8CE]/[0.07] p-3"
-      : "rounded-2xl border border-[#8B3F63]/15 bg-[#F8EFF3] p-3"
+      ? "rounded-2xl border border-[#D9D4FF]/25 bg-[#D9D4FF]/[0.07] p-3"
+      : "rounded-2xl border border-[#5B47FB]/15 bg-[#F3F1FF] p-3"
     : "";
   const titleCls = isProduct
     ? dark
-      ? "text-[#E9B8CE]"
-      : "text-[#8B3F63]"
+      ? "text-[#D9D4FF]"
+      : "text-[#5B47FB]"
     : dark
-    ? "text-[#9BA69F]"
-    : "text-[#7A847E]";
+    ? "text-[#9A9DB8]"
+    : "text-[#7D819F]";
   const checkCls = isProduct
     ? dark
-      ? "text-[#E9B8CE]"
-      : "text-[#8B3F63]"
+      ? "text-[#D9D4FF]"
+      : "text-[#5B47FB]"
     : dark
     ? "text-[#DDBB86]"
-    : "text-[#1B6F63]";
+    : "text-[#5B47FB]";
 
   return (
     <div className={boxCls}>
@@ -505,7 +505,7 @@ const PlanFeatureGroupBlock: React.FC<{ group: PlanFeatureGroup; dark: boolean }
                 <CheckIcon className={`mt-0.5 h-4 w-4 shrink-0 ${checkCls}`} />
               ) : (
                 <MinusIcon
-                  className={`mt-0.5 h-4 w-4 shrink-0 ${dark ? "text-[#6B7570]" : "text-[#B5BCB7]"}`}
+                  className={`mt-0.5 h-4 w-4 shrink-0 ${dark ? "text-[#6C7193]" : "text-[#B6B8CE]"}`}
                 />
               )}
               <span className="flex flex-col gap-0.5">
@@ -514,7 +514,7 @@ const PlanFeatureGroupBlock: React.FC<{ group: PlanFeatureGroup; dark: boolean }
                     className={`text-[12.5px] font-medium leading-snug ${
                       !included
                         ? dark
-                          ? "text-[#6B7570] line-through decoration-1"
+                          ? "text-[#6C7193] line-through decoration-1"
                           : "text-[#A5ACA7] line-through decoration-1"
                         : dark
                         ? "text-[#EDE9DE]"
@@ -530,7 +530,7 @@ const PlanFeatureGroupBlock: React.FC<{ group: PlanFeatureGroup; dark: boolean }
                   )}
                 </span>
                 {item.note && included && (
-                  <span className={`text-[10.5px] font-medium ${dark ? "text-[#9BA69F]" : "text-[#7A847E]"}`}>
+                  <span className={`text-[10.5px] font-medium ${dark ? "text-[#9A9DB8]" : "text-[#7D819F]"}`}>
                     {item.note}
                   </span>
                 )}
@@ -583,19 +583,19 @@ const SampleProductRow: React.FC<{ fixed: boolean }> = ({ fixed }) => (
   <div className="mb-2.5 flex items-center justify-between gap-2">
     <div className="flex min-w-0 items-center gap-2.5">
       <span
-        className={`flex h-9 w-9 shrink-0 items-center justify-center rounded-xl bg-white ring-1 ring-[#E3DFD3] ${
-          fixed ? "text-[#1B6F63]" : "text-[#8B3F63]"
+        className={`flex h-9 w-9 shrink-0 items-center justify-center rounded-xl bg-white ring-1 ring-[#E6E5F1] ${
+          fixed ? "text-[#5B47FB]" : "text-[#5B47FB]"
         }`}
       >
         <BagIcon className="h-[18px] w-[18px]" />
       </span>
-      <span className="truncate text-[12.5px] font-bold text-[#1E2A28]">
+      <span className="truncate text-[12.5px] font-bold text-[#0D0F23]">
         {t("billing.productSeo.sampleProduct")}
       </span>
     </div>
     <span
       className={`shrink-0 rounded-full px-2 py-0.5 text-[10px] font-bold ${
-        fixed ? "bg-[#1B6F63] text-white" : "bg-rose-100 text-rose-600"
+        fixed ? "bg-[#5B47FB] text-white" : "bg-rose-100 text-rose-600"
       }`}
     >
       {fixed ? t("billing.productSeo.published") : t("billing.productSeo.issues", { count: sampleFixes().length })}
@@ -606,21 +606,21 @@ const SampleProductRow: React.FC<{ fixed: boolean }> = ({ fixed }) => (
 const ProductSeoShowcase: React.FC = () => (
   <section className="mt-10 sm:mt-14" aria-labelledby="product-seo-title">
     <div className="mx-auto mb-6 max-w-2xl text-center sm:mb-8">
-      <span className="inline-flex items-center gap-1.5 rounded-full bg-[#F8EFF3] px-3 py-1 text-[11px] font-bold text-[#8B3F63]">
+      <span className="inline-flex items-center gap-1.5 rounded-full bg-[#F3F1FF] px-3 py-1 text-[11px] font-bold text-[#5B47FB]">
         <BagIcon className="h-3.5 w-3.5" />
         {t("billing.groups.product")}
       </span>
-      <h2 id="product-seo-title" className="mt-3 text-lg font-bold text-[#1E2A28] sm:text-2xl">
+      <h2 id="product-seo-title" className="mt-3 text-lg font-bold text-[#0D0F23] sm:text-2xl">
         {t("billing.productSeo.title")}
       </h2>
-      <p className="mt-1.5 text-[12px] leading-relaxed text-[#7A847E] sm:text-sm">
+      <p className="mt-1.5 text-[12px] leading-relaxed text-[#7D819F] sm:text-sm">
         {t("billing.productSeo.body")}
       </p>
     </div>
 
     <div className="grid gap-4 md:grid-cols-2 md:gap-5">
       {/* نمونه‌ی قبل و بعد */}
-      <figure className="rounded-3xl border border-[#E3DFD3] bg-white p-4 shadow-sm sm:p-5">
+      <figure className="rounded-3xl border border-[#E6E5F1] bg-white p-4 shadow-sm sm:p-5">
         <div className="rounded-2xl border border-rose-100 bg-rose-50/50 p-3.5">
           <SampleProductRow fixed={false} />
           <div className="flex flex-wrap gap-1.5">
@@ -635,7 +635,7 @@ const ProductSeoShowcase: React.FC = () => (
           </div>
         </div>
 
-        <div className="flex justify-center py-2 text-[#B5BCB7]" aria-hidden="true">
+        <div className="flex justify-center py-2 text-[#B6B8CE]" aria-hidden="true">
           <svg viewBox="0 0 20 20" fill="none" className="h-5 w-5">
             <path
               d="M10 4v12M5.5 11.5L10 16l4.5-4.5"
@@ -647,19 +647,19 @@ const ProductSeoShowcase: React.FC = () => (
           </svg>
         </div>
 
-        <div className="rounded-2xl border border-[#1B6F63]/20 bg-[#DCEFEA]/60 p-3.5">
+        <div className="rounded-2xl border border-[#5B47FB]/20 bg-[#EFEDFF]/60 p-3.5">
           <SampleProductRow fixed />
           <ul className="grid grid-cols-1 gap-1.5 sm:grid-cols-2">
             {sampleFixes().map(({ after }) => (
-              <li key={after} className="flex items-center gap-1.5 text-[11px] font-medium text-[#14564C]">
-                <CheckIcon className="h-3.5 w-3.5 shrink-0 text-[#1B6F63]" />
+              <li key={after} className="flex items-center gap-1.5 text-[11px] font-medium text-[#4935E0]">
+                <CheckIcon className="h-3.5 w-3.5 shrink-0 text-[#5B47FB]" />
                 {after}
               </li>
             ))}
           </ul>
         </div>
 
-        <figcaption className="mt-3 text-center text-[10.5px] font-medium text-[#9BA69F]">
+        <figcaption className="mt-3 text-center text-[10.5px] font-medium text-[#9A9DB8]">
           {t("billing.productSeo.caption")}
         </figcaption>
       </figure>
@@ -670,32 +670,32 @@ const ProductSeoShowcase: React.FC = () => (
           {productSteps().map((step, i) => (
             <li
               key={step.title}
-              className="flex items-start gap-3 rounded-2xl border border-[#E3DFD3] bg-white px-4 py-3"
+              className="flex items-start gap-3 rounded-2xl border border-[#E6E5F1] bg-white px-4 py-3"
             >
-              <span className="flex h-7 w-7 shrink-0 items-center justify-center rounded-full bg-[#F8EFF3] text-[12px] font-extrabold text-[#8B3F63]">
+              <span className="flex h-7 w-7 shrink-0 items-center justify-center rounded-full bg-[#F3F1FF] text-[12px] font-extrabold text-[#5B47FB]">
                 {formatNumber(i + 1)}
               </span>
               <div>
-                <p className="text-[13px] font-bold text-[#1E2A28]">{step.title}</p>
-                <p className="mt-0.5 text-[11.5px] leading-relaxed text-[#6B7570]">{step.text}</p>
+                <p className="text-[13px] font-bold text-[#0D0F23]">{step.title}</p>
+                <p className="mt-0.5 text-[11.5px] leading-relaxed text-[#6C7193]">{step.text}</p>
               </div>
             </li>
           ))}
         </ol>
 
-        <div className="rounded-2xl border border-[#E3DFD3] bg-white px-4 py-3.5">
-          <p className="mb-2 text-[12px] font-bold text-[#1E2A28]">{t("billing.productSeo.whatFixed")}</p>
+        <div className="rounded-2xl border border-[#E6E5F1] bg-white px-4 py-3.5">
+          <p className="mb-2 text-[12px] font-bold text-[#0D0F23]">{t("billing.productSeo.whatFixed")}</p>
           <div className="flex flex-wrap gap-1.5">
             {productFixFields().map((field) => (
               <span
                 key={field}
-                className="rounded-full bg-[#F7F5EF] px-2.5 py-1 text-[11px] font-medium text-[#3D453F]"
+                className="rounded-full bg-[#F7F7FC] px-2.5 py-1 text-[11px] font-medium text-[#3B3F5C]"
               >
                 {field}
               </span>
             ))}
           </div>
-          <p className="mt-2.5 text-[10.5px] leading-relaxed text-[#9BA69F]">
+          <p className="mt-2.5 text-[10.5px] leading-relaxed text-[#9A9DB8]">
             {t("billing.productSeo.approval")}
           </p>
         </div>
@@ -735,7 +735,7 @@ const FaqSection: React.FC = () => {
   return (
     <div className="mx-auto max-w-3xl px-0 py-10 sm:py-14">
       <div className="mb-6 text-center sm:mb-8">
-        <h2 className="text-lg font-bold text-[#1E2A28] sm:text-2xl">
+        <h2 className="text-lg font-bold text-[#0D0F23] sm:text-2xl">
           {t("billing.faq.title")}
         </h2>
         <p className="mt-1.5 text-[12px] font-normal text-[#8A948E] sm:text-sm">
@@ -750,7 +750,7 @@ const FaqSection: React.FC = () => {
             <div
               key={index}
               className={`overflow-hidden rounded-2xl border bg-white transition-colors ${
-                isOpen ? "border-[#1B6F63]/40" : "border-[#E3DFD3]"
+                isOpen ? "border-[#5B47FB]/40" : "border-[#E6E5F1]"
               }`}
             >
               <button
@@ -761,14 +761,14 @@ const FaqSection: React.FC = () => {
               >
                 <span
                   className={`text-[13px] font-semibold leading-snug sm:text-[15px] ${
-                    isOpen ? "text-[#1B6F63]" : "text-[#1E2A28]"
+                    isOpen ? "text-[#5B47FB]" : "text-[#0D0F23]"
                   }`}
                 >
                   {item.question}
                 </span>
                 <span
                   className={`flex h-6 w-6 shrink-0 items-center justify-center rounded-full ${
-                    isOpen ? "bg-[#DCEFEA] text-[#1B6F63]" : "bg-[#F1EFE8] text-[#7A847E]"
+                    isOpen ? "bg-[#EFEDFF] text-[#5B47FB]" : "bg-[#F3F3FA] text-[#7D819F]"
                   }`}
                 >
                   <ChevronIcon open={isOpen} />
@@ -781,7 +781,7 @@ const FaqSection: React.FC = () => {
                 }`}
               >
                 <div className="overflow-hidden">
-                  <p className="px-4 pb-4 text-[12.5px] font-normal leading-relaxed text-[#6B7570] sm:px-5 sm:pb-5 sm:text-[13.5px]">
+                  <p className="px-4 pb-4 text-[12.5px] font-normal leading-relaxed text-[#6C7193] sm:px-5 sm:pb-5 sm:text-[13.5px]">
                     {item.answer}
                   </p>
                 </div>
@@ -844,21 +844,21 @@ const DiscountCodeModal: React.FC<DiscountCodeModalProps> = ({
         onClick={(e) => e.stopPropagation()}
       >
         <div className="mb-4 flex items-center justify-between">
-          <h3 className="text-[15px] font-bold text-[#1E2A28] sm:text-base">
+          <h3 className="text-[15px] font-bold text-[#0D0F23] sm:text-base">
             {t("billing.discountModal.title")}
           </h3>
           <button
             type="button"
             onClick={onCancel}
             aria-label={t("common.actions.close")}
-            className="flex h-7 w-7 items-center justify-center rounded-full bg-[#F1EFE8] text-[#7A847E] transition-colors hover:bg-[#E3DFD3]"
+            className="flex h-7 w-7 items-center justify-center rounded-full bg-[#F3F3FA] text-[#7D819F] transition-colors hover:bg-[#E6E5F1]"
           >
             <CloseIcon className="h-3.5 w-3.5" />
           </button>
         </div>
 
-        <p className="mb-4 text-[12px] font-medium leading-relaxed text-[#6B7570]">
-          {tx("billing.discountModal.body", { plan: <span className="font-bold text-[#1E2A28]">{planName}</span> })}
+        <p className="mb-4 text-[12px] font-medium leading-relaxed text-[#6C7193]">
+          {tx("billing.discountModal.body", { plan: <span className="font-bold text-[#0D0F23]">{planName}</span> })}
         </p>
 
         <div className="mb-2 flex items-center gap-2">
@@ -869,13 +869,13 @@ const DiscountCodeModal: React.FC<DiscountCodeModalProps> = ({
             placeholder={t("billing.discountModal.placeholder")}
             dir="ltr"
             autoFocus
-            className="h-11 flex-1 rounded-xl border border-[#DAD5C7] bg-[#F7F5EF] px-3 text-start text-[13px] font-semibold tracking-wide text-[#1E2A28] outline-none focus:border-[#1B6F63]"
+            className="h-11 flex-1 rounded-xl border border-[#E4E5F0] bg-[#F7F7FC] px-3 text-start text-[13px] font-semibold tracking-wide text-[#0D0F23] outline-none focus:border-[#5B47FB]"
           />
           <button
             type="button"
             onClick={onApply}
             disabled={submitting}
-            className="h-11 shrink-0 rounded-xl bg-[#1E2A28] px-4 text-[12.5px] font-bold text-white transition-colors hover:bg-[#14201E] disabled:cursor-not-allowed disabled:opacity-50"
+            className="h-11 shrink-0 rounded-xl bg-[#0D0F23] px-4 text-[12.5px] font-bold text-white transition-colors hover:bg-[#14201E] disabled:cursor-not-allowed disabled:opacity-50"
           >
             {t("billing.discountModal.apply")}
           </button>
@@ -885,31 +885,31 @@ const DiscountCodeModal: React.FC<DiscountCodeModalProps> = ({
           <p className="mb-2 text-[11.5px] font-medium text-rose-600">{error}</p>
         )}
         {applied && !error && (
-          <p className="mb-2 flex items-center gap-1 text-[11.5px] font-semibold text-[#1B6F63]">
-            <CheckIcon className="h-3.5 w-3.5 text-[#1B6F63]" />
+          <p className="mb-2 flex items-center gap-1 text-[11.5px] font-semibold text-[#5B47FB]">
+            <CheckIcon className="h-3.5 w-3.5 text-[#5B47FB]" />
             {t("billing.discountModal.applied")}
           </p>
         )}
 
-        <div className="mb-2 mt-3 flex items-center justify-between rounded-2xl bg-[#F7F5EF] px-4 py-3">
-          <span className="text-[11.5px] font-medium text-[#6B7570]">
+        <div className="mb-2 mt-3 flex items-center justify-between rounded-2xl bg-[#F7F7FC] px-4 py-3">
+          <span className="text-[11.5px] font-medium text-[#6C7193]">
             {t("billing.discountModal.planPrice", { plan: planName })}
           </span>
           <div className="flex flex-col items-end gap-0.5">
             {applied && (
-              <span className="text-[11px] font-medium text-[#9BA69F] line-through">
+              <span className="text-[11px] font-medium text-[#9A9DB8] line-through">
                 {money(priceAmount)}
               </span>
             )}
             <div className="flex items-baseline gap-1.5">
-              <span className="text-[16px] font-extrabold text-[#1E2A28]">
+              <span className="text-[16px] font-extrabold text-[#0D0F23]">
                 {priceNumber(discountedPriceAmount)}
               </span>
-              <span className="text-[11px] font-medium text-[#6B7570]">{PRICE_CURRENCY}</span>
+              <span className="text-[11px] font-medium text-[#6C7193]">{PRICE_CURRENCY}</span>
             </div>
           </div>
         </div>
-        <p className="mb-5 text-[10.5px] font-normal leading-relaxed text-[#9BA69F]">
+        <p className="mb-5 text-[10.5px] font-normal leading-relaxed text-[#9A9DB8]">
           {t("billing.discountModal.finalNote")}
         </p>
 
@@ -917,7 +917,7 @@ const DiscountCodeModal: React.FC<DiscountCodeModalProps> = ({
           <button
             type="button"
             onClick={onCancel}
-            className="h-11 flex-1 rounded-xl border border-[#DAD5C7] bg-white text-[12.5px] font-bold text-[#3D453F] transition-colors hover:bg-[#F1EFE8]"
+            className="h-11 flex-1 rounded-xl border border-[#E4E5F0] bg-white text-[12.5px] font-bold text-[#3B3F5C] transition-colors hover:bg-[#F3F3FA]"
           >
             {t("common.actions.cancel")}
           </button>
@@ -925,13 +925,13 @@ const DiscountCodeModal: React.FC<DiscountCodeModalProps> = ({
             type="button"
             onClick={onConfirmPayment}
             disabled={submitting}
-            className="h-11 flex-[2] rounded-xl bg-[#1B6F63] text-[13px] font-bold text-white transition-colors hover:bg-[#14564C] disabled:cursor-not-allowed disabled:opacity-40"
+            className="h-11 flex-[2] rounded-xl bg-[#5B47FB] text-[13px] font-bold text-white transition-colors hover:bg-[#4935E0] disabled:cursor-not-allowed disabled:opacity-40"
           >
             {submitting ? t("billing.discountModal.redirecting") : t("billing.discountModal.toPayment")}
           </button>
         </div>
 
-        <p className="mt-3 flex items-center justify-center gap-1.5 text-[10.5px] font-medium text-[#9BA69F]">
+        <p className="mt-3 flex items-center justify-center gap-1.5 text-[10.5px] font-medium text-[#9A9DB8]">
         </p>
       </div>
     </div>
@@ -945,7 +945,7 @@ const FALLBACK_BACK_PATH = "/dashboard";
 /** ورود به «کسب درآمد با معرفی»: فقط از صفحه‌ی پلن‌ها (در منوی اصلی نیست). */
 const ReferralCard: React.FC<{ onOpen: () => void }> = ({ onOpen }) => (
   <section aria-labelledby="referral-card-title" className="mt-10 sm:mt-14">
-    <div className="flex flex-col gap-4 rounded-2xl bg-gradient-to-l from-[#1B6F63] to-[#14564C] p-5 text-white sm:flex-row sm:items-center sm:justify-between sm:p-6">
+    <div className="flex flex-col gap-4 rounded-2xl bg-gradient-to-l from-[#5B47FB] to-[#4935E0] p-5 text-white sm:flex-row sm:items-center sm:justify-between sm:p-6">
       <div className="min-w-0">
         <h2 id="referral-card-title" className="text-base font-extrabold sm:text-lg">
           {t("billing.referral.title")}
@@ -957,7 +957,7 @@ const ReferralCard: React.FC<{ onOpen: () => void }> = ({ onOpen }) => (
       <button
         type="button"
         onClick={onOpen}
-        className="shrink-0 rounded-xl bg-white px-5 py-2.5 text-[13px] font-extrabold text-[#14564C] shadow-sm transition-colors hover:bg-[#F1EFE8]"
+        className="shrink-0 rounded-xl bg-white px-5 py-2.5 text-[13px] font-extrabold text-[#4935E0] shadow-sm transition-colors hover:bg-[#F3F3FA]"
       >
         {t("billing.referral.cta")}
       </button>
@@ -1347,14 +1347,14 @@ const SubscriptionPage: React.FC = () => {
   const queuedPeriodMonths = (usage as { queued_period_months?: number | null } | null)?.queued_period_months;
 
   return (
-    <div className="min-h-screen bg-[#F5F3EC] pb-6">
+    <div className="min-h-screen bg-[#F6F6FB] pb-6">
       {/* هدر بازگشت */}
-      <div className="sticky top-0 z-20 border-b border-[#E3DFD3] bg-[#F5F3EC]/90 backdrop-blur">
+      <div className="sticky top-0 z-20 border-b border-[#E6E5F1] bg-[#F6F6FB]/90 backdrop-blur">
         <div className="mx-auto flex max-w-5xl items-center px-4 py-2">
           <button
             type="button"
             onClick={handleBack}
-            className="flex items-center gap-1.5 rounded-lg border border-[#DAD5C7] bg-white px-3 py-1.5 text-[12px] font-semibold text-[#3D453F] shadow-sm transition-colors hover:bg-[#F1EFE8] sm:px-3.5 sm:py-2 sm:text-[13px]"
+            className="flex items-center gap-1.5 rounded-lg border border-[#E4E5F0] bg-white px-3 py-1.5 text-[12px] font-semibold text-[#3B3F5C] shadow-sm transition-colors hover:bg-[#F3F3FA] sm:px-3.5 sm:py-2 sm:text-[13px]"
           >
             <ArrowRightIcon />
             {t("common.actions.back")}
@@ -1364,10 +1364,10 @@ const SubscriptionPage: React.FC = () => {
 
       {/* Hero */}
       <div className="mx-auto max-w-5xl px-4 pb-4 pt-6 text-center sm:pt-9">
-        <h1 className="text-lg font-extrabold text-[#1E2A28] sm:text-2xl">
+        <h1 className="text-lg font-extrabold text-[#0D0F23] sm:text-2xl">
           {t("billing.hero.title")}
         </h1>
-        <p className="mx-auto mt-2 max-w-lg text-[12px] font-normal leading-relaxed text-[#7A847E] sm:text-[14px]">
+        <p className="mx-auto mt-2 max-w-lg text-[12px] font-normal leading-relaxed text-[#7D819F] sm:text-[14px]">
           {t("billing.hero.subtitle")}
         </p>
 
@@ -1384,7 +1384,7 @@ const SubscriptionPage: React.FC = () => {
           </div>
         )}
         {successMsg && (
-          <div className="mx-auto mt-3 max-w-lg rounded-xl border border-[#1B6F63]/30 bg-[#DCEFEA] px-3.5 py-2 text-[11px] font-medium text-[#14564C] sm:text-[12px]">
+          <div className="mx-auto mt-3 max-w-lg rounded-xl border border-[#5B47FB]/30 bg-[#EFEDFF] px-3.5 py-2 text-[11px] font-medium text-[#4935E0] sm:text-[12px]">
             {successMsg}
           </div>
         )}
@@ -1482,8 +1482,8 @@ const SubscriptionPage: React.FC = () => {
                   key={plan.id}
                   className={`flex flex-col overflow-hidden rounded-3xl transition-shadow duration-200 ${
                     cfg.highlight
-                      ? "border-2 border-[#B08D57] bg-[#1E2A28] shadow-xl sm:shadow-2xl"
-                      : "border border-[#E3DFD3] bg-white shadow-sm hover:shadow-md"
+                      ? "border-2 border-[#B08D57] bg-[#0D0F23] shadow-xl sm:shadow-2xl"
+                      : "border border-[#E6E5F1] bg-white shadow-sm hover:shadow-md"
                   }`}
                 >
                   {cfg.highlight && (
@@ -1497,7 +1497,7 @@ const SubscriptionPage: React.FC = () => {
                     <div className="mb-3 flex items-center justify-between gap-2">
                       <h3
                         className={`text-[15px] font-bold sm:text-base ${
-                          cfg.highlight ? "text-[#F5F1E8]" : "text-[#1E2A28]"
+                          cfg.highlight ? "text-[#F6F6FB]" : "text-[#0D0F23]"
                         }`}
                       >
                         {plan.name}
@@ -1506,7 +1506,7 @@ const SubscriptionPage: React.FC = () => {
                         <span
                           className={`whitespace-nowrap rounded-full px-2.5 py-1 text-[10px] font-bold text-white ${
                             isCurrent
-                              ? "bg-[#1B6F63]"
+                              ? "bg-[#5B47FB]"
                               : isQueuedPlan
                               ? "bg-[#B08D57]"
                               : "bg-rose-500"
@@ -1524,7 +1524,7 @@ const SubscriptionPage: React.FC = () => {
                     {cfg.tagline && (
                       <p
                         className={`-mt-1.5 mb-3 text-[11.5px] font-medium leading-relaxed ${
-                          cfg.highlight ? "text-[#9BA69F]" : "text-[#7A847E]"
+                          cfg.highlight ? "text-[#9A9DB8]" : "text-[#7D819F]"
                         }`}
                       >
                         {cfg.tagline}
@@ -1535,7 +1535,7 @@ const SubscriptionPage: React.FC = () => {
                       {hasDiscount && (
                         <span
                           className={`text-[11px] font-medium line-through ${
-                            cfg.highlight ? "text-[#8B958F]" : "text-[#9BA69F]"
+                            cfg.highlight ? "text-[#8B958F]" : "text-[#9A9DB8]"
                           }`}
                         >
                           {money(originalPriceAmount)}
@@ -1544,7 +1544,7 @@ const SubscriptionPage: React.FC = () => {
                       <div className="flex items-baseline gap-1.5">
                         <span
                           className={`text-[28px] font-extrabold leading-none sm:text-[30px] ${
-                            cfg.highlight ? "text-[#F5F1E8]" : "text-[#1E2A28]"
+                            cfg.highlight ? "text-[#F6F6FB]" : "text-[#0D0F23]"
                           }`}
                         >
                           {isFreeDisplay ? t("billing.price.free") : priceNumber(finalPriceAmount)}
@@ -1552,7 +1552,7 @@ const SubscriptionPage: React.FC = () => {
                         {!isFreeDisplay && (
                           <span
                             className={`text-[12px] font-medium ${
-                              cfg.highlight ? "text-[#C8CFC9]" : "text-[#6B7570]"
+                              cfg.highlight ? "text-[#C9CBDD]" : "text-[#6C7193]"
                             }`}
                           >
                             {PRICE_CURRENCY}
@@ -1561,7 +1561,7 @@ const SubscriptionPage: React.FC = () => {
                       </div>
                       <span
                         className={`mt-1 text-[11px] font-medium ${
-                          cfg.highlight ? "text-[#9BA69F]" : "text-[#9BA69F]"
+                          cfg.highlight ? "text-[#9A9DB8]" : "text-[#9A9DB8]"
                         }`}
                       >
                         {cfg.period}
@@ -1569,12 +1569,12 @@ const SubscriptionPage: React.FC = () => {
                       {!isFreeDisplay && isMultiMonth && (
                         <div
                           className={`mt-2.5 w-full rounded-xl px-3 py-2 text-[11px] font-medium leading-relaxed ${
-                            cfg.highlight ? "bg-white/[0.06] text-[#C8CFC9]" : "bg-[#F7F5EF] text-[#5B655F]"
+                            cfg.highlight ? "bg-white/[0.06] text-[#C9CBDD]" : "bg-[#F7F7FC] text-[#5A5F80]"
                           }`}
                         >
                           {tx("billing.period.payOnce", {
                             amount: (
-                              <span className={`font-extrabold ${cfg.highlight ? "text-[#F5F1E8]" : "text-[#1E2A28]"}`}>
+                              <span className={`font-extrabold ${cfg.highlight ? "text-[#F6F6FB]" : "text-[#0D0F23]"}`}>
                                 {money(totalPriceAmount)}
                               </span>
                             ),
@@ -1590,20 +1590,20 @@ const SubscriptionPage: React.FC = () => {
 
                     <div
                       className={`mb-4 flex flex-col items-center gap-2 rounded-2xl px-4 py-3.5 text-center ${
-                        cfg.highlight ? "bg-white/[0.06]" : "bg-[#F7F5EF]"
+                        cfg.highlight ? "bg-white/[0.06]" : "bg-[#F7F7FC]"
                       }`}
                     >
                       <div className="flex items-baseline gap-1.5">
                         <span
                           className={`text-xl font-extrabold ${
-                            cfg.highlight ? "text-[#DDBB86]" : "text-[#1B6F63]"
+                            cfg.highlight ? "text-[#DDBB86]" : "text-[#5B47FB]"
                           }`}
                         >
                           {formatNumber(period.credit)}
                         </span>
                         <span
                           className={`text-[11px] font-medium ${
-                            cfg.highlight ? "text-[#C8CFC9]" : "text-[#5B655F]"
+                            cfg.highlight ? "text-[#C9CBDD]" : "text-[#5A5F80]"
                           }`}
                         >
                           {isMultiMonth ? t("billing.plans.creditsForMonths", { months: period.months }) : t("billing.plans.credits")}
@@ -1615,7 +1615,7 @@ const SubscriptionPage: React.FC = () => {
                           <span
                             key={i}
                             className={`text-[11.5px] font-medium leading-snug ${
-                              cfg.highlight ? "text-[#DDBB86]" : "text-[#1B6F63]"
+                              cfg.highlight ? "text-[#DDBB86]" : "text-[#5B47FB]"
                             }`}
                           >
                             ≈ {isMultiMonth ? formatNumber(faDigitsToNumber(item.count) * period.months) : item.count}{" "}
@@ -1658,7 +1658,7 @@ const SubscriptionPage: React.FC = () => {
                       className={`flex h-11 w-full items-center justify-center rounded-xl text-[13px] font-bold transition-colors disabled:cursor-not-allowed disabled:opacity-40 ${
                         cfg.highlight
                           ? "bg-gradient-to-r rtl:bg-gradient-to-l from-[#B08D57] to-[#DDBB86] text-white hover:opacity-90"
-                          : "bg-[#1B6F63] text-white hover:bg-[#14564C]"
+                          : "bg-[#5B47FB] text-white hover:bg-[#4935E0]"
                       }`}
                     >
                       {buttonLabel}
@@ -1672,12 +1672,12 @@ const SubscriptionPage: React.FC = () => {
 
         {/* وضعیت فعلی اشتراک */}
         {!loading && active && (
-          <div className="mt-4 flex flex-wrap items-center justify-between gap-2 rounded-2xl border border-[#E3DFD3] bg-white px-4 py-3">
-            <div className="flex items-center gap-2 text-[11px] font-medium text-[#5B655F] sm:text-[12px]">
-              <span className="font-bold text-[#1E2A28]">
+          <div className="mt-4 flex flex-wrap items-center justify-between gap-2 rounded-2xl border border-[#E6E5F1] bg-white px-4 py-3">
+            <div className="flex items-center gap-2 text-[11px] font-medium text-[#5A5F80] sm:text-[12px]">
+              <span className="font-bold text-[#0D0F23]">
                 {active.plan_name}
                 {!active.is_free && (
-                  <span className="mx-1.5 rounded-full bg-[#DCEFEA] px-2 py-0.5 text-[10px] font-bold text-[#14564C]">
+                  <span className="mx-1.5 rounded-full bg-[#EFEDFF] px-2 py-0.5 text-[10px] font-bold text-[#4935E0]">
                     {periodLabel(activePeriodMonths)}
                   </span>
                 )}
@@ -1685,22 +1685,22 @@ const SubscriptionPage: React.FC = () => {
               <span>
                 · {formatNumber(active.remaining_credit)}
                 {hasQueuedSubscription && queuedPlanCredit != null && (
-                  <span className="text-[#1B6F63]"> (+{formatNumber(queuedPlanCredit)})</span>
+                  <span className="text-[#5B47FB]"> (+{formatNumber(queuedPlanCredit)})</span>
                 )}{" "}
                 {t("billing.usage.remaining", { percent: formatPercent(displayedCreditUsagePercentage) })}
               </span>
             </div>
             <div className="flex items-center gap-2">
-              <div className="h-1.5 w-20 overflow-hidden rounded-full bg-[#F1EFE8]">
+              <div className="h-1.5 w-20 overflow-hidden rounded-full bg-[#F3F3FA]">
                 <div
                   className={`h-full rounded-full ${
-                    displayedCreditUsagePercentage >= 90 ? "bg-rose-500" : "bg-[#1B6F63]"
+                    displayedCreditUsagePercentage >= 90 ? "bg-rose-500" : "bg-[#5B47FB]"
                   }`}
                   style={{ width: `${Math.min(displayedCreditUsagePercentage, 100)}%` }}
                 />
               </div>
               {active.ends_at && (
-                <span className="text-[10px] font-medium text-[#9BA69F]">
+                <span className="text-[10px] font-medium text-[#9A9DB8]">
                   {t("billing.usage.until", { date: formatDate(active.ends_at) })}
                 </span>
               )}

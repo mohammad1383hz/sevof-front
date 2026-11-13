@@ -45,20 +45,20 @@ const LanguageSwitcher: React.FC<LanguageSwitcherProps> = ({ openUp = false, ful
         aria-expanded={open}
         aria-label={t("common.language.label")}
         title={t("common.language.label")}
-        className={`flex items-center gap-2 rounded-xl border border-[#DAD5C7] bg-[#FBFAF6] px-3 py-2 text-xs font-bold text-[#1E2A28] transition hover:bg-[#EFEDE6] ${
+        className={`flex items-center gap-2 rounded-xl border border-[#E4E5F0] bg-[#FAFAFE] px-3 py-2 text-xs font-bold text-[#0D0F23] transition hover:bg-[#F3F2FB] ${
           fullWidth ? "w-full" : ""
         }`}
       >
-        <Globe className="h-4 w-4 shrink-0 text-[#1B6F63]" />
+        <Globe className="h-4 w-4 shrink-0 text-[#5B47FB]" />
         <span className={fullWidth ? "flex-1 text-start" : ""}>{current.nativeName}</span>
-        <ChevronDown className={`h-3.5 w-3.5 shrink-0 text-[#9BA69F] transition-transform ${open ? "rotate-180" : ""}`} />
+        <ChevronDown className={`h-3.5 w-3.5 shrink-0 text-[#9A9DB8] transition-transform ${open ? "rotate-180" : ""}`} />
       </button>
 
       {open && (
         <ul
           role="listbox"
           aria-label={t("common.language.label")}
-          className={`absolute z-[80] min-w-[11rem] overflow-hidden rounded-xl border border-[#DAD5C7] bg-white py-1 shadow-lg ${
+          className={`absolute z-[80] min-w-[11rem] overflow-hidden rounded-xl border border-[#E4E5F0] bg-white py-1 shadow-lg ${
             openUp ? "bottom-full mb-2" : "top-full mt-2"
           } ${fullWidth ? "inset-x-0" : "end-0"}`}
         >
@@ -69,8 +69,8 @@ const LanguageSwitcher: React.FC<LanguageSwitcherProps> = ({ openUp = false, ful
                 lang={l.locale}
                 dir={l.dir}
                 onClick={() => choose(l.code)}
-                className={`flex w-full items-center gap-2.5 px-3 py-2 text-sm transition hover:bg-[#EFEDE6] ${
-                  l.code === lang ? "font-bold text-[#1B6F63]" : "text-[#1E2A28]"
+                className={`flex w-full items-center gap-2.5 px-3 py-2 text-sm transition hover:bg-[#F3F2FB] ${
+                  l.code === lang ? "font-bold text-[#5B47FB]" : "text-[#0D0F23]"
                 }`}
               >
                 <span aria-hidden="true">{l.flag}</span>

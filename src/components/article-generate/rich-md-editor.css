@@ -18,13 +18,13 @@
    ۱) قابِ اصلی
 ───────────────────────────────────────────────────────── */
 .rmde {
-  --rmde-accent: #1b6f63;
-  --rmde-accent-soft: #dcefea;
-  --rmde-border: #dad5c7;
+  --rmde-accent: #5B47FB;
+  --rmde-accent-soft: #EFEDFF;
+  --rmde-border: #E4E5F0;
   --rmde-border-soft: #ece8dd;
-  --rmde-text: #1e2a28;
-  --rmde-muted: #9ba69f;
-  --rmde-bg-toolbar: #fbfaf6;
+  --rmde-text: #0D0F23;
+  --rmde-muted: #9A9DB8;
+  --rmde-bg-toolbar: #FAFAFE;
   --rmde-radius: 12px;
 
   /* جهت از صفحه به ارث می‌رسد (LTR یا RTL بسته به زبان رابط) */
@@ -39,7 +39,7 @@
 
 .rmde:focus-within {
   border-color: var(--rmde-accent);
-  box-shadow: 0 0 0 3px rgba(27, 111, 99, 0.12);
+  box-shadow: 0 0 0 3px rgba(91, 71, 251, 0.12);
 }
 
 .rmde--readonly {
@@ -172,7 +172,7 @@
   background: #ffffff !important;
   border: 1px solid var(--rmde-border) !important;
   border-radius: 10px !important;
-  box-shadow: 0 10px 24px -6px rgba(30, 42, 40, 0.18) !important;
+  box-shadow: 0 10px 24px -6px rgba(13, 15, 35, 0.18) !important;
   padding: 6px !important;
   font-size: 12px;
   overflow: hidden;
@@ -301,7 +301,7 @@
   border-inline-start: 3px solid var(--rmde-border);
   border-inline-end: none;
   background: var(--rmde-bg-toolbar);
-  color: #4b564f;
+  color: #494D6B;
   border-radius: 6px;
   font-style: italic;
 }
@@ -333,7 +333,7 @@
 .rmde-content code {
   direction: ltr;
   display: inline-block;
-  background: #f1f0ea;
+  background: #F3F3FA;
   color: #b3453a;
   border-radius: 4px;
   padding: 0.1em 0.4em;

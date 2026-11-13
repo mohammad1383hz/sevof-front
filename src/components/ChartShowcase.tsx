@@ -267,7 +267,7 @@ const PerformanceChart: React.FC<{
             <div className="absolute bottom-12 left-0 -translate-x-1/2">
               <div className={active ? "ut-pop" : ""}>
                 <div className="relative h-12 w-12 rounded-full border-2 border-[#5E35B1] bg-white p-1 shadow-[0_4px_20px_rgba(147,51,234,0.25),0_2px_8px_rgba(0,0,0,0.1)]">
-                  <img src="/logo.png" alt="" className="h-full w-full scale-[0.7] object-contain" />
+                  <img src="/logo.svg" alt="" className="h-full w-full scale-[0.7] object-contain" />
                   <div className="absolute left-1/2 top-full h-9 w-0.5 -translate-x-1/2 bg-[#5E35B1]/30" />
                 </div>
               </div>
@@ -496,10 +496,10 @@ const ChartShowcase: React.FC = () => {
       `}</style>
 
       <div className="mx-auto max-w-2xl space-y-3 text-center">
-        <h2 id="results-title" className="text-2xl font-bold leading-[2.4rem] text-[#1E2A28] sm:text-4xl sm:leading-[3.2rem]">
+        <h2 id="results-title" className="text-2xl font-bold leading-[2.4rem] text-[#0D0F23] sm:text-4xl sm:leading-[3.2rem]">
           {t("landing.results.title")}
         </h2>
-        <p className="text-sm leading-7 text-[#5B645E] sm:text-base">{t("landing.results.subtitle")}</p>
+        <p className="text-sm leading-7 text-[#5A5F80] sm:text-base">{t("landing.results.subtitle")}</p>
       </div>
 
       <div
@@ -524,7 +524,7 @@ const ChartShowcase: React.FC = () => {
         </div>
 
         <div className="flex items-center justify-between px-3">
-          <p className="rounded-full bg-[#E3DFD1] px-3 py-1 text-xs font-bold text-[#3D453F] sm:text-sm" aria-live="polite">
+          <p className="rounded-full bg-[#E6E5F1] px-3 py-1 text-xs font-bold text-[#3B3F5C] sm:text-sm" aria-live="polite">
             {EXAMPLES[index].label}
           </p>
           <div className="flex items-center gap-3">
@@ -532,7 +532,7 @@ const ChartShowcase: React.FC = () => {
               {EXAMPLES.map((_, i) => (
                 <span
                   key={i}
-                  className={`h-1.5 rounded-full transition-all ${i === index ? "w-5 bg-[#1B6F63]" : "w-1.5 bg-[#DAD5C7]"}`}
+                  className={`h-1.5 rounded-full transition-all ${i === index ? "w-5 bg-[#5B47FB]" : "w-1.5 bg-[#E4E5F0]"}`}
                 />
               ))}
             </div>
@@ -541,7 +541,7 @@ const ChartShowcase: React.FC = () => {
                 type="button"
                 onClick={() => go(-1)}
                 aria-label={t("landing.results.prev")}
-                className="rounded-full border border-[#DAD5C7] bg-[#FBFAF6] p-2.5 text-[#3D453F] transition-colors hover:bg-[#E3DFD1] focus-visible:outline focus-visible:outline-2 focus-visible:outline-[#1B6F63]"
+                className="rounded-full border border-[#E4E5F0] bg-[#FAFAFE] p-2.5 text-[#3B3F5C] transition-colors hover:bg-[#E6E5F1] focus-visible:outline focus-visible:outline-2 focus-visible:outline-[#5B47FB]"
               >
                 <Chevron dir="prev" />
               </button>
@@ -549,7 +549,7 @@ const ChartShowcase: React.FC = () => {
                 type="button"
                 onClick={() => go(1)}
                 aria-label={t("landing.results.next")}
-                className="rounded-full border border-[#DAD5C7] bg-[#FBFAF6] p-2.5 text-[#3D453F] transition-colors hover:bg-[#E3DFD1] focus-visible:outline focus-visible:outline-2 focus-visible:outline-[#1B6F63]"
+                className="rounded-full border border-[#E4E5F0] bg-[#FAFAFE] p-2.5 text-[#3B3F5C] transition-colors hover:bg-[#E6E5F1] focus-visible:outline focus-visible:outline-2 focus-visible:outline-[#5B47FB]"
               >
                 <Chevron dir="next" />
               </button>

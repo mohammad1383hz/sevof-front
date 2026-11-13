@@ -88,7 +88,7 @@ const StatusDot: React.FC<{ status?: string | null }> = ({ status }) => {
   if (status === "generating") {
     return <Spinner className="h-5 w-5 shrink-0" />;
   }
-  return <span className="h-5 w-5 shrink-0 rounded-full border-2 border-[#DAD5C7] bg-white" />;
+  return <span className="h-5 w-5 shrink-0 rounded-full border-2 border-[#E4E5F0] bg-white" />;
 };
 
 export const ProductArticleOutline: React.FC<ProductArticleOutlineProps> = ({ article }) => {
@@ -115,10 +115,10 @@ export const ProductArticleOutline: React.FC<ProductArticleOutlineProps> = ({ ar
   if (waiting) {
     return (
       <div
-        className="flex items-center gap-3 rounded-2xl border border-[#DAD5C7] bg-white p-5"
+        className="flex items-center gap-3 rounded-2xl border border-[#E4E5F0] bg-white p-5"
       >
         <Spinner className="h-5 w-5" />
-        <p className="text-xs font-bold text-[#1E2A28]">{t("product.outline.building")}</p>
+        <p className="text-xs font-bold text-[#0D0F23]">{t("product.outline.building")}</p>
       </div>
     );
   }
@@ -127,7 +127,7 @@ export const ProductArticleOutline: React.FC<ProductArticleOutlineProps> = ({ ar
   const generatedCount = items.filter((it) => it.status === "generated").length;
 
   return (
-    <div className="rounded-2xl border border-[#DAD5C7] bg-white">
+    <div className="rounded-2xl border border-[#E4E5F0] bg-white">
       <button
         type="button"
         onClick={() => setOpen((o) => !o)}
@@ -135,15 +135,15 @@ export const ProductArticleOutline: React.FC<ProductArticleOutlineProps> = ({ ar
         aria-expanded={open}
       >
         <div className="min-w-0">
-          <h2 className="text-sm font-black text-[#1E2A28]">{t("product.outline.title")}</h2>
-          <p className="mt-0.5 text-[11px] text-[#000000]/60">
+          <h2 className="text-sm font-black text-[#0D0F23]">{t("product.outline.title")}</h2>
+          <p className="mt-0.5 text-[11px] text-[#0D0F23]/60">
             {fa(items.length)} sections
             {totalWords > 0 ? ` • ${t("product.outline.approxWords", { count: totalWords })}` : ""}
             {!done ? ` • ${t("product.outline.written", { done: generatedCount, total: items.length })}` : ""}
           </p>
         </div>
         <span
-          className={`text-xs text-[#1E2A28]/60 transition-transform ${open ? "rotate-180" : ""}`}
+          className={`text-xs text-[#0D0F23]/60 transition-transform ${open ? "rotate-180" : ""}`}
           aria-hidden
         >
           ▾
@@ -151,7 +151,7 @@ export const ProductArticleOutline: React.FC<ProductArticleOutlineProps> = ({ ar
       </button>
 
       {open && (
-        <ol className="space-y-3 border-t border-[#DAD5C7] p-4">
+        <ol className="space-y-3 border-t border-[#E4E5F0] p-4">
           {items.map((it, idx) => {
             const subs = toList(it.subheadings);
             const points = toList(it.key_points);
@@ -160,29 +160,29 @@ export const ProductArticleOutline: React.FC<ProductArticleOutlineProps> = ({ ar
             return (
               <li
                 key={it.id ?? idx}
-                className="rounded-xl border border-[#DAD5C7] bg-[#DCEFEA]/25 p-4"
+                className="rounded-xl border border-[#E4E5F0] bg-[#EFEDFF]/25 p-4"
               >
                 <div className="flex items-start gap-3">
                   <StatusDot status={it.status} />
                   <div className="min-w-0 flex-1">
                     <div className="flex flex-wrap items-center gap-2">
-                      <h3 className="text-[13px] font-black leading-6 text-[#1E2A28] break-words">
+                      <h3 className="text-[13px] font-black leading-6 text-[#0D0F23] break-words">
                         {fa(it.position ?? idx + 1)}. {it.heading || t("product.outline.untitled")}
                       </h3>
                       {typeLabel && (
-                        <span className="rounded-full bg-white px-2 py-0.5 text-[10px] font-bold text-[#1E2A28]/70 border border-[#DAD5C7]">
+                        <span className="rounded-full bg-white px-2 py-0.5 text-[10px] font-bold text-[#0D0F23]/70 border border-[#E4E5F0]">
                           {typeLabel}
                         </span>
                       )}
                       {it.target_words ? (
-                        <span className="text-[10px] text-[#000000]/50">
+                        <span className="text-[10px] text-[#0D0F23]/50">
                           {t("product.outline.target", { count: it.target_words })}
                         </span>
                       ) : null}
                     </div>
 
                     {subs.length > 0 && (
-                      <ul className="mt-2 space-y-1 ps-4 text-[12px] leading-6 text-[#1E2A28] list-disc marker:text-[#1E2A28]/40">
+                      <ul className="mt-2 space-y-1 ps-4 text-[12px] leading-6 text-[#0D0F23] list-disc marker:text-[#0D0F23]/40">
                         {subs.map((s, i) => (
                           <li key={i} className="break-words">
                             {s}
@@ -193,8 +193,8 @@ export const ProductArticleOutline: React.FC<ProductArticleOutlineProps> = ({ ar
 
                     {points.length > 0 && (
                       <div className="mt-2">
-                        <p className="text-[11px] font-bold text-[#1E2A28]/70">{t("product.outline.keyPoints")}</p>
-                        <ul className="mt-1 space-y-1 ps-4 text-[11px] leading-6 text-[#000000]/70 list-disc marker:text-[#1E2A28]/30">
+                        <p className="text-[11px] font-bold text-[#0D0F23]/70">{t("product.outline.keyPoints")}</p>
+                        <ul className="mt-1 space-y-1 ps-4 text-[11px] leading-6 text-[#0D0F23]/70 list-disc marker:text-[#0D0F23]/30">
                           {points.map((p, i) => (
                             <li key={i} className="break-words">
                               {p}

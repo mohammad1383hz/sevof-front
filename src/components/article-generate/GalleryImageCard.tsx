@@ -82,7 +82,7 @@ export const GalleryImageCard: React.FC<GalleryImageCardProps> = ({
   if (!src && !isFailed) return null;
 
   return (
-    <div className="overflow-hidden rounded-xl border border-[#DAD5C7] bg-[#F4F2EC]">
+    <div className="overflow-hidden rounded-xl border border-[#E4E5F0] bg-[#F6F6FB]">
       {isFailed ? (
         <div className="p-4">
           <p className="text-xs font-bold text-rose-600 mb-1">{t("article.image.failed")}</p>
@@ -101,14 +101,14 @@ export const GalleryImageCard: React.FC<GalleryImageCardProps> = ({
           {isGenerating && (
             <div className="absolute inset-0 flex items-center justify-center gap-2 bg-white/40">
               <Spinner />
-              <span className="text-[11px] font-bold text-[#1E2A28]">{t("article.image.generating")}</span>
+              <span className="text-[11px] font-bold text-[#0D0F23]">{t("article.image.generating")}</span>
             </div>
           )}
         </div>
       )}
 
       {image.alt && !isFailed && (
-        <div className="px-3 py-2 bg-[#F4F2EC] text-[10px] sm:text-[11px] text-[#9BA69F] leading-5">
+        <div className="px-3 py-2 bg-[#F6F6FB] text-[10px] sm:text-[11px] text-[#9A9DB8] leading-5">
           {image.alt}
         </div>
       )}
@@ -125,7 +125,7 @@ export const GalleryImageCard: React.FC<GalleryImageCardProps> = ({
             className={`w-full rounded-xl border py-2 text-[10px] sm:text-[11px] font-bold transition flex items-center justify-center gap-2 disabled:opacity-60 ${
               isFailed
                 ? "border-rose-200 bg-white text-rose-600 hover:bg-rose-50"
-                : "border-[#DAD5C7] bg-white text-[#000000] hover:border-[#1B6F63]/40 hover:text-[#1B6F63]"
+                : "border-[#E4E5F0] bg-white text-[#0D0F23] hover:border-[#5B47FB]/40 hover:text-[#5B47FB]"
             }`}
           >
             {isOpen ? t("article.image.closeEditor") : isFailed ? t("article.image.retryPrompt") : `✏️ ${t("article.image.editPrompt")}`}

@@ -25,32 +25,32 @@
   select,
   option
 ) {
-  color: #000000 !important;
+  color: #0D0F23 !important;
   font-weight: 700 !important;
 }
 
 /* Existing dark text surfaces are lightened only where necessary so black type remains legible. */
 .analyze-page-typography :where(
-  button[class*="bg-[#1B6F63]"],
-  button[class*="bg-[#14564C]"],
+  button[class*="bg-[#5B47FB]"],
+  button[class*="bg-[#4935E0]"],
   button[class*="bg-[#B3453A]"],
-  button[class*="from-[#1B6F63]"],
-  button[class*="from-[#14564C]"],
+  button[class*="from-[#5B47FB]"],
+  button[class*="from-[#4935E0]"],
   button[class*="from-[#B3453A]"],
-  [role="button"][class*="bg-[#1B6F63]"],
-  [role="button"][class*="bg-[#14564C]"],
+  [role="button"][class*="bg-[#5B47FB]"],
+  [role="button"][class*="bg-[#4935E0]"],
   [role="button"][class*="bg-[#B3453A]"],
-  [role="button"][class*="from-[#1B6F63]"],
-  [role="button"][class*="from-[#14564C]"],
+  [role="button"][class*="from-[#5B47FB]"],
+  [role="button"][class*="from-[#4935E0]"],
   [role="button"][class*="from-[#B3453A]"],
-  div[class*="from-[#1B6F63]"][class*="to-[#14564C]"]
+  div[class*="from-[#5B47FB]"][class*="to-[#4935E0]"]
 ) {
-  background: #DCEFEA !important;
+  background: #EFEDFF !important;
 }
 
 /* Placeholders remain visually distinct but never low-contrast gray. */
 .analyze-page-typography :where(input, textarea)::placeholder {
-  color: #000000 !important;
+  color: #0D0F23 !important;
   opacity: 0.72;
   font-weight: 700;
 }

@@ -85,7 +85,7 @@ const STATUS_META: Record<PageProductSeoStatus, { label: string; style: string }
   ready: { get label() { return t("pps.status.ready"); }, style: "bg-rose-50 text-rose-600" },
   skipped: { get label() { return t("pps.status.skipped"); }, style: "bg-gray-100 text-gray-500" },
   approved: { get label() { return t("pps.status.approved"); }, style: "bg-[#EDE3CF] text-[#B08D57]" },
-  published: { get label() { return t("pps.status.published"); }, style: "bg-[#1B6F63] text-white" },
+  published: { get label() { return t("pps.status.published"); }, style: "bg-[#5B47FB] text-white" },
   failed: { get label() { return t("pps.status.failed"); }, style: "bg-rose-50 text-rose-600" },
 };
 
@@ -912,7 +912,7 @@ const PageProductSeoPage: React.FC = () => {
   /* ───────── نمایش و ویرایش هر فیلد ───────── */
 
   const inputCls =
-    "min-w-0 text-base sm:text-sm rounded-lg border border-gray-200 bg-white px-3 py-2 focus:outline-none focus:ring-2 focus:ring-[#1B6F63]/30";
+    "min-w-0 text-base sm:text-sm rounded-lg border border-gray-200 bg-white px-3 py-2 focus:outline-none focus:ring-2 focus:ring-[#5B47FB]/30";
 
   const renderEditor = (field: PageProductSeoField): React.ReactNode => {
     if (!draft || field === "category_link") return null;
@@ -955,7 +955,7 @@ const PageProductSeoPage: React.FC = () => {
             <button
               type="button"
               onClick={addAttrRow}
-              className="flex items-center gap-1.5 text-xs font-black text-[#1B6F63] hover:underline"
+              className="flex items-center gap-1.5 text-xs font-black text-[#5B47FB] hover:underline"
             >
               <Plus className="w-3.5 h-3.5" />
               {t("pps.addAttr")}
@@ -1027,7 +1027,7 @@ const PageProductSeoPage: React.FC = () => {
             <button
               type="button"
               onClick={addFaqRow}
-              className="flex items-center gap-1.5 text-xs font-black text-[#1B6F63] hover:underline"
+              className="flex items-center gap-1.5 text-xs font-black text-[#5B47FB] hover:underline"
             >
               <Plus className="w-3.5 h-3.5" />
               {t("pps.addQuestion")}
@@ -1099,7 +1099,7 @@ const PageProductSeoPage: React.FC = () => {
           {attrs.map((a, i) => (
             <li
               key={`${a.name}-${i}`}
-              className="flex flex-col gap-1.5 rounded-lg bg-[#DCEFEA]/50 px-3 py-2 sm:flex-row sm:items-center sm:justify-between sm:gap-3"
+              className="flex flex-col gap-1.5 rounded-lg bg-[#EFEDFF]/50 px-3 py-2 sm:flex-row sm:items-center sm:justify-between sm:gap-3"
             >
               <div className="text-sm min-w-0 break-words">
                 <span className="font-bold text-gray-900">{a.name}</span>
@@ -1118,7 +1118,7 @@ const PageProductSeoPage: React.FC = () => {
       return (
         <div className="flex flex-wrap gap-2">
           {(proposed.tags ?? []).map((t) => (
-            <span key={t} className="text-xs font-bold bg-[#DCEFEA]/70 text-[#1B6F63] rounded-full px-3 py-1 break-words">
+            <span key={t} className="text-xs font-bold bg-[#EFEDFF]/70 text-[#5B47FB] rounded-full px-3 py-1 break-words">
               {t}
             </span>
           ))}
@@ -1129,10 +1129,10 @@ const PageProductSeoPage: React.FC = () => {
     if (field === "category_link" && proposed.category_link) {
       const { name, url } = proposed.category_link;
       return (
-        <div className="rounded-lg bg-[#DCEFEA]/50 p-3 text-sm text-gray-800 leading-7 break-words">
+        <div className="rounded-lg bg-[#EFEDFF]/50 p-3 text-sm text-gray-800 leading-7 break-words">
           {tx("growth.pps.categoryLink", {
             link: (
-              <a href={url} target="_blank" rel="noopener noreferrer" className="font-black text-[#1B6F63] underline">
+              <a href={url} target="_blank" rel="noopener noreferrer" className="font-black text-[#5B47FB] underline">
                 {name}
               </a>
             ),
@@ -1145,7 +1145,7 @@ const PageProductSeoPage: React.FC = () => {
       return (
         <ul className="space-y-2">
           {(proposed.faq ?? []).map((r, i) => (
-            <li key={i} className="rounded-lg bg-[#DCEFEA]/50 px-3 py-2.5">
+            <li key={i} className="rounded-lg bg-[#EFEDFF]/50 px-3 py-2.5">
               <div className="text-sm font-bold text-gray-900 break-words">{r.question}</div>
               <p className="text-sm text-gray-700 leading-7 mt-1 break-words">{r.answer}</p>
             </li>
@@ -1160,7 +1160,7 @@ const PageProductSeoPage: React.FC = () => {
           {(proposed.image_alts ?? []).map((r) => {
             const src = imageSrcOf(r.id);
             return (
-              <li key={r.id} className="flex items-center gap-3 rounded-lg bg-[#DCEFEA]/50 px-3 py-2">
+              <li key={r.id} className="flex items-center gap-3 rounded-lg bg-[#EFEDFF]/50 px-3 py-2">
                 <div className="w-12 h-12 rounded-lg bg-white overflow-hidden flex items-center justify-center shrink-0">
                   {src ? <img src={src} alt="" className="w-full h-full object-cover" /> : <Package className="w-5 h-5 text-gray-300" />}
                 </div>
@@ -1174,10 +1174,10 @@ const PageProductSeoPage: React.FC = () => {
 
     if (field === "description") {
       return (
-        <div className="rounded-lg bg-[#DCEFEA]/50 p-3">
-          {hasCurrent && <div className="text-[11px] font-black text-[#1B6F63] mb-1.5">{t("growth.pps.proposed")}</div>}
+        <div className="rounded-lg bg-[#EFEDFF]/50 p-3">
+          {hasCurrent && <div className="text-[11px] font-black text-[#5B47FB] mb-1.5">{t("growth.pps.proposed")}</div>}
           <div
-            className="text-sm text-gray-800 leading-7 break-words [&_p]:mb-2 [&_h2]:font-black [&_h2]:mt-3 [&_h2]:mb-1 [&_h3]:font-bold [&_h3]:mt-2 [&_ul]:list-disc [&_ul]:pr-5 [&_ol]:list-decimal [&_ol]:pr-5 [&_a]:font-black [&_a]:text-[#1B6F63] [&_a]:underline"
+            className="text-sm text-gray-800 leading-7 break-words [&_p]:mb-2 [&_h2]:font-black [&_h2]:mt-3 [&_h2]:mb-1 [&_h3]:font-bold [&_h3]:mt-2 [&_ul]:list-disc [&_ul]:pr-5 [&_ol]:list-decimal [&_ol]:pr-5 [&_a]:font-black [&_a]:text-[#5B47FB] [&_a]:underline"
             dangerouslySetInnerHTML={{ __html: safeDescriptionHtml(proposed.description) }}
           />
         </div>
@@ -1185,8 +1185,8 @@ const PageProductSeoPage: React.FC = () => {
     }
 
     return (
-      <div className="rounded-lg bg-[#DCEFEA]/50 p-3">
-        {hasCurrent && <div className="text-[11px] font-black text-[#1B6F63] mb-1.5">{t("pps.suggested")}</div>}
+      <div className="rounded-lg bg-[#EFEDFF]/50 p-3">
+        {hasCurrent && <div className="text-[11px] font-black text-[#5B47FB] mb-1.5">{t("pps.suggested")}</div>}
         <p className="text-sm text-gray-800 whitespace-pre-wrap leading-7 break-words">
           {plain(proposed[field] as string)}
         </p>
@@ -1199,7 +1199,7 @@ const PageProductSeoPage: React.FC = () => {
       <div className="max-w-6xl mx-auto px-4 py-6 space-y-6">
         {/* هدر */}
         <div className="flex items-start gap-3">
-          <div className="w-11 h-11 rounded-2xl bg-[#DCEFEA] text-[#1B6F63] flex items-center justify-center shrink-0">
+          <div className="w-11 h-11 rounded-2xl bg-[#EFEDFF] text-[#5B47FB] flex items-center justify-center shrink-0">
             <Sparkles className="w-5 h-5" />
           </div>
           <div className="min-w-0">
@@ -1243,7 +1243,7 @@ const PageProductSeoPage: React.FC = () => {
             <button
               type="button"
               onClick={goToPlans}
-              className="flex w-full sm:w-auto items-center justify-center gap-2 text-xs font-black text-white bg-gradient-to-r rtl:bg-gradient-to-l from-[#8B3F63] to-[#6E2E4E] hover:from-[#7A3656] hover:to-[#5E2842] rounded-lg px-4 py-2.5 whitespace-nowrap transition-colors"
+              className="flex w-full sm:w-auto items-center justify-center gap-2 text-xs font-black text-white bg-gradient-to-r rtl:bg-gradient-to-l from-[#5B47FB] to-[#9B5CFF] hover:from-[#4935E0] hover:to-[#8A4BF0] rounded-lg px-4 py-2.5 whitespace-nowrap transition-colors"
             >
               <Crown className="w-3.5 h-3.5" />
               {t("dashboard.agent.locked.cta")}
@@ -1261,7 +1261,7 @@ const PageProductSeoPage: React.FC = () => {
         )}
 
         {notice && (
-          <div className="flex items-start justify-between gap-3 rounded-xl border border-[#1B6F63]/20 bg-[#DCEFEA] px-4 py-3 text-sm text-[#1B6F63]">
+          <div className="flex items-start justify-between gap-3 rounded-xl border border-[#5B47FB]/20 bg-[#EFEDFF] px-4 py-3 text-sm text-[#5B47FB]">
             <span className="min-w-0 break-words">{notice}</span>
             <button type="button" onClick={() => setNotice(null)} aria-label={t("growth.preview.close")} className="shrink-0 mt-0.5">
               <X className="w-4 h-4" />
@@ -1275,7 +1275,7 @@ const PageProductSeoPage: React.FC = () => {
             {[
               { label: t("pps.stats.total"), value: stats.total, style: "text-gray-900" },
               { label: t("pps.stats.issues"), value: stats.ready, style: "text-rose-600" },
-              { label: t("dashboard.publishStatus.published"), value: stats.published, style: "text-[#1B6F63]" },
+              { label: t("dashboard.publishStatus.published"), value: stats.published, style: "text-[#5B47FB]" },
               { label: t("dashboard.publishStatus.failed"), value: stats.failed, style: "text-rose-600" },
             ].filter((s) => s.value > 0).map((s) => (
               <div key={s.label} className="rounded-2xl border border-gray-100 bg-white px-4 py-3 shadow-sm">
@@ -1301,14 +1301,14 @@ const PageProductSeoPage: React.FC = () => {
 
             {/* نوار انتخاب گروهی */}
             {!listLoading && readyItems.length > 0 && (
-              <div className="flex flex-col gap-3 px-4 sm:px-5 py-3 border-b border-gray-100 bg-[#DCEFEA]/30 sm:flex-row sm:items-center sm:justify-between">
+              <div className="flex flex-col gap-3 px-4 sm:px-5 py-3 border-b border-gray-100 bg-[#EFEDFF]/30 sm:flex-row sm:items-center sm:justify-between">
                 <label className="flex items-center gap-3 cursor-pointer">
                   <input
                     type="checkbox"
                     checked={allReadySelected}
                     onChange={toggleAllReady}
                     disabled={bulkRunning}
-                    className="w-5 h-5 sm:w-4 sm:h-4 accent-[#1B6F63]"
+                    className="w-5 h-5 sm:w-4 sm:h-4 accent-[#5B47FB]"
                   />
                   <span className="text-sm font-black text-gray-900">{t("pps.selectAllIssues")}</span>
                   <span className="text-xs text-gray-500 whitespace-nowrap">
@@ -1319,7 +1319,7 @@ const PageProductSeoPage: React.FC = () => {
                   type="button"
                   onClick={() => setBulkConfirm(true)}
                   disabled={bulkSelected.size === 0 || bulkRunning}
-                  className="flex w-full sm:w-auto items-center justify-center gap-2 text-xs font-black text-white bg-[#1B6F63] rounded-lg px-4 py-2.5 hover:bg-[#165a50] disabled:opacity-40 disabled:cursor-not-allowed transition-colors"
+                  className="flex w-full sm:w-auto items-center justify-center gap-2 text-xs font-black text-white bg-[#5B47FB] rounded-lg px-4 py-2.5 hover:bg-[#4935E0] disabled:opacity-40 disabled:cursor-not-allowed transition-colors"
                 >
                   {bulkRunning ? (
                     <>
@@ -1340,7 +1340,7 @@ const PageProductSeoPage: React.FC = () => {
                 className={`mx-4 sm:mx-5 mt-3 rounded-xl border px-4 py-3 text-sm ${
                   bulkResult.failures.length > 0
                     ? "border-amber-200 bg-amber-50 text-amber-800"
-                    : "border-[#1B6F63]/20 bg-[#DCEFEA] text-[#1B6F63]"
+                    : "border-[#5B47FB]/20 bg-[#EFEDFF] text-[#5B47FB]"
                 }`}
               >
                 <div className="flex items-start justify-between gap-3">
@@ -1392,7 +1392,7 @@ const PageProductSeoPage: React.FC = () => {
                               onChange={() => toggleReady(item.id)}
                               disabled={bulkRunning}
                               aria-label={t("pps.selectProduct", { name: item.product.name ?? t("product.body.product") })}
-                              className="w-5 h-5 sm:w-4 sm:h-4 accent-[#1B6F63] cursor-pointer"
+                              className="w-5 h-5 sm:w-4 sm:h-4 accent-[#5B47FB] cursor-pointer"
                             />
                           )}
                         </span>
@@ -1435,7 +1435,7 @@ const PageProductSeoPage: React.FC = () => {
                                 type="button"
                                 onClick={() => openDetail(item.id)}
                                 disabled={bulkRunning}
-                                className="text-xs font-black text-[#1B6F63] border border-[#1B6F63]/30 bg-[#DCEFEA] rounded-lg px-3 py-2 sm:py-1.5 hover:bg-[#c9e6df] transition-colors whitespace-nowrap disabled:opacity-40"
+                                className="text-xs font-black text-[#5B47FB] border border-[#5B47FB]/30 bg-[#EFEDFF] rounded-lg px-3 py-2 sm:py-1.5 hover:bg-[#DDD8FF] transition-colors whitespace-nowrap disabled:opacity-40"
                               >
                                 {isReady ? t("pps.review") : t("dashboard.view")}
                               </button>
@@ -1475,7 +1475,7 @@ const PageProductSeoPage: React.FC = () => {
                 type="button"
                 onClick={start}
                 disabled={selected.size === 0 || starting || quotaExhausted}
-                className="flex w-full sm:w-auto items-center justify-center gap-2 text-xs font-black text-white bg-[#1B6F63] rounded-lg px-4 py-2.5 sm:py-2 hover:bg-[#165a50] disabled:opacity-40 disabled:cursor-not-allowed transition-colors"
+                className="flex w-full sm:w-auto items-center justify-center gap-2 text-xs font-black text-white bg-[#5B47FB] rounded-lg px-4 py-2.5 sm:py-2 hover:bg-[#4935E0] disabled:opacity-40 disabled:cursor-not-allowed transition-colors"
               >
                 {starting ? <Loader2 className="w-3.5 h-3.5 animate-spin" /> : <Sparkles className="w-3.5 h-3.5" />}
                 {t("pps.start")}
@@ -1491,7 +1491,7 @@ const PageProductSeoPage: React.FC = () => {
                 value={search}
                 onChange={(e) => onSearchChange(e.target.value)}
                 placeholder={t("product.picker.searchPlaceholder")}
-                className="w-full text-base sm:text-sm rounded-lg border border-gray-200 bg-white ps-9 pe-3 py-2 text-start focus:outline-none focus:ring-2 focus:ring-[#1B6F63]/30 focus:border-[#1B6F63]/40"
+                className="w-full text-base sm:text-sm rounded-lg border border-gray-200 bg-white ps-9 pe-3 py-2 text-start focus:outline-none focus:ring-2 focus:ring-[#5B47FB]/30 focus:border-[#5B47FB]/40"
               />
             </div>
 
@@ -1503,13 +1503,13 @@ const PageProductSeoPage: React.FC = () => {
               aria-pressed={allVisibleSelected}
               className={`flex items-center justify-center gap-2 text-xs font-black rounded-lg border px-4 py-2.5 whitespace-nowrap transition-colors disabled:opacity-40 disabled:cursor-not-allowed ${
                 allVisibleSelected
-                  ? "border-[#1B6F63] bg-[#DCEFEA] text-[#1B6F63]"
-                  : "border-gray-200 bg-white text-gray-700 hover:border-[#1B6F63]/40"
+                  ? "border-[#5B47FB] bg-[#EFEDFF] text-[#5B47FB]"
+                  : "border-gray-200 bg-white text-gray-700 hover:border-[#5B47FB]/40"
               }`}
             >
               <span
                 className={`w-4 h-4 rounded border flex items-center justify-center ${
-                  allVisibleSelected ? "bg-[#1B6F63] border-[#1B6F63] text-white" : "border-gray-300 bg-white"
+                  allVisibleSelected ? "bg-[#5B47FB] border-[#5B47FB] text-white" : "border-gray-300 bg-white"
                 }`}
               >
                 {allVisibleSelected && <Check className="w-3 h-3" strokeWidth={3} />}
@@ -1528,7 +1528,7 @@ const PageProductSeoPage: React.FC = () => {
                       ? t("pps.quota.selectionsUsed")
                       : t("pps.quota.selectMore", { count: maxSelectable })}
                   </span>
-                  <button type="button" onClick={goToPlans} className="font-black text-[#8B3F63] hover:underline">
+                  <button type="button" onClick={goToPlans} className="font-black text-[#5B47FB] hover:underline">
                     {t("pps.quota.upgradeMore")}
                   </button>
                 </>
@@ -1557,7 +1557,7 @@ const PageProductSeoPage: React.FC = () => {
                       disabled={inList}
                       aria-pressed={on}
                       className={`flex items-center gap-3 rounded-xl border p-3 text-start transition-colors ${
-                        on ? "border-[#1B6F63] bg-[#DCEFEA]/60" : "border-gray-100 bg-white hover:border-[#1B6F63]/30"
+                        on ? "border-[#5B47FB] bg-[#EFEDFF]/60" : "border-gray-100 bg-white hover:border-[#5B47FB]/30"
                       } ${locked ? "opacity-60" : ""}`}
                     >
                       <div className="w-12 h-12 rounded-lg bg-gray-50 overflow-hidden flex items-center justify-center shrink-0">
@@ -1572,11 +1572,11 @@ const PageProductSeoPage: React.FC = () => {
                         {p.price !== null && (
                           <div className="text-xs text-gray-500 mt-0.5">{formatMoney(p.price, p.currency) ?? fa(p.price)}</div>
                         )}
-                        {inList && <div className="text-[11px] font-bold text-[#1B6F63] mt-0.5">{t("growth.pps.inList")}</div>}
+                        {inList && <div className="text-[11px] font-bold text-[#5B47FB] mt-0.5">{t("growth.pps.inList")}</div>}
                       </div>
                       <span
                         className={`w-5 h-5 rounded-full border flex items-center justify-center shrink-0 ${
-                          on ? "bg-[#1B6F63] border-[#1B6F63] text-white" : "border-gray-300"
+                          on ? "bg-[#5B47FB] border-[#5B47FB] text-white" : "border-gray-300"
                         }`}
                       >
                         {on && <CheckCircle2 className="w-4 h-4" />}
@@ -1598,7 +1598,7 @@ const PageProductSeoPage: React.FC = () => {
                 <button
                   type="button"
                   onClick={() => loadProducts(productsPage + 1)}
-                  className="w-full sm:w-auto text-xs font-black text-[#1B6F63] border border-[#1B6F63]/30 bg-[#DCEFEA] rounded-lg px-4 py-2.5 hover:bg-[#c9e6df] transition-colors"
+                  className="w-full sm:w-auto text-xs font-black text-[#5B47FB] border border-[#5B47FB]/30 bg-[#EFEDFF] rounded-lg px-4 py-2.5 hover:bg-[#DDD8FF] transition-colors"
                 >
                   {t("pps.showMore")}
                 </button>
@@ -1629,7 +1629,7 @@ const PageProductSeoPage: React.FC = () => {
               <button
                 type="button"
                 onClick={runBulk}
-                className="w-full sm:w-auto text-sm font-black text-white bg-[#1B6F63] rounded-lg px-5 py-3 sm:py-2.5 hover:bg-[#165a50] transition-colors"
+                className="w-full sm:w-auto text-sm font-black text-white bg-[#5B47FB] rounded-lg px-5 py-3 sm:py-2.5 hover:bg-[#4935E0] transition-colors"
               >
                 {t("pps.bulk.confirm")}
               </button>
@@ -1672,8 +1672,8 @@ const PageProductSeoPage: React.FC = () => {
                   )}
 
                   {canApprove && (
-                    <div className="flex gap-3 rounded-xl border border-[#1B6F63]/20 bg-[#DCEFEA]/40 px-4 py-3">
-                      <Sparkles className="w-5 h-5 text-[#1B6F63] shrink-0" />
+                    <div className="flex gap-3 rounded-xl border border-[#5B47FB]/20 bg-[#EFEDFF]/40 px-4 py-3">
+                      <Sparkles className="w-5 h-5 text-[#5B47FB] shrink-0" />
                       <p className="text-sm text-gray-700 leading-6">
                         {t("pps.aiNotice")}
                       </p>
@@ -1714,13 +1714,13 @@ const PageProductSeoPage: React.FC = () => {
 
                   {/* انتخاب همه‌ی فیلدها */}
                   {canApprove && selectableFields.length > 1 && (
-                    <label className="flex items-center justify-between gap-3 rounded-xl border border-[#1B6F63]/20 bg-[#DCEFEA]/40 px-4 py-3 cursor-pointer">
+                    <label className="flex items-center justify-between gap-3 rounded-xl border border-[#5B47FB]/20 bg-[#EFEDFF]/40 px-4 py-3 cursor-pointer">
                       <span className="flex items-center gap-3">
                         <input
                           type="checkbox"
                           checked={allPicked}
                           onChange={toggleAllPicked}
-                          className="w-5 h-5 sm:w-4 sm:h-4 accent-[#1B6F63]"
+                          className="w-5 h-5 sm:w-4 sm:h-4 accent-[#5B47FB]"
                         />
                         <span className="text-sm font-black text-gray-900">{t("pps.selectAllFields")}</span>
                       </span>
@@ -1749,7 +1749,7 @@ const PageProductSeoPage: React.FC = () => {
                               checked={picked.has(field)}
                               disabled={disabled}
                               onChange={() => togglePicked(field)}
-                              className="w-5 h-5 sm:w-4 sm:h-4 accent-[#1B6F63]"
+                              className="w-5 h-5 sm:w-4 sm:h-4 accent-[#5B47FB]"
                             />
                             <span className="text-sm font-black text-gray-900">{labelOf(field)}</span>
                             {wasEdited && (
@@ -1789,7 +1789,7 @@ const PageProductSeoPage: React.FC = () => {
                                 <button
                                   type="button"
                                   onClick={() => startEdit(field)}
-                                  className="flex items-center gap-1 text-[11px] font-black text-[#1B6F63] border border-[#1B6F63]/30 bg-[#DCEFEA] rounded-md px-2.5 py-1.5 hover:bg-[#c9e6df] transition-colors"
+                                  className="flex items-center gap-1 text-[11px] font-black text-[#5B47FB] border border-[#5B47FB]/30 bg-[#EFEDFF] rounded-md px-2.5 py-1.5 hover:bg-[#DDD8FF] transition-colors"
                                 >
                                   <Pencil className="w-3 h-3" />
                                   {t("analyze.idea.editShort")}
@@ -1854,7 +1854,7 @@ const PageProductSeoPage: React.FC = () => {
                               void saveEdits();
                             }}
                             disabled={saving || approving}
-                            className="flex w-full sm:w-auto items-center justify-center gap-2 text-sm font-black text-[#1B6F63] border border-[#1B6F63]/30 bg-[#DCEFEA] rounded-lg px-5 py-3 sm:py-2.5 hover:bg-[#c9e6df] disabled:opacity-40 disabled:cursor-not-allowed transition-colors"
+                            className="flex w-full sm:w-auto items-center justify-center gap-2 text-sm font-black text-[#5B47FB] border border-[#5B47FB]/30 bg-[#EFEDFF] rounded-lg px-5 py-3 sm:py-2.5 hover:bg-[#DDD8FF] disabled:opacity-40 disabled:cursor-not-allowed transition-colors"
                           >
                             {saving && <Loader2 className="w-4 h-4 animate-spin" />}
                             {t("pps.saveEdits", { count: dirtyFields.length })}
@@ -1864,14 +1864,14 @@ const PageProductSeoPage: React.FC = () => {
                           type="button"
                           onClick={approve}
                           disabled={picked.size === 0 || approving || saving}
-                          className="flex w-full sm:w-auto items-center justify-center gap-2 text-sm font-black text-white bg-[#1B6F63] rounded-lg px-5 py-3 sm:py-2.5 hover:bg-[#165a50] disabled:opacity-40 disabled:cursor-not-allowed transition-colors"
+                          className="flex w-full sm:w-auto items-center justify-center gap-2 text-sm font-black text-white bg-[#5B47FB] rounded-lg px-5 py-3 sm:py-2.5 hover:bg-[#4935E0] disabled:opacity-40 disabled:cursor-not-allowed transition-colors"
                         >
                           {approving && <Loader2 className="w-4 h-4 animate-spin" />}
                           {t("pps.fixOnSite")}
                         </button>
                       </div>
                     ) : (
-                      <span className="text-xs font-black text-[#1B6F63]">
+                      <span className="text-xs font-black text-[#5B47FB]">
                         {STATUS_META[detail.status].label}
                       </span>
                     )}

@@ -45,8 +45,8 @@ const FrozenArticleSummary: React.FC<{ article: Article }> = ({ article }) => {
   const faq = article.faq ?? [];
   return (
     <div className="space-y-3">
-      <h4 className="text-base font-black text-[#1E2A28] leading-7">{article.title}</h4>
-      {article.excerpt && <p className="text-xs text-[#000000] leading-6">{article.excerpt}</p>}
+      <h4 className="text-base font-black text-[#0D0F23] leading-7">{article.title}</h4>
+      {article.excerpt && <p className="text-xs text-[#0D0F23] leading-6">{article.excerpt}</p>}
       {article.content ? (
         <MarkdownView text={article.content} />
       ) : (
@@ -57,14 +57,14 @@ const FrozenArticleSummary: React.FC<{ article: Article }> = ({ article }) => {
         </div>
       )}
       {faq.length > 0 && (
-        <div className="space-y-1.5 border-t border-[#DAD5C7] pt-3">
-          <p className="text-[11px] font-black text-[#000000]">❓ {t("article.sectionType.faq")}</p>
+        <div className="space-y-1.5 border-t border-[#E4E5F0] pt-3">
+          <p className="text-[11px] font-black text-[#0D0F23]">❓ {t("article.sectionType.faq")}</p>
           {faq.map((f, i) => (
-            <div key={i} className="text-xs text-[#000000] leading-6">
-              <span className="font-bold text-[#1E2A28]">
+            <div key={i} className="text-xs text-[#0D0F23] leading-6">
+              <span className="font-bold text-[#0D0F23]">
                 {i + 1}. {f.question}
               </span>
-              <p className="mt-0.5 text-[#000000]">{f.answer}</p>
+              <p className="mt-0.5 text-[#0D0F23]">{f.answer}</p>
             </div>
           ))}
         </div>
@@ -74,17 +74,17 @@ const FrozenArticleSummary: React.FC<{ article: Article }> = ({ article }) => {
 };
 
 const CollapsedVersion: React.FC<{ label: string; article: Article }> = ({ label, article }) => (
-  <details className="group rounded-2xl border border-[#DAD5C7] bg-[#FBFAF6]">
-    <summary className="flex cursor-pointer list-none items-center justify-between gap-2 px-4 py-3 text-xs font-bold text-[#000000]">
+  <details className="group rounded-2xl border border-[#E4E5F0] bg-[#FAFAFE]">
+    <summary className="flex cursor-pointer list-none items-center justify-between gap-2 px-4 py-3 text-xs font-bold text-[#0D0F23]">
       <span>{label}</span>
-      <span className="flex items-center gap-1 text-[#000000]/60">
+      <span className="flex items-center gap-1 text-[#0D0F23]/60">
         {t("dashboard.view")}
         <svg className="h-3.5 w-3.5 transition-transform group-open:rotate-180" viewBox="0 0 20 20" fill="currentColor">
           <path fillRule="evenodd" d="M5.3 7.3a1 1 0 011.4 0L10 10.6l3.3-3.3a1 1 0 111.4 1.4l-4 4a1 1 0 01-1.4 0l-4-4a1 1 0 010-1.4z" clipRule="evenodd" />
         </svg>
       </span>
     </summary>
-    <div className="select-text border-t border-[#DAD5C7] p-4">
+    <div className="select-text border-t border-[#E4E5F0] p-4">
       <FrozenArticleSummary article={article} />
     </div>
   </details>
@@ -94,11 +94,11 @@ const MessageBubble: React.FC<{ message: ArticleChatMessage }> = ({ message }) =
   <div className={`flex ${message.role === "user" ? "justify-start" : "justify-end"}`}>
     <div
       className={`max-w-[85%] rounded-2xl px-3.5 py-2.5 text-xs leading-6 ${
-        message.role === "user" ? "bg-[#EFEDE6] text-[#1E2A28]" : "bg-[#DCEFEA] text-[#1E2A28]"
+        message.role === "user" ? "bg-[#F3F2FB] text-[#0D0F23]" : "bg-[#EFEDFF] text-[#0D0F23]"
       }`}
     >
       {message.target_label && (
-        <div className={`mb-1 text-[10px] font-bold ${message.role === "user" ? "text-[#000000]/70" : "text-[#1B6F63]"}`}>
+        <div className={`mb-1 text-[10px] font-bold ${message.role === "user" ? "text-[#0D0F23]/70" : "text-[#5B47FB]"}`}>
           {TARGET_TYPE_LABELS[message.target_type ?? ""] ?? message.target_type} · {message.target_label}
         </div>
       )}
@@ -109,11 +109,11 @@ const MessageBubble: React.FC<{ message: ArticleChatMessage }> = ({ message }) =
 
 const TypingBubble: React.FC = () => (
   <div className="flex justify-end">
-    <div className="rounded-2xl bg-[#DCEFEA] px-3.5 py-2.5 text-[#1B6F63]">
+    <div className="rounded-2xl bg-[#EFEDFF] px-3.5 py-2.5 text-[#5B47FB]">
       <div className="flex items-center gap-1">
-        <span className="h-1.5 w-1.5 animate-bounce rounded-full bg-[#1B6F63]/50 [animation-delay:-0.3s]" />
-        <span className="h-1.5 w-1.5 animate-bounce rounded-full bg-[#1B6F63]/50 [animation-delay:-0.15s]" />
-        <span className="h-1.5 w-1.5 animate-bounce rounded-full bg-[#1B6F63]/50" />
+        <span className="h-1.5 w-1.5 animate-bounce rounded-full bg-[#5B47FB]/50 [animation-delay:-0.3s]" />
+        <span className="h-1.5 w-1.5 animate-bounce rounded-full bg-[#5B47FB]/50 [animation-delay:-0.15s]" />
+        <span className="h-1.5 w-1.5 animate-bounce rounded-full bg-[#5B47FB]/50" />
       </div>
     </div>
   </div>
@@ -147,8 +147,8 @@ const LiveArticleBlock: React.FC<{
       onArticleChange={onArticleChange}
       isFreePlan={isFreePlan}
     />
-    <div className="rounded-2xl border border-[#DAD5C7] bg-gradient-to-r rtl:bg-gradient-to-l from-[#FBFAF6] to-[#DCEFEA]/50 p-5">
-      <h1 className="text-lg font-black text-[#1E2A28] leading-8">{article.title}</h1>
+    <div className="rounded-2xl border border-[#E4E5F0] bg-gradient-to-r rtl:bg-gradient-to-l from-[#FAFAFE] to-[#EFEDFF]/50 p-5">
+      <h1 className="text-lg font-black text-[#0D0F23] leading-8">{article.title}</h1>
     </div>
     <ArticleMetaCard
       siteId={siteId}
@@ -353,11 +353,11 @@ export const MobileArticleThread: React.FC<MobileArticleThreadProps> = ({
   return (
     <div className="mx-auto max-w-2xl px-3 pb-56 pt-2">
       {!loadingHistory && priorMessages.length > 0 && (
-        <details className="mb-4 rounded-2xl border border-[#DAD5C7] bg-[#FBFAF6]">
-          <summary className="cursor-pointer list-none px-4 py-3 text-xs font-bold text-[#000000]">
+        <details className="mb-4 rounded-2xl border border-[#E4E5F0] bg-[#FAFAFE]">
+          <summary className="cursor-pointer list-none px-4 py-3 text-xs font-bold text-[#0D0F23]">
             {t("article.chat.previous", { count: priorMessages.length })}
           </summary>
-          <div className="space-y-2 border-t border-[#DAD5C7] p-3">
+          <div className="space-y-2 border-t border-[#E4E5F0] p-3">
             {priorMessages.map((m) => (
               <MessageBubble key={m.id} message={m} />
             ))}
@@ -365,7 +365,7 @@ export const MobileArticleThread: React.FC<MobileArticleThreadProps> = ({
         </details>
       )}
       {loadingHistory && (
-        <div className="mb-4 flex items-center justify-center gap-2 py-4 text-xs text-[#000000]/70">
+        <div className="mb-4 flex items-center justify-center gap-2 py-4 text-xs text-[#0D0F23]/70">
           <Spinner className="h-4 w-4" /> {t("article.chat.loadingPrevious")}
         </div>
       )}
@@ -428,7 +428,7 @@ export const MobileArticleThread: React.FC<MobileArticleThreadProps> = ({
               کل این باکس هم بصری کم‌رنگ می‌شود و هم pointer-events آن
               غیرفعال می‌شود — تا کاربر نتواند هیچ تعاملی با چت داشته باشد. */}
           <div
-            className={`rounded-2xl border border-[#DAD5C7] bg-white shadow-sm transition-colors focus-within:border-[#1B6F63] ${
+            className={`rounded-2xl border border-[#E4E5F0] bg-white shadow-sm transition-colors focus-within:border-[#5B47FB] ${
               generating ? "opacity-60 pointer-events-none" : ""
             }`}
           >
@@ -437,7 +437,7 @@ export const MobileArticleThread: React.FC<MobileArticleThreadProps> = ({
                 را نشان می‌دهد. */}
             <div className="flex flex-wrap items-center gap-1.5 px-3 pt-2 pb-0.5">
               {generating ? (
-                <span className="flex items-center gap-1.5 text-[9px] font-black text-[#1B6F63]">
+                <span className="flex items-center gap-1.5 text-[9px] font-black text-[#5B47FB]">
   <Spinner className="h-3 w-3" />
   {t("article.chat.waitForArticle")}
 </span>
@@ -445,13 +445,13 @@ export const MobileArticleThread: React.FC<MobileArticleThreadProps> = ({
                 <div className="flex min-w-0 flex-wrap items-center gap-1.5">
                   {targetLabel ? (
                     <>
-                      <span className="truncate rounded-full bg-[#DCEFEA] px-2 py-0.5 text-[9px] font-bold text-[#1B6F63]">
+                      <span className="truncate rounded-full bg-[#EFEDFF] px-2 py-0.5 text-[9px] font-bold text-[#5B47FB]">
                         {targetLabel}
                       </span>
                       <button
                         type="button"
                         onClick={() => onSelectTarget(null)}
-                        className="text-[9px] font-bold text-[#000000]/70 hover:text-[#B3453A]"
+                        className="text-[9px] font-bold text-[#0D0F23]/70 hover:text-[#B3453A]"
                       >
                         {t("article.chat.clearTarget")}
                       </button>
@@ -459,11 +459,11 @@ export const MobileArticleThread: React.FC<MobileArticleThreadProps> = ({
                   ) : (
                     <div className="flex flex-wrap items-center gap-1.5">
                       <span className="text-[9px] font-black text-[#B3453A]">{t("article.chat.useSelect")}</span>
-                      <span className="text-[9px] font-bold text-[#000000]/40">{t("article.chat.or")}</span>
+                      <span className="text-[9px] font-bold text-[#0D0F23]/40">{t("article.chat.or")}</span>
                       <button
                         type="button"
                         onClick={handleSelectWholeArticle}
-                        className="text-[9px] font-black text-[#1B6F63] underline underline-offset-2"
+                        className="text-[9px] font-black text-[#5B47FB] underline underline-offset-2"
                       >
                         {t("article.chat.selectAll")}
                       </button>
@@ -479,7 +479,7 @@ export const MobileArticleThread: React.FC<MobileArticleThreadProps> = ({
                 type="button"
                 onClick={handleSend}
                 disabled={!selectedTarget || !message.trim() || sending || generating}
-                className="flex h-11 w-11 shrink-0 items-center justify-center rounded-xl bg-[#1B6F63] text-white transition-colors hover:bg-[#14564C] disabled:opacity-40"
+                className="flex h-11 w-11 shrink-0 items-center justify-center rounded-xl bg-[#5B47FB] text-white transition-colors hover:bg-[#4935E0] disabled:opacity-40"
                 aria-label={t("article.chat.sendAria")}
               >
                 {sending ? (
@@ -519,7 +519,7 @@ export const MobileArticleThread: React.FC<MobileArticleThreadProps> = ({
                     : t("article.chat.selectFirst")
                 }
                 style={{ maxHeight: MAX_TEXTAREA_HEIGHT, overflowY: "auto" }}
-                className="flex-1 resize-none border-0 bg-transparent px-1 py-1 text-xs leading-5 focus:outline-none disabled:text-[#9BA69F]"
+                className="flex-1 resize-none border-0 bg-transparent px-1 py-1 text-xs leading-5 focus:outline-none disabled:text-[#9A9DB8]"
               />
 
               {/* سلکتور مدل — منتقل‌شده به کنارِ textarea در ردیفِ پایین */}

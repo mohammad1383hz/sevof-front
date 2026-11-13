@@ -44,11 +44,11 @@ interface ArticleChatDockProps {
  */
 const TypingIndicator: React.FC = () => (
   <div className="flex justify-end">
-    <div className="max-w-[90%] rounded-2xl bg-[#DCEFEA] px-3 py-2.5 text-[#1B6F63]">
+    <div className="max-w-[90%] rounded-2xl bg-[#EFEDFF] px-3 py-2.5 text-[#5B47FB]">
       <div className="flex items-center gap-1">
-        <span className="h-1.5 w-1.5 animate-bounce rounded-full bg-[#1B6F63]/50 [animation-delay:-0.3s]" />
-        <span className="h-1.5 w-1.5 animate-bounce rounded-full bg-[#1B6F63]/50 [animation-delay:-0.15s]" />
-        <span className="h-1.5 w-1.5 animate-bounce rounded-full bg-[#1B6F63]/50" />
+        <span className="h-1.5 w-1.5 animate-bounce rounded-full bg-[#5B47FB]/50 [animation-delay:-0.3s]" />
+        <span className="h-1.5 w-1.5 animate-bounce rounded-full bg-[#5B47FB]/50 [animation-delay:-0.15s]" />
+        <span className="h-1.5 w-1.5 animate-bounce rounded-full bg-[#5B47FB]/50" />
       </div>
     </div>
   </div>
@@ -242,11 +242,11 @@ export const ArticleChatDock: React.FC<ArticleChatDockProps> = ({
       <span className="text-[10px] font-black text-[#B3453A]">
         {t("article.chat.selectSection")}
       </span>
-      <span className="text-[10px] font-bold text-[#000000]/40">{t("article.chat.or")}</span>
+      <span className="text-[10px] font-bold text-[#0D0F23]/40">{t("article.chat.or")}</span>
       <button
         type="button"
         onClick={handleSelectWholeArticle}
-        className="text-[10px] font-black text-[#1B6F63] underline underline-offset-2 hover:text-[#14564C]"
+        className="text-[10px] font-black text-[#5B47FB] underline underline-offset-2 hover:text-[#4935E0]"
       >
         {t("article.chat.selectAll")}
       </button>
@@ -262,7 +262,7 @@ export const ArticleChatDock: React.FC<ArticleChatDockProps> = ({
       onDragLeave={() => setDragOver(false)}
       onDrop={handleDrop}
       className={`flex h-full min-h-0 flex-col transition-colors ${
-        dragOver ? "bg-[#DCEFEA]/60" : "bg-[#FBFAF6]"
+        dragOver ? "bg-[#EFEDFF]/60" : "bg-[#FAFAFE]"
       }`}
     >
       {/* هدر: عنوان + دکمه‌ی جمع/باز کردن (همون «دراپ‌داون» فعال/غیرفعال‌سازی) */}
@@ -272,9 +272,9 @@ export const ArticleChatDock: React.FC<ArticleChatDockProps> = ({
           onClick={onToggleOpen}
           className="flex items-center gap-2 text-start"
         >
-          <span className="text-xs font-black text-[#1E2A28]">💬 {t("article.chat.title")}</span>
+          <span className="text-xs font-black text-[#0D0F23]">💬 {t("article.chat.title")}</span>
           <svg
-            className={`h-3.5 w-3.5 text-[#000000]/60 transition-transform ${open ? "" : "rotate-180"}`}
+            className={`h-3.5 w-3.5 text-[#0D0F23]/60 transition-transform ${open ? "" : "rotate-180"}`}
             viewBox="0 0 20 20"
             fill="currentColor"
           >
@@ -287,7 +287,7 @@ export const ArticleChatDock: React.FC<ArticleChatDockProps> = ({
       {!open && (
         <div className="shrink-0 px-3 pb-2">
           {targetLabel ? (
-            <span className="truncate rounded-full bg-[#DCEFEA] px-2 py-0.5 text-[10px] font-bold text-[#1B6F63]">
+            <span className="truncate rounded-full bg-[#EFEDFF] px-2 py-0.5 text-[10px] font-bold text-[#5B47FB]">
               {targetLabel}
             </span>
           ) : (
@@ -297,20 +297,20 @@ export const ArticleChatDock: React.FC<ArticleChatDockProps> = ({
       )}
 
       {open && (
-        <div className="flex min-h-0 flex-1 flex-col border-t border-[#DAD5C7]">
+        <div className="flex min-h-0 flex-1 flex-col border-t border-[#E4E5F0]">
           {dragOver && (
-            <div className="mx-3 mt-2 shrink-0 rounded-xl border-2 border-dashed border-[#1B6F63] bg-[#DCEFEA]/60 py-2 text-center text-[10px] font-bold text-[#1B6F63]">
+            <div className="mx-3 mt-2 shrink-0 rounded-xl border-2 border-dashed border-[#5B47FB] bg-[#EFEDFF]/60 py-2 text-center text-[10px] font-bold text-[#5B47FB]">
               {t("article.chat.drop")}
             </div>
           )}
 
           <div ref={listRef} className="min-h-0 flex-1 space-y-2.5 overflow-y-auto px-3 py-2.5">
             {loadingHistory ? (
-              <div className="flex items-center justify-center gap-2 py-6 text-xs text-[#000000]/70">
+              <div className="flex items-center justify-center gap-2 py-6 text-xs text-[#0D0F23]/70">
                 <Spinner className="h-4 w-4" /> {t("article.chat.loading")}
               </div>
             ) : messages.length === 0 ? (
-              <p className="py-6 text-center text-xs text-[#000000]/70">
+              <p className="py-6 text-center text-xs text-[#0D0F23]/70">
                 {t("article.chat.empty")}
               </p>
             ) : (
@@ -318,13 +318,13 @@ export const ArticleChatDock: React.FC<ArticleChatDockProps> = ({
                 <div key={m.id} className={`flex ${m.role === "user" ? "justify-start" : "justify-end"}`}>
                   <div
                     className={`max-w-[90%] rounded-2xl px-3 py-2 text-[11px] leading-5 ${
-                      m.role === "user" ? "bg-[#EFEDE6] text-[#1E2A28]" : "bg-[#DCEFEA] text-[#1E2A28]"
+                      m.role === "user" ? "bg-[#F3F2FB] text-[#0D0F23]" : "bg-[#EFEDFF] text-[#0D0F23]"
                     }`}
                   >
                     {m.target_label && (
                       <div
                         className={`mb-1 text-[10px] font-bold ${
-                          m.role === "user" ? "text-[#000000]/70" : "text-[#1B6F63]"
+                          m.role === "user" ? "text-[#0D0F23]/70" : "text-[#5B47FB]"
                         }`}
                       >
                         {TARGET_TYPE_LABELS[m.target_type ?? ""] ?? m.target_type} · {m.target_label}
@@ -350,18 +350,18 @@ export const ArticleChatDock: React.FC<ArticleChatDockProps> = ({
             </div>
           )}
 
-          <div className="shrink-0 space-y-1.5 border-t border-[#DAD5C7] p-2.5">
+          <div className="shrink-0 space-y-1.5 border-t border-[#E4E5F0] p-2.5">
             <div className="flex flex-wrap items-center justify-between gap-1.5">
               <div className="flex flex-wrap items-center gap-1.5">
                 {targetLabel ? (
                   <>
-                    <span className="truncate rounded-full bg-[#DCEFEA] px-2 py-0.5 text-[10px] font-bold text-[#1B6F63]">
+                    <span className="truncate rounded-full bg-[#EFEDFF] px-2 py-0.5 text-[10px] font-bold text-[#5B47FB]">
                       {targetLabel}
                     </span>
                     <button
                       type="button"
                       onClick={() => onSelectTarget(null)}
-                      className="shrink-0 text-[10px] font-bold text-[#000000]/70 hover:text-[#B3453A]"
+                      className="shrink-0 text-[10px] font-bold text-[#0D0F23]/70 hover:text-[#B3453A]"
                     >
                       {t("article.chat.clearTarget")}
                     </button>
@@ -395,13 +395,13 @@ export const ArticleChatDock: React.FC<ArticleChatDockProps> = ({
                   ? t("article.chat.placeholder")
                   : t("article.chat.placeholderEmpty")
               }
-              className="w-full resize-none rounded-xl border border-[#DAD5C7] px-3 py-2 text-[11px] focus:border-[#1B6F63] focus:outline-none disabled:bg-[#EFEDE6] disabled:text-[#9BA69F]"
+              className="w-full resize-none rounded-xl border border-[#E4E5F0] px-3 py-2 text-[11px] focus:border-[#5B47FB] focus:outline-none disabled:bg-[#F3F2FB] disabled:text-[#9A9DB8]"
             />
             <button
               type="button"
               onClick={handleSend}
               disabled={!selectedTarget || !message.trim() || sending}
-              className="flex h-9 w-full items-center justify-center gap-1.5 rounded-xl bg-[#1B6F63] text-xs font-bold text-white transition-colors hover:bg-[#14564C] disabled:opacity-40"
+              className="flex h-9 w-full items-center justify-center gap-1.5 rounded-xl bg-[#5B47FB] text-xs font-bold text-white transition-colors hover:bg-[#4935E0] disabled:opacity-40"
             >
               {sending ? <Spinner className="h-3.5 w-3.5" /> : t("support.reply.send")}
             </button>

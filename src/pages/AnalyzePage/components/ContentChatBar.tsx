@@ -194,7 +194,7 @@ export function ContentChatBar({
   };
 
   return (
-    <div className="rounded-3xl border border-[#DAD5C7] bg-white shadow-sm transition-all focus-within:border-[#1B6F63]/60 focus-within:ring-4 focus-within:ring-[#1B6F63]/10">
+    <div className="rounded-3xl border border-[#E4E5F0] bg-white shadow-sm transition-all focus-within:border-[#5B47FB]/60 focus-within:ring-4 focus-within:ring-[#5B47FB]/10">
       <div className="px-3 pb-1 pt-3">
         {/* دسکتاپ و تبلت */}
         <div className="hidden flex-wrap gap-2 sm:flex">
@@ -209,7 +209,7 @@ export function ContentChatBar({
                 disabled={unavailable}
                 aria-pressed={active}
                 title={unavailable ? (creditLimitReached ? limitMessage : undefined) : undefined}
-                className={`inline-flex shrink-0 items-center gap-1.5 rounded-xl border px-3 py-2 text-xs font-bold transition-all ${unavailable ? "cursor-not-allowed border-[#DAD5C7] bg-[#EFEDE6] text-[#9BA69F] opacity-70" : active ? "border-[#1B6F63] bg-[#DCEFEA] text-[#14564C] shadow-sm" : "border-[#DAD5C7] bg-white text-[#65716B] hover:border-[#1B6F63]/50 hover:text-[#1B6F63]"}`}
+                className={`inline-flex shrink-0 items-center gap-1.5 rounded-xl border px-3 py-2 text-xs font-bold transition-all ${unavailable ? "cursor-not-allowed border-[#E4E5F0] bg-[#F3F2FB] text-[#9A9DB8] opacity-70" : active ? "border-[#5B47FB] bg-[#EFEDFF] text-[#4935E0] shadow-sm" : "border-[#E4E5F0] bg-white text-[#6C7193] hover:border-[#5B47FB]/50 hover:text-[#5B47FB]"}`}
               >
                 {action.icon}
                 {action.label}
@@ -227,8 +227,8 @@ export function ContentChatBar({
             aria-haspopup="listbox"
             className={`flex w-full items-center justify-between gap-2 rounded-xl border px-3 py-2.5 text-xs font-bold transition-colors ${
               selectedAction
-                ? "border-[#1B6F63] bg-[#DCEFEA] text-[#14564C]"
-                : "border-[#DAD5C7] bg-white text-[#65716B]"
+                ? "border-[#5B47FB] bg-[#EFEDFF] text-[#4935E0]"
+                : "border-[#E4E5F0] bg-white text-[#6C7193]"
             }`}
           >
             <span className="flex items-center gap-1.5">
@@ -247,7 +247,7 @@ export function ContentChatBar({
           </button>
 
           {actionMenuOpen && (
-            <div role="listbox" className="absolute bottom-full z-20 mb-1.5 w-full overflow-hidden rounded-xl border border-[#DAD5C7] bg-white shadow-lg">
+            <div role="listbox" className="absolute bottom-full z-20 mb-1.5 w-full overflow-hidden rounded-xl border border-[#E4E5F0] bg-white shadow-lg">
               {QUICK_ACTIONS.map((action) => {
                 const active = action.mode === selectedMode;
                 const unavailable = limitReached;
@@ -260,7 +260,7 @@ export function ContentChatBar({
                     disabled={unavailable}
                     title={unavailable ? (creditLimitReached ? limitMessage : undefined) : undefined}
                     onClick={() => chooseAction(action, unavailable)}
-                    className={`flex w-full items-center gap-2 border-b border-[#EFEDE6] px-3 py-2.5 text-start text-xs font-bold transition-colors last:border-b-0 ${unavailable ? "cursor-not-allowed text-[#9BA69F] opacity-70" : active ? "bg-[#DCEFEA] text-[#14564C]" : "text-[#65716B] hover:bg-[#F3F1E9]"}`}
+                    className={`flex w-full items-center gap-2 border-b border-[#F3F2FB] px-3 py-2.5 text-start text-xs font-bold transition-colors last:border-b-0 ${unavailable ? "cursor-not-allowed text-[#9A9DB8] opacity-70" : active ? "bg-[#EFEDFF] text-[#4935E0]" : "text-[#6C7193] hover:bg-[#F3F1E9]"}`}
                   >
                     {action.icon}
                     {action.label}
@@ -286,15 +286,15 @@ export function ContentChatBar({
           وگرنه کاربری که هنوز متصل نشده بعد از اولین پیام هیچ‌وقت نمی‌تواند
           دوباره دکمه‌ی اتصال Google Search Console را ببیند/باز کند. */}
       {connectorOpen && !(hasSentMessage && isConnected && gscProperty) && (
-        <div className="mx-3 mt-2 rounded-xl border border-[#CFE3DD] bg-[#F0F8F5] px-2.5 py-1.5">
+        <div className="mx-3 mt-2 rounded-xl border border-[#CFE3DD] bg-[#F5F4FF] px-2.5 py-1.5">
           {!isConnected && (
             <div className="flex items-center justify-between gap-2">
-              <span className="text-[11px] font-bold text-[#14564C]">{t("analyze.chatBar.gscConnect")}</span>
+              <span className="text-[11px] font-bold text-[#4935E0]">{t("analyze.chatBar.gscConnect")}</span>
               <button
                 type="button"
                 onClick={onGscConnect}
                 disabled={gscLoading}
-                className="shrink-0 rounded-lg bg-[#1B6F63] px-2.5 py-1 text-[10px] font-bold text-white disabled:opacity-50"
+                className="shrink-0 rounded-lg bg-[#5B47FB] px-2.5 py-1 text-[10px] font-bold text-white disabled:opacity-50"
               >
                 {gscLoading ? t("analyze.ideas.preparing") : t("analyze.chatBar.connectGoogle")}
               </button>
@@ -305,12 +305,12 @@ export function ContentChatBar({
             <div className="flex flex-wrap items-center gap-1.5">
               {gscProperties.length === 0 ? (
                 <div className="flex w-full items-center justify-between gap-2">
-                  <span className="text-[11px] font-bold text-[#14564C]">{t("analyze.chatBar.gscConnect")}</span>
+                  <span className="text-[11px] font-bold text-[#4935E0]">{t("analyze.chatBar.gscConnect")}</span>
                   <button
                     type="button"
                     onClick={onGscLoadProperties}
                     disabled={gscLoading}
-                    className="shrink-0 rounded-lg border border-[#B8D7CF] bg-white px-2.5 py-1 text-[10px] font-bold text-[#14564C] disabled:opacity-50"
+                    className="shrink-0 rounded-lg border border-[#C8C0FF] bg-white px-2.5 py-1 text-[10px] font-bold text-[#4935E0] disabled:opacity-50"
                   >
                     {gscLoading ? t("analyze.chatBar.loadingSites") : t("analyze.chatBar.showSites")}
                   </button>
@@ -320,7 +320,7 @@ export function ContentChatBar({
                   <select
                     value={selectedPropertyUrl}
                     onChange={(event) => setSelectedPropertyUrl(event.target.value)}
-                    className="min-w-0 flex-1 rounded-lg border border-[#B8D7CF] bg-white px-2 py-1 text-[10px] text-[#384B43]"
+                    className="min-w-0 flex-1 rounded-lg border border-[#C8C0FF] bg-white px-2 py-1 text-[10px] text-[#3B3F5C]"
                   >
                     <option value="">{t("analyze.gsc.selectProperty")}</option>
                     {gscProperties.map((property) => (
@@ -331,7 +331,7 @@ export function ContentChatBar({
                     type="button"
                     onClick={() => selectedPropertyUrl && onGscSelectProperty(selectedPropertyUrl)}
                     disabled={!selectedPropertyUrl || gscLoading}
-                    className="shrink-0 rounded-lg bg-[#1B6F63] px-2.5 py-1 text-[10px] font-bold text-white disabled:opacity-50"
+                    className="shrink-0 rounded-lg bg-[#5B47FB] px-2.5 py-1 text-[10px] font-bold text-white disabled:opacity-50"
                   >
                     {t("analyze.chatBar.select")}
                   </button>
@@ -342,7 +342,7 @@ export function ContentChatBar({
 
           {isConnected && gscProperty && (
             <div className="flex items-center justify-between gap-2">
-              <span className="min-w-0 truncate text-[10px] font-bold text-[#14564C]">
+              <span className="min-w-0 truncate text-[10px] font-bold text-[#4935E0]">
                 {isSynced
                   ? `✓ ${t("analyze.chatBar.queriesReceived", { count: formatNumber(gscQueries.length) })}`
                   : isSyncing
@@ -354,7 +354,7 @@ export function ContentChatBar({
                   type="button"
                   onClick={onGscSync}
                   disabled={gscLoading || isSyncing}
-                  className="rounded-lg bg-[#1B6F63] px-2 py-1 text-[10px] font-bold text-white disabled:opacity-50"
+                  className="rounded-lg bg-[#5B47FB] px-2 py-1 text-[10px] font-bold text-white disabled:opacity-50"
                 >
                   {isSyncing ? t("analyze.gsc.syncing") : t("analyze.chatBar.fetch")}
                 </button>
@@ -362,7 +362,7 @@ export function ContentChatBar({
                   type="button"
                   onClick={onGscDisconnect}
                   disabled={gscLoading}
-                  className="rounded-lg border border-[#DAD5C7] px-2 py-1 text-[10px] font-bold text-[#65716B] disabled:opacity-50"
+                  className="rounded-lg border border-[#E4E5F0] px-2 py-1 text-[10px] font-bold text-[#6C7193] disabled:opacity-50"
                 >
                   {t("dashboard.wp.disconnect")}
                 </button>
@@ -378,7 +378,7 @@ export function ContentChatBar({
 
       {/* بعد از ارسال اولین پیام، پنل به یک نوار خیلی کوچک و مینیمال کاهش می‌یابد (فقط در حالت اتصال/دریافت موفق) */}
       {hasSentMessage && isConnected && gscProperty && (
-        <div className="mx-3 mt-1.5 flex items-center gap-1.5 text-[10px] font-bold text-[#1B6F63]">
+        <div className="mx-3 mt-1.5 flex items-center gap-1.5 text-[10px] font-bold text-[#5B47FB]">
           <svg className="h-3 w-3 shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true">
             <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M4.5 12.75l6 6 9-13.5" />
           </svg>
@@ -401,13 +401,13 @@ export function ContentChatBar({
   maxLength={800}
   disabled={sending || isSubmitting || limitReached}
   placeholder={t("analyze.chatBar.placeholder")}
-  className="h-11 min-h-11 max-h-11 flex-1 resize-none overflow-y-auto bg-transparent px-2 py-2.5 text-sm leading-6 text-[#17231E] outline-none placeholder:text-[#9BA69F] disabled:cursor-not-allowed"
+  className="h-11 min-h-11 max-h-11 flex-1 resize-none overflow-y-auto bg-transparent px-2 py-2.5 text-sm leading-6 text-[#0A0B1E] outline-none placeholder:text-[#9A9DB8] disabled:cursor-not-allowed"
   aria-label={t("analyze.request.title")}
 />
-        <button type="button" onClick={() => setConnectorOpen((open) => !open)} aria-expanded={connectorOpen} aria-label={t("analyze.gsc.connect")} title={t("analyze.gsc.connect")} className={`inline-flex h-11 w-11 shrink-0 items-center justify-center rounded-2xl border transition-all ${connectorOpen || isConnected ? "border-[#1B6F63] bg-[#DCEFEA] text-[#14564C]" : "border-[#DAD5C7] bg-white text-[#65716B] hover:border-[#1B6F63]/50 hover:text-[#1B6F63]"}`}>
+        <button type="button" onClick={() => setConnectorOpen((open) => !open)} aria-expanded={connectorOpen} aria-label={t("analyze.gsc.connect")} title={t("analyze.gsc.connect")} className={`inline-flex h-11 w-11 shrink-0 items-center justify-center rounded-2xl border transition-all ${connectorOpen || isConnected ? "border-[#5B47FB] bg-[#EFEDFF] text-[#4935E0]" : "border-[#E4E5F0] bg-white text-[#6C7193] hover:border-[#5B47FB]/50 hover:text-[#5B47FB]"}`}>
           <svg className="h-5 w-5" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.7} d="M12 15.75a3.75 3.75 0 100-7.5 3.75 3.75 0 000 7.5zm0 0v4.5m-7.5-4.5H3a1.5 1.5 0 01-1.5-1.5v-9A1.5 1.5 0 013 3.75h18a1.5 1.5 0 011.5 1.5v9a1.5 1.5 0 01-1.5 1.5h-1.5" /></svg>
         </button>
-        <button type="button" onClick={submit} disabled={sending || isSubmitting || limitReached} className="inline-flex h-11 w-11 shrink-0 items-center justify-center rounded-2xl bg-gradient-to-r rtl:bg-gradient-to-l from-[#1B6F63] to-[#14564C] text-white shadow-lg shadow-[#1B6F63]/20 transition-all hover:from-[#1F8073] hover:to-[#1B6F63] disabled:cursor-not-allowed disabled:opacity-50" aria-label={t("analyze.chatBar.send")}>
+        <button type="button" onClick={submit} disabled={sending || isSubmitting || limitReached} className="inline-flex h-11 w-11 shrink-0 items-center justify-center rounded-2xl bg-gradient-to-r rtl:bg-gradient-to-l from-[#5B47FB] to-[#4935E0] text-white shadow-lg shadow-[#5B47FB]/20 transition-all hover:from-[#6C5BFF] hover:to-[#5B47FB] disabled:cursor-not-allowed disabled:opacity-50" aria-label={t("analyze.chatBar.send")}>
           {sending || isSubmitting ? (
             <span className="h-4 w-4 animate-spin rounded-full border-2 border-white/30 border-t-white" />
           ) : (

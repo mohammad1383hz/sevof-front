@@ -17,13 +17,13 @@ export const REASON_LABEL: Record<RefreshReason, string> = translated("growth.re
 export const REASON_HINT: Record<RefreshReason, string> = translated("growth.reasonHint", REASONS);
 
 const STATUS_CLS: Record<RefreshStatus, string> = {
-  queued: "bg-[#EFEDE6] text-[#384B43]",
-  generating: "bg-[#EFEDE6] text-[#384B43]",
+  queued: "bg-[#F3F2FB] text-[#3B3F5C]",
+  generating: "bg-[#F3F2FB] text-[#3B3F5C]",
   ready: "bg-[#FFF4D6] text-[#8A6100]",
-  applying: "bg-[#EFEDE6] text-[#384B43]",
-  applied: "bg-[#DCEFEA] text-[#14564C]",
-  reverted: "bg-[#EFEDE6] text-[#6B7A73]",
-  discarded: "bg-[#EFEDE6] text-[#9BA69F]",
+  applying: "bg-[#F3F2FB] text-[#3B3F5C]",
+  applied: "bg-[#EFEDFF] text-[#4935E0]",
+  reverted: "bg-[#F3F2FB] text-[#6C7193]",
+  discarded: "bg-[#F3F2FB] text-[#9A9DB8]",
   failed: "bg-[#F7EEEA] text-[#B3453A]",
 };
 

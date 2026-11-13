@@ -66,21 +66,23 @@ export default {
       // --- Added for Landing page only ---
       colors: {
         brand: {
-          50: "#eefdf5",
-          100: "#d5f9e4",
-          200: "#aef1cc",
-          300: "#74e3ac",
-          400: "#39cd86",
-          500: "#14b56a",
-          600: "#0a9256",
-          700: "#0a7548",
-          800: "#0b5c3c",
-          900: "#0b4c33",
+          50: "#f3f1ff",
+          100: "#efedff",
+          200: "#d9d4ff",
+          300: "#b3a8ff",
+          400: "#8a7bff",
+          500: "#5b47fb",
+          600: "#4935e0",
+          700: "#3a29b8",
+          800: "#2a1f7a",
+          900: "#1c1552",
         },
+        // sevof.com: violet -> purple -> teal accents, deep ink text
+        accent: { purple: "#9b5cff", teal: "#10c99a" },
         ink: {
-          700: "#1c2436",
-          800: "#141b2d",
-          900: "#0b1220",
+          700: "#3b3f5c",
+          800: "#1a1d38",
+          900: "#0d0f23",
         },
       },
       boxShadow: {

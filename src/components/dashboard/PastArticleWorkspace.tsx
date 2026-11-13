@@ -42,34 +42,34 @@ const renderHtml = (html: string) =>
 const css = (text: string) => JSON.stringify(text);
 
 const READER_STYLE = () => `
-.yx-reader{color:#1E2A28;font-size:15px;line-height:2.05}
+.yx-reader{color:#0D0F23;font-size:15px;line-height:2.05}
 .yx-reader h2{font-size:1.25rem;font-weight:900;margin:2rem 0 .75rem;line-height:1.7}
 .yx-reader h3{font-size:1.05rem;font-weight:800;margin:1.5rem 0 .5rem}
 .yx-reader p{margin:0 0 1rem}
 .yx-reader ul,.yx-reader ol{margin:0 0 1rem;padding-inline-start:1.4rem}
 .yx-reader ul{list-style:disc}.yx-reader ol{list-style:decimal}
 .yx-reader li{margin:.25rem 0}
-.yx-reader a{color:#1B6F63;text-decoration:underline;text-underline-offset:3px}
+.yx-reader a{color:#5B47FB;text-decoration:underline;text-underline-offset:3px}
 .yx-reader img{max-width:100%;height:auto;border-radius:14px;margin:1rem auto}
 .yx-reader figure{margin:1rem 0}
-.yx-reader blockquote{border-inline-start:3px solid #DAD5C7;padding-inline-start:1rem;color:#384B43}
+.yx-reader blockquote{border-inline-start:3px solid #E4E5F0;padding-inline-start:1rem;color:#3B3F5C}
 .yx-reader table{width:100%;font-size:13px;border-collapse:collapse;margin:1rem 0;display:block;overflow-x:auto}
-.yx-reader td,.yx-reader th{border:1px solid #DAD5C7;padding:.4rem .6rem}
+.yx-reader td,.yx-reader th{border:1px solid #E4E5F0;padding:.4rem .6rem}
 .yx-reader iframe{max-width:100%}
-.yx-reader [data-yx-edit]{position:relative;background:rgba(220,239,234,.6);border-inline-start:3px solid #1B6F63;border-radius:12px;padding:1.6rem 1rem .4rem;margin:1.25rem 0;scroll-margin-top:120px;transition:box-shadow .3s}
-.yx-reader [data-yx-edit]::before{position:absolute;top:.4rem;inset-inline-start:.9rem;font-size:11px;font-weight:800;color:#14564C}
+.yx-reader [data-yx-edit]{position:relative;background:rgba(239, 237, 255,.6);border-inline-start:3px solid #5B47FB;border-radius:12px;padding:1.6rem 1rem .4rem;margin:1.25rem 0;scroll-margin-top:120px;transition:box-shadow .3s}
+.yx-reader [data-yx-edit]::before{position:absolute;top:.4rem;inset-inline-start:.9rem;font-size:11px;font-weight:800;color:#4935E0}
 .yx-reader [data-yx-edit="replace"]::before{content:${css(t("growth.workspace.changeN"))} attr(data-yx-n) ${css(t("growth.workspace.rewritten"))}}
 .yx-reader [data-yx-edit="insert_after"]{background:rgba(255,244,214,.7);border-inline-start-color:#C99A2E}
 .yx-reader [data-yx-edit="insert_after"]::before{content:${css(t("growth.workspace.changeN"))} attr(data-yx-n) ${css(t("growth.workspace.newParagraph"))};color:#8A6100}
-.yx-reader [data-yx-edit].yx-flash{box-shadow:0 0 0 3px rgba(27,111,99,.35)}
-.yx-reader a[data-yx-link]{background:rgba(27,111,99,.12);border-radius:6px;padding:0 .2rem;font-weight:700}
+.yx-reader [data-yx-edit].yx-flash{box-shadow:0 0 0 3px rgba(91, 71, 251,.35)}
+.yx-reader a[data-yx-link]{background:rgba(91, 71, 251,.12);border-radius:6px;padding:0 .2rem;font-weight:700}
 @keyframes yx-scan{0%{top:-15%}100%{top:105%}}
-.yx-scan{position:absolute;inset-inline:0;height:120px;background:linear-gradient(to bottom,transparent,rgba(27,111,99,.14),transparent);animation:yx-scan 2.8s ease-in-out infinite;pointer-events:none}
+.yx-scan{position:absolute;inset-inline:0;height:120px;background:linear-gradient(to bottom,transparent,rgba(91, 71, 251,.14),transparent);animation:yx-scan 2.8s ease-in-out infinite;pointer-events:none}
 @media (prefers-reduced-motion:reduce){.yx-scan{animation:none;display:none}}
 `;
 
 const Snippet: React.FC<{ title: string; description: string; url: string; muted?: boolean }> = ({ title, description, url, muted }) => (
-  <div className={`rounded-xl border border-[#DAD5C7] bg-white p-3 ${muted ? "opacity-60" : ""}`}>
+  <div className={`rounded-xl border border-[#E4E5F0] bg-white p-3 ${muted ? "opacity-60" : ""}`}>
     <p className="truncate text-[11px] text-[#1E7A3C]" dir="ltr">
       {url}
     </p>
@@ -222,13 +222,13 @@ const PastArticleWorkspace: React.FC<PastArticleWorkspaceProps> = ({ siteId, art
   const title = content?.title ?? article.title;
 
   return (
-    <div className="fixed inset-0 z-50 flex flex-col bg-[#F6F4EE]" dir="rtl" role="dialog" aria-modal="true" aria-labelledby="yx-workspace-title">
+    <div className="fixed inset-0 z-50 flex flex-col bg-[#F6F6FB]" dir="rtl" role="dialog" aria-modal="true" aria-labelledby="yx-workspace-title">
       <style>{READER_STYLE()}</style>
 
-      <header className="flex shrink-0 items-center justify-between gap-3 border-b border-[#DAD5C7] bg-white px-3 py-2.5 sm:px-5">
+      <header className="flex shrink-0 items-center justify-between gap-3 border-b border-[#E4E5F0] bg-white px-3 py-2.5 sm:px-5">
         <div className="min-w-0">
-          <p className="text-[11px] text-[#9BA69F]">{t("growth.workspace.kicker")}</p>
-          <h2 id="yx-workspace-title" className="truncate text-sm font-black text-[#1E2A28] sm:text-base">
+          <p className="text-[11px] text-[#9A9DB8]">{t("growth.workspace.kicker")}</p>
+          <h2 id="yx-workspace-title" className="truncate text-sm font-black text-[#0D0F23] sm:text-base">
             {title}
           </h2>
         </div>
@@ -237,11 +237,11 @@ const PastArticleWorkspace: React.FC<PastArticleWorkspaceProps> = ({ siteId, art
             href={content?.url ?? article.url}
             target="_blank"
             rel="noopener noreferrer"
-            className="hidden rounded-lg border border-[#DAD5C7] px-3 py-1.5 text-[11px] font-bold text-[#384B43] hover:bg-[#EFEDE6] sm:inline-block"
+            className="hidden rounded-lg border border-[#E4E5F0] px-3 py-1.5 text-[11px] font-bold text-[#3B3F5C] hover:bg-[#F3F2FB] sm:inline-block"
           >
             {t("growth.workspace.viewOnSite")}
           </a>
-          <button type="button" onClick={onClose} disabled={!!busy} aria-label={t("growth.preview.close")} className="rounded-lg p-1.5 text-[#6B7A73] hover:bg-[#EFEDE6] disabled:opacity-50">
+          <button type="button" onClick={onClose} disabled={!!busy} aria-label={t("growth.preview.close")} className="rounded-lg p-1.5 text-[#6C7193] hover:bg-[#F3F2FB] disabled:opacity-50">
             <svg className="h-5 w-5" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true">
               <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.8} d="M6 18L18 6M6 6l12 12" />
             </svg>
@@ -261,8 +261,8 @@ const PastArticleWorkspace: React.FC<PastArticleWorkspaceProps> = ({ siteId, art
 
             {phase === "idle" && (
               <>
-                <div className="rounded-2xl border border-[#DAD5C7] bg-white p-4">
-                  <h3 className="text-sm font-black text-[#1E2A28]">{t("growth.workspace.onGoogle")}</h3>
+                <div className="rounded-2xl border border-[#E4E5F0] bg-white p-4">
+                  <h3 className="text-sm font-black text-[#0D0F23]">{t("growth.workspace.onGoogle")}</h3>
                   {article.gsc ? (
                     <>
                       <div className="mt-3 grid grid-cols-3 gap-2 text-center">
@@ -271,29 +271,29 @@ const PastArticleWorkspace: React.FC<PastArticleWorkspaceProps> = ({ siteId, art
                           [t("growth.workspace.impressions"), fa(article.gsc.impressions)],
                           [t("growth.workspace.position"), faPos(article.gsc.position)],
                         ].map(([label, value]) => (
-                          <div key={label} className="rounded-xl bg-[#EFEDE6]/70 py-2">
-                            <p className="text-base font-black text-[#1E2A28]">{value}</p>
-                            <p className="text-[10px] text-[#6B7A73]">{label}</p>
+                          <div key={label} className="rounded-xl bg-[#F3F2FB]/70 py-2">
+                            <p className="text-base font-black text-[#0D0F23]">{value}</p>
+                            <p className="text-[10px] text-[#6C7193]">{label}</p>
                           </div>
                         ))}
                       </div>
-                      {article.gsc.top_query && <p className="mt-2 text-[11px] text-[#6B7A73]">{t("growth.gsc.topQuery", { query: article.gsc.top_query })}</p>}
+                      {article.gsc.top_query && <p className="mt-2 text-[11px] text-[#6C7193]">{t("growth.gsc.topQuery", { query: article.gsc.top_query })}</p>}
                       {article.reason && (
-                        <p className="mt-2 text-[11px] leading-5 text-[#384B43]">
+                        <p className="mt-2 text-[11px] leading-5 text-[#3B3F5C]">
                           <span className="me-1 rounded-full bg-[#FFF4D6] px-2 py-0.5 font-bold text-[#8A6100]">{REASON_LABEL[article.reason]}</span> {REASON_HINT[article.reason]}
                           {article.potential_clicks ? ` ${t("growth.gsc.potential", { clicks: article.potential_clicks })}` : ""}
                         </p>
                       )}
                     </>
                   ) : (
-                    <p className="mt-2 text-xs leading-6 text-[#6B7A73]">{t("growth.workspace.noGsc")}</p>
+                    <p className="mt-2 text-xs leading-6 text-[#6C7193]">{t("growth.workspace.noGsc")}</p>
                   )}
                 </div>
 
                 {/* بعد از خواندن متن از سایت، نتیجه‌ی بررسی تازه است؛ تا آن موقع نتیجه‌ی فهرست */}
-                <div className="rounded-2xl border border-[#DAD5C7] bg-white p-4">
+                <div className="rounded-2xl border border-[#E4E5F0] bg-white p-4">
                   <div className="mb-2 flex items-center justify-between gap-2">
-                    <h3 className="text-sm font-black text-[#1E2A28]">{t("growth.workspace.seoCheck")}</h3>
+                    <h3 className="text-sm font-black text-[#0D0F23]">{t("growth.workspace.seoCheck")}</h3>
                     <span className="text-[11px]">
                       <InternalLinksBadge audit={content ?? article} />
                     </span>
@@ -303,13 +303,13 @@ const PastArticleWorkspace: React.FC<PastArticleWorkspaceProps> = ({ siteId, art
 
                 {content?.seo.plugin && (
                   <div>
-                    <p className="mb-1.5 text-[11px] font-bold text-[#6B7A73]">{t("growth.workspace.currentSnippet")}</p>
+                    <p className="mb-1.5 text-[11px] font-bold text-[#6C7193]">{t("growth.workspace.currentSnippet")}</p>
                     <Snippet title={content.seo.meta_title || title} description={content.seo.meta_description || ""} url={snippetUrl} />
                   </div>
                 )}
 
-                <div className="rounded-2xl border border-[#DAD5C7]/70 bg-[#EFEDE6]/60 p-4 text-[11px] leading-6 text-[#384B43]">
-                  <p className="mb-1 font-bold text-[#1E2A28]">{t("growth.workspace.whatHappens")}</p>
+                <div className="rounded-2xl border border-[#E4E5F0]/70 bg-[#F3F2FB]/60 p-4 text-[11px] leading-6 text-[#3B3F5C]">
+                  <p className="mb-1 font-bold text-[#0D0F23]">{t("growth.workspace.whatHappens")}</p>
                   <p>• {t("growth.workspace.how1")}</p>
                   <p>• {t("growth.workspace.how2")}</p>
                   <p>• {t("growth.workspace.how3")}</p>
@@ -318,13 +318,13 @@ const PastArticleWorkspace: React.FC<PastArticleWorkspaceProps> = ({ siteId, art
                 </div>
 
                 {content && !content.editable ? (
-                  <p className="rounded-xl border border-[#DAD5C7] bg-white p-3 text-xs leading-6 text-[#6B7A73]">{content.not_editable_message}</p>
+                  <p className="rounded-xl border border-[#E4E5F0] bg-white p-3 text-xs leading-6 text-[#6C7193]">{content.not_editable_message}</p>
                 ) : (
                   <button
                     type="button"
                     onClick={start}
                     disabled={!content || busy === "start"}
-                    className="w-full rounded-xl bg-[#1B6F63] px-4 py-3 text-sm font-black text-white shadow-sm shadow-[#1B6F63]/25 hover:bg-[#14564C] disabled:opacity-60"
+                    className="w-full rounded-xl bg-[#5B47FB] px-4 py-3 text-sm font-black text-white shadow-sm shadow-[#5B47FB]/25 hover:bg-[#4935E0] disabled:opacity-60"
                   >
                     {busy === "start" ? t("growth.gsc.starting") : t("growth.workspace.start")}
                     {article.estimate && (
@@ -338,9 +338,9 @@ const PastArticleWorkspace: React.FC<PastArticleWorkspaceProps> = ({ siteId, art
             )}
 
             {(phase === "working" || phase === "publishing") && (
-              <div className="rounded-2xl border border-[#DAD5C7] bg-white p-4">
-                <h3 className="text-sm font-black text-[#1E2A28]">{phase === "publishing" ? t("growth.workspace.publishingTitle") : t("growth.workspace.rewritingTitle")}</h3>
-                <p className="mt-1 text-[11px] leading-5 text-[#6B7A73]">
+              <div className="rounded-2xl border border-[#E4E5F0] bg-white p-4">
+                <h3 className="text-sm font-black text-[#0D0F23]">{phase === "publishing" ? t("growth.workspace.publishingTitle") : t("growth.workspace.rewritingTitle")}</h3>
+                <p className="mt-1 text-[11px] leading-5 text-[#6C7193]">
                   {phase === "publishing" ? t("growth.workspace.publishingBody") : t("growth.workspace.rewritingBody")}
                 </p>
                 <RefreshProgress
@@ -354,10 +354,10 @@ const PastArticleWorkspace: React.FC<PastArticleWorkspaceProps> = ({ siteId, art
 
             {(phase === "ready" || phase === "applied") && detail && (
               <>
-                <div className={`rounded-2xl border p-4 ${phase === "applied" ? "border-[#1B6F63]/30 bg-[#DCEFEA]/60" : "border-[#DAD5C7] bg-white"}`}>
-                  <h3 className="text-sm font-black text-[#1E2A28]">{phase === "applied" ? t("growth.status.applied") : t("growth.workspace.readyTitle")}</h3>
-                  {detail.summary && <p className="mt-1.5 text-xs leading-6 text-[#384B43]">{detail.summary}</p>}
-                  <p className="mt-2 text-[11px] text-[#6B7A73]">
+                <div className={`rounded-2xl border p-4 ${phase === "applied" ? "border-[#5B47FB]/30 bg-[#EFEDFF]/60" : "border-[#E4E5F0] bg-white"}`}>
+                  <h3 className="text-sm font-black text-[#0D0F23]">{phase === "applied" ? t("growth.status.applied") : t("growth.workspace.readyTitle")}</h3>
+                  {detail.summary && <p className="mt-1.5 text-xs leading-6 text-[#3B3F5C]">{detail.summary}</p>}
+                  <p className="mt-2 text-[11px] text-[#6C7193]">
                     {[
                       edits.length ? t("growth.workspace.edits", { count: edits.length }) : null,
                       detail.links?.length ? t("growth.workspace.newLinks", { count: detail.links.length }) : null,
@@ -368,7 +368,7 @@ const PastArticleWorkspace: React.FC<PastArticleWorkspaceProps> = ({ siteId, art
                       .join(" · ")}
                   </p>
 
-                  <div role="tablist" aria-label={t("growth.workspace.version")} className="mt-3 flex gap-1 rounded-xl bg-[#EFEDE6] p-1">
+                  <div role="tablist" aria-label={t("growth.workspace.version")} className="mt-3 flex gap-1 rounded-xl bg-[#F3F2FB] p-1">
                     {(["new", "old"] as const).map((v) => (
                       <button
                         key={v}
@@ -376,7 +376,7 @@ const PastArticleWorkspace: React.FC<PastArticleWorkspaceProps> = ({ siteId, art
                         role="tab"
                         aria-selected={view === v}
                         onClick={() => setView(v)}
-                        className={`flex-1 rounded-lg px-2 py-1.5 text-[11px] font-bold ${view === v ? "bg-white text-[#1E2A28] shadow-sm" : "text-[#6B7A73]"}`}
+                        className={`flex-1 rounded-lg px-2 py-1.5 text-[11px] font-bold ${view === v ? "bg-white text-[#0D0F23] shadow-sm" : "text-[#6C7193]"}`}
                       >
                         {v === "new" ? t("growth.preview.new") : t("growth.workspace.previous")}
                       </button>
@@ -389,7 +389,7 @@ const PastArticleWorkspace: React.FC<PastArticleWorkspaceProps> = ({ siteId, art
                         type="button"
                         onClick={() => act("apply")}
                         disabled={!!busy}
-                        className="flex-1 rounded-xl bg-[#1B6F63] px-3 py-2.5 text-xs font-black text-white hover:bg-[#14564C] disabled:opacity-60"
+                        className="flex-1 rounded-xl bg-[#5B47FB] px-3 py-2.5 text-xs font-black text-white hover:bg-[#4935E0] disabled:opacity-60"
                       >
                         {busy === "apply" ? t("growth.preview.sending") : t("growth.preview.publish")}
                       </button>
@@ -397,7 +397,7 @@ const PastArticleWorkspace: React.FC<PastArticleWorkspaceProps> = ({ siteId, art
                         type="button"
                         onClick={() => act("discard")}
                         disabled={!!busy}
-                        className="rounded-xl border border-[#DAD5C7] bg-white px-3 py-2.5 text-xs font-bold text-[#384B43] hover:bg-[#EFEDE6] disabled:opacity-60"
+                        className="rounded-xl border border-[#E4E5F0] bg-white px-3 py-2.5 text-xs font-bold text-[#3B3F5C] hover:bg-[#F3F2FB] disabled:opacity-60"
                       >
                         {t("growth.preview.discard")}
                       </button>
@@ -408,7 +408,7 @@ const PastArticleWorkspace: React.FC<PastArticleWorkspaceProps> = ({ siteId, art
                         href={content?.url ?? article.url}
                         target="_blank"
                         rel="noopener noreferrer"
-                        className="flex-1 rounded-xl bg-[#1B6F63] px-3 py-2.5 text-center text-xs font-black text-white hover:bg-[#14564C]"
+                        className="flex-1 rounded-xl bg-[#5B47FB] px-3 py-2.5 text-center text-xs font-black text-white hover:bg-[#4935E0]"
                       >
                         {t("growth.workspace.viewOnSite")}
                       </a>
@@ -416,7 +416,7 @@ const PastArticleWorkspace: React.FC<PastArticleWorkspaceProps> = ({ siteId, art
                         type="button"
                         onClick={() => act("revert")}
                         disabled={!!busy}
-                        className="rounded-xl border border-[#DAD5C7] bg-white px-3 py-2.5 text-xs font-bold text-[#384B43] hover:bg-[#EFEDE6] disabled:opacity-60"
+                        className="rounded-xl border border-[#E4E5F0] bg-white px-3 py-2.5 text-xs font-bold text-[#3B3F5C] hover:bg-[#F3F2FB] disabled:opacity-60"
                       >
                         {busy === "revert" ? "…" : t("growth.gsc.revert")}
                       </button>
@@ -425,25 +425,25 @@ const PastArticleWorkspace: React.FC<PastArticleWorkspaceProps> = ({ siteId, art
                 </div>
 
                 {edits.length > 0 && (
-                  <div className="rounded-2xl border border-[#DAD5C7] bg-white p-4">
-                    <h3 className="mb-2 text-xs font-black text-[#1E2A28]">{t("growth.workspace.changes")}</h3>
+                  <div className="rounded-2xl border border-[#E4E5F0] bg-white p-4">
+                    <h3 className="mb-2 text-xs font-black text-[#0D0F23]">{t("growth.workspace.changes")}</h3>
                     <ol className="space-y-2">
                       {edits.map((e) => (
-                        <li key={e.n} className="rounded-xl border border-[#DAD5C7]/70 p-2.5">
+                        <li key={e.n} className="rounded-xl border border-[#E4E5F0]/70 p-2.5">
                           <button type="button" onClick={() => scrollToEdit(e.n)} className="w-full text-right">
                             <span className="flex items-center gap-1.5 text-[11px]">
-                              <span className={`rounded-full px-2 py-0.5 font-bold ${e.action === "replace" ? "bg-[#DCEFEA] text-[#14564C]" : "bg-[#FFF4D6] text-[#8A6100]"}`}>
+                              <span className={`rounded-full px-2 py-0.5 font-bold ${e.action === "replace" ? "bg-[#EFEDFF] text-[#4935E0]" : "bg-[#FFF4D6] text-[#8A6100]"}`}>
                                 {fa(e.n)} · {e.action === "replace" ? t("growth.workspace.rewrite") : t("growth.workspace.new")}
                               </span>
-                              <span className="truncate text-[#9BA69F]">{e.section}</span>
+                              <span className="truncate text-[#9A9DB8]">{e.section}</span>
                             </span>
-                            <span className="mt-1 block text-xs leading-6 text-[#384B43]">{e.why}</span>
+                            <span className="mt-1 block text-xs leading-6 text-[#3B3F5C]">{e.why}</span>
                           </button>
                           {e.before && (
                             <details className="mt-1">
-                              <summary className="cursor-pointer text-[11px] text-[#6B7A73]">{t("growth.workspace.previousText")}</summary>
+                              <summary className="cursor-pointer text-[11px] text-[#6C7193]">{t("growth.workspace.previousText")}</summary>
                               <div
-                                className="yx-reader mt-1 rounded-lg bg-[#EFEDE6]/60 p-2 text-[12px] leading-6 text-[#6B7A73]"
+                                className="yx-reader mt-1 rounded-lg bg-[#F3F2FB]/60 p-2 text-[12px] leading-6 text-[#6C7193]"
                                 dangerouslySetInnerHTML={{ __html: renderHtml(e.before) }}
                               />
                             </details>
@@ -458,9 +458,9 @@ const PastArticleWorkspace: React.FC<PastArticleWorkspaceProps> = ({ siteId, art
 
                 {metaChanged && (
                   <div className="space-y-1.5">
-                    <p className="text-[11px] font-bold text-[#6B7A73]">{t("growth.workspace.snippet")}</p>
+                    <p className="text-[11px] font-bold text-[#6C7193]">{t("growth.workspace.snippet")}</p>
                     <Snippet title={metaAfter.meta_title || metaBefore.meta_title || title} description={metaAfter.meta_description || metaBefore.meta_description || ""} url={snippetUrl} />
-                    <p className="text-[10px] text-[#9BA69F]">{t("growth.workspace.before")}</p>
+                    <p className="text-[10px] text-[#9A9DB8]">{t("growth.workspace.before")}</p>
                     <Snippet title={metaBefore.meta_title || title} description={metaBefore.meta_description || ""} url={snippetUrl} muted />
                   </div>
                 )}
@@ -472,7 +472,7 @@ const PastArticleWorkspace: React.FC<PastArticleWorkspaceProps> = ({ siteId, art
                 <h3 className="text-sm font-black text-[#7A2F27]">{t("growth.workspace.failedTitle")}</h3>
                 <p className="mt-1 text-xs leading-6 text-[#7A2F27]">{detail.error}</p>
                 {content?.editable !== false && (
-                  <button type="button" onClick={start} disabled={!!busy} className="mt-3 w-full rounded-xl bg-[#1B6F63] px-4 py-2.5 text-xs font-black text-white hover:bg-[#14564C] disabled:opacity-60">
+                  <button type="button" onClick={start} disabled={!!busy} className="mt-3 w-full rounded-xl bg-[#5B47FB] px-4 py-2.5 text-xs font-black text-white hover:bg-[#4935E0] disabled:opacity-60">
                     {t("growth.gsc.retry")}
                   </button>
                 )}
@@ -481,12 +481,12 @@ const PastArticleWorkspace: React.FC<PastArticleWorkspaceProps> = ({ siteId, art
           </aside>
 
           {/* ── خود مقاله ── */}
-          <article className="relative min-w-0 overflow-hidden rounded-2xl border border-[#DAD5C7] bg-white p-4 sm:p-8 lg:order-1">
+          <article className="relative min-w-0 overflow-hidden rounded-2xl border border-[#E4E5F0] bg-white p-4 sm:p-8 lg:order-1">
             {!content && !contentError && !showResult && (
               <div className="space-y-3" aria-busy="true" aria-label={t("growth.workspace.reading")}>
-                <div className="h-7 w-3/4 animate-pulse rounded-lg bg-[#EFEDE6] motion-reduce:animate-none" />
+                <div className="h-7 w-3/4 animate-pulse rounded-lg bg-[#F3F2FB] motion-reduce:animate-none" />
                 {Array.from({ length: 7 }).map((_, i) => (
-                  <div key={i} className="h-4 animate-pulse rounded bg-[#EFEDE6] motion-reduce:animate-none" style={{ width: `${95 - (i % 3) * 12}%` }} />
+                  <div key={i} className="h-4 animate-pulse rounded bg-[#F3F2FB] motion-reduce:animate-none" style={{ width: `${95 - (i % 3) * 12}%` }} />
                 ))}
               </div>
             )}
@@ -494,8 +494,8 @@ const PastArticleWorkspace: React.FC<PastArticleWorkspaceProps> = ({ siteId, art
 
             {(content || showResult) && (
               <>
-                <h1 className="mb-4 text-xl font-black leading-9 text-[#1E2A28] sm:text-2xl">{title}</h1>
-                {showResult && view === "old" && <p className="mb-4 rounded-lg bg-[#EFEDE6] px-3 py-1.5 text-[11px] text-[#6B7A73]">{t("growth.workspace.showingPrevious")}</p>}
+                <h1 className="mb-4 text-xl font-black leading-9 text-[#0D0F23] sm:text-2xl">{title}</h1>
+                {showResult && view === "old" && <p className="mb-4 rounded-lg bg-[#F3F2FB] px-3 py-1.5 text-[11px] text-[#6C7193]">{t("growth.workspace.showingPrevious")}</p>}
                 <div
                   ref={readerRef}
                   className={`yx-reader transition-opacity duration-500 ${phase === "working" ? "opacity-60" : ""}`}

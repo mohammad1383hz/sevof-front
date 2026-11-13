@@ -91,7 +91,7 @@ export const ModalShell: React.FC<ModalShellProps> = ({ title, subtitle, onClose
 
   return (
     <div
-      className="fixed inset-0 z-[100] flex items-end justify-center bg-[#1E2A28]/45 backdrop-blur-[2px] sm:items-center sm:p-6"
+      className="fixed inset-0 z-[100] flex items-end justify-center bg-[#0D0F23]/45 backdrop-blur-[2px] sm:items-center sm:p-6"
       onMouseDown={(e) => {
         if (e.target === e.currentTarget) closeRef.current();
       }}
@@ -102,34 +102,34 @@ export const ModalShell: React.FC<ModalShellProps> = ({ title, subtitle, onClose
         aria-modal="true"
         aria-label={title}
         tabIndex={-1}
-        className={`flex w-full max-w-2xl flex-col overflow-hidden rounded-t-3xl border border-[#DAD5C7] bg-[#FBFAF6] shadow-2xl outline-none sm:rounded-3xl ${
+        className={`flex w-full max-w-2xl flex-col overflow-hidden rounded-t-3xl border border-[#E4E5F0] bg-[#FAFAFE] shadow-2xl outline-none sm:rounded-3xl ${
           tall ? "h-[92%] sm:h-[82%]" : "max-h-[92%] sm:max-h-[88%]"
         }`}
       >
         {/* دستگیره‌ی بالای Bottom Sheet (فقط موبایل) */}
-        <div aria-hidden className="mx-auto mt-2 h-1 w-10 shrink-0 rounded-full bg-[#DAD5C7] sm:hidden" />
+        <div aria-hidden className="mx-auto mt-2 h-1 w-10 shrink-0 rounded-full bg-[#E4E5F0] sm:hidden" />
 
         <div className="flex shrink-0 items-start justify-between gap-3 px-4 pb-3 pt-3 sm:px-6 sm:pt-5">
           <div className="min-w-0">
-            <h2 className="text-base font-black leading-7 text-[#1E2A28] sm:text-lg">{title}</h2>
-            {subtitle && <p className="mt-0.5 text-xs leading-6 text-[#65716B]">{subtitle}</p>}
+            <h2 className="text-base font-black leading-7 text-[#0D0F23] sm:text-lg">{title}</h2>
+            {subtitle && <p className="mt-0.5 text-xs leading-6 text-[#6C7193]">{subtitle}</p>}
           </div>
           <button
             type="button"
             onClick={() => closeRef.current()}
             aria-label={t("common.actions.close")}
-            className="inline-flex h-10 w-10 shrink-0 items-center justify-center rounded-xl text-[#65716B] transition hover:bg-[#EFEDE6] hover:text-[#1E2A28] focus-visible:outline focus-visible:outline-2 focus-visible:outline-[#1B6F63]"
+            className="inline-flex h-10 w-10 shrink-0 items-center justify-center rounded-xl text-[#6C7193] transition hover:bg-[#F3F2FB] hover:text-[#0D0F23] focus-visible:outline focus-visible:outline-2 focus-visible:outline-[#5B47FB]"
           >
             <Icon d={ICONS.x} />
           </button>
         </div>
 
-        {toolbar && <div className="shrink-0 space-y-2.5 border-b border-[#DAD5C7] px-4 pb-3 sm:px-6">{toolbar}</div>}
+        {toolbar && <div className="shrink-0 space-y-2.5 border-b border-[#E4E5F0] px-4 pb-3 sm:px-6">{toolbar}</div>}
 
         <div className="min-h-0 flex-1 overflow-y-auto overscroll-contain px-4 py-4 sm:px-6">{children}</div>
 
         {footer && (
-          <div className="shrink-0 border-t border-[#DAD5C7] bg-white/70 px-4 pb-[max(0.75rem,env(safe-area-inset-bottom))] pt-3 sm:px-6 sm:pb-4">
+          <div className="shrink-0 border-t border-[#E4E5F0] bg-white/70 px-4 pb-[max(0.75rem,env(safe-area-inset-bottom))] pt-3 sm:px-6 sm:pb-4">
             {footer}
           </div>
         )}

@@ -171,7 +171,7 @@ export const ProductPublishToWordPressBar: React.FC<ProductPublishToWordPressBar
   const goConnect = () => navigate(`/sites/${siteId}/dashboard`);
 
   const headerClassName = embedded
-    ? "hidden lg:block fixed inset-x-0 top-0 z-40 border-b border-[#DAD5C7] bg-[#FBFAF6]/95 px-4 py-2.5 shadow-sm backdrop-blur lg:start-[var(--layout-content-right)] sm:px-6"
+    ? "hidden lg:block fixed inset-x-0 top-0 z-40 border-b border-[#E4E5F0] bg-[#FAFAFE]/95 px-4 py-2.5 shadow-sm backdrop-blur lg:start-[var(--layout-content-right)] sm:px-6"
     : "hidden lg:block sticky top-0 z-20 mb-4 border-b border-slate-200 bg-white/85 px-4 py-3 backdrop-blur sm:px-6";
 
   return (
@@ -383,7 +383,7 @@ export const ProductWordPressHeaderControl: React.FC<
     ? createPortal(
         <div
           ref={menuRef}
-          className={`fixed end-4 start-4 z-[55] mx-auto max-w-xs rounded-xl border border-[#DAD5C7] bg-[#FBFAF6] p-2 shadow-lg ${
+          className={`fixed end-4 start-4 z-[55] mx-auto max-w-xs rounded-xl border border-[#E4E5F0] bg-[#FAFAFE] p-2 shadow-lg ${
             floating ? "bottom-[calc(5rem+env(safe-area-inset-bottom))]" : "top-16"
           }`}
         >

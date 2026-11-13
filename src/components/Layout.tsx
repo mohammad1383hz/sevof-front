@@ -91,7 +91,7 @@ export const PlanStatusBadge: React.FC<{
     <button
       type="button"
       onClick={onUpgrade}
-      className={`flex items-center gap-1.5 ${textSize} font-black text-white bg-gradient-to-r rtl:bg-gradient-to-l from-[#8B3F63] to-[#6E2E4E] hover:from-[#7A3656] hover:to-[#5E2842] active:brightness-95 rounded-full ${padding} shadow-md shadow-[#8B3F63]/30 transition-all duration-200 hover:-translate-y-0.5 active:translate-y-0`}
+      className={`flex items-center gap-1.5 ${textSize} font-black text-white bg-gradient-to-r rtl:bg-gradient-to-l from-[#5B47FB] to-[#9B5CFF] hover:from-[#4935E0] hover:to-[#8A4BF0] active:brightness-95 rounded-full ${padding} shadow-md shadow-[#5B47FB]/30 transition-all duration-200 hover:-translate-y-0.5 active:translate-y-0`}
     >
       <svg className={`${iconSize} shrink-0`} fill="currentColor" viewBox="0 0 20 20">
         <path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.286 3.958a1 1 0 00.95.69h4.162c.969 0 1.371 1.24.588 1.81l-3.367 2.446a1 1 0 00-.363 1.118l1.287 3.957c.3.922-.755 1.688-1.538 1.118l-3.367-2.445a1 1 0 00-1.176 0l-3.367 2.445c-.783.57-1.838-.196-1.538-1.118l1.287-3.957a1 1 0 00-.363-1.118L2.063 9.385c-.783-.57-.38-1.81.588-1.81h4.163a1 1 0 00.95-.69l1.285-3.958z" />
@@ -99,7 +99,7 @@ export const PlanStatusBadge: React.FC<{
       {t("layout.plan.upgrade")}
     </button>
   ) : (
-    <span className={`flex items-center gap-1.5 ${textSize} font-black text-white bg-[#1B6F63] rounded-full ${paddingPro} shadow-sm shadow-[#1B6F63]/30`}>
+    <span className={`flex items-center gap-1.5 ${textSize} font-black text-white bg-[#5B47FB] rounded-full ${paddingPro} shadow-sm shadow-[#5B47FB]/30`}>
       <svg className={`${iconSize} shrink-0`} fill="currentColor" viewBox="0 0 20 20">
         <path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.286 3.958a1 1 0 00.95.69h4.162c.969 0 1.371 1.24.588 1.81l-3.367 2.446a1 1 0 00-.363 1.118l1.287 3.957c.3.922-.755 1.688-1.538 1.118l-3.367-2.445a1 1 0 00-1.176 0l-3.367 2.445c-.783.57-1.838-.196-1.538-1.118l1.287-3.957a1 1 0 00-.363-1.118L2.063 9.385c-.783-.57-.38-1.81.588-1.81h4.163a1 1 0 00.95-.69l1.285-3.958z" />
       </svg>
@@ -117,7 +117,7 @@ const LogoutButton: React.FC<{ onClick: () => void }> = ({ onClick }) => (
     onClick={onClick}
     aria-label={t("layout.logout.action")}
     title={t("layout.logout.action")}
-    className="fixed top-3 end-3 z-50 flex h-9 w-9 items-center justify-center rounded-full border border-[#DAD5C7] bg-[#FBFAF6]/90 text-[#9BA69F] shadow-sm backdrop-blur-md transition-colors hover:border-rose-200 hover:bg-rose-50 hover:text-rose-500 active:bg-rose-100 sm:h-10 sm:w-10"
+    className="fixed top-3 end-3 z-50 flex h-9 w-9 items-center justify-center rounded-full border border-[#E4E5F0] bg-[#FAFAFE]/90 text-[#9A9DB8] shadow-sm backdrop-blur-md transition-colors hover:border-rose-200 hover:bg-rose-50 hover:text-rose-500 active:bg-rose-100 sm:h-10 sm:w-10"
   >
     <svg
       className="h-4 w-4 sm:h-5 sm:w-5"
@@ -151,7 +151,7 @@ const LogoutConfirmModal: React.FC<{ onConfirm: () => void; onCancel: () => void
     onClick={onCancel}
   >
     <div
-      className="w-full max-w-xs rounded-2xl bg-[#FBFAF6] p-5 text-center shadow-xl"
+      className="w-full max-w-xs rounded-2xl bg-[#FAFAFE] p-5 text-center shadow-xl"
       onClick={(e) => e.stopPropagation()}
     >
       <div className="mx-auto flex h-11 w-11 items-center justify-center rounded-full bg-rose-50 text-rose-500">
@@ -164,15 +164,15 @@ const LogoutConfirmModal: React.FC<{ onConfirm: () => void; onCancel: () => void
           />
         </svg>
       </div>
-      <h3 className="mt-3 text-sm font-black text-[#1E2A28]">{t("layout.logout.title")}</h3>
-      <p className="mt-1 text-xs font-bold text-[#9BA69F]">
+      <h3 className="mt-3 text-sm font-black text-[#0D0F23]">{t("layout.logout.title")}</h3>
+      <p className="mt-1 text-xs font-bold text-[#9A9DB8]">
         {t("layout.logout.confirm")}
       </p>
       <div className="mt-4 flex gap-2">
         <button
           type="button"
           onClick={onCancel}
-          className="h-9 flex-1 rounded-xl bg-[#EFEDE6] text-xs font-black text-[#3D453F] transition-colors hover:bg-[#DAD5C7]"
+          className="h-9 flex-1 rounded-xl bg-[#F3F2FB] text-xs font-black text-[#3B3F5C] transition-colors hover:bg-[#E4E5F0]"
         >
           {t("common.actions.cancel")}
         </button>
@@ -201,7 +201,7 @@ const DesktopSidebarToggle: React.FC<{ open: boolean; onToggle: () => void }> = 
     onClick={onToggle}
     aria-label={open ? t("layout.sidebar.close") : t("layout.sidebar.open")}
     title={open ? t("layout.sidebar.close") : t("layout.sidebar.open")}
-    className={`hidden lg:flex fixed top-4 z-50 h-9 w-9 items-center justify-center rounded-lg text-[#6B7280] hover:bg-[#EFEDE6] hover:text-[#1E2A28] transition-all duration-300 ${
+    className={`hidden lg:flex fixed top-4 z-50 h-9 w-9 items-center justify-center rounded-lg text-[#6B7280] hover:bg-[#F3F2FB] hover:text-[#0D0F23] transition-all duration-300 ${
       open ? "start-[21rem]" : "start-4"
     }`}
   >
@@ -687,7 +687,7 @@ const Layout: React.FC<LayoutProps> = ({
   };
 
   return (
-    <div className="flex items-start h-screen overflow-hidden bg-[#EFEDE6]">
+    <div className="flex items-start h-screen overflow-hidden bg-[#F3F2FB]">
       {/* دکمه‌ی خروج — ثابتِ گوشه‌ی چپِ بالا، مستقل از RTL بودن صفحه،
           هم در موبایل هم در دسکتاپ همیشه دیده می‌شود. */}
       <LogoutButton onClick={() => setLogoutConfirmOpen(true)} />
@@ -711,12 +711,12 @@ const Layout: React.FC<LayoutProps> = ({
           صفحه (mobileHeaderExtra) کنار بج پلن. این تنها هدرِ موبایل است —
           صفحات نباید هدرِ دومِ خودشان را روی موبایل رندر کنند (مثلاً با
           embedded روی PublishToWordPressBar)، وگرنه دو نوار روی هم می‌افتد. */}
-      <header className="lg:hidden fixed top-0 inset-x-0 z-30 h-14 bg-[#FBFAF6]/90 backdrop-blur-md border-b border-[#DAD5C7]/70 grid grid-cols-[2.5rem_1fr_2.5rem] items-center gap-2 px-2">
+      <header className="lg:hidden fixed top-0 inset-x-0 z-30 h-14 bg-[#FAFAFE]/90 backdrop-blur-md border-b border-[#E4E5F0]/70 grid grid-cols-[2.5rem_1fr_2.5rem] items-center gap-2 px-2">
         {/* دکمه‌ی همبرگری — ستون اول Grid، هیچ چیزی روی آن سوار نمی‌شود */}
         <button
           type="button"
           onClick={() => setMobileSidebarOpen(true)}
-          className="relative z-10 h-9 w-9 rounded-lg flex items-center justify-center text-[#000000] hover:bg-[#F4F2EC] active:bg-[#DAD5C7] transition-colors"
+          className="relative z-10 h-9 w-9 rounded-lg flex items-center justify-center text-[#0D0F23] hover:bg-[#F6F6FB] active:bg-[#E4E5F0] transition-colors"
           aria-label={t("layout.sidebar.openMenu")}
         >
           <svg className="w-5 h-5 pointer-events-none" fill="none" stroke="currentColor" viewBox="0 0 24 24">
@@ -751,7 +751,7 @@ const Layout: React.FC<LayoutProps> = ({
       {/* وضعیت پلن در دسکتاپ — نوارِ ثابتِ سفید هم‌عرض با ستون محتوا. */}
       {!planLoading && !hideDesktopPlanBadge && (
         <div
-          className={`hidden lg:flex fixed inset-x-0 top-0 z-40 h-14 items-center justify-center bg-[#FBFAF6]/90 backdrop-blur-md border-b border-[#DAD5C7]/70 transition-all duration-300 ${
+          className={`hidden lg:flex fixed inset-x-0 top-0 z-40 h-14 items-center justify-center bg-[#FAFAFE]/90 backdrop-blur-md border-b border-[#E4E5F0]/70 transition-all duration-300 ${
             desktopSidebarOpen ? "lg:start-80" : "lg:start-0"
           }`}
         >

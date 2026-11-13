@@ -47,11 +47,11 @@ const formatFa = (n: number) => n.toLocaleString(getLocale());
 
 const SectionHeading: React.FC<{ step: string; title: string }> = ({ step, title }) => (
   <div className="flex items-start gap-3 mb-3.5">
-    <span className="mt-0.5 flex h-6 w-6 shrink-0 items-center justify-center rounded-full bg-[#1B6F63] text-[11px] font-black text-white">
+    <span className="mt-0.5 flex h-6 w-6 shrink-0 items-center justify-center rounded-full bg-[#5B47FB] text-[11px] font-black text-white">
       {step}
     </span>
     <div>
-      <h3 className="text-sm font-black text-[#000000] leading-6">{title}</h3>
+      <h3 className="text-sm font-black text-[#0D0F23] leading-6">{title}</h3>
     </div>
   </div>
 );
@@ -62,13 +62,13 @@ const CreditBadge: React.FC<{ cost?: number; selected?: boolean }> = ({ cost, se
   return (
     <div
       className={`mt-2 pt-2 border-t border-dashed flex items-center justify-between gap-1 ${
-        selected ? "border-[#1B6F63]/30" : "border-[#DAD5C7]"
+        selected ? "border-[#5B47FB]/30" : "border-[#E4E5F0]"
       }`}
     >
-      <span className="text-[10px] text-[#000000]">{t("article.image.featured")}</span>
+      <span className="text-[10px] text-[#0D0F23]">{t("article.image.featured")}</span>
       <span
         className={`inline-flex items-center gap-1 rounded-full px-2 py-0.5 text-[10px] font-black ${
-          selected ? "bg-[#1B6F63] text-white" : "bg-[#EDE3CF] text-[#000000]"
+          selected ? "bg-[#5B47FB] text-white" : "bg-[#EDE3CF] text-[#0D0F23]"
         }`}
       >
         <svg className="w-2.5 h-2.5" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth={2}>
@@ -82,7 +82,7 @@ const CreditBadge: React.FC<{ cost?: number; selected?: boolean }> = ({ cost, se
 };
 
 const SelectedCheck: React.FC = () => (
-  <span className="absolute top-2 end-2 h-4 w-4 rounded-full bg-[#1B6F63] flex items-center justify-center">
+  <span className="absolute top-2 end-2 h-4 w-4 rounded-full bg-[#5B47FB] flex items-center justify-center">
     <svg className="w-2.5 h-2.5 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
       <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={3} d="M4.5 12.75l6 6 9-13.5" />
     </svg>
@@ -90,7 +90,7 @@ const SelectedCheck: React.FC = () => (
 );
 
 const LockBadge: React.FC<{ label?: string }> = ({ label = t("layout.plan.pro") }) => (
-  <span className="absolute top-2 end-2 inline-flex items-center gap-1 text-[10px] font-bold text-[#000000] bg-[#EDE3CF] rounded-full px-2 py-0.5">
+  <span className="absolute top-2 end-2 inline-flex items-center gap-1 text-[10px] font-bold text-[#0D0F23] bg-[#EDE3CF] rounded-full px-2 py-0.5">
     <svg className="w-3 h-3" fill="none" stroke="currentColor" viewBox="0 0 24 24">
       <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.5} d="M16.5 10.5V6.75a4.5 4.5 0 10-9 0v3.75m-.75 11.25h10.5a2.25 2.25 0 002.25-2.25v-6.75a2.25 2.25 0 00-2.25-2.25H6.75a2.25 2.25 0 00-2.25 2.25v6.75a2.25 2.25 0 002.25 2.25z" />
     </svg>
@@ -109,7 +109,7 @@ const MobileModelSelect: React.FC<{
   onLockedPick?: () => void;
 }> = ({ label, value, onChange, options, onLockedPick }) => (
   <div>
-    <label className="block text-[11px] font-bold text-[#000000] mb-1">{label}</label>
+    <label className="block text-[11px] font-bold text-[#0D0F23] mb-1">{label}</label>
     <select
       value={value}
       onChange={(e) => {
@@ -117,7 +117,7 @@ const MobileModelSelect: React.FC<{
         if (picked?.locked && onLockedPick) onLockedPick();
         else onChange(e.target.value);
       }}
-      className="w-full rounded-xl border border-[#DAD5C7] bg-[#FBFAF6] px-2.5 py-2 text-xs font-bold text-[#000000] focus:outline-none focus:border-[#1B6F63] focus:ring-2 focus:ring-[#1B6F63]/15 transition-all"
+      className="w-full rounded-xl border border-[#E4E5F0] bg-[#FAFAFE] px-2.5 py-2 text-xs font-bold text-[#0D0F23] focus:outline-none focus:border-[#5B47FB] focus:ring-2 focus:ring-[#5B47FB]/15 transition-all"
     >
       {options.map((o) => (
         <option key={o.id} value={o.id} disabled={o.locked && !onLockedPick}>
@@ -135,11 +135,11 @@ const ImageModelPreview: React.FC<{ icon?: string; label: string; cost?: number 
     {icon ? (
       <img src={icon} alt="" className="h-4 w-4 shrink-0 rounded object-contain" />
     ) : (
-      <span className="h-4 w-4 shrink-0 rounded-full bg-[#1B6F63]/15" />
+      <span className="h-4 w-4 shrink-0 rounded-full bg-[#5B47FB]/15" />
     )}
-    <span className="text-[10px] font-bold text-[#000000] truncate">{label}</span>
+    <span className="text-[10px] font-bold text-[#0D0F23] truncate">{label}</span>
     {cost !== undefined && (
-      <span className="ms-auto shrink-0 inline-flex items-center gap-0.5 rounded-full bg-[#1B6F63] px-1.5 py-0.5 text-[9px] font-black text-white">
+      <span className="ms-auto shrink-0 inline-flex items-center gap-0.5 rounded-full bg-[#5B47FB] px-1.5 py-0.5 text-[9px] font-black text-white">
         {formatFa(cost)} credits
       </span>
     )}
@@ -229,21 +229,21 @@ const ProductModelSelectModal: React.FC<ProductModelSelectModalProps> = ({
       onClick={onClose}
     >
       <div
-        className="flex w-full max-w-3xl max-h-[88vh] flex-col overflow-hidden rounded-3xl bg-[#FBFAF6] border border-[#DAD5C7] shadow-2xl animate-in fade-in zoom-in-95 duration-200"
+        className="flex w-full max-w-3xl max-h-[88vh] flex-col overflow-hidden rounded-3xl bg-[#FAFAFE] border border-[#E4E5F0] shadow-2xl animate-in fade-in zoom-in-95 duration-200"
         onClick={(e) => e.stopPropagation()}
       >
         {/* ================= هدر ثابت ================= */}
-        <div className="shrink-0 flex items-start justify-between gap-3 px-4 sm:px-6 pt-5 pb-4 border-b border-[#DAD5C7]">
+        <div className="shrink-0 flex items-start justify-between gap-3 px-4 sm:px-6 pt-5 pb-4 border-b border-[#E4E5F0]">
           <div>
-            <h2 className="text-base font-black text-[#000000]">{t("product.modal.title")}</h2>
-            <p className="text-[11px] text-[#000000] mt-1 leading-5">
+            <h2 className="text-base font-black text-[#0D0F23]">{t("product.modal.title")}</h2>
+            <p className="text-[11px] text-[#0D0F23] mt-1 leading-5">
               {t("article.modal.subtitle")}
             </p>
           </div>
           <button
             type="button"
             onClick={onClose}
-            className="shrink-0 h-8 w-8 rounded-full flex items-center justify-center text-[#000000] hover:bg-black/5 transition-colors"
+            className="shrink-0 h-8 w-8 rounded-full flex items-center justify-center text-[#0D0F23] hover:bg-black/5 transition-colors"
             aria-label={t("common.actions.close")}
           >
             ✕
@@ -291,17 +291,17 @@ const ProductModelSelectModal: React.FC<ProductModelSelectModalProps> = ({
                     title={m.description}
                     className={`relative text-start rounded-xl border px-3 py-2 transition-all duration-200 ${
                       locked
-                        ? "border-[#DAD5C7] bg-[#EFEDE6]/60 hover:border-[#E9C46A]"
+                        ? "border-[#E4E5F0] bg-[#F3F2FB]/60 hover:border-[#E9C46A]"
                         : isSelected
-                        ? "border-[#1B6F63] bg-[#DCEFEA] shadow-sm shadow-[#1B6F63]/15"
-                        : "border-[#DAD5C7] bg-[#FBFAF6] hover:border-[#1B6F63]/40 hover:bg-[#DCEFEA]/40"
+                        ? "border-[#5B47FB] bg-[#EFEDFF] shadow-sm shadow-[#5B47FB]/15"
+                        : "border-[#E4E5F0] bg-[#FAFAFE] hover:border-[#5B47FB]/40 hover:bg-[#EFEDFF]/40"
                     }`}
                   >
                     <div className="flex items-center justify-between gap-2">
-                      <p className="text-xs font-black text-[#000000] truncate">{m.label}</p>
+                      <p className="text-xs font-black text-[#0D0F23] truncate">{m.label}</p>
                       {locked && <LockBadge label={t("layout.plan.pro")} />}
                       {!locked && isSelected && (
-                        <span className="shrink-0 h-4 w-4 rounded-full bg-[#1B6F63] flex items-center justify-center">
+                        <span className="shrink-0 h-4 w-4 rounded-full bg-[#5B47FB] flex items-center justify-center">
                           <svg className="w-2.5 h-2.5 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                             <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={3} d="M4.5 12.75l6 6 9-13.5" />
                           </svg>
@@ -309,7 +309,7 @@ const ProductModelSelectModal: React.FC<ProductModelSelectModalProps> = ({
                       )}
                     </div>
                     {m.description && (
-                      <p className="text-[10px] text-[#000000] leading-4 mt-0.5 truncate">{m.description}</p>
+                      <p className="text-[10px] text-[#0D0F23] leading-4 mt-0.5 truncate">{m.description}</p>
                     )}
                   </button>
                 );
@@ -317,7 +317,7 @@ const ProductModelSelectModal: React.FC<ProductModelSelectModalProps> = ({
             </div>
           </section>
 
-          <div className="h-px bg-[#DAD5C7]" />
+          <div className="h-px bg-[#E4E5F0]" />
 
           {/* ── ۲. تصویر شاخص ── */}
           <section>
@@ -338,20 +338,20 @@ const ProductModelSelectModal: React.FC<ProductModelSelectModalProps> = ({
                     onClick={() => setSelectedImageModel(m.id)}
                     className={`relative text-start rounded-2xl border p-2 transition-all duration-200 ${
                       locked
-                        ? "border-[#DAD5C7] bg-[#EFEDE6]/60 opacity-60 cursor-not-allowed"
+                        ? "border-[#E4E5F0] bg-[#F3F2FB]/60 opacity-60 cursor-not-allowed"
                         : isSelected
-                        ? "border-[#1B6F63] bg-[#DCEFEA] shadow-md shadow-[#1B6F63]/15"
-                        : "border-[#DAD5C7] bg-[#FBFAF6] hover:border-[#1B6F63]/40 hover:bg-[#DCEFEA]/40"
+                        ? "border-[#5B47FB] bg-[#EFEDFF] shadow-md shadow-[#5B47FB]/15"
+                        : "border-[#E4E5F0] bg-[#FAFAFE] hover:border-[#5B47FB]/40 hover:bg-[#EFEDFF]/40"
                     }`}
                   >
                     {locked && <LockBadge label={m.badge ?? t("layout.plan.pro")} />}
                     {!locked && isSelected && <SelectedCheck />}
                     <div className="flex items-center gap-1.5 mb-0.5">
                       {m.icon && <img src={m.icon} alt="" className="h-3.5 w-3.5 shrink-0 rounded object-contain" />}
-                      <p className="text-xs font-black text-[#000000]">{m.label}</p>
+                      <p className="text-xs font-black text-[#0D0F23]">{m.label}</p>
                     </div>
                     {m.description && (
-                      <p className="text-[10px] text-[#000000] leading-3.5 line-clamp-1">{m.description}</p>
+                      <p className="text-[10px] text-[#0D0F23] leading-3.5 line-clamp-1">{m.description}</p>
                     )}
                     <CreditBadge cost={IMAGE_CREDIT_COST[m.id]} selected={!locked && isSelected} />
                   </button>
@@ -365,23 +365,23 @@ const ProductModelSelectModal: React.FC<ProductModelSelectModalProps> = ({
           </section>
 
           {/* ── ۳. تنظیمات پیشرفته: سبک تصویر + پرامپت متن + پرامپت تصویر ── */}
-          <section className="rounded-2xl border border-[#DAD5C7] bg-white/60 mb-4">
+          <section className="rounded-2xl border border-[#E4E5F0] bg-white/60 mb-4">
             <button
               type="button"
               onClick={() => setAdvancedOpen((v) => !v)}
               className="flex w-full items-center justify-between gap-2 px-4 py-3.5"
             >
               <div className="flex items-start gap-3 text-start">
-                <span className="mt-0.5 flex h-6 w-6 shrink-0 items-center justify-center rounded-full bg-[#1B6F63] text-[11px] font-black text-white">
+                <span className="mt-0.5 flex h-6 w-6 shrink-0 items-center justify-center rounded-full bg-[#5B47FB] text-[11px] font-black text-white">
                   3
                 </span>
                 <div>
-                  <h3 className="text-sm font-black text-[#000000]">{t("article.modal.advanced")}</h3>
-                  <p className="text-[11px] text-[#000000] mt-0.5">{t("article.modal.advancedHint")}</p>
+                  <h3 className="text-sm font-black text-[#0D0F23]">{t("article.modal.advanced")}</h3>
+                  <p className="text-[11px] text-[#0D0F23] mt-0.5">{t("article.modal.advancedHint")}</p>
                 </div>
               </div>
               <svg
-                className={`h-4 w-4 shrink-0 text-[#000000] transition-transform duration-150 ${advancedOpen ? "rotate-180" : ""}`}
+                className={`h-4 w-4 shrink-0 text-[#0D0F23] transition-transform duration-150 ${advancedOpen ? "rotate-180" : ""}`}
                 viewBox="0 0 24 24"
                 fill="none"
                 stroke="currentColor"
@@ -399,8 +399,8 @@ const ProductModelSelectModal: React.FC<ProductModelSelectModalProps> = ({
                 <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
                   <div>
                     <div className="flex items-center justify-between mb-1.5 gap-2">
-                      <label className="text-xs font-bold text-[#000000]">{t("dashboard.settings.articlePrompt")}</label>
-                      <span className="text-[10px] text-[#000000] shrink-0">
+                      <label className="text-xs font-bold text-[#0D0F23]">{t("dashboard.settings.articlePrompt")}</label>
+                      <span className="text-[10px] text-[#0D0F23] shrink-0">
                         {formatFa(articleUserPrompt.length)}/{formatFa(ARTICLE_USER_PROMPT_MAX)}
                       </span>
                     </div>
@@ -410,15 +410,15 @@ const ProductModelSelectModal: React.FC<ProductModelSelectModalProps> = ({
                       maxLength={ARTICLE_USER_PROMPT_MAX}
                       rows={4}
                       placeholder={t("product.modal.articlePromptPlaceholder")}
-                      className="w-full resize-none rounded-2xl border border-[#DAD5C7] bg-[#FBFAF6] px-3.5 py-2.5 text-xs leading-6 text-[#000000] placeholder:text-[#000000]/35 focus:outline-none focus:border-[#1B6F63] focus:ring-2 focus:ring-[#1B6F63]/15 transition-all"
+                      className="w-full resize-none rounded-2xl border border-[#E4E5F0] bg-[#FAFAFE] px-3.5 py-2.5 text-xs leading-6 text-[#0D0F23] placeholder:text-[#0D0F23]/35 focus:outline-none focus:border-[#5B47FB] focus:ring-2 focus:ring-[#5B47FB]/15 transition-all"
                     />
-                    <p className="text-[10px] text-[#000000] mt-1.5">{t("dashboard.settings.articlePromptHint")}</p>
+                    <p className="text-[10px] text-[#0D0F23] mt-1.5">{t("dashboard.settings.articlePromptHint")}</p>
                   </div>
 
                   <div>
                     <div className="flex items-center justify-between mb-1.5 gap-2">
-                      <label className="text-xs font-bold text-[#000000]">{t("dashboard.settings.imagePrompt")}</label>
-                      <span className="text-[10px] text-[#000000] shrink-0">
+                      <label className="text-xs font-bold text-[#0D0F23]">{t("dashboard.settings.imagePrompt")}</label>
+                      <span className="text-[10px] text-[#0D0F23] shrink-0">
                         {formatFa(imageUserPrompt.length)}/{formatFa(IMAGE_USER_PROMPT_MAX)}
                       </span>
                     </div>
@@ -428,9 +428,9 @@ const ProductModelSelectModal: React.FC<ProductModelSelectModalProps> = ({
                       maxLength={IMAGE_USER_PROMPT_MAX}
                       rows={4}
                       placeholder={t("product.modal.imagePromptPlaceholder")}
-                      className="w-full resize-none rounded-2xl border border-[#DAD5C7] bg-[#FBFAF6] px-3.5 py-2.5 text-xs leading-6 text-[#000000] placeholder:text-[#000000]/35 focus:outline-none focus:border-[#1B6F63] focus:ring-2 focus:ring-[#1B6F63]/15 transition-all"
+                      className="w-full resize-none rounded-2xl border border-[#E4E5F0] bg-[#FAFAFE] px-3.5 py-2.5 text-xs leading-6 text-[#0D0F23] placeholder:text-[#0D0F23]/35 focus:outline-none focus:border-[#5B47FB] focus:ring-2 focus:ring-[#5B47FB]/15 transition-all"
                     />
-                    <p className="text-[10px] text-[#000000] mt-1.5">{t("article.modal.imagePromptHint")}</p>
+                    <p className="text-[10px] text-[#0D0F23] mt-1.5">{t("article.modal.imagePromptHint")}</p>
                   </div>
                 </div>
               </div>
@@ -439,8 +439,8 @@ const ProductModelSelectModal: React.FC<ProductModelSelectModalProps> = ({
         </div>
 
         {/* ================= فوتر ثابت ================= */}
-        <div className="shrink-0 flex items-center justify-between gap-3 px-4 sm:px-6 py-4 border-t border-[#DAD5C7] bg-[#FBFAF6]">
-          <button type="button" onClick={onClose} className="text-xs font-bold text-[#000000] px-3 py-2.5 hover:opacity-70">
+        <div className="shrink-0 flex items-center justify-between gap-3 px-4 sm:px-6 py-4 border-t border-[#E4E5F0] bg-[#FAFAFE]">
+          <button type="button" onClick={onClose} className="text-xs font-bold text-[#0D0F23] px-3 py-2.5 hover:opacity-70">
             {t("common.actions.cancel")}
           </button>
           <button
@@ -455,7 +455,7 @@ const ProductModelSelectModal: React.FC<ProductModelSelectModalProps> = ({
                 articleUserPrompt.trim(),
               )
             }
-            className="rounded-2xl bg-gradient-to-r rtl:bg-gradient-to-l from-[#1B6F63] to-[#14564C] text-white text-sm font-bold px-6 py-2.5 hover:from-[#1F8073] hover:to-[#1B6F63] transition-all shadow-lg shadow-[#1B6F63]/25"
+            className="rounded-2xl bg-gradient-to-r rtl:bg-gradient-to-l from-[#5B47FB] to-[#4935E0] text-white text-sm font-bold px-6 py-2.5 hover:from-[#6C5BFF] hover:to-[#5B47FB] transition-all shadow-lg shadow-[#5B47FB]/25"
           >
             {t("dashboard.opportunities.generate")}
           </button>

@@ -47,11 +47,11 @@ export function EntitiesBubble({
     >
       {loading && (
         <div className="flex items-center justify-center py-8">
-          <div className="h-6 w-6 border-2 border-[#DAD5C7] border-t-[#1B6F63] rounded-full animate-spin" />
+          <div className="h-6 w-6 border-2 border-[#E4E5F0] border-t-[#5B47FB] rounded-full animate-spin" />
         </div>
       )}
       {!loading && !entity && (
-        <p className="text-xs text-[#000000]/70 text-center py-6">{t("analyze.entities.empty")}</p>
+        <p className="text-xs text-[#0D0F23]/70 text-center py-6">{t("analyze.entities.empty")}</p>
       )}
       {!loading && entity && (
         <div className="grid grid-cols-1 md:grid-cols-2 xl:grid-cols-3 gap-3">

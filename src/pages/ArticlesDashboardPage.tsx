@@ -134,8 +134,8 @@ const ArticlesDashboardPage: React.FC = () => {
       <div className="p-3 sm:p-4 lg:p-5 max-w-6xl mx-auto space-y-3 sm:space-y-4">
         <div className="flex items-center justify-between gap-3">
           <div className="min-w-0">
-            <h1 className="text-lg sm:text-xl font-bold text-[#1E2A28] truncate">{t("dashboard.page.title")}</h1>
-            <p className="text-xs text-[#9BA69F] mt-0.5">{t("dashboard.page.subtitle")}</p>
+            <h1 className="text-lg sm:text-xl font-bold text-[#0D0F23] truncate">{t("dashboard.page.title")}</h1>
+            <p className="text-xs text-[#9A9DB8] mt-0.5">{t("dashboard.page.subtitle")}</p>
           </div>
         </div>
 
@@ -144,13 +144,13 @@ const ArticlesDashboardPage: React.FC = () => {
 
         {loading && (
           <div className="flex justify-center items-center py-10 sm:py-12">
-            <div className="h-8 w-8 border-2 border-[#DAD5C7] border-t-[#1B6F63] rounded-full animate-spin motion-reduce:animate-none" />
+            <div className="h-8 w-8 border-2 border-[#E4E5F0] border-t-[#5B47FB] rounded-full animate-spin motion-reduce:animate-none" />
           </div>
         )}
 
         {!siteId && !loading && (
-          <div className="rounded-2xl border border-dashed border-[#DAD5C7] bg-white/60 px-6 py-14 text-center">
-            <div className="mx-auto flex h-14 w-14 items-center justify-center rounded-full bg-[#DCEFEA] text-[#1B6F63]">
+          <div className="rounded-2xl border border-dashed border-[#E4E5F0] bg-white/60 px-6 py-14 text-center">
+            <div className="mx-auto flex h-14 w-14 items-center justify-center rounded-full bg-[#EFEDFF] text-[#5B47FB]">
               <svg className="h-7 w-7" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                 <path
                   strokeLinecap="round"
@@ -160,14 +160,14 @@ const ArticlesDashboardPage: React.FC = () => {
                 />
               </svg>
             </div>
-            <h2 className="mt-4 text-base font-black text-[#1E2A28]">{t("dashboard.page.noSiteTitle")}</h2>
-            <p className="mt-2 text-sm text-[#9BA69F] max-w-sm mx-auto">
+            <h2 className="mt-4 text-base font-black text-[#0D0F23]">{t("dashboard.page.noSiteTitle")}</h2>
+            <p className="mt-2 text-sm text-[#9A9DB8] max-w-sm mx-auto">
               {t("dashboard.page.noSiteBody")}
             </p>
             <button
               type="button"
               onClick={() => navigate("/dashboard?new=1", { replace: true })}
-              className="mt-5 inline-flex items-center gap-2 rounded-xl bg-[#1B6F63] px-5 py-2.5 text-sm font-black text-white shadow-sm shadow-[#1B6F63]/25 hover:bg-[#14564C]"
+              className="mt-5 inline-flex items-center gap-2 rounded-xl bg-[#5B47FB] px-5 py-2.5 text-sm font-black text-white shadow-sm shadow-[#5B47FB]/25 hover:bg-[#4935E0]"
             >
               {t("layout.sites.add")}
             </button>

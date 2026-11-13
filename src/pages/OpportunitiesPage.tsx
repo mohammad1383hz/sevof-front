@@ -29,7 +29,7 @@ const toOpportunityRow = (idea: ArticleIdea): OpportunityRow => ({
 });
 
 const gapStyles: Record<OpportunityRow["competitor_gap"], string> = {
-  uncovered: "bg-[#DCEFEA] text-[#1B6F63]",
+  uncovered: "bg-[#EFEDFF] text-[#5B47FB]",
   covered: "bg-[#EDE3CF] text-[#B08D57]",
   reviewing: "bg-gray-100 text-gray-500",
 };
@@ -119,7 +119,7 @@ const OpportunitiesPage: React.FC = () => {
             value={search}
             onChange={(e) => setSearch(e.target.value)}
             placeholder={t("dashboard.opportunitiesPage.search")}
-            className="w-full text-sm rounded-lg border border-gray-200 bg-white ps-9 pe-3 py-2 text-start focus:outline-none focus:ring-2 focus:ring-[#1B6F63]/30 focus:border-[#1B6F63]/40"
+            className="w-full text-sm rounded-lg border border-gray-200 bg-white ps-9 pe-3 py-2 text-start focus:outline-none focus:ring-2 focus:ring-[#5B47FB]/30 focus:border-[#5B47FB]/40"
           />
         </div>
       </div>
@@ -140,7 +140,7 @@ const OpportunitiesPage: React.FC = () => {
           <button
             type="button"
             onClick={() => navigate(`/sites/${siteId}/dashboard`)}
-            className="text-xs font-black text-[#1B6F63] border border-[#1B6F63]/30 bg-[#DCEFEA] rounded-lg px-3 py-2 hover:bg-[#c9e6df] transition-colors"
+            className="text-xs font-black text-[#5B47FB] border border-[#5B47FB]/30 bg-[#EFEDFF] rounded-lg px-3 py-2 hover:bg-[#DDD8FF] transition-colors"
           >
             {t("billing.payment.backToDashboard")}
           </button>

@@ -23,7 +23,7 @@ function unwrap<T>(res: any): T | null {
 const BackButton: React.FC<{ className?: string; onClick: () => void }> = ({ className, onClick }) => (
   <button
     onClick={onClick}
-    className={`group inline-flex items-center gap-1.5 text-xs font-medium text-[#1B6F63] bg-white border border-[#DAD5C7] rounded-full px-3.5 py-2 hover:bg-[#F5FBF8] hover:border-[#1B6F63]/40 hover:gap-2.5 transition-all duration-200 shadow-sm ${className || ""}`}
+    className={`group inline-flex items-center gap-1.5 text-xs font-medium text-[#5B47FB] bg-white border border-[#E4E5F0] rounded-full px-3.5 py-2 hover:bg-[#F7F6FF] hover:border-[#5B47FB]/40 hover:gap-2.5 transition-all duration-200 shadow-sm ${className || ""}`}
   >
     <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="currentColor" className="h-3.5 w-3.5 transition-transform duration-200 rtl:-scale-x-100 group-hover:-translate-x-0.5 rtl:group-hover:translate-x-0.5">
       <path fillRule="evenodd" d="M17 10a.75.75 0 0 1-.75.75H5.56l3.72 3.72a.75.75 0 1 1-1.06 1.06l-5-5a.75.75 0 0 1 0-1.06l5-5a.75.75 0 1 1 1.06 1.06L5.56 9.25H16.25A.75.75 0 0 1 17 10Z" clipRule="evenodd" />
@@ -252,7 +252,7 @@ const TicketDetailPage: React.FC = () => {
 
         {loading && (
           <div className="flex justify-center items-center py-10">
-            <div className="h-8 w-8 border-2 border-[#DAD5C7] border-t-[#1B6F63] rounded-full animate-spin motion-reduce:animate-none" />
+            <div className="h-8 w-8 border-2 border-[#E4E5F0] border-t-[#5B47FB] rounded-full animate-spin motion-reduce:animate-none" />
           </div>
         )}
 
@@ -264,11 +264,11 @@ const TicketDetailPage: React.FC = () => {
 
         {ticket && !loading && (
           <div className="flex flex-col">
-            <div className="sticky top-0 z-20 bg-[#F5F3ED]/95 backdrop-blur supports-[backdrop-filter]:bg-[#F5F3ED]/80 px-3 sm:px-4 lg:px-5 py-3">
-              <div className="bg-white border border-[#DAD5C7] rounded-2xl p-4 flex items-center justify-between gap-3 shadow-sm">
+            <div className="sticky top-0 z-20 bg-[#F6F6FB]/95 backdrop-blur supports-[backdrop-filter]:bg-[#F6F6FB]/80 px-3 sm:px-4 lg:px-5 py-3">
+              <div className="bg-white border border-[#E4E5F0] rounded-2xl p-4 flex items-center justify-between gap-3 shadow-sm">
                 <div className="min-w-0">
-                  <h1 className="text-base font-bold text-[#1E2A28] truncate">{ticket.subject}</h1>
-                  <p className="text-xs text-[#9BA69F] mt-0.5">
+                  <h1 className="text-base font-bold text-[#0D0F23] truncate">{ticket.subject}</h1>
+                  <p className="text-xs text-[#9A9DB8] mt-0.5">
                     {formatDate(ticket.created_at)}
                   </p>
                 </div>
@@ -284,15 +284,15 @@ const TicketDetailPage: React.FC = () => {
                   <div
                     className={`max-w-[80%] rounded-2xl px-4 py-2.5 text-sm ${
                       reply.is_staff_reply
-                        ? "bg-white border border-[#DAD5C7] text-[#1E2A28]"
-                        : "bg-[#1B6F63] text-white"
+                        ? "bg-white border border-[#E4E5F0] text-[#0D0F23]"
+                        : "bg-[#5B47FB] text-white"
                     }`}
                   >
                     {reply.message && <p className="whitespace-pre-wrap leading-relaxed">{reply.message}</p>}
 
                     <AttachmentGrid attachments={reply.attachments} onOpen={setLightboxUrl} />
 
-                    <p className={`text-[10px] mt-1.5 ${reply.is_staff_reply ? "text-[#9BA69F]" : "text-white/70"}`}>
+                    <p className={`text-[10px] mt-1.5 ${reply.is_staff_reply ? "text-[#9A9DB8]" : "text-white/70"}`}>
                       {reply.is_staff_reply ? t("support.reply.staff") : t("support.reply.you")} ·{" "}
                       {formatDate(reply.created_at, { hour: "2-digit", minute: "2-digit" })}
                     </p>
@@ -302,21 +302,21 @@ const TicketDetailPage: React.FC = () => {
               <div ref={bottomRef} />
             </div>
 
-            <div className="sticky bottom-0 z-20 bg-[#F5F3ED]/95 backdrop-blur supports-[backdrop-filter]:bg-[#F5F3ED]/80 px-3 sm:px-4 lg:px-5 py-3">
+            <div className="sticky bottom-0 z-20 bg-[#F6F6FB]/95 backdrop-blur supports-[backdrop-filter]:bg-[#F6F6FB]/80 px-3 sm:px-4 lg:px-5 py-3">
               {ticket.status === "closed" ? (
                 <div className="space-y-2">
-                  <div className="text-center text-xs text-[#9BA69F] bg-[#F5F3ED] border border-[#DAD5C7] rounded-xl py-3">
+                  <div className="text-center text-xs text-[#9A9DB8] bg-[#F6F6FB] border border-[#E4E5F0] rounded-xl py-3">
                     {t("support.closedNotice")}
                   </div>
                   <BackButton onClick={() => navigate(backToListPath)} className="sm:hidden w-fit" />
                 </div>
               ) : (
-                <form onSubmit={handleSendReply} className="bg-white border border-[#DAD5C7] rounded-2xl p-3 space-y-2 shadow-sm">
+                <form onSubmit={handleSendReply} className="bg-white border border-[#E4E5F0] rounded-2xl p-3 space-y-2 shadow-sm">
                   {/* پیش‌نمایش عکس‌های انتخاب‌شده قبل از ارسال */}
                   {imagePreviews.length > 0 && (
                     <div className="flex flex-wrap gap-2">
                       {imagePreviews.map((url, idx) => (
-                        <div key={url} className="relative w-16 h-16 rounded-lg overflow-hidden border border-[#DAD5C7]">
+                        <div key={url} className="relative w-16 h-16 rounded-lg overflow-hidden border border-[#E4E5F0]">
                           <img src={url} alt={t("support.attachment", { index: idx + 1 })} className="w-full h-full object-cover" />
                           <button
                             type="button"
@@ -335,7 +335,7 @@ const TicketDetailPage: React.FC = () => {
                     onChange={(e) => setReplyText(e.target.value)}
                     rows={3}
                     placeholder={composerPlaceholder}
-                    className="w-full border border-[#DAD5C7] rounded-xl px-3 py-2 text-sm focus:outline-none focus:ring-2 focus:ring-[#1B6F63]/30 resize-none"
+                    className="w-full border border-[#E4E5F0] rounded-xl px-3 py-2 text-sm focus:outline-none focus:ring-2 focus:ring-[#5B47FB]/30 resize-none"
                   />
 
                   {sendError && <p className="text-xs text-rose-600">{sendError}</p>}
@@ -345,7 +345,7 @@ const TicketDetailPage: React.FC = () => {
                       <button
                         type="submit"
                         disabled={!canSend}
-                        className="bg-[#1B6F63] hover:bg-[#155850] disabled:opacity-60 text-white text-sm font-medium px-4 py-2 rounded-xl transition-colors"
+                        className="bg-[#5B47FB] hover:bg-[#4935E0] disabled:opacity-60 text-white text-sm font-medium px-4 py-2 rounded-xl transition-colors"
                       >
                         {sending ? t("common.status.submitting") : composerLabel}
                       </button>
@@ -355,7 +355,7 @@ const TicketDetailPage: React.FC = () => {
                         onClick={handlePickImages}
                         disabled={selectedImages.length >= MAX_IMAGES}
                         title={t("support.form.addImage")}
-                        className="inline-flex items-center gap-1 text-xs font-medium text-[#1B6F63] border border-[#DAD5C7] rounded-xl px-3 py-2 hover:bg-[#F5FBF8] disabled:opacity-50 transition-colors"
+                        className="inline-flex items-center gap-1 text-xs font-medium text-[#5B47FB] border border-[#E4E5F0] rounded-xl px-3 py-2 hover:bg-[#F7F6FF] disabled:opacity-50 transition-colors"
                       >
                         <PaperclipIcon className="h-4 w-4" />
                         {selectedImages.length > 0 ? `${selectedImages.length}/${MAX_IMAGES}` : t("support.reply.photo")}

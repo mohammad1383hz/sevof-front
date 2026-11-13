@@ -144,8 +144,8 @@ const ApiKeysPage: React.FC = () => {
       <div className="p-3 sm:p-4 lg:p-5 max-w-4xl mx-auto space-y-4">
         <div className="flex items-start justify-between gap-3 flex-wrap">
           <div>
-            <h1 className="text-lg sm:text-xl font-bold text-[#1E2A28]">{t("developer.keys.title")}</h1>
-            <p className="text-xs text-[#9BA69F] mt-0.5">
+            <h1 className="text-lg sm:text-xl font-bold text-[#0D0F23]">{t("developer.keys.title")}</h1>
+            <p className="text-xs text-[#9A9DB8] mt-0.5">
               {t("developer.keys.subtitle")}
             </p>
           </div>
@@ -153,7 +153,7 @@ const ApiKeysPage: React.FC = () => {
           <button
             type="button"
             onClick={() => navigate("/developer/api-docs")}
-            className="group relative shrink-0 inline-flex items-center gap-2 rounded-lg bg-[#1E2A28] text-white text-sm font-medium px-4 py-2 overflow-hidden"
+            className="group relative shrink-0 inline-flex items-center gap-2 rounded-lg bg-[#0D0F23] text-white text-sm font-medium px-4 py-2 overflow-hidden"
           >
             <span className="relative flex h-2 w-2">
               <span className="absolute inline-flex h-full w-full rounded-full bg-emerald-400 opacity-75 animate-ping motion-reduce:hidden" />
@@ -179,10 +179,10 @@ const ApiKeysPage: React.FC = () => {
         {/* فرم ساخت کلید جدید */}
         <form
           onSubmit={handleCreate}
-          className="bg-white border border-[#DAD5C7] rounded-xl p-4 flex flex-col sm:flex-row gap-3 sm:items-end"
+          className="bg-white border border-[#E4E5F0] rounded-xl p-4 flex flex-col sm:flex-row gap-3 sm:items-end"
         >
           <div className="flex-1">
-            <label htmlFor="key-name" className="block text-xs text-[#9BA69F] mb-1">
+            <label htmlFor="key-name" className="block text-xs text-[#9A9DB8] mb-1">
               {t("developer.keys.name")}
             </label>
             <input
@@ -191,12 +191,12 @@ const ApiKeysPage: React.FC = () => {
               value={newKeyName}
               onChange={(e) => setNewKeyName(e.target.value)}
               placeholder={t("developer.keys.namePlaceholder")}
-              className="w-full rounded-lg border border-[#DAD5C7] px-3 py-2 text-sm text-[#1E2A28] focus:outline-none focus:ring-2 focus:ring-[#1B6F63]"
+              className="w-full rounded-lg border border-[#E4E5F0] px-3 py-2 text-sm text-[#0D0F23] focus:outline-none focus:ring-2 focus:ring-[#5B47FB]"
             />
           </div>
 
           <div className="flex-1">
-            <label htmlFor="key-site" className="block text-xs text-[#9BA69F] mb-1">
+            <label htmlFor="key-site" className="block text-xs text-[#9A9DB8] mb-1">
               {t("developer.keys.cols.site")}
             </label>
             <select
@@ -204,7 +204,7 @@ const ApiKeysPage: React.FC = () => {
               value={selectedSiteId}
               onChange={(e) => setSelectedSiteId(e.target.value)}
               disabled={sitesLoading || noSites}
-              className="w-full rounded-lg border border-[#DAD5C7] bg-white px-3 py-2 text-sm text-[#1E2A28] focus:outline-none focus:ring-2 focus:ring-[#1B6F63] disabled:opacity-60"
+              className="w-full rounded-lg border border-[#E4E5F0] bg-white px-3 py-2 text-sm text-[#0D0F23] focus:outline-none focus:ring-2 focus:ring-[#5B47FB] disabled:opacity-60"
               dir="ltr"
             >
               {sitesLoading && <option value="">{t("developer.keys.sitesLoading")}</option>}
@@ -220,7 +220,7 @@ const ApiKeysPage: React.FC = () => {
           <button
             type="submit"
             disabled={creating || !newKeyName.trim() || !selectedSiteId}
-            className="shrink-0 bg-[#1B6F63] text-white text-sm font-medium rounded-lg px-4 py-2 disabled:opacity-50"
+            className="shrink-0 bg-[#5B47FB] text-white text-sm font-medium rounded-lg px-4 py-2 disabled:opacity-50"
           >
             {creating ? t("developer.keys.creating") : t("developer.keys.create")}
           </button>
@@ -246,7 +246,7 @@ const ApiKeysPage: React.FC = () => {
             </p>
             <div className="flex items-center gap-2">
               <code
-                className="flex-1 bg-white border border-amber-300 rounded-lg px-3 py-2 text-xs text-[#1E2A28] overflow-x-auto whitespace-nowrap"
+                className="flex-1 bg-white border border-amber-300 rounded-lg px-3 py-2 text-xs text-[#0D0F23] overflow-x-auto whitespace-nowrap"
                 dir="ltr"
               >
                 {revealedKey.value}
@@ -272,7 +272,7 @@ const ApiKeysPage: React.FC = () => {
         {/* لیست کلیدها */}
         {loading && (
           <div className="flex justify-center items-center py-10">
-            <div className="h-8 w-8 border-2 border-[#DAD5C7] border-t-[#1B6F63] rounded-full animate-spin motion-reduce:animate-none" />
+            <div className="h-8 w-8 border-2 border-[#E4E5F0] border-t-[#5B47FB] rounded-full animate-spin motion-reduce:animate-none" />
           </div>
         )}
 
@@ -281,16 +281,16 @@ const ApiKeysPage: React.FC = () => {
         )}
 
         {!loading && !error && keys.length === 0 && (
-          <div className="bg-white border border-dashed border-[#DAD5C7] rounded-xl p-8 text-center text-sm text-[#9BA69F]">
+          <div className="bg-white border border-dashed border-[#E4E5F0] rounded-xl p-8 text-center text-sm text-[#9A9DB8]">
             {t("developer.keys.empty")}
           </div>
         )}
 
         {!loading && keys.length > 0 && (
-          <div className="bg-white border border-[#DAD5C7] rounded-xl overflow-x-auto">
+          <div className="bg-white border border-[#E4E5F0] rounded-xl overflow-x-auto">
             <table className="w-full text-sm text-start">
               <thead>
-                <tr className="border-b border-[#DAD5C7] text-[#9BA69F]">
+                <tr className="border-b border-[#E4E5F0] text-[#9A9DB8]">
                   <th className="px-4 py-2 font-normal">{t("developer.keys.cols.name")}</th>
                   <th className="px-4 py-2 font-normal">{t("developer.keys.cols.site")}</th>
                   <th className="px-4 py-2 font-normal">{t("developer.keys.cols.key")}</th>
@@ -305,19 +305,19 @@ const ApiKeysPage: React.FC = () => {
                   const isRevoked = key.revoked_at !== null;
                   return (
                     <tr key={key.id} className="border-b last:border-0 border-[#F0EEE7]">
-                      <td className="px-4 py-3 text-[#1E2A28]">{key.name}</td>
-                      <td className="px-4 py-3 text-[#1E2A28]" dir="ltr">
+                      <td className="px-4 py-3 text-[#0D0F23]">{key.name}</td>
+                      <td className="px-4 py-3 text-[#0D0F23]" dir="ltr">
                         {key.site?.domain ?? (
-                          <span className="text-xs text-[#9BA69F]" dir="auto">
+                          <span className="text-xs text-[#9A9DB8]" dir="auto">
                             {t("developer.keys.legacySite")}
                           </span>
                         )}
                       </td>
-                      <td className="px-4 py-3 font-mono text-[#9BA69F]" dir="ltr">
+                      <td className="px-4 py-3 font-mono text-[#9A9DB8]" dir="ltr">
                         ••••{key.key_last_four}
                       </td>
-                      <td className="px-4 py-3 text-[#9BA69F]">{formatDate(key.created_at)}</td>
-                      <td className="px-4 py-3 text-[#9BA69F]">{formatDate(key.last_used_at)}</td>
+                      <td className="px-4 py-3 text-[#9A9DB8]">{formatDate(key.created_at)}</td>
+                      <td className="px-4 py-3 text-[#9A9DB8]">{formatDate(key.last_used_at)}</td>
                       <td className="px-4 py-3">
                         <span
                           className={

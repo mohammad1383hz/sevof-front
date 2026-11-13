@@ -547,9 +547,9 @@ const ArticleGeneratePage: React.FC<ArticleGeneratePageProps> = ({
       return (
         <PageShell embedded={embedded} layoutProps={layoutProps}>
           <div className="mx-auto max-w-3xl p-6">
-            <div className="flex flex-col items-center gap-3 rounded-2xl border border-[#DAD5C7] bg-white p-10">
+            <div className="flex flex-col items-center gap-3 rounded-2xl border border-[#E4E5F0] bg-white p-10">
               <Spinner className="h-6 w-6" />
-              <p className="text-xs font-bold text-[#000000]">{t("article.page.checkingPlan")}</p>
+              <p className="text-xs font-bold text-[#0D0F23]">{t("article.page.checkingPlan")}</p>
             </div>
           </div>
         </PageShell>
@@ -573,9 +573,9 @@ const ArticleGeneratePage: React.FC<ArticleGeneratePageProps> = ({
     return (
       <PageShell embedded={embedded} layoutProps={layoutProps}>
         <div className="mx-auto max-w-3xl p-6">
-          <div className="flex flex-col items-center gap-3 rounded-2xl border border-[#DAD5C7] bg-white p-10">
+          <div className="flex flex-col items-center gap-3 rounded-2xl border border-[#E4E5F0] bg-white p-10">
             <Spinner className="h-6 w-6" />
-            <p className="text-xs font-bold text-[#000000]">{t("article.page.preparing")}</p>
+            <p className="text-xs font-bold text-[#0D0F23]">{t("article.page.preparing")}</p>
           </div>
         </div>
       </PageShell>
@@ -606,10 +606,10 @@ const ArticleGeneratePage: React.FC<ArticleGeneratePageProps> = ({
         <div className={`mx-auto max-w-4xl p-4 sm:p-6 pb-40 ${embedded ? "pt-16 sm:pt-16" : ""}`}>
 
           <div className="space-y-4">
-            <div className="rounded-2xl border border-[#DAD5C7] bg-gradient-to-r rtl:bg-gradient-to-l from-white to-[#DCEFEA]/50 p-5">
-              <h1 className="text-lg font-black text-[#1E2A28] leading-8">{article.title}</h1>
+            <div className="rounded-2xl border border-[#E4E5F0] bg-gradient-to-r rtl:bg-gradient-to-l from-white to-[#EFEDFF]/50 p-5">
+              <h1 className="text-lg font-black text-[#0D0F23] leading-8">{article.title}</h1>
               {isInProgress(article.status) && (
-                <p className="mt-1 text-[11px] text-[#000000]/70">
+                <p className="mt-1 text-[11px] text-[#0D0F23]/70">
                   {t("article.page.autoRefresh")}
                 </p>
               )}
@@ -656,7 +656,7 @@ const ArticleGeneratePage: React.FC<ArticleGeneratePageProps> = ({
       <div className="lg:hidden w-full max-w-full">
         <div className={`w-full max-w-full px-4 sm:px-6 ${embedded ? "pt-4 sm:pt-4" : ""}`}>
           {isInProgress(article.status) && (
-            <p className="mb-3 text-[11px] text-[#000000]/70">
+            <p className="mb-3 text-[11px] text-[#0D0F23]/70">
               {t("article.page.autoRefresh")}
             </p>
           )}

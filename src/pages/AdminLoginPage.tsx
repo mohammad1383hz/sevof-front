@@ -46,8 +46,8 @@ const AdminLoginPage: React.FC<AdminLoginPageProps> = ({ onLogin }) => {
   };
 
   return (
-    <div className="min-h-screen flex items-center justify-center bg-[#EFEDE6] px-4">
-      <div className="w-full max-w-sm bg-[#FBFAF6] rounded-2xl shadow-md border border-[#DAD5C7] p-6">
+    <div className="min-h-screen flex items-center justify-center bg-[#F3F2FB] px-4">
+      <div className="w-full max-w-sm bg-[#FAFAFE] rounded-2xl shadow-md border border-[#E4E5F0] p-6">
         {step === "admin" ? (
           <form onSubmit={handleAdminLogin} className="space-y-4">
             <h1 className="text-lg font-bold text-center">{t("auth.admin.title")}</h1>
@@ -57,7 +57,7 @@ const AdminLoginPage: React.FC<AdminLoginPageProps> = ({ onLogin }) => {
               value={adminPhone}
               onChange={(e) => setAdminPhone(e.target.value)}
               dir="ltr"
-              className="w-full rounded border border-[#DAD5C7] px-3 py-2.5 text-sm"
+              className="w-full rounded border border-[#E4E5F0] px-3 py-2.5 text-sm"
               autoFocus
             />
             <input
@@ -66,13 +66,13 @@ const AdminLoginPage: React.FC<AdminLoginPageProps> = ({ onLogin }) => {
               value={adminPassword}
               onChange={(e) => setAdminPassword(e.target.value)}
               dir="ltr"
-              className="w-full rounded border border-[#DAD5C7] px-3 py-2.5 text-sm"
+              className="w-full rounded border border-[#E4E5F0] px-3 py-2.5 text-sm"
             />
             {error && <p className="text-sm text-rose-600">{error}</p>}
             <button
               type="submit"
               disabled={loading}
-              className="w-full rounded bg-[#1B6F63] text-white py-2.5 text-sm font-bold disabled:opacity-60"
+              className="w-full rounded bg-[#5B47FB] text-white py-2.5 text-sm font-bold disabled:opacity-60"
             >
               {loading ? t("auth.admin.signingIn") : t("auth.otp.submit")}
             </button>
@@ -86,14 +86,14 @@ const AdminLoginPage: React.FC<AdminLoginPageProps> = ({ onLogin }) => {
               value={targetPhone}
               onChange={(e) => setTargetPhone(e.target.value)}
               dir="ltr"
-              className="w-full rounded border border-[#DAD5C7] px-3 py-2.5 text-sm"
+              className="w-full rounded border border-[#E4E5F0] px-3 py-2.5 text-sm"
               autoFocus
             />
             {error && <p className="text-sm text-rose-600">{error}</p>}
             <button
               type="submit"
               disabled={loading}
-              className="w-full rounded bg-[#1B6F63] text-white py-2.5 text-sm font-bold disabled:opacity-60"
+              className="w-full rounded bg-[#5B47FB] text-white py-2.5 text-sm font-bold disabled:opacity-60"
             >
               {loading ? t("auth.admin.signingIn") : t("auth.admin.goToDashboard")}
             </button>

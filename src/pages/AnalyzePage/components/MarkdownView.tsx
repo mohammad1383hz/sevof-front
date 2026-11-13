@@ -3,7 +3,7 @@ import React, { useMemo } from "react";
 function renderInline(text: string): React.ReactNode[] {
   return text.split(/(\*\*[^*]+\*\*)/g).map((p, i) =>
     p.startsWith("**") && p.endsWith("**") ? (
-      <strong key={i} className="font-bold text-[#1E2A28]">{p.slice(2, -2)}</strong>
+      <strong key={i} className="font-bold text-[#0D0F23]">{p.slice(2, -2)}</strong>
     ) : (
       <React.Fragment key={i}>{p}</React.Fragment>
     ),
@@ -27,9 +27,9 @@ export function MarkdownView({ text }: { text: string }) {
       if (h) {
         const level = h[1].length;
         const cls =
-          level <= 2 ? "text-base font-black text-[#1E2A28] mt-5 mb-2" :
-          level === 3 ? "text-sm font-black text-[#1E2A28] mt-4 mb-2 flex items-center gap-2 before:content-[''] before:w-1 before:h-4 before:rounded-full before:bg-gradient-to-b before:from-[#1B6F63] before:to-[#14564C]" :
-          "text-sm font-bold text-[#1E2A28] mt-3 mb-1";
+          level <= 2 ? "text-base font-black text-[#0D0F23] mt-5 mb-2" :
+          level === 3 ? "text-sm font-black text-[#0D0F23] mt-4 mb-2 flex items-center gap-2 before:content-[''] before:w-1 before:h-4 before:rounded-full before:bg-gradient-to-b before:from-[#5B47FB] before:to-[#4935E0]" :
+          "text-sm font-bold text-[#0D0F23] mt-3 mb-1";
         out.push(<p key={key++} className={cls}>{renderInline(h[2])}</p>);
         i++; continue;
       }
@@ -46,12 +46,12 @@ export function MarkdownView({ text }: { text: string }) {
         if (rows.length > 0) {
           const [head, ...body] = rows;
           out.push(
-            <div key={key++} className="my-3 overflow-x-auto rounded-xl border border-[#DAD5C7]">
+            <div key={key++} className="my-3 overflow-x-auto rounded-xl border border-[#E4E5F0]">
               <table className="w-full text-sm">
                 <thead>
-                  <tr className="bg-[#EFEDE6]">
+                  <tr className="bg-[#F3F2FB]">
                     {head.map((c, ci) => (
-                      <th key={ci} className="px-3 py-2.5 text-start text-xs font-bold text-[#000000] border-b border-[#DAD5C7] whitespace-nowrap">
+                      <th key={ci} className="px-3 py-2.5 text-start text-xs font-bold text-[#0D0F23] border-b border-[#E4E5F0] whitespace-nowrap">
                         {renderInline(c)}
                       </th>
                     ))}
@@ -59,9 +59,9 @@ export function MarkdownView({ text }: { text: string }) {
                 </thead>
                 <tbody>
                   {body.map((r, ri) => (
-                    <tr key={ri} className={ri % 2 ? "bg-[#EFEDE6]/50" : "bg-[#FBFAF6]"}>
+                    <tr key={ri} className={ri % 2 ? "bg-[#F3F2FB]/50" : "bg-[#FAFAFE]"}>
                       {r.map((c, ci) => (
-                        <td key={ci} className="px-3 py-2.5 text-[#000000] border-b border-[#DAD5C7] leading-6 align-top text-xs">
+                        <td key={ci} className="px-3 py-2.5 text-[#0D0F23] border-b border-[#E4E5F0] leading-6 align-top text-xs">
                           {renderInline(c)}
                         </td>
                       ))}
@@ -85,8 +85,8 @@ export function MarkdownView({ text }: { text: string }) {
         out.push(
           <ul key={key++} className="my-2 space-y-1.5">
             {items.map((it, ii) => (
-              <li key={ii} className="flex items-start gap-2 text-sm font-medium text-[#1E2A28] leading-6">
-                <span className="mt-2 h-1.5 w-1.5 rounded-full bg-[#1B6F63]/60 shrink-0" />
+              <li key={ii} className="flex items-start gap-2 text-sm font-medium text-[#0D0F23] leading-6">
+                <span className="mt-2 h-1.5 w-1.5 rounded-full bg-[#5B47FB]/60 shrink-0" />
                 <span>{renderInline(it)}</span>
               </li>
             ))}
@@ -97,13 +97,13 @@ export function MarkdownView({ text }: { text: string }) {
 
       /* Divider */
       if (/^-{3,}$/.test(trimmed)) {
-        out.push(<hr key={key++} className="my-4 border-[#DAD5C7]" />);
+        out.push(<hr key={key++} className="my-4 border-[#E4E5F0]" />);
         i++; continue;
       }
 
       /* Paragraph */
       out.push(
-        <p key={key++} className="text-sm font-medium text-[#1E2A28] leading-7 my-1.5">
+        <p key={key++} className="text-sm font-medium text-[#0D0F23] leading-7 my-1.5">
           {renderInline(trimmed)}
         </p>,
       );

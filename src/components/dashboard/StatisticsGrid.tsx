@@ -8,7 +8,7 @@ interface StatisticsGridProps {
 const StatisticsGrid: React.FC<StatisticsGridProps> = ({ statistics }) => {
   const items = [
     { label: t("dashboard.stats.totalArticles"), value: statistics.total_articles },
-    { label: t("dashboard.stats.published"), value: statistics.published, cls: "text-[#1B6F63]" },
+    { label: t("dashboard.stats.published"), value: statistics.published, cls: "text-[#5B47FB]" },
     { label: t("dashboard.stats.generating"), value: statistics.generating, cls: "text-[#B08D57]" },
     { label: t("dashboard.stats.failed"), value: statistics.failed, cls: "text-rose-600" },
     {
@@ -23,12 +23,12 @@ const StatisticsGrid: React.FC<StatisticsGridProps> = ({ statistics }) => {
       {items.map((item) => (
         <div
           key={item.label}
-          className="bg-white border border-[#DAD5C7] rounded-xl p-2 sm:p-2.5 text-center"
+          className="bg-white border border-[#E4E5F0] rounded-xl p-2 sm:p-2.5 text-center"
         >
-          <p className={`text-base sm:text-lg font-bold ${item.cls ?? "text-[#1E2A28]"} truncate`}>
+          <p className={`text-base sm:text-lg font-bold ${item.cls ?? "text-[#0D0F23]"} truncate`}>
             {item.value}
           </p>
-          <p className="text-[10px] sm:text-[11px] text-[#9BA69F] mt-0.5 leading-4">{item.label}</p>
+          <p className="text-[10px] sm:text-[11px] text-[#9A9DB8] mt-0.5 leading-4">{item.label}</p>
         </div>
       ))}
     </div>

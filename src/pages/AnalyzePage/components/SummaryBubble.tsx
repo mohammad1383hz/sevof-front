@@ -32,7 +32,7 @@ export function SummaryBubble({
           </span>
           <a href={siteUrl} target="_blank" rel="noreferrer"
             dir="ltr"
-            className="inline-flex items-center gap-1 text-xs text-[#1B6F63] hover:underline">
+            className="inline-flex items-center gap-1 text-xs text-[#5B47FB] hover:underline">
             <svg className="w-3 h-3" fill="none" stroke="currentColor" viewBox="0 0 24 24">
               <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.5} d="M13.5 6H5.25A2.25 2.25 0 003 8.25v10.5A2.25 2.25 0 005.25 21h10.5A2.25 2.25 0 0018 18.75V10.5m-10.5 6L21 3m0 0h-5.25M21 3v5.25" />
             </svg>
@@ -44,7 +44,7 @@ export function SummaryBubble({
       {/* Summary markdown */}
       <MarkdownView text={streaming ? streamedText : text} />
       {streaming && (
-        <span className="inline-block w-2 h-4 bg-[#1B6F63] animate-pulse rounded-sm align-middle ms-1" />
+        <span className="inline-block w-2 h-4 bg-[#5B47FB] animate-pulse rounded-sm align-middle ms-1" />
       )}
     </AiBubble>
   );

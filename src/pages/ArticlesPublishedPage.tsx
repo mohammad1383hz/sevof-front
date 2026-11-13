@@ -108,7 +108,7 @@ const MobileArticleCard: React.FC<{ row: PublishedArticleRow }> = ({ row }) => (
           href={row.url}
           target="_blank"
           rel="noopener noreferrer"
-          className="inline-flex items-center gap-1 text-xs font-bold text-[#1B6F63]"
+          className="inline-flex items-center gap-1 text-xs font-bold text-[#5B47FB]"
           onClick={(event) => event.stopPropagation()}
         >
           {t("dashboard.view")} <ExternalLink size={12} />
@@ -230,7 +230,7 @@ setRows(
             href={value as string}
             target="_blank"
             rel="noopener noreferrer"
-            className="inline-flex items-center gap-1 text-[#1B6F63] hover:underline"
+            className="inline-flex items-center gap-1 text-[#5B47FB] hover:underline"
             onClick={(event) => event.stopPropagation()}
           >
             {t("dashboard.view")} <ExternalLink size={13} />
@@ -254,7 +254,7 @@ setRows(
         <div className="flex items-center justify-between mb-3">
           <div>
             <h1 className="text-sm font-black text-gray-800 flex items-center gap-1.5">
-              <Send size={16} className="text-[#1B6F63]" />
+              <Send size={16} className="text-[#5B47FB]" />
               {t("dashboard.published.title")}
             </h1>
             <p className="text-[11px] text-gray-500 mt-0.5">
@@ -264,7 +264,7 @@ setRows(
           <button
             type="button"
             onClick={() => navigate(`/sites/${siteId}/dashboard`)}
-            className="text-[11px] font-black text-[#1B6F63] border border-[#1B6F63]/30 bg-[#DCEFEA] rounded-lg px-2.5 py-1.5"
+            className="text-[11px] font-black text-[#5B47FB] border border-[#5B47FB]/30 bg-[#EFEDFF] rounded-lg px-2.5 py-1.5"
           >
             {t("common.actions.back")}
           </button>
@@ -304,7 +304,7 @@ setRows(
             <button
               type="button"
               onClick={() => navigate(`/sites/${siteId}/dashboard`)}
-              className="text-xs font-black text-[#1B6F63] border border-[#1B6F63]/30 bg-[#DCEFEA] rounded-lg px-3 py-2 hover:bg-[#c9e6df] transition-colors"
+              className="text-xs font-black text-[#5B47FB] border border-[#5B47FB]/30 bg-[#EFEDFF] rounded-lg px-3 py-2 hover:bg-[#DDD8FF] transition-colors"
             >
               {t("billing.payment.backToDashboard")}
             </button>

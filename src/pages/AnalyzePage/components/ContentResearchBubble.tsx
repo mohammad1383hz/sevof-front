@@ -92,10 +92,10 @@ type ContentGap = {
 };
 
 const intentMeta: Record<GapIntent, { label: string; bg: string; text: string }> = {
-  informational: { label: "analyze.research.intent.informational", bg: "#EFEDE6", text: "#000000" },
+  informational: { label: "analyze.research.intent.informational", bg: "#F3F2FB", text: "#0D0F23" },
   commercial: { label: "analyze.research.intent.commercial", bg: "#FFF8E9", text: "#8A6A2F" },
-  transactional: { label: "analyze.research.intent.transactional", bg: "#DCEFEA", text: "#14564C" },
-  navigational: { label: "analyze.research.intent.navigational", bg: "#F3EFEA", text: "#7D8882" },
+  transactional: { label: "analyze.research.intent.transactional", bg: "#EFEDFF", text: "#4935E0" },
+  navigational: { label: "analyze.research.intent.navigational", bg: "#F3EFEA", text: "#7D819F" },
 };
 
 const coverageMeta: Record<SiteCoverage, { label: string; bg: string; text: string }> = {
@@ -163,11 +163,11 @@ export function ContentResearchBubble({
           <RecommendationsSection recommendations={recommendations} manusTaskUrl={manusTaskUrl} />
           <div className="space-y-3">
             {clusters.map((cluster) => (
-              <article key={cluster.id} className="rounded-2xl border border-[#DAD5C7] bg-[#FBFAF6] p-4">
+              <article key={cluster.id} className="rounded-2xl border border-[#E4E5F0] bg-[#FAFAFE] p-4">
                 <div className="mb-3 flex flex-wrap items-start justify-between gap-2">
                   <div>
-                    <h3 className="text-sm font-black text-[#1E2A28]">{cluster.name}</h3>
-                    <p className="mt-1 text-xs font-bold text-[#1B6F63]">{cluster.primary_keyword}</p>
+                    <h3 className="text-sm font-black text-[#0D0F23]">{cluster.name}</h3>
+                    <p className="mt-1 text-xs font-bold text-[#5B47FB]">{cluster.primary_keyword}</p>
                   </div>
                   <ScorePill score={cluster.opportunity_score} />
                 </div>
@@ -176,16 +176,16 @@ export function ContentResearchBubble({
                   <Metric label={cluster.volume_label === "assistant_estimate" ? t("analyze.research.volumeEstimate") : t("analyze.research.volumeObserved")} value={cluster.estimated_search_volume.toLocaleString(getLocale())} />
                   <Metric label={t("analyze.idea.score.intent")} value={intentMeta[cluster.search_intent as GapIntent] ? t(intentMeta[cluster.search_intent as GapIntent].label) : cluster.search_intent} />
                   <Metric label={t("dashboard.keywords.difficulty")} value={difficultyLabel(cluster.difficulty)} />
-                  <div className="rounded-xl bg-[#EFEDE6] px-2.5 py-2">
-                    <p className="text-[10px] font-bold text-[#7D8882]">{t("analyze.research.trend")}</p>
-                    <p className="mt-0.5 text-xs font-black text-[#384B43]">{cluster.trend_direction === "unavailable" ? t("analyze.research.trendNeedsTwo") : cluster.trend_direction === "estimated" ? t("analyze.research.trendUnavailable") : `${cluster.trend_direction} ${cluster.trend_percentage ?? 0}%`}</p>
+                  <div className="rounded-xl bg-[#F3F2FB] px-2.5 py-2">
+                    <p className="text-[10px] font-bold text-[#7D819F]">{t("analyze.research.trend")}</p>
+                    <p className="mt-0.5 text-xs font-black text-[#3B3F5C]">{cluster.trend_direction === "unavailable" ? t("analyze.research.trendNeedsTwo") : cluster.trend_direction === "estimated" ? t("analyze.research.trendUnavailable") : `${cluster.trend_direction} ${cluster.trend_percentage ?? 0}%`}</p>
                   </div>
                 </div>
 
                 <TagList items={cluster.related_keywords} className="mt-3" />
 
-                {cluster.evidence?.why_now && <p className="mt-3 border-t border-[#DAD5C7] pt-3 text-xs font-bold leading-5 text-[#65716B]">{cluster.evidence.why_now}</p>}
-                {cluster.evidence?.trend_note && <p className="mt-2 text-[11px] font-bold leading-5 text-[#7D8882]">{cluster.evidence.trend_note}</p>}
+                {cluster.evidence?.why_now && <p className="mt-3 border-t border-[#E4E5F0] pt-3 text-xs font-bold leading-5 text-[#6C7193]">{cluster.evidence.why_now}</p>}
+                {cluster.evidence?.trend_note && <p className="mt-2 text-[11px] font-bold leading-5 text-[#7D819F]">{cluster.evidence.trend_note}</p>}
               </article>
             ))}
           </div>
@@ -201,18 +201,18 @@ export function ContentResearchBubble({
           </div>
 
           {(summary || siteAnalysis) && (
-            <section className="rounded-2xl border border-[#DAD5C7] bg-[#FBFAF6] p-4">
-              {summary && <p className="text-sm font-bold leading-6 text-[#384B43]">{summary}</p>}
+            <section className="rounded-2xl border border-[#E4E5F0] bg-[#FAFAFE] p-4">
+              {summary && <p className="text-sm font-bold leading-6 text-[#3B3F5C]">{summary}</p>}
 
               {siteAnalysis && (
                 <div className="mt-3 grid gap-3 sm:grid-cols-2">
                   {siteAnalysis.strengths?.length ? (
                     <div>
-                      <p className="text-[10px] font-black text-[#1B6F63]">{t("analyze.research.strengths")}</p>
+                      <p className="text-[10px] font-black text-[#5B47FB]">{t("analyze.research.strengths")}</p>
                       <ul className="mt-1 space-y-1">
                         {siteAnalysis.strengths.map((item, index) => (
-                          <li key={`strength-${index}`} className="flex items-start gap-1.5 text-[11px] font-bold leading-5 text-[#000000]">
-                            <CheckIcon className="mt-0.5 h-3 w-3 flex-shrink-0 text-[#1B6F63]" />
+                          <li key={`strength-${index}`} className="flex items-start gap-1.5 text-[11px] font-bold leading-5 text-[#0D0F23]">
+                            <CheckIcon className="mt-0.5 h-3 w-3 flex-shrink-0 text-[#5B47FB]" />
                             <span>{item}</span>
                           </li>
                         ))}
@@ -224,7 +224,7 @@ export function ContentResearchBubble({
                       <p className="text-[10px] font-black text-[#B3453A]">{t("analyze.research.weaknesses")}</p>
                       <ul className="mt-1 space-y-1">
                         {siteAnalysis.weaknesses.map((item, index) => (
-                          <li key={`weakness-${index}`} className="flex items-start gap-1.5 text-[11px] font-bold leading-5 text-[#000000]">
+                          <li key={`weakness-${index}`} className="flex items-start gap-1.5 text-[11px] font-bold leading-5 text-[#0D0F23]">
                             <AlertIcon className="mt-0.5 h-3 w-3 flex-shrink-0 text-[#B3453A]" />
                             <span>{item}</span>
                           </li>
@@ -249,23 +249,23 @@ export function ContentResearchBubble({
 
           {/* ۳. فرصت‌های محتوایی — فقط چیزی که برای تصمیم لازم است؛ بدون جزئیات/منبع اضافه */}
           <section>
-            <p className="mb-2 text-xs font-black text-[#384B43]">{t("analyze.research.opportunitiesTitle")}</p>
+            <p className="mb-2 text-xs font-black text-[#3B3F5C]">{t("analyze.research.opportunitiesTitle")}</p>
             <div className="space-y-3">
               {gaps.map((gap) => {
                 const intent = gap.evidence.intent ? intentMeta[gap.evidence.intent] : null;
                 const coverage = gap.evidence.site_coverage ? coverageMeta[gap.evidence.site_coverage] : null;
 
                 return (
-                  <article key={gap.id} className="rounded-2xl border border-[#DAD5C7] bg-[#FBFAF6] p-4">
+                  <article key={gap.id} className="rounded-2xl border border-[#E4E5F0] bg-[#FAFAFE] p-4">
                                       <div className="flex flex-wrap items-start justify-between gap-2">
                       <div>
-                        <h3 className="text-sm font-black leading-6 text-[#1E2A28]">{gap.title}</h3>
-                        <p className="mt-1 text-[11px] font-bold text-[#1B6F63]">{gap.query}</p>
+                        <h3 className="text-sm font-black leading-6 text-[#0D0F23]">{gap.title}</h3>
+                        <p className="mt-1 text-[11px] font-bold text-[#5B47FB]">{gap.query}</p>
                       </div>
                       <button
                         type="button"
                         onClick={() => onGapAction?.(gap)}
-                        className="flex-shrink-0 rounded-full bg-[#1B6F63] px-3 py-1.5 text-[11px] font-black text-white transition-colors hover:bg-[#14564C]"
+                        className="flex-shrink-0 rounded-full bg-[#5B47FB] px-3 py-1.5 text-[11px] font-black text-white transition-colors hover:bg-[#4935E0]"
                       >
                         {t("analyze.research.takeAction")}
                       </button>
@@ -276,10 +276,10 @@ export function ContentResearchBubble({
                       {coverage && <Badge bg={coverage.bg} text={coverage.text}>{t(coverage.label)}</Badge>}
                     </div>
 
-                    <p className="mt-3 text-xs font-bold leading-6 text-[#000000]">{gap.description}</p>
+                    <p className="mt-3 text-xs font-bold leading-6 text-[#0D0F23]">{gap.description}</p>
 
-                    <div className="mt-3 rounded-xl bg-[#DCEFEA]/60 px-3 py-2">
-                      <p className="text-[10px] font-black text-[#14564C]">{t("analyze.research.recommendedAction")}{gap.evidence.recommended_format ? ` · ${gap.evidence.recommended_format}` : ""}</p>
+                    <div className="mt-3 rounded-xl bg-[#EFEDFF]/60 px-3 py-2">
+                      <p className="text-[10px] font-black text-[#4935E0]">{t("analyze.research.recommendedAction")}{gap.evidence.recommended_format ? ` · ${gap.evidence.recommended_format}` : ""}</p>
                       <p className="mt-1 text-xs font-bold leading-5 text-[#31594F]">{gap.recommended_angle}</p>
                     </div>
                   </article>
@@ -289,8 +289,8 @@ export function ContentResearchBubble({
           </section>
 
           {/* ۴. سایت‌های رقیب — پشت یک دراپ‌دان بسته (پیش‌فرض جمع‌شده) */}
-          <details className="rounded-2xl border border-[#DAD5C7] bg-[#FBFAF6] p-4">
-            <summary className="cursor-pointer text-xs font-black text-[#384B43]">
+          <details className="rounded-2xl border border-[#E4E5F0] bg-[#FAFAFE] p-4">
+            <summary className="cursor-pointer text-xs font-black text-[#3B3F5C]">
               {t("analyze.research.competitorSites", { count: competitors.length })}
             </summary>
             <ul className="mt-3 space-y-2">
@@ -299,28 +299,28 @@ export function ContentResearchBubble({
                   competitor.evidence.gap || competitor.evidence.keywords?.length || competitor.evidence.evidence_urls?.length
                 );
                 return (
-                  <li key={competitor.id} className="rounded-xl border border-[#DAD5C7] bg-white px-3.5 py-3">
+                  <li key={competitor.id} className="rounded-xl border border-[#E4E5F0] bg-white px-3.5 py-3">
                     <div className="flex items-center justify-between gap-3">
                       <div className="flex min-w-0 items-center gap-2">
-                        <span className="flex h-5 w-5 flex-shrink-0 items-center justify-center rounded-full bg-[#EFEDE6] text-[10px] font-black text-[#000000]">{(index + 1).toLocaleString(getLocale())}</span>
-                        <p className="truncate text-xs font-black text-[#1E2A28]">{competitor.display_name || competitor.domain}</p>
+                        <span className="flex h-5 w-5 flex-shrink-0 items-center justify-center rounded-full bg-[#F3F2FB] text-[10px] font-black text-[#0D0F23]">{(index + 1).toLocaleString(getLocale())}</span>
+                        <p className="truncate text-xs font-black text-[#0D0F23]">{competitor.display_name || competitor.domain}</p>
                       </div>
                       <ThreatPill level={competitor.threat_level} />
                     </div>
 
-                    <p className="mt-1.5 text-[11px] font-bold text-[#7D8882]">
+                    <p className="mt-1.5 text-[11px] font-bold text-[#7D819F]">
                       {competitor.best_position != null ? t("analyze.research.rank", { rank: competitor.best_position }) : t("analyze.research.rankUnavailable")}
                       {" · "}
                       {t("analyze.research.sharedKeywords", { count: competitor.evidence.appearances ?? competitor.evidence.keywords?.length ?? 0 })}
                     </p>
 
                     {competitor.evidence.summary && (
-                      <p className="mt-2 text-[11px] font-bold leading-5 text-[#000000]">{competitor.evidence.summary}</p>
+                      <p className="mt-2 text-[11px] font-bold leading-5 text-[#0D0F23]">{competitor.evidence.summary}</p>
                     )}
 
                     {hasDetails && (
                       <details className="mt-2">
-                        <summary className="cursor-pointer text-[11px] font-bold text-[#1B6F63]">{t("analyze.research.moreDetails")}</summary>
+                        <summary className="cursor-pointer text-[11px] font-bold text-[#5B47FB]">{t("analyze.research.moreDetails")}</summary>
                         <div className="mt-2.5 space-y-2.5">
                           {competitor.evidence.gap && (
                             <div className="rounded-xl bg-[#F7EEEA] px-3 py-2">
@@ -332,7 +332,7 @@ export function ContentResearchBubble({
                           {competitor.evidence.evidence_urls?.length ? (
                             <div className="flex flex-wrap gap-2">
                               {competitor.evidence.evidence_urls.slice(0, 2).map((url) => (
-                                <a key={url} href={url} target="_blank" rel="noreferrer" className="inline-flex items-center gap-1 text-[11px] font-bold text-[#1B6F63] underline">
+                                <a key={url} href={url} target="_blank" rel="noreferrer" className="inline-flex items-center gap-1 text-[11px] font-bold text-[#5B47FB] underline">
                                   <LinkIcon className="h-3 w-3" />
                                   {hostFromUrl(url)}
                                 </a>
@@ -373,24 +373,24 @@ function RecommendationsSection({
 }) {
   if (!recommendations.length && !manusTaskUrl) return null;
   return (
-    <section className="mb-4 rounded-2xl border border-[#DAD5C7] bg-[#FBFAF6] p-4">
+    <section className="mb-4 rounded-2xl border border-[#E4E5F0] bg-[#FAFAFE] p-4">
       {recommendations.length > 0 && (
         <>
-          <p className="mb-2 text-xs font-black text-[#384B43]">{t("analyze.research.recommendations")}</p>
+          <p className="mb-2 text-xs font-black text-[#3B3F5C]">{t("analyze.research.recommendations")}</p>
           <div className="space-y-2">
             {[...recommendations]
               .sort((a, b) => getPriorityWeight(b.priority) - getPriorityWeight(a.priority))
               .map((rec, index) => (
-              <div key={`rec-${index}`} className="rounded-xl border border-[#DAD5C7] bg-white px-3 py-2.5">
+              <div key={`rec-${index}`} className="rounded-xl border border-[#E4E5F0] bg-white px-3 py-2.5">
                 <div className="flex items-start justify-between gap-2">
-                  {rec.title && <p className="text-xs font-black text-[#1E2A28]">{rec.title}</p>}
+                  {rec.title && <p className="text-xs font-black text-[#0D0F23]">{rec.title}</p>}
                   {rec.priority != null && <PriorityPill priority={rec.priority} />}
                 </div>
                 {rec.description && (
-                  <p className="mt-1 text-[11px] font-bold leading-5 text-[#000000]">{rec.description}</p>
+                  <p className="mt-1 text-[11px] font-bold leading-5 text-[#0D0F23]">{rec.description}</p>
                 )}
                 {rec.action && (
-                  <p className="mt-2 text-[11px] font-bold leading-5 text-[#1B6F63]">{t("analyze.research.action", { action: rec.action })}</p>
+                  <p className="mt-2 text-[11px] font-bold leading-5 text-[#5B47FB]">{t("analyze.research.action", { action: rec.action })}</p>
                 )}
               </div>
             ))}
@@ -402,7 +402,7 @@ function RecommendationsSection({
           href={manusTaskUrl}
           target="_blank"
           rel="noreferrer"
-          className={`inline-flex items-center gap-1 text-[11px] font-bold text-[#1B6F63] underline ${recommendations.length > 0 ? "mt-3" : ""}`}
+          className={`inline-flex items-center gap-1 text-[11px] font-bold text-[#5B47FB] underline ${recommendations.length > 0 ? "mt-3" : ""}`}
         >
           <LinkIcon className="h-3 w-3" />
           {t("analyze.research.fullReport")}
@@ -413,20 +413,20 @@ function RecommendationsSection({
 }
 function StatTile({ label, value, accent = false }: { label: string; value: string; accent?: boolean }) {
   return (
-    <div className={`rounded-xl px-3 py-2.5 ${accent ? "bg-[#F7EEEA]" : "bg-[#EFEDE6]"}`}>
-      <p className="text-[10px] font-bold text-[#7D8882]">{label}</p>
-      <p className={`mt-0.5 text-sm font-black ${accent ? "text-[#B3453A]" : "text-[#384B43]"}`}>{value}</p>
+    <div className={`rounded-xl px-3 py-2.5 ${accent ? "bg-[#F7EEEA]" : "bg-[#F3F2FB]"}`}>
+      <p className="text-[10px] font-bold text-[#7D819F]">{label}</p>
+      <p className={`mt-0.5 text-sm font-black ${accent ? "text-[#B3453A]" : "text-[#3B3F5C]"}`}>{value}</p>
     </div>
   );
 }
 
 function ScorePill({ score }: { score: number }) {
-  const bg = score >= 70 ? "#1B6F63" : score >= 40 ? "#B08D57" : "#7D8882";
+  const bg = score >= 70 ? "#5B47FB" : score >= 40 ? "#B08D57" : "#7D819F";
   return <span className="rounded-full px-2.5 py-1 text-[11px] font-black text-white" style={{ backgroundColor: bg }}>{t("analyze.research.opportunityScore", { score })}</span>;
 }
 
 function ThreatPill({ level }: { level: "low" | "medium" | "high" }) {
-  const styles = level === "high" ? "bg-[#F7EEEA] text-[#B3453A]" : level === "medium" ? "bg-[#FFF8E9] text-[#8A6A2F]" : "bg-[#DCEFEA] text-[#1B6F63]";
+  const styles = level === "high" ? "bg-[#F7EEEA] text-[#B3453A]" : level === "medium" ? "bg-[#FFF8E9] text-[#8A6A2F]" : "bg-[#EFEDFF] text-[#5B47FB]";
   return <span className={`flex-shrink-0 rounded-full px-2 py-0.5 text-[10px] font-bold ${styles}`}>{t("analyze.research.threat", { level: t(threatLabel[level]) })}</span>;
 }
 
@@ -439,14 +439,14 @@ function PriorityPill({ priority }: { priority: "high" | "medium" | "low" | numb
     ? "bg-[#F7EEEA] text-[#B3453A]"
     : normalized === "medium"
       ? "bg-[#FFF8E9] text-[#8A6A2F]"
-      : "bg-[#DCEFEA] text-[#1B6F63]";
+      : "bg-[#EFEDFF] text-[#5B47FB]";
   return <span className={`rounded-full px-2 py-0.5 text-[10px] font-bold ${styles}`}>{label}</span>;
 }
 
 function Badge({ children, bg, text, border = false }: { children: React.ReactNode; bg: string; text: string; border?: boolean }) {
   return (
     <span
-      className={`rounded-lg px-2 py-0.5 text-[10px] font-bold ${border ? "border border-[#DAD5C7]" : ""}`}
+      className={`rounded-lg px-2 py-0.5 text-[10px] font-bold ${border ? "border border-[#E4E5F0]" : ""}`}
       style={{ backgroundColor: bg, color: text }}
     >
       {children}
@@ -463,10 +463,10 @@ function TagList({ items, max = 6, className = "" }: { items: string[]; max?: nu
   return (
     <div className={`flex flex-wrap gap-1.5 ${className}`}>
       {visible.map((item) => (
-        <span key={item} className="rounded-lg border border-[#DAD5C7] bg-white px-2 py-1 text-[11px] font-bold text-[#000000]">{item}</span>
+        <span key={item} className="rounded-lg border border-[#E4E5F0] bg-white px-2 py-1 text-[11px] font-bold text-[#0D0F23]">{item}</span>
       ))}
       {remaining > 0 && (
-        <span className="rounded-lg bg-[#EFEDE6] px-2 py-1 text-[11px] font-bold text-[#7D8882]">+{remaining.toLocaleString(getLocale())}</span>
+        <span className="rounded-lg bg-[#F3F2FB] px-2 py-1 text-[11px] font-bold text-[#7D819F]">+{remaining.toLocaleString(getLocale())}</span>
       )}
     </div>
   );
@@ -514,5 +514,5 @@ function difficultyLabel(value: string): string {
 }
 
 function Metric({ label, value }: { label: string; value: string }) {
-  return <div className="rounded-xl bg-[#EFEDE6] px-2.5 py-2"><p className="text-[10px] font-bold text-[#7D8882]">{label}</p><p className="mt-0.5 text-xs font-black text-[#384B43]">{value}</p></div>;
+  return <div className="rounded-xl bg-[#F3F2FB] px-2.5 py-2"><p className="text-[10px] font-bold text-[#7D819F]">{label}</p><p className="mt-0.5 text-xs font-black text-[#3B3F5C]">{value}</p></div>;
 }

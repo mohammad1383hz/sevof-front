@@ -86,13 +86,13 @@ interface SidebarProps {
 }
 
 const STATUS_STYLES: Record<string, string> = {
-  published: "bg-[#DCEFEA] text-[#1B6F63]",
+  published: "bg-[#EFEDFF] text-[#5B47FB]",
   draft: "bg-[#EDE3CF] text-[#B08D57]",
-  pending: "bg-[#DAD5C7] text-[#9BA69F]",
+  pending: "bg-[#E4E5F0] text-[#9A9DB8]",
 };
 
 function StatusDot({ status }: { status?: string }) {
-  const cls = STATUS_STYLES[status ?? ""] ?? "bg-[#DAD5C7] text-[#9BA69F]";
+  const cls = STATUS_STYLES[status ?? ""] ?? "bg-[#E4E5F0] text-[#9A9DB8]";
   return <span className={`h-1.5 w-1.5 rounded-full shrink-0 ${cls.split(" ")[0]}`} />;
 }
 
@@ -100,8 +100,8 @@ function StatusDot({ status }: { status?: string }) {
 
 const navBtnBase =
   "w-full flex items-center gap-2.5 text-start rounded-xl px-3 py-2.5 text-sm font-bold transition-all duration-200";
-const navBtnActive = "bg-[#DCEFEA] text-[#1B6F63] border border-[#1B6F63]/20";
-const navBtnIdle = "text-[#000000] hover:bg-[#F4F2EC] border border-transparent";
+const navBtnActive = "bg-[#EFEDFF] text-[#5B47FB] border border-[#5B47FB]/20";
+const navBtnIdle = "text-[#0D0F23] hover:bg-[#F6F6FB] border border-transparent";
 
 // ── دکمه‌ی منوی وابسته به فروشگاهی بودن سایت ─────────────────────────────────
 // سه حالت: در حال بررسی (غیرفعال + لودینگ) / فروشگاهی (فعال) / غیرفروشگاهی (غیرفعال).
@@ -135,7 +135,7 @@ const ShopGatedNavButton: React.FC<{
     aria-current={active ? "page" : undefined}
     className={`${navBtnBase} ${
       shopStatus !== "shop"
-        ? "text-[#9BA69F] border border-transparent opacity-70 cursor-not-allowed"
+        ? "text-[#9A9DB8] border border-transparent opacity-70 cursor-not-allowed"
         : active
           ? navBtnActive
           : navBtnIdle
@@ -148,8 +148,8 @@ const ShopGatedNavButton: React.FC<{
 
     {/* در حال بررسی: لودینگ */}
     {shopStatus === "checking" && (
-      <span className="flex shrink-0 items-center gap-1.5 text-[10px] font-bold text-[#9BA69F]">
-        <span className="h-3.5 w-3.5 animate-spin rounded-full border-2 border-[#DAD5C7] border-t-[#1B6F63]" />
+      <span className="flex shrink-0 items-center gap-1.5 text-[10px] font-bold text-[#9A9DB8]">
+        <span className="h-3.5 w-3.5 animate-spin rounded-full border-2 border-[#E4E5F0] border-t-[#5B47FB]" />
         {t("layout.nav.checking")}
       </span>
     )}
@@ -167,10 +167,10 @@ const PAGE_PRODUCT_SEO_ICON =
 // ── سوییچر دامنه ──────────────────────────────────────────────────────────
 
 const SITE_STATUS_DOT: Record<string, string> = {
-  pending: "bg-[#DAD5C7]",
+  pending: "bg-[#E4E5F0]",
   crawling: "bg-[#B08D57] animate-pulse",
   analyzing: "bg-[#B08D57] animate-pulse",
-  completed: "bg-[#1B6F63]",
+  completed: "bg-[#5B47FB]",
   failed: "bg-[#B3453A]",
 };
 
@@ -207,19 +207,19 @@ const SiteSwitcher: React.FC<{
         onClick={() => setOpen((v) => !v)}
         className="w-full flex items-center gap-2.5 min-w-0 text-start"
       >
-        <div className="h-8 w-8 rounded-xl bg-gradient-to-br rtl:bg-gradient-to-bl from-[#1B6F63] to-[#14564C] flex items-center justify-center shadow-md shadow-[#1B6F63]/25 shrink-0 overflow-hidden">
-          <img src="/logo.png" alt="Sevof" className="h-full w-full object-contain p-1" />
+        <div className="h-8 w-8 rounded-xl bg-gradient-to-br rtl:bg-gradient-to-bl from-[#5B47FB] to-[#4935E0] flex items-center justify-center shadow-md shadow-[#5B47FB]/25 shrink-0 overflow-hidden">
+          <img src="/logo.svg" alt="Sevof" className="h-full w-full object-contain" />
         </div>
         {currentDomain ? (
           <div className="min-w-0 flex-1">
-            <p className="text-[10px] text-[#9BA69F] font-medium">{t("layout.sites.active")}</p>
-            <p dir="ltr" className="text-xs font-bold text-[#1E2A28] truncate">{currentDomain}</p>
+            <p className="text-[10px] text-[#9A9DB8] font-medium">{t("layout.sites.active")}</p>
+            <p dir="ltr" className="text-xs font-bold text-[#0D0F23] truncate">{currentDomain}</p>
           </div>
         ) : (
-          <p className="text-xs font-bold text-[#9BA69F] flex-1">{t("layout.sites.none")}</p>
+          <p className="text-xs font-bold text-[#9A9DB8] flex-1">{t("layout.sites.none")}</p>
         )}
         <svg
-          className={`w-3.5 h-3.5 shrink-0 text-[#9BA69F] transition-transform duration-200 ${open ? "rotate-180" : ""}`}
+          className={`w-3.5 h-3.5 shrink-0 text-[#9A9DB8] transition-transform duration-200 ${open ? "rotate-180" : ""}`}
           fill="none" stroke="currentColor" viewBox="0 0 24 24"
         >
           <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M19.5 8.25l-7.5 7.5-7.5-7.5" />
@@ -227,16 +227,16 @@ const SiteSwitcher: React.FC<{
       </button>
 
       {open && (
-        <div className="absolute start-0 top-full mt-2 w-72 rounded-2xl border border-[#DAD5C7] bg-[#FBFAF6] shadow-xl z-50 overflow-hidden">
+        <div className="absolute start-0 top-full mt-2 w-72 rounded-2xl border border-[#E4E5F0] bg-[#FAFAFE] shadow-xl z-50 overflow-hidden">
           <div className="max-h-64 overflow-y-auto py-1.5">
             {sitesLoading && (
               <div className="flex items-center gap-2 px-3 py-2.5">
-                <div className="h-3 w-3 border-2 border-[#DAD5C7] border-t-[#1B6F63] rounded-full animate-spin" />
-                <p className="text-xs text-[#9BA69F]">{t("common.status.loading")}</p>
+                <div className="h-3 w-3 border-2 border-[#E4E5F0] border-t-[#5B47FB] rounded-full animate-spin" />
+                <p className="text-xs text-[#9A9DB8]">{t("common.status.loading")}</p>
               </div>
             )}
             {!sitesLoading && sites.length === 0 && (
-              <p className="text-xs text-[#9BA69F] px-3 py-2.5">{t("layout.sites.empty")}</p>
+              <p className="text-xs text-[#9A9DB8] px-3 py-2.5">{t("layout.sites.empty")}</p>
             )}
             {!sitesLoading && sites.map((s) => {
               const isActive = activeSiteId !== undefined && String(s.id) === String(activeSiteId);
@@ -244,7 +244,7 @@ const SiteSwitcher: React.FC<{
                 <div
                   key={s.id}
                   className={`w-full flex items-center gap-2 text-start px-3 py-2.5 text-xs transition-colors duration-150 ${
-                    isActive ? "bg-[#DCEFEA] text-[#1B6F63] font-bold" : "text-[#1E2A28] hover:bg-[#F4F2EC]"
+                    isActive ? "bg-[#EFEDFF] text-[#5B47FB] font-bold" : "text-[#0D0F23] hover:bg-[#F6F6FB]"
                   }`}
                 >
                   <button
@@ -252,11 +252,11 @@ const SiteSwitcher: React.FC<{
                     onClick={() => { onSelectSite?.(s); setOpen(false); }}
                     className="flex min-w-0 flex-1 items-center gap-2 text-start"
                   >
-                    <span className={`h-1.5 w-1.5 rounded-full shrink-0 ${SITE_STATUS_DOT[s.status ?? ""] ?? "bg-[#DAD5C7]"}`} />
+                    <span className={`h-1.5 w-1.5 rounded-full shrink-0 ${SITE_STATUS_DOT[s.status ?? ""] ?? "bg-[#E4E5F0]"}`} />
                     <span dir="ltr" className="truncate flex-1">{s.domain}</span>
                   </button>
                   {s.status && (
-                    <span className="text-[9px] text-[#9BA69F] shrink-0">
+                    <span className="text-[9px] text-[#9A9DB8] shrink-0">
                       {tMaybe(`layout.siteStatus.${s.status}`, s.status)}
                     </span>
                   )}
@@ -294,7 +294,7 @@ const SiteSwitcher: React.FC<{
               onClick={() => deletingId === null && setDeleteCandidate(null)}
             >
               <div
-                className="w-full max-w-xs rounded-2xl bg-[#FBFAF6] p-5 text-center shadow-xl"
+                className="w-full max-w-xs rounded-2xl bg-[#FAFAFE] p-5 text-center shadow-xl"
                 onClick={(event) => event.stopPropagation()}
               >
                 <div className="mx-auto flex h-11 w-11 items-center justify-center rounded-full bg-rose-50 text-rose-500">
@@ -307,12 +307,12 @@ const SiteSwitcher: React.FC<{
                     />
                   </svg>
                 </div>
-                <h3 className="mt-3 text-sm font-black text-[#1E2A28]">{t("layout.sites.removeTitle")}</h3>
-                <p className="mt-1 text-xs font-bold text-[#9BA69F]">{t("layout.sites.removeConfirm")}</p>
+                <h3 className="mt-3 text-sm font-black text-[#0D0F23]">{t("layout.sites.removeTitle")}</h3>
+                <p className="mt-1 text-xs font-bold text-[#9A9DB8]">{t("layout.sites.removeConfirm")}</p>
                 <p dir="ltr" className="mt-2 truncate text-xs font-black text-[#B3453A]">{deleteCandidate.domain}</p>
                 {deleteError && <p className="mt-2 text-[10px] font-bold text-[#B3453A]">{deleteError}</p>}
                 <div className="mt-4 flex gap-2">
-                  <button type="button" onClick={() => setDeleteCandidate(null)} disabled={deletingId !== null} className="h-9 flex-1 rounded-xl bg-[#EFEDE6] text-xs font-black text-[#3D453F] transition-colors hover:bg-[#DAD5C7] disabled:opacity-50">{t("common.actions.cancel")}</button>
+                  <button type="button" onClick={() => setDeleteCandidate(null)} disabled={deletingId !== null} className="h-9 flex-1 rounded-xl bg-[#F3F2FB] text-xs font-black text-[#3B3F5C] transition-colors hover:bg-[#E4E5F0] disabled:opacity-50">{t("common.actions.cancel")}</button>
                   <button
                     type="button"
                     disabled={deletingId !== null}
@@ -337,23 +337,23 @@ const SiteSwitcher: React.FC<{
             </div>
           )}
 
-          <div className="border-t border-[#DAD5C7] p-2">
+          <div className="border-t border-[#E4E5F0] p-2">
             <button
               type="button"
               onClick={() => {
                 setOpen(false);
                 navigate("/dashboard?new=1", { replace: true });
               }}
-              className="group flex w-full items-center gap-2.5 rounded-xl border border-dashed border-[#1B6F63]/40 bg-[#F5FBF8] px-3 py-2.5 text-start transition-all duration-150 hover:border-[#1B6F63] hover:bg-[#DCEFEA]"
+              className="group flex w-full items-center gap-2.5 rounded-xl border border-dashed border-[#5B47FB]/40 bg-[#F7F6FF] px-3 py-2.5 text-start transition-all duration-150 hover:border-[#5B47FB] hover:bg-[#EFEDFF]"
             >
-              <span className="flex h-7 w-7 shrink-0 items-center justify-center rounded-full bg-[#1B6F63] text-white transition-transform duration-150 group-hover:scale-105">
+              <span className="flex h-7 w-7 shrink-0 items-center justify-center rounded-full bg-[#5B47FB] text-white transition-transform duration-150 group-hover:scale-105">
                 <svg className="h-3.5 w-3.5" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true">
                   <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2.25} d="M12 4.5v15m7.5-7.5h-15" />
                 </svg>
               </span>
               <span className="min-w-0 flex-1">
-                <span className="block text-xs font-black text-[#1B6F63]">{t("layout.sites.add")}</span>
-                <span className="block truncate text-[10px] font-medium text-[#65716B]">{t("layout.sites.addHint")}</span>
+                <span className="block text-xs font-black text-[#5B47FB]">{t("layout.sites.add")}</span>
+                <span className="block truncate text-[10px] font-medium text-[#6C7193]">{t("layout.sites.addHint")}</span>
               </span>
             </button>
           </div>
@@ -453,13 +453,13 @@ const Sidebar: React.FC<SidebarProps> = ({
           fixed inset-y-0 start-0 z-50 h-dvh w-60
           lg:sticky lg:top-0 lg:z-auto lg:h-screen
           ${desktopOpen ? "lg:w-80" : "lg:w-0 lg:border-e-0 lg:overflow-hidden"}
-          shrink-0 flex flex-col bg-[#FBFAF6] border-e border-[#DAD5C7]
+          shrink-0 flex flex-col bg-[#FAFAFE] border-e border-[#E4E5F0]
           transform transition-all duration-300 ease-in-out
           ${mobileOpen ? "translate-x-0" : "max-lg:-translate-x-full max-lg:rtl:translate-x-full"}
         `}
       >
         {/* Brand / domain header */}
-        <div className="shrink-0 px-4 pt-5 pb-4 border-b border-[#DAD5C7] flex items-center justify-between gap-2">
+        <div className="shrink-0 px-4 pt-5 pb-4 border-b border-[#E4E5F0] flex items-center justify-between gap-2">
           <SiteSwitcher
             currentDomain={siteDomain}
             sites={sites}
@@ -475,7 +475,7 @@ const Sidebar: React.FC<SidebarProps> = ({
               onMobileClose?.();
               onDesktopClose?.();
             }}
-            className="shrink-0 h-8 w-8 rounded-lg flex items-center justify-center text-[#9BA69F] hover:bg-[#F4F2EC] hover:text-[#3D453F] transition-colors"
+            className="shrink-0 h-8 w-8 rounded-lg flex items-center justify-center text-[#9A9DB8] hover:bg-[#F6F6FB] hover:text-[#3B3F5C] transition-colors"
             aria-label={t("layout.sidebar.closeMenu")}
           >
             <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
@@ -490,7 +490,7 @@ const Sidebar: React.FC<SidebarProps> = ({
             <button
               type="button"
               onClick={withMobileClose(() => onNewConversation())}
-              className="flex w-full items-center justify-center gap-2 rounded-xl bg-[#1B6F63] px-3 py-2.5 text-sm font-black text-white shadow-sm shadow-[#1B6F63]/25 transition-colors hover:bg-[#14564C] active:bg-[#0F453D]"
+              className="flex w-full items-center justify-center gap-2 rounded-xl bg-[#5B47FB] px-3 py-2.5 text-sm font-black text-white shadow-sm shadow-[#5B47FB]/25 transition-colors hover:bg-[#4935E0] active:bg-[#0F453D]"
             >
               <svg className="h-4 w-4 shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true">
                 <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M12 4.5v15m7.5-7.5h-15" />
@@ -644,7 +644,7 @@ const Sidebar: React.FC<SidebarProps> = ({
           <button
             type="button"
             onClick={withMobileClose(() => setArticlesModalOpen(true))}
-            className="w-full flex items-center justify-between text-start rounded-xl px-3 py-2.5 text-sm font-bold text-[#000000] hover:bg-[#F4F2EC] border border-transparent transition-all duration-200"
+            className="w-full flex items-center justify-between text-start rounded-xl px-3 py-2.5 text-sm font-bold text-[#0D0F23] hover:bg-[#F6F6FB] border border-transparent transition-all duration-200"
             aria-haspopup="dialog"
             aria-expanded={articlesModalOpen}
           >
@@ -654,23 +654,23 @@ const Sidebar: React.FC<SidebarProps> = ({
               </svg>
               <span className="truncate">{t("layout.nav.articles")}</span>
               {totalArticlesCount > 0 && (
-                <span className="text-[10px] font-black text-[#1B6F63] bg-[#DCEFEA]/70 rounded-full px-1.5 py-0.5 leading-none">
+                <span className="text-[10px] font-black text-[#5B47FB] bg-[#EFEDFF]/70 rounded-full px-1.5 py-0.5 leading-none">
                   {totalArticlesCount}
                 </span>
               )}
             </span>
-            <svg className="w-3.5 h-3.5 shrink-0 text-[#9BA69F]" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true">
+            <svg className="w-3.5 h-3.5 shrink-0 text-[#9A9DB8]" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true">
               <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.8} d="M9 12.75l2.25 2.25L15 11.25M4.5 6.75h15M4.5 17.25h15M6.75 3.75h10.5A2.25 2.25 0 0119.5 6v12a2.25 2.25 0 01-2.25 2.25H6.75A2.25 2.25 0 014.5 18V6a2.25 2.25 0 012.25-2.25z" />
             </svg>
           </button>
 
           {/* گفتگوها */}
-          <div className="mt-2 border-t border-[#DAD5C7] pt-2">
+          <div className="mt-2 border-t border-[#E4E5F0] pt-2">
             <div className="flex items-center gap-1">
               <button
                 type="button"
                 onClick={() => setConversationsOpen((v) => !v)}
-                className="flex min-w-0 flex-1 items-center justify-between rounded-xl px-3 py-2.5 text-start text-sm font-bold text-[#000000] transition-all duration-200 hover:bg-[#F4F2EC]"
+                className="flex min-w-0 flex-1 items-center justify-between rounded-xl px-3 py-2.5 text-start text-sm font-bold text-[#0D0F23] transition-all duration-200 hover:bg-[#F6F6FB]"
               >
                 <span className="flex items-center gap-2.5 min-w-0">
                   <svg className="h-4 w-4 shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true">
@@ -678,27 +678,27 @@ const Sidebar: React.FC<SidebarProps> = ({
                   </svg>
                   <span className="truncate">{t("layout.nav.conversations")}</span>
                   {conversations.length > 0 && (
-                    <span className="text-[10px] font-black text-[#1B6F63] bg-[#DCEFEA]/70 rounded-full px-1.5 py-0.5 leading-none">
+                    <span className="text-[10px] font-black text-[#5B47FB] bg-[#EFEDFF]/70 rounded-full px-1.5 py-0.5 leading-none">
                       {conversations.length}
                     </span>
                   )}
                 </span>
-                <svg className={`h-3.5 w-3.5 shrink-0 text-[#9BA69F] transition-transform duration-200 ${conversationsOpen ? "rotate-180" : ""}`} fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true">
+                <svg className={`h-3.5 w-3.5 shrink-0 text-[#9A9DB8] transition-transform duration-200 ${conversationsOpen ? "rotate-180" : ""}`} fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true">
                   <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M19.5 8.25l-7.5 7.5-7.5-7.5" />
                 </svg>
               </button>
             </div>
 
             {conversationsOpen && (
-              <div className="ms-3 ps-3 border-s-2 border-[#DAD5C7] space-y-0.5 py-1 mt-1">
+              <div className="ms-3 ps-3 border-s-2 border-[#E4E5F0] space-y-0.5 py-1 mt-1">
                 {conversationsLoading && (
                   <div className="flex items-center gap-2 px-2 py-2.5">
-                    <div className="h-3 w-3 border-2 border-[#DAD5C7] border-t-[#1B6F63] rounded-full animate-spin" />
-                    <p className="text-xs text-[#9BA69F]">{t("common.status.loading")}</p>
+                    <div className="h-3 w-3 border-2 border-[#E4E5F0] border-t-[#5B47FB] rounded-full animate-spin" />
+                    <p className="text-xs text-[#9A9DB8]">{t("common.status.loading")}</p>
                   </div>
                 )}
                 {!conversationsLoading && conversations.length === 0 && (
-                  <p className="text-xs text-[#9BA69F] px-2 py-2.5">{t("layout.nav.noConversations")}</p>
+                  <p className="text-xs text-[#9A9DB8] px-2 py-2.5">{t("layout.nav.noConversations")}</p>
                 )}
                 {!conversationsLoading && conversations.map((conversation) => {
                   const isActive = activeConversationId !== undefined && String(conversation.id) === String(activeConversationId);
@@ -708,7 +708,7 @@ const Sidebar: React.FC<SidebarProps> = ({
                       type="button"
                       onClick={withMobileClose(() => onSelectConversation?.(conversation))}
                       title={conversation.title}
-                      className={`w-full truncate rounded-lg px-2 py-2 text-start text-xs transition-colors duration-150 ${isActive ? "bg-[#DCEFEA] text-[#1B6F63] font-bold" : "text-[#000000] hover:bg-[#F4F2EC] hover:text-[#1E2A28]"}`}
+                      className={`w-full truncate rounded-lg px-2 py-2 text-start text-xs transition-colors duration-150 ${isActive ? "bg-[#EFEDFF] text-[#5B47FB] font-bold" : "text-[#0D0F23] hover:bg-[#F6F6FB] hover:text-[#0D0F23]"}`}
                     >
                       <span className="truncate">{conversation.title || t("layout.nav.untitledConversation")}</span>
                     </button>
@@ -722,7 +722,7 @@ const Sidebar: React.FC<SidebarProps> = ({
         {/* پنل چت — فقط دسکتاپ */}
         {chatPanel && (
           <div
-            className={`hidden lg:flex lg:flex-col border-t border-[#DAD5C7] ${
+            className={`hidden lg:flex lg:flex-col border-t border-[#E4E5F0] ${
               chatOpen ? "lg:min-h-0 lg:flex-1" : "lg:shrink-0"
             }`}
           >
@@ -812,7 +812,7 @@ function ArticlesModal({
 
   return (
     <div
-      className="fixed inset-0 z-[70] flex items-center justify-center bg-[#1E2A28]/45 p-4 backdrop-blur-sm"
+      className="fixed inset-0 z-[70] flex items-center justify-center bg-[#0D0F23]/45 p-4 backdrop-blur-sm"
       role="presentation"
       onMouseDown={(event) => {
         if (event.target === event.currentTarget) onClose();
@@ -822,18 +822,18 @@ function ArticlesModal({
         role="dialog"
         aria-modal="true"
         aria-labelledby="articles-modal-title"
-        className="flex max-h-[min(80vh,42rem)] w-full max-w-2xl flex-col overflow-hidden rounded-3xl border border-[#DAD5C7] bg-[#FBFAF6] shadow-2xl"
+        className="flex max-h-[min(80vh,42rem)] w-full max-w-2xl flex-col overflow-hidden rounded-3xl border border-[#E4E5F0] bg-[#FAFAFE] shadow-2xl"
         onMouseDown={(event) => event.stopPropagation()}
       >
-        <div className="flex items-center justify-between gap-3 border-b border-[#DAD5C7] px-5 py-4 sm:px-6">
+        <div className="flex items-center justify-between gap-3 border-b border-[#E4E5F0] px-5 py-4 sm:px-6">
           <div className="min-w-0">
-            <h2 id="articles-modal-title" className="text-base font-black text-[#1E2A28]">{t("layout.articles.title")}</h2>
-            <p className="mt-1 text-xs font-medium text-[#9BA69F]">{t("layout.articles.subtitle")}</p>
+            <h2 id="articles-modal-title" className="text-base font-black text-[#0D0F23]">{t("layout.articles.title")}</h2>
+            <p className="mt-1 text-xs font-medium text-[#9A9DB8]">{t("layout.articles.subtitle")}</p>
           </div>
           <button
             type="button"
             onClick={onClose}
-            className="flex h-9 w-9 shrink-0 items-center justify-center rounded-xl text-[#9BA69F] transition-colors hover:bg-[#F4F2EC] hover:text-[#1E2A28]"
+            className="flex h-9 w-9 shrink-0 items-center justify-center rounded-xl text-[#9A9DB8] transition-colors hover:bg-[#F6F6FB] hover:text-[#0D0F23]"
             aria-label={t("layout.articles.close")}
           >
             <svg className="h-5 w-5" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true">
@@ -843,7 +843,7 @@ function ArticlesModal({
         </div>
 
         {showProductTab && (
-          <div role="tablist" className="flex gap-1 border-b border-[#DAD5C7] px-4 pt-3 sm:px-5">
+          <div role="tablist" className="flex gap-1 border-b border-[#E4E5F0] px-4 pt-3 sm:px-5">
             {tabs.map((t) => {
               const selected = tab === t.key;
               return (
@@ -855,14 +855,14 @@ function ArticlesModal({
                   onClick={() => setTab(t.key)}
                   className={`-mb-px flex items-center gap-2 rounded-t-xl border-b-2 px-4 py-2.5 text-xs font-black transition-colors ${
                     selected
-                      ? "border-[#1B6F63] text-[#1B6F63]"
-                      : "border-transparent text-[#9BA69F] hover:text-[#1E2A28]"
+                      ? "border-[#5B47FB] text-[#5B47FB]"
+                      : "border-transparent text-[#9A9DB8] hover:text-[#0D0F23]"
                   }`}
                 >
                   <span>{t.label}</span>
                   <span
                     className={`rounded-full px-1.5 py-0.5 text-[10px] leading-none ${
-                      selected ? "bg-[#DCEFEA] text-[#1B6F63]" : "bg-[#EFEDE6] text-[#9BA69F]"
+                      selected ? "bg-[#EFEDFF] text-[#5B47FB]" : "bg-[#F3F2FB] text-[#9A9DB8]"
                     }`}
                   >
                     {t.count}
@@ -875,18 +875,18 @@ function ArticlesModal({
 
         <div className="min-h-0 overflow-y-auto p-4 sm:p-5">
           {loading && (
-            <div className="flex items-center justify-center gap-3 py-12 text-xs font-bold text-[#9BA69F]">
-              <div className="h-5 w-5 animate-spin rounded-full border-2 border-[#DAD5C7] border-t-[#1B6F63]" />
+            <div className="flex items-center justify-center gap-3 py-12 text-xs font-bold text-[#9A9DB8]">
+              <div className="h-5 w-5 animate-spin rounded-full border-2 border-[#E4E5F0] border-t-[#5B47FB]" />
               {t("layout.articles.loading")}
             </div>
           )}
 
           {!loading && items.length === 0 && (
-            <div className="rounded-2xl border border-dashed border-[#DAD5C7] bg-white/60 px-4 py-12 text-center">
-              <p className="text-sm font-bold text-[#65716B]">
+            <div className="rounded-2xl border border-dashed border-[#E4E5F0] bg-white/60 px-4 py-12 text-center">
+              <p className="text-sm font-bold text-[#6C7193]">
                 {isProductTab ? t("layout.articles.emptyProducts") : t("layout.articles.empty")}
               </p>
-              <p className="mt-1 text-xs text-[#9BA69F]">{t("layout.articles.emptyHint")}</p>
+              <p className="mt-1 text-xs text-[#9A9DB8]">{t("layout.articles.emptyHint")}</p>
             </div>
           )}
 
@@ -902,14 +902,14 @@ function ArticlesModal({
                     title={article.title}
                     className={`flex w-full items-center gap-3 rounded-2xl border px-4 py-3 text-start transition-colors ${
                       isActive
-                        ? "border-[#1B6F63]/30 bg-[#DCEFEA] text-[#14564C]"
-                        : "border-[#E8E3D8] bg-white text-[#1E2A28] hover:border-[#B8D7CF] hover:bg-[#F5FBF8]"
+                        ? "border-[#5B47FB]/30 bg-[#EFEDFF] text-[#4935E0]"
+                        : "border-[#E8E3D8] bg-white text-[#0D0F23] hover:border-[#C8C0FF] hover:bg-[#F7F6FF]"
                     }`}
                   >
                     <StatusDot status={article.status} />
                     <span className="min-w-0 flex-1 truncate text-sm font-bold">{article.title}</span>
                     {article.status && (
-                      <span className="shrink-0 text-[10px] font-bold text-[#9BA69F]">{article.status}</span>
+                      <span className="shrink-0 text-[10px] font-bold text-[#9A9DB8]">{article.status}</span>
                     )}
                   </button>
                 );

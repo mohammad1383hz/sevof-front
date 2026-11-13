@@ -74,17 +74,17 @@ export function UpgradePlanModal({
           </svg>
         </div>
 
-        <h2 className="text-center text-base font-black text-[#1E2A28] mb-2">{resolvedTitle}</h2>
-        <p className="text-center text-sm text-[#384B43] leading-7 mb-4">{resolvedMessage}</p>
+        <h2 className="text-center text-base font-black text-[#0D0F23] mb-2">{resolvedTitle}</h2>
+        <p className="text-center text-sm text-[#3B3F5C] leading-7 mb-4">{resolvedMessage}</p>
 
         {features.length > 0 && (
           <div className="mb-6">
             <p className="text-center text-xs font-bold text-emerald-600 mb-3">
               {t("billing.upgrade.unlockTitle")}
             </p>
-            <ul className="space-y-2 rounded-xl bg-[#FBFAF6] border border-[#DAD5C7] p-4">
+            <ul className="space-y-2 rounded-xl bg-[#FAFAFE] border border-[#E4E5F0] p-4">
               {features.map((f, i) => (
-                <li key={i} className="flex items-start gap-2 text-sm text-[#1E2A28]">
+                <li key={i} className="flex items-start gap-2 text-sm text-[#0D0F23]">
                   <span className="mt-0.5 flex h-5 w-5 flex-shrink-0 items-center justify-center rounded-full bg-emerald-100 text-emerald-600">
                     <svg className="h-3.5 w-3.5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                       <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={3} d="M4.5 12.75l6 6 9-13.5" />
@@ -108,7 +108,7 @@ export function UpgradePlanModal({
           <button
             type="button"
             onClick={onClose}
-            className="w-full rounded-xl border border-[#DAD5C7] text-[#384B43] text-sm font-bold py-2.5 hover:bg-[#FBFAF6] transition-all"
+            className="w-full rounded-xl border border-[#E4E5F0] text-[#3B3F5C] text-sm font-bold py-2.5 hover:bg-[#FAFAFE] transition-all"
           >
             {t("billing.upgrade.later")}
           </button>

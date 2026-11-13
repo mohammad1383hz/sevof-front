@@ -67,10 +67,10 @@ function ConversationMessage({
         className="flex justify-end mb-4 animate-in fade-in slide-in-from-bottom-2 duration-300"
       >
         <div className="max-w-2xl">
-          <div className="rounded-3xl rounded-se-lg bg-gradient-to-br rtl:bg-gradient-to-bl from-[#1B6F63] to-[#14564C] px-5 py-4 text-white shadow-lg shadow-[#1B6F63]/20">
+          <div className="rounded-3xl rounded-se-lg bg-gradient-to-br rtl:bg-gradient-to-bl from-[#5B47FB] to-[#4935E0] px-5 py-4 text-white shadow-lg shadow-[#5B47FB]/20">
             <div className="flex items-center gap-2">
               <UserIcon />
-              <span className="text-xs font-bold text-[#DCEFEA]">{message.label || t("analyze.chat.yourRequest")}</span>
+              <span className="text-xs font-bold text-[#EFEDFF]">{message.label || t("analyze.chat.yourRequest")}</span>
             </div>
             <p className="mt-2 whitespace-pre-wrap text-sm leading-7">{message.message}</p>
             {message.pending && (
@@ -80,9 +80,9 @@ function ConversationMessage({
                 className="mt-3 inline-flex items-center gap-2 rounded-2xl border border-white/15 bg-white/10 px-3 py-2 text-xs font-bold text-[#E9F6F2]"
               >
                 <span className="inline-flex items-center gap-1" aria-hidden="true">
-                  <span className="h-1.5 w-1.5 animate-bounce rounded-full bg-[#DCEFEA] [animation-delay:-0.2s]" />
-                  <span className="h-1.5 w-1.5 animate-bounce rounded-full bg-[#DCEFEA] [animation-delay:-0.1s]" />
-                  <span className="h-1.5 w-1.5 animate-bounce rounded-full bg-[#DCEFEA]" />
+                  <span className="h-1.5 w-1.5 animate-bounce rounded-full bg-[#EFEDFF] [animation-delay:-0.2s]" />
+                  <span className="h-1.5 w-1.5 animate-bounce rounded-full bg-[#EFEDFF] [animation-delay:-0.1s]" />
+                  <span className="h-1.5 w-1.5 animate-bounce rounded-full bg-[#EFEDFF]" />
                 </span>
                 <span>{t("analyze.chat.preparingIdeas")}</span>
               </div>
@@ -105,15 +105,15 @@ function ConversationMessage({
       data-entity-request={isSelection && !disabled ? "true" : undefined}
       className="scroll-mt-4 mb-5 flex items-start gap-3 animate-in fade-in slide-in-from-bottom-2 duration-300"
     >
-      <div className="mt-0.5 flex h-9 w-9 shrink-0 items-center justify-center rounded-2xl bg-gradient-to-br rtl:bg-gradient-to-bl from-[#1B6F63] to-[#14564C] text-white shadow-md shadow-[#1B6F63]/20">
+      <div className="mt-0.5 flex h-9 w-9 shrink-0 items-center justify-center rounded-2xl bg-gradient-to-br rtl:bg-gradient-to-bl from-[#5B47FB] to-[#4935E0] text-white shadow-md shadow-[#5B47FB]/20">
         <AssistantIcon />
       </div>
-      <div className={`min-w-0 max-w-3xl flex-1 overflow-hidden rounded-3xl rounded-ss-lg border shadow-sm ${isError ? "border-[#E3C4BC] bg-[#F7EEEA]" : isArticle ? "border-[#B8D7CF] bg-gradient-to-br rtl:bg-gradient-to-bl from-[#F7FCFA] to-[#E8F4F0]" : "border-[#DAD5C7]/80 bg-[#FBFAF6]"}`}>
-        <div className="border-b border-[#DAD5C7]/70 px-5 py-3">
-          <p className={`text-xs font-black ${isError ? "text-[#B3453A]" : isArticle ? "text-[#1B6F63]" : "text-[#14564C]"}`}>{isArticle ? t("analyze.chat.articleHeader") : t("analyze.chat.assistant")}</p>
+      <div className={`min-w-0 max-w-3xl flex-1 overflow-hidden rounded-3xl rounded-ss-lg border shadow-sm ${isError ? "border-[#E3C4BC] bg-[#F7EEEA]" : isArticle ? "border-[#C8C0FF] bg-gradient-to-br rtl:bg-gradient-to-bl from-[#F7FCFA] to-[#E8F4F0]" : "border-[#E4E5F0]/80 bg-[#FAFAFE]"}`}>
+        <div className="border-b border-[#E4E5F0]/70 px-5 py-3">
+          <p className={`text-xs font-black ${isError ? "text-[#B3453A]" : isArticle ? "text-[#5B47FB]" : "text-[#4935E0]"}`}>{isArticle ? t("analyze.chat.articleHeader") : t("analyze.chat.assistant")}</p>
         </div>
         <div className="p-5">
-          <p className={`whitespace-pre-wrap text-sm leading-7 ${isError ? "text-[#8C332B]" : "text-[#384B43]"}`}>{message.message}</p>
+          <p className={`whitespace-pre-wrap text-sm leading-7 ${isError ? "text-[#8C332B]" : "text-[#3B3F5C]"}`}>{message.message}</p>
 
           {isSelection && message.options && message.options.length > 0 && (
             <div className={`mt-4 grid gap-2.5 sm:grid-cols-2 ${disabled ? "opacity-60" : ""}`}>
@@ -129,18 +129,18 @@ function ConversationMessage({
                     aria-pressed={active}
                     className={`text-start rounded-2xl border px-4 py-3 transition-all ${disabled ? "cursor-not-allowed" : ""} ${
                       active
-                        ? "border-[#1B6F63] bg-[#DCEFEA] text-[#14564C] shadow-md shadow-[#1B6F63]/10"
-                        : "border-[#DAD5C7] bg-white text-[#384B43] hover:border-[#1B6F63]/70 hover:bg-[#F5FBF8]"
+                        ? "border-[#5B47FB] bg-[#EFEDFF] text-[#4935E0] shadow-md shadow-[#5B47FB]/10"
+                        : "border-[#E4E5F0] bg-white text-[#3B3F5C] hover:border-[#5B47FB]/70 hover:bg-[#F7F6FF]"
                     }`}
                   >
                     <div className="flex items-start justify-between gap-2">
                       <span className="text-sm font-black">{option.name}</span>
                       {active && (
-                        <span className="mt-0.5 inline-flex h-5 w-5 shrink-0 items-center justify-center rounded-full border border-[#1B6F63] bg-[#1B6F63] text-[11px] text-white">✓</span>
+                        <span className="mt-0.5 inline-flex h-5 w-5 shrink-0 items-center justify-center rounded-full border border-[#5B47FB] bg-[#5B47FB] text-[11px] text-white">✓</span>
                       )}
                     </div>
                     {option.description && (
-                      <p className="mt-1 line-clamp-1 text-xs leading-5 text-[#7D8882]">{option.description}</p>
+                      <p className="mt-1 line-clamp-1 text-xs leading-5 text-[#7D819F]">{option.description}</p>
                     )}
                   </button>
                 );
@@ -149,10 +149,10 @@ function ConversationMessage({
           )}
 
           {message.kind === "confirmation" && message.entity && (
-            <div className="mt-4 flex items-center gap-2 rounded-xl border border-[#B8D7CF] bg-[#F0F8F5] px-3 py-2">
+            <div className="mt-4 flex items-center gap-2 rounded-xl border border-[#C8C0FF] bg-[#F5F4FF] px-3 py-2">
               <CheckIcon />
-              <p className="text-xs font-bold text-[#14564C]">
-                {tx("analyze.chat.selectedEntity", { name: <span className="font-black text-[#1B6F63]">{message.entity.name}</span> })}
+              <p className="text-xs font-bold text-[#4935E0]">
+                {tx("analyze.chat.selectedEntity", { name: <span className="font-black text-[#5B47FB]">{message.entity.name}</span> })}
               </p>
             </div>
           )}
@@ -163,7 +163,7 @@ function ConversationMessage({
 }
 
 function UserIcon() {
-  return <svg className="h-4 w-4 shrink-0 text-[#DCEFEA]" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.7} d="M15.75 6.75a3.75 3.75 0 11-7.5 0 3.75 3.75 0 017.5 0zM4.5 20.25a7.5 7.5 0 0115 0" /></svg>;
+  return <svg className="h-4 w-4 shrink-0 text-[#EFEDFF]" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.7} d="M15.75 6.75a3.75 3.75 0 11-7.5 0 3.75 3.75 0 017.5 0zM4.5 20.25a7.5 7.5 0 0115 0" /></svg>;
 }
 
 function AssistantIcon() {
@@ -171,5 +171,5 @@ function AssistantIcon() {
 }
 
 function CheckIcon() {
-  return <svg className="h-4 w-4 shrink-0 text-[#1B6F63]" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.8} d="M5 12.75l4.25 4.25L19 7.25" /></svg>;
+  return <svg className="h-4 w-4 shrink-0 text-[#5B47FB]" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.8} d="M5 12.75l4.25 4.25L19 7.25" /></svg>;
 }

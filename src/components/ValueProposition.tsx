@@ -167,7 +167,7 @@ const ValueProposition: React.FC = () => {
           <h2
             key={li}
             ref={li === lines.length - 1 ? lastLineRef : undefined}
-            className="text-[24px] md:text-[44px] leading-[40px] md:leading-[56px] font-bold text-[#1E2A28]"
+            className="text-[24px] md:text-[44px] leading-[40px] md:leading-[56px] font-bold text-[#0D0F23]"
           >
             {words.map((w, wi) => {
               const i = counter++;

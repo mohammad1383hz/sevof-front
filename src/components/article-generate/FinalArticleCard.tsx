@@ -27,7 +27,7 @@ interface FinalArticleCardProps {
   isFreePlan: boolean;
 }
 
-const HEADING_CLASS = "text-base sm:text-xl font-black text-[#1E2A28] leading-7 sm:leading-8";
+const HEADING_CLASS = "text-base sm:text-xl font-black text-[#0D0F23] leading-7 sm:leading-8";
 
 /* ─────────────────────────────────────────────────────────
    تصاویر گالری (بک‌اند به هر سکشن، در صورت وجود، یک آرایه‌ی
@@ -101,7 +101,7 @@ const DragHandle: React.FC<{
       onDragStart(e);
     }}
     title={title ?? t("article.final.dragToChat")}
-    className={`inline-flex shrink-0 cursor-grab select-none items-center gap-1.5 rounded-lg border border-[#1B6F63]/25 bg-[#DCEFEA] px-2 py-1.5 text-[#1B6F63] shadow-sm transition-colors hover:border-[#1B6F63]/50 hover:bg-[#CBE0DA] active:cursor-grabbing active:bg-[#CBE0DA] ${className}`}
+    className={`inline-flex shrink-0 cursor-grab select-none items-center gap-1.5 rounded-lg border border-[#5B47FB]/25 bg-[#EFEDFF] px-2 py-1.5 text-[#5B47FB] shadow-sm transition-colors hover:border-[#5B47FB]/50 hover:bg-[#D9D4FF] active:cursor-grabbing active:bg-[#D9D4FF] ${className}`}
   >
     <svg width="13" height="13" viewBox="0 0 20 20" fill="currentColor">
       <circle cx="6" cy="4" r="1.7" />
@@ -125,23 +125,23 @@ const GeneratingSectionBlock: React.FC<{ section: ArticleSection; index: number;
     <div
       className={`rounded-xl border px-3 py-2.5 sm:px-4 sm:py-3 transition-colors ${
         section.status === "generated"
-          ? "border-[#DAD5C7] bg-white"
+          ? "border-[#E4E5F0] bg-white"
           : isActive
-          ? "border-[#1B6F63]/40 bg-[#DCEFEA]/40"
-          : "border-[#DAD5C7]/60 bg-[#EFEDE6]/60"
+          ? "border-[#5B47FB]/40 bg-[#EFEDFF]/40"
+          : "border-[#E4E5F0]/60 bg-[#F3F2FB]/60"
       }`}
     >
       <div className="flex items-center justify-between gap-2 mb-1.5">
-        <span className="text-[10px] sm:text-[11px] font-bold text-[#9BA69F]">
+        <span className="text-[10px] sm:text-[11px] font-bold text-[#9A9DB8]">
           {t("article.final.section", { index: index + 1 })}
         </span>
         {section.status !== "generated" && isActive && (
-          <span className="inline-flex items-center gap-1.5 text-[10px] sm:text-[11px] font-bold text-[#1B6F63]">
+          <span className="inline-flex items-center gap-1.5 text-[10px] sm:text-[11px] font-bold text-[#5B47FB]">
             <Spinner className="h-3.5 w-3.5" /> {t("analyze.ideasBar.generating")}
           </span>
         )}
         {section.status !== "generated" && !isActive && (
-          <span className="text-[10px] sm:text-[11px] font-bold text-[#9BA69F]">{t("article.final.waiting")}</span>
+          <span className="text-[10px] sm:text-[11px] font-bold text-[#9A9DB8]">{t("article.final.waiting")}</span>
         )}
       </div>
 
@@ -149,7 +149,7 @@ const GeneratingSectionBlock: React.FC<{ section: ArticleSection; index: number;
         <div className="section-appear select-text">
           {section.type === "faq" ? (
             <div className="space-y-3">
-              <h4 className="text-sm font-black text-[#1E2A28]">{section.heading}</h4>
+              <h4 className="text-sm font-black text-[#0D0F23]">{section.heading}</h4>
               <FaqAccordion items={parseFaqMarkdown(section.content)} />
             </div>
           ) : (
@@ -162,9 +162,9 @@ const GeneratingSectionBlock: React.FC<{ section: ArticleSection; index: number;
         </p>
       ) : (
         <div className="space-y-1.5 py-1">
-          <div className="h-2.5 w-3/4 rounded-full bg-[#DAD5C7]/70 animate-pulse" />
-          <div className="h-2.5 w-full rounded-full bg-[#DAD5C7]/50 animate-pulse" />
-          <div className="h-2.5 w-2/3 rounded-full bg-[#DAD5C7]/50 animate-pulse" />
+          <div className="h-2.5 w-3/4 rounded-full bg-[#E4E5F0]/70 animate-pulse" />
+          <div className="h-2.5 w-full rounded-full bg-[#E4E5F0]/50 animate-pulse" />
+          <div className="h-2.5 w-2/3 rounded-full bg-[#E4E5F0]/50 animate-pulse" />
         </div>
       )}
     </div>
@@ -195,7 +195,7 @@ const HeadingAndBodyEditor: React.FC<{
         value={heading}
         onChange={(e) => onHeadingChange(e.target.value)}
         placeholder={t("article.final.sectionTitle")}
-        className={`w-full rounded-lg border border-[#DAD5C7] px-3 py-2 sm:px-3.5 sm:py-2.5 focus:border-[#1B6F63] focus:outline-none ${HEADING_CLASS}`}
+        className={`w-full rounded-lg border border-[#E4E5F0] px-3 py-2 sm:px-3.5 sm:py-2.5 focus:border-[#5B47FB] focus:outline-none ${HEADING_CLASS}`}
       />
       <RichMarkdownEditor
         key={editorKey}
@@ -347,9 +347,9 @@ export const FinalArticleCard: React.FC<FinalArticleCardProps> = ({
   if (isGenerating) {
     if (sections.length === 0) {
       return (
-        <div className="rounded-2xl border border-[#DAD5C7] bg-white p-3.5 sm:p-5">
-          <h3 className="text-xs sm:text-sm font-black text-[#1E2A28] mb-2.5 sm:mb-3">📝 {t("article.final.article")}</h3>
-          <div className="flex items-center gap-2 text-[11px] sm:text-xs text-[#9BA69F] py-2">
+        <div className="rounded-2xl border border-[#E4E5F0] bg-white p-3.5 sm:p-5">
+          <h3 className="text-xs sm:text-sm font-black text-[#0D0F23] mb-2.5 sm:mb-3">📝 {t("article.final.article")}</h3>
+          <div className="flex items-center gap-2 text-[11px] sm:text-xs text-[#9A9DB8] py-2">
             <Spinner />
             {t("article.sections.designing")}
           </div>
@@ -360,7 +360,7 @@ export const FinalArticleCard: React.FC<FinalArticleCardProps> = ({
     const activeId = sections.find((s) => s.status === "pending")?.id ?? null;
 
     return (
-      <div className="rounded-2xl border border-[#DAD5C7] bg-white p-3.5 sm:p-5">
+      <div className="rounded-2xl border border-[#E4E5F0] bg-white p-3.5 sm:p-5">
         <style>{`
           @keyframes sectionAppear {
             from { opacity: 0; transform: translateY(6px); }
@@ -369,8 +369,8 @@ export const FinalArticleCard: React.FC<FinalArticleCardProps> = ({
           .section-appear { animation: sectionAppear .5s ease-out; }
         `}</style>
         <div className="flex items-center justify-between mb-3 sm:mb-4">
-          <h3 className="text-xs sm:text-sm font-black text-[#1E2A28]">📝 {t("article.final.article")}</h3>
-          <span className="text-[10px] sm:text-[11px] font-bold text-[#000000]">
+          <h3 className="text-xs sm:text-sm font-black text-[#0D0F23]">📝 {t("article.final.article")}</h3>
+          <span className="text-[10px] sm:text-[11px] font-bold text-[#0D0F23]">
             {t("article.sections.progress", { done: sections.filter((s) => s.status === "generated").length, total: sections.length })}
           </span>
         </div>
@@ -400,8 +400,8 @@ export const FinalArticleCard: React.FC<FinalArticleCardProps> = ({
     if (sections.length === 0) return null;
 
     return (
-      <div className="rounded-2xl border border-[#DAD5C7] bg-white p-3.5 sm:p-5">
-        <h3 className="text-xs sm:text-sm font-black text-[#1E2A28] mb-3 sm:mb-4">📝 {t("article.sections.title")}</h3>
+      <div className="rounded-2xl border border-[#E4E5F0] bg-white p-3.5 sm:p-5">
+        <h3 className="text-xs sm:text-sm font-black text-[#0D0F23] mb-3 sm:mb-4">📝 {t("article.sections.title")}</h3>
         <div className="space-y-2">
           {sections.map((s, idx) => (
             <React.Fragment key={s.id}>
@@ -490,15 +490,15 @@ const copy = async () => {
   return (
     <div
       className={`rounded-2xl border-2 p-3.5 sm:p-5 transition-colors ${
-        isGeneralSelected ? "border-[#1B6F63] bg-[#DCEFEA]/40" : "border-[#1B6F63]/25 bg-white"
+        isGeneralSelected ? "border-[#5B47FB] bg-[#EFEDFF]/40" : "border-[#5B47FB]/25 bg-white"
       }`}
     >
       <div className="flex items-center justify-between mb-3 sm:mb-4 flex-wrap gap-2">
         <div className="flex items-center gap-2">
-          <span className="flex h-6 w-6 sm:h-7 sm:w-7 items-center justify-center rounded-full bg-[#1B6F63] text-white">
+          <span className="flex h-6 w-6 sm:h-7 sm:w-7 items-center justify-center rounded-full bg-[#5B47FB] text-white">
             <CheckIcon />
           </span>
-          <h3 className="text-xs sm:text-sm font-black text-[#1E2A28]">{t("article.final.ready")}</h3>
+          <h3 className="text-xs sm:text-sm font-black text-[#0D0F23]">{t("article.final.ready")}</h3>
         </div>
 
         {!editingGeneral && (
@@ -517,7 +517,7 @@ const copy = async () => {
             <button
               type="button"
               onClick={() => onSelectTarget(targetFromField("general", article))}
-              className="flex-1 rounded-xl px-2 py-2 text-[10px] sm:text-[11px] font-bold text-[#1B6F63] hover:bg-[#DCEFEA] sm:flex-none sm:px-3"
+              className="flex-1 rounded-xl px-2 py-2 text-[10px] sm:text-[11px] font-bold text-[#5B47FB] hover:bg-[#EFEDFF] sm:flex-none sm:px-3"
             >
               <span className="sm:hidden">💬 {t("article.actions.chat")}</span>
               <span className="hidden sm:inline">💬 {t("article.final.chatArticle")}</span>
@@ -526,7 +526,7 @@ const copy = async () => {
             <button
               type="button"
               onClick={startEditGeneral}
-              className="flex-1 rounded-xl border border-[#DAD5C7] px-2 py-2 text-[10px] sm:text-[11px] font-bold text-[#000000] hover:border-[#1B6F63]/50 hover:text-[#1B6F63] sm:flex-none sm:px-3"
+              className="flex-1 rounded-xl border border-[#E4E5F0] px-2 py-2 text-[10px] sm:text-[11px] font-bold text-[#0D0F23] hover:border-[#5B47FB]/50 hover:text-[#5B47FB] sm:flex-none sm:px-3"
             >
               <span className="sm:hidden">✏️ {t("analyze.idea.editShort")}</span>
               <span className="hidden sm:inline">✏️ {t("article.final.editArticle")}</span>
@@ -535,7 +535,7 @@ const copy = async () => {
             <button
               type="button"
               onClick={copy}
-              className="flex-1 inline-flex items-center justify-center gap-1.5 rounded-xl bg-[#1E2A28] px-2 py-2 text-[10px] sm:text-[11px] font-bold text-white hover:bg-[#3D453F] transition-colors sm:flex-none sm:px-4"
+              className="flex-1 inline-flex items-center justify-center gap-1.5 rounded-xl bg-[#0D0F23] px-2 py-2 text-[10px] sm:text-[11px] font-bold text-white hover:bg-[#3B3F5C] transition-colors sm:flex-none sm:px-4"
             >
               {copied ? `✓ ${t("developer.keys.copied")}` : (
                 <>
@@ -552,8 +552,8 @@ const copy = async () => {
                 aria-expanded={showImages}
                 className={`flex-1 rounded-xl border px-2 py-2 text-[10px] sm:text-[11px] font-bold transition-colors sm:flex-none sm:px-3 ${
                   showImages
-                    ? "border-[#1B6F63] bg-[#DCEFEA] text-[#1B6F63]"
-                    : "border-[#DAD5C7] text-[#000000] hover:border-[#1B6F63]/50 hover:text-[#1B6F63]"
+                    ? "border-[#5B47FB] bg-[#EFEDFF] text-[#5B47FB]"
+                    : "border-[#E4E5F0] text-[#0D0F23] hover:border-[#5B47FB]/50 hover:text-[#5B47FB]"
                 }`}
               >
                 <span className="sm:hidden">🖼️ {t("growth.images.short")}</span>
@@ -575,7 +575,7 @@ const copy = async () => {
               type="button"
               onClick={() => setEditingGeneral(false)}
               disabled={savingGeneral}
-              className="rounded-xl px-3 py-1.5 sm:px-4 sm:py-2 text-[10px] sm:text-[11px] font-bold text-[#000000] hover:bg-[#F4F2EC]"
+              className="rounded-xl px-3 py-1.5 sm:px-4 sm:py-2 text-[10px] sm:text-[11px] font-bold text-[#0D0F23] hover:bg-[#F6F6FB]"
             >
               {t("common.actions.cancel")}
             </button>
@@ -583,7 +583,7 @@ const copy = async () => {
               type="button"
               onClick={saveGeneral}
               disabled={savingGeneral}
-              className="inline-flex items-center gap-1.5 rounded-xl bg-[#1B6F63] px-3 py-1.5 sm:px-4 sm:py-2 text-[10px] sm:text-[11px] font-bold text-white hover:bg-[#14564C] disabled:opacity-50"
+              className="inline-flex items-center gap-1.5 rounded-xl bg-[#5B47FB] px-3 py-1.5 sm:px-4 sm:py-2 text-[10px] sm:text-[11px] font-bold text-white hover:bg-[#4935E0] disabled:opacity-50"
             >
               {savingGeneral ? <Spinner className="h-3.5 w-3.5" /> : t("article.actions.save")}
             </button>
@@ -723,18 +723,18 @@ const SectionBlock: React.FC<SectionBlockProps> = ({
     <div
       className={`rounded-xl border transition-colors ${
         isSelected
-          ? "border-[#1B6F63]/40 bg-[#DCEFEA]/40"
+          ? "border-[#5B47FB]/40 bg-[#EFEDFF]/40"
           : section.status === "failed"
           ? "border-rose-200 bg-rose-50/30"
-          : "border-[#DAD5C7] bg-white"
+          : "border-[#E4E5F0] bg-white"
       }`}
     >
       <div className="w-full flex items-center gap-1.5 sm:gap-2 px-3 py-2 sm:px-4 sm:py-2.5">
         <button type="button" onClick={onToggle} className="flex flex-1 items-center gap-2 sm:gap-2.5 text-start min-w-0">
-          <span className="flex h-4.5 w-4.5 sm:h-5 sm:w-5 items-center justify-center rounded-full bg-[#EFEDE6] text-[9px] sm:text-[10px] font-black text-[#000000] shrink-0">
+          <span className="flex h-4.5 w-4.5 sm:h-5 sm:w-5 items-center justify-center rounded-full bg-[#F3F2FB] text-[9px] sm:text-[10px] font-black text-[#0D0F23] shrink-0">
             {isFaqSection ? "❓" : (index + 1).toLocaleString(getLocale())}
           </span>
-          <span className="text-[10px] sm:text-[11px] font-bold text-[#9BA69F]">
+          <span className="text-[10px] sm:text-[11px] font-bold text-[#9A9DB8]">
             {isFaqSection ? t("article.sectionType.faq") : t("article.final.section", { index: index + 1 })}
           </span>
         </button>
@@ -754,7 +754,7 @@ const SectionBlock: React.FC<SectionBlockProps> = ({
 
         <button type="button" onClick={onToggle}>
           <svg
-            className={`h-4 w-4 text-[#9BA69F] shrink-0 transition-transform ${isOpen ? "rotate-180" : ""}`}
+            className={`h-4 w-4 text-[#9A9DB8] shrink-0 transition-transform ${isOpen ? "rotate-180" : ""}`}
             viewBox="0 0 20 20"
             fill="currentColor"
           >
@@ -774,7 +774,7 @@ const SectionBlock: React.FC<SectionBlockProps> = ({
       )}
 
       {isOpen && section.content && (
-        <div className="border-t border-[#DAD5C7]/70 px-3 py-3 sm:px-4 sm:py-4">
+        <div className="border-t border-[#E4E5F0]/70 px-3 py-3 sm:px-4 sm:py-4">
           {isEditing ? (
             <div className="space-y-3">
               <HeadingAndBodyEditor
@@ -791,7 +791,7 @@ const SectionBlock: React.FC<SectionBlockProps> = ({
                   type="button"
                   onClick={() => setEditingSectionId(null)}
                   disabled={savingSection}
-                  className="rounded-lg px-3 py-1.5 text-[10px] sm:text-[11px] font-bold text-[#000000] hover:bg-[#F4F2EC]"
+                  className="rounded-lg px-3 py-1.5 text-[10px] sm:text-[11px] font-bold text-[#0D0F23] hover:bg-[#F6F6FB]"
                 >
                   {t("common.actions.cancel")}
                 </button>
@@ -799,7 +799,7 @@ const SectionBlock: React.FC<SectionBlockProps> = ({
                   type="button"
                   onClick={saveEdit}
                   disabled={savingSection}
-                  className="inline-flex items-center gap-1.5 rounded-lg bg-[#1B6F63] px-3 py-1.5 text-[10px] sm:text-[11px] font-bold text-white hover:bg-[#14564C] disabled:opacity-50"
+                  className="inline-flex items-center gap-1.5 rounded-lg bg-[#5B47FB] px-3 py-1.5 text-[10px] sm:text-[11px] font-bold text-white hover:bg-[#4935E0] disabled:opacity-50"
                 >
                   {savingSection ? <Spinner className="h-3 w-3" /> : t("article.actions.save")}
                 </button>
@@ -810,7 +810,7 @@ const SectionBlock: React.FC<SectionBlockProps> = ({
               <div className="select-text">
                 {isFaqSection ? (
                   <div className="space-y-3">
-                    <h4 className="text-sm sm:text-base font-black text-[#1E2A28]">{section.heading}</h4>
+                    <h4 className="text-sm sm:text-base font-black text-[#0D0F23]">{section.heading}</h4>
                     <FaqAccordion items={parseFaqMarkdown(section.content ?? "")} />
                   </div>
                 ) : (
@@ -825,8 +825,8 @@ const SectionBlock: React.FC<SectionBlockProps> = ({
                     onClick={() => onSelectTarget(targetFromSection(section))}
                     className={`rounded-xl border px-2.5 py-1.5 sm:px-3 text-[10px] sm:text-[11px] font-bold transition-colors ${
                       isSelected
-                        ? "border-[#1B6F63]/40 bg-[#DCEFEA] text-[#1B6F63]"
-                        : "border-[#DAD5C7] text-[#000000] hover:border-[#1B6F63]/40 hover:text-[#1B6F63]"
+                        ? "border-[#5B47FB]/40 bg-[#EFEDFF] text-[#5B47FB]"
+                        : "border-[#E4E5F0] text-[#0D0F23] hover:border-[#5B47FB]/40 hover:text-[#5B47FB]"
                     }`}
                   >
                     {sectionActionLabel ?? t("article.actions.chat")}
@@ -834,7 +834,7 @@ const SectionBlock: React.FC<SectionBlockProps> = ({
                   <button
                     type="button"
                     onClick={startEdit}
-                    className="rounded-xl border border-[#DAD5C7] px-2.5 py-1.5 sm:px-3 text-[10px] sm:text-[11px] font-bold text-[#000000] hover:border-[#1B6F63]/40 hover:text-[#1B6F63] transition-colors"
+                    className="rounded-xl border border-[#E4E5F0] px-2.5 py-1.5 sm:px-3 text-[10px] sm:text-[11px] font-bold text-[#0D0F23] hover:border-[#5B47FB]/40 hover:text-[#5B47FB] transition-colors"
                   >
                     {t("article.sections.editManually")}
                   </button>

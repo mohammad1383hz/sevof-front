@@ -133,9 +133,9 @@ export const BannerCard: React.FC<BannerCardProps> = ({ siteId, article, onArtic
 
   if (!bannerStatus || bannerStatus === "pending" || bannerStatus === "generating") {
     return (
-      <div className="rounded-2xl border border-[#DAD5C7] bg-white p-3.5 sm:p-5">
-        <h3 className="text-xs sm:text-sm font-black text-[#1E2A28] mb-2.5 sm:mb-3">🖼️ {t("article.banner.title")}</h3>
-        <div className="flex items-center gap-2 text-[11px] sm:text-xs text-[#9BA69F] py-2">
+      <div className="rounded-2xl border border-[#E4E5F0] bg-white p-3.5 sm:p-5">
+        <h3 className="text-xs sm:text-sm font-black text-[#0D0F23] mb-2.5 sm:mb-3">🖼️ {t("article.banner.title")}</h3>
+        <div className="flex items-center gap-2 text-[11px] sm:text-xs text-[#9A9DB8] py-2">
           <Spinner />
           {t("article.banner.designing")}
         </div>
@@ -147,12 +147,12 @@ export const BannerCard: React.FC<BannerCardProps> = ({ siteId, article, onArtic
     return (
       <div className="rounded-2xl border border-rose-200 bg-rose-50/30 p-3.5 sm:p-5">
         <div className="flex items-center justify-between gap-2 mb-2">
-          <h3 className="text-xs sm:text-sm font-black text-[#1E2A28]">🖼️ {t("article.banner.title")}</h3>
+          <h3 className="text-xs sm:text-sm font-black text-[#0D0F23]">🖼️ {t("article.banner.title")}</h3>
           <button
             type="button"
             onClick={handleRegenerate}
             disabled={regenerating}
-            className="rounded-lg border border-[#DAD5C7] px-2.5 py-1.5 text-[10px] font-bold text-[#000000] hover:border-[#1B6F63]/50 hover:text-[#1B6F63] disabled:opacity-50"
+            className="rounded-lg border border-[#E4E5F0] px-2.5 py-1.5 text-[10px] font-bold text-[#0D0F23] hover:border-[#5B47FB]/50 hover:text-[#5B47FB] disabled:opacity-50"
           >
             {regenerating ? <Spinner className="h-3 w-3" /> : t("billing.payment.tryAgain")}
           </button>
@@ -168,14 +168,14 @@ export const BannerCard: React.FC<BannerCardProps> = ({ siteId, article, onArtic
   if (bannerStatus !== "generated" || !banner?.html) return null;
 
   return (
-    <div className="rounded-2xl border border-[#DAD5C7] bg-white p-3.5 sm:p-5">
+    <div className="rounded-2xl border border-[#E4E5F0] bg-white p-3.5 sm:p-5">
       <div className="flex items-center justify-between gap-2 mb-2.5">
-        <h3 className="text-xs sm:text-sm font-black text-[#1E2A28]">🖼️ {t("article.banner.title")}</h3>
+        <h3 className="text-xs sm:text-sm font-black text-[#0D0F23]">🖼️ {t("article.banner.title")}</h3>
         <button
           type="button"
           onClick={handleRegenerate}
           disabled={regenerating}
-          className="inline-flex items-center gap-1.5 rounded-lg border border-[#DAD5C7] px-2.5 py-1.5 text-[10px] font-bold text-[#000000] hover:border-[#1B6F63]/50 hover:text-[#1B6F63] disabled:opacity-50"
+          className="inline-flex items-center gap-1.5 rounded-lg border border-[#E4E5F0] px-2.5 py-1.5 text-[10px] font-bold text-[#0D0F23] hover:border-[#5B47FB]/50 hover:text-[#5B47FB] disabled:opacity-50"
         >
           {regenerating ? <Spinner className="h-3 w-3" /> : ` ${t("article.banner.regenerate")}`}
         </button>

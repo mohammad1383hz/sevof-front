@@ -104,10 +104,10 @@ export function ArticleIdeaCard({
   };
 
   return (
-    <div className="rounded-2xl border border-[#DAD5C7] bg-[#FBFAF6] p-4 hover:shadow-md transition-all duration-300">
+    <div className="rounded-2xl border border-[#E4E5F0] bg-[#FAFAFE] p-4 hover:shadow-md transition-all duration-300">
       {/* Title row */}
       <div className="flex items-start justify-between gap-3 mb-2 flex-wrap">
-        <h3 className="text-sm font-black text-[#1E2A28] leading-6 flex-1">{idea.title}</h3>
+        <h3 className="text-sm font-black text-[#0D0F23] leading-6 flex-1">{idea.title}</h3>
 
         <div className="flex items-center gap-1.5 shrink-0">
           <button
@@ -115,7 +115,7 @@ export function ArticleIdeaCard({
             onClick={startEditing}
             title={t("analyze.idea.edit")}
             aria-label={t("analyze.idea.edit")}
-            className="inline-flex items-center gap-1 h-7 rounded-lg border border-[#DAD5C7] px-2 text-[#1E2A28] font-bold hover:bg-[#DCEFEA] transition-colors"
+            className="inline-flex items-center gap-1 h-7 rounded-lg border border-[#E4E5F0] px-2 text-[#0D0F23] font-bold hover:bg-[#EFEDFF] transition-colors"
           >
             <svg className="w-3.5 h-3.5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
               <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.8} d="M16.862 3.487a2.25 2.25 0 013.182 3.182L8.25 18.463 3.75 19.5l1.037-4.5L16.862 3.487z" />
@@ -127,75 +127,75 @@ export function ArticleIdeaCard({
       </div>
 
       {isEditing && (
-        <form onSubmit={handleEditSubmit} className="mb-4 rounded-2xl border border-[#DAD5C7] bg-white/60 p-4 space-y-5">
+        <form onSubmit={handleEditSubmit} className="mb-4 rounded-2xl border border-[#E4E5F0] bg-white/60 p-4 space-y-5">
           {/* عنوان و هوک */}
           <div className="space-y-3">
-            <label className="block text-xs font-bold text-[#1E2A28]">
+            <label className="block text-xs font-bold text-[#0D0F23]">
               {t("analyze.idea.fields.title")}
               <input
                 value={form.title}
                 onChange={(event) => updateField("title", event.target.value)}
                 required
                 placeholder={t("analyze.idea.fields.titlePlaceholder")}
-                className="mt-1.5 w-full rounded-lg border border-[#DAD5C7] bg-[#FBFAF6] px-3 py-2.5 text-xs font-semibold text-[#1E2A28] outline-none transition-colors focus:border-[#1B6F63] focus:ring-2 focus:ring-[#1B6F63]/10"
+                className="mt-1.5 w-full rounded-lg border border-[#E4E5F0] bg-[#FAFAFE] px-3 py-2.5 text-xs font-semibold text-[#0D0F23] outline-none transition-colors focus:border-[#5B47FB] focus:ring-2 focus:ring-[#5B47FB]/10"
               />
             </label>
 
-            <label className="block text-xs font-bold text-[#1E2A28]">
+            <label className="block text-xs font-bold text-[#0D0F23]">
               {t("analyze.idea.fields.hook")}
               <input
                 value={form.hook}
                 onChange={(event) => updateField("hook", event.target.value)}
                 placeholder={t("analyze.idea.fields.hookPlaceholder")}
-                className="mt-1.5 w-full rounded-lg border border-[#DAD5C7] bg-[#FBFAF6] px-3 py-2 text-xs outline-none transition-colors focus:border-[#1B6F63] focus:ring-2 focus:ring-[#1B6F63]/10"
+                className="mt-1.5 w-full rounded-lg border border-[#E4E5F0] bg-[#FAFAFE] px-3 py-2 text-xs outline-none transition-colors focus:border-[#5B47FB] focus:ring-2 focus:ring-[#5B47FB]/10"
               />
             </label>
 
-            <label className="block text-xs font-bold text-[#1E2A28]">
+            <label className="block text-xs font-bold text-[#0D0F23]">
               {t("analyze.idea.fields.meta")}
               <input
                 value={form.meta_description}
                 onChange={(event) => updateField("meta_description", event.target.value)}
                 placeholder={t("analyze.idea.fields.metaPlaceholder")}
-                className="mt-1.5 w-full rounded-lg border border-[#DAD5C7] bg-[#FBFAF6] px-3 py-2 text-xs outline-none transition-colors focus:border-[#1B6F63] focus:ring-2 focus:ring-[#1B6F63]/10"
+                className="mt-1.5 w-full rounded-lg border border-[#E4E5F0] bg-[#FAFAFE] px-3 py-2 text-xs outline-none transition-colors focus:border-[#5B47FB] focus:ring-2 focus:ring-[#5B47FB]/10"
               />
             </label>
           </div>
 
           {/* برچسب‌ها */}
-          <label className="block text-xs font-bold text-[#1E2A28]">
-            {t("analyze.idea.fields.tags")} <span className="font-normal text-[#000000]/50">{t("analyze.idea.fields.tagsHint")}</span>
+          <label className="block text-xs font-bold text-[#0D0F23]">
+            {t("analyze.idea.fields.tags")} <span className="font-normal text-[#0D0F23]/50">{t("analyze.idea.fields.tagsHint")}</span>
             <input
               value={form.tags_input}
               onChange={(event) => updateField("tags_input", event.target.value)}
               placeholder={t("analyze.idea.fields.tagsPlaceholder")}
-              className="mt-1.5 w-full rounded-lg border border-[#DAD5C7] bg-[#FBFAF6] px-3 py-2 text-xs outline-none transition-colors focus:border-[#1B6F63] focus:ring-2 focus:ring-[#1B6F63]/10"
+              className="mt-1.5 w-full rounded-lg border border-[#E4E5F0] bg-[#FAFAFE] px-3 py-2 text-xs outline-none transition-colors focus:border-[#5B47FB] focus:ring-2 focus:ring-[#5B47FB]/10"
             />
           </label>
 
           {/* لینک‌های داخلی */}
-          <div className="rounded-xl border border-[#DAD5C7] bg-[#FBFAF6] p-3">
-            <p className="mb-2.5 flex items-center gap-1.5 text-xs font-bold text-[#14564C]">
+          <div className="rounded-xl border border-[#E4E5F0] bg-[#FAFAFE] p-3">
+            <p className="mb-2.5 flex items-center gap-1.5 text-xs font-bold text-[#4935E0]">
               🔗 {t("analyze.idea.fields.links")}
             </p>
 
             {/* لینک اصلی */}
-            <div className="mb-2 flex flex-wrap items-center gap-2 rounded-lg border border-[#B9DDD4] bg-[#DCEFEA] px-2.5 py-2">
-              <span className="shrink-0 rounded-md bg-white/60 px-1.5 py-0.5 text-[10px] font-bold text-[#14564C]">
+            <div className="mb-2 flex flex-wrap items-center gap-2 rounded-lg border border-[#C8C0FF] bg-[#EFEDFF] px-2.5 py-2">
+              <span className="shrink-0 rounded-md bg-white/60 px-1.5 py-0.5 text-[10px] font-bold text-[#4935E0]">
                 {t("dashboard.keywords.primary")}
               </span>
               <input
                 value={form.target_url_title}
                 onChange={(event) => updateField("target_url_title", event.target.value)}
                 placeholder={t("analyze.idea.fields.linkTitle")}
-                className="min-w-[120px] flex-1 rounded-md border border-[#B9DDD4] bg-[#FBFAF6] px-2 py-1.5 text-xs outline-none focus:border-[#1B6F63]"
+                className="min-w-[120px] flex-1 rounded-md border border-[#C8C0FF] bg-[#FAFAFE] px-2 py-1.5 text-xs outline-none focus:border-[#5B47FB]"
               />
               <input
                 value={form.target_url}
                 onChange={(event) => updateField("target_url", event.target.value)}
                 placeholder="https://..."
                 dir="ltr"
-                className="min-w-[160px] flex-[1.5] rounded-md border border-[#B9DDD4] bg-[#FBFAF6] px-2 py-1.5 text-start text-xs outline-none focus:border-[#1B6F63]"
+                className="min-w-[160px] flex-[1.5] rounded-md border border-[#C8C0FF] bg-[#FAFAFE] px-2 py-1.5 text-start text-xs outline-none focus:border-[#5B47FB]"
               />
             </div>
 
@@ -203,23 +203,23 @@ export function ArticleIdeaCard({
             {relatedLinks.map((link, index) => (
               <div
                 key={index}
-                className="mb-2 flex flex-wrap items-center gap-2 rounded-lg border border-[#DAD5C7] bg-[#EFEDE6] px-2.5 py-2"
+                className="mb-2 flex flex-wrap items-center gap-2 rounded-lg border border-[#E4E5F0] bg-[#F3F2FB] px-2.5 py-2"
               >
-                <span className="shrink-0 rounded-md bg-white/50 px-1.5 py-0.5 text-[10px] font-bold text-[#000000]/60">
+                <span className="shrink-0 rounded-md bg-white/50 px-1.5 py-0.5 text-[10px] font-bold text-[#0D0F23]/60">
                   {t("analyze.idea.fields.related")}
                 </span>
                 <input
                   value={link.title}
                   onChange={(event) => updateRelatedLink(index, "title", event.target.value)}
                   placeholder={t("analyze.idea.fields.linkTitle")}
-                  className="min-w-[120px] flex-1 rounded-md border border-[#DAD5C7] bg-[#FBFAF6] px-2 py-1.5 text-xs outline-none focus:border-[#1B6F63]"
+                  className="min-w-[120px] flex-1 rounded-md border border-[#E4E5F0] bg-[#FAFAFE] px-2 py-1.5 text-xs outline-none focus:border-[#5B47FB]"
                 />
                 <input
                   value={link.url}
                   onChange={(event) => updateRelatedLink(index, "url", event.target.value)}
                   placeholder="https://..."
                   dir="ltr"
-                  className="min-w-[160px] flex-[1.5] rounded-md border border-[#DAD5C7] bg-[#FBFAF6] px-2 py-1.5 text-start text-xs outline-none focus:border-[#1B6F63]"
+                  className="min-w-[160px] flex-[1.5] rounded-md border border-[#E4E5F0] bg-[#FAFAFE] px-2 py-1.5 text-start text-xs outline-none focus:border-[#5B47FB]"
                 />
                 <button
                   type="button"
@@ -236,38 +236,38 @@ export function ArticleIdeaCard({
             <button
               type="button"
               onClick={addRelatedLink}
-              className="inline-flex items-center gap-1 text-[11px] font-bold text-[#1B6F63] transition-colors hover:text-[#14564C]"
+              className="inline-flex items-center gap-1 text-[11px] font-bold text-[#5B47FB] transition-colors hover:text-[#4935E0]"
             >
               + {t("analyze.idea.fields.addLink")}
             </button>
           </div>
 
           {/* {t("analyze.idea.fields.outline")} */}
-          <label className="block text-xs font-bold text-[#1E2A28]">
-            Outline <span className="font-normal text-[#000000]/50">{t("analyze.idea.fields.outlineHint")}</span>
+          <label className="block text-xs font-bold text-[#0D0F23]">
+            Outline <span className="font-normal text-[#0D0F23]/50">{t("analyze.idea.fields.outlineHint")}</span>
             <textarea
               rows={4}
               value={form.outline}
               onChange={(event) => updateField("outline", event.target.value)}
-              className="mt-1.5 w-full resize-y rounded-lg border border-[#DAD5C7] bg-[#FBFAF6] px-3 py-2 text-xs leading-5 outline-none transition-colors focus:border-[#1B6F63] focus:ring-2 focus:ring-[#1B6F63]/10"
+              className="mt-1.5 w-full resize-y rounded-lg border border-[#E4E5F0] bg-[#FAFAFE] px-3 py-2 text-xs leading-5 outline-none transition-colors focus:border-[#5B47FB] focus:ring-2 focus:ring-[#5B47FB]/10"
             />
           </label>
 
           {editError && <p className="text-xs font-semibold text-[#B3453A]">{editError}</p>}
 
-          <div className="flex items-center justify-end gap-2 border-t border-[#DAD5C7] pt-3">
+          <div className="flex items-center justify-end gap-2 border-t border-[#E4E5F0] pt-3">
             <button
               type="button"
               onClick={() => setIsEditing(false)}
               disabled={saving}
-              className="rounded-lg border border-[#DAD5C7] px-3 py-2 text-xs font-bold text-[#1E2A28] hover:bg-[#FBFAF6] disabled:opacity-50"
+              className="rounded-lg border border-[#E4E5F0] px-3 py-2 text-xs font-bold text-[#0D0F23] hover:bg-[#FAFAFE] disabled:opacity-50"
             >
               {t("common.actions.cancel")}
             </button>
             <button
               type="submit"
               disabled={saving}
-              className="rounded-lg bg-[#1B6F63] px-4 py-2 text-xs font-bold text-white hover:bg-[#14564C] disabled:opacity-50"
+              className="rounded-lg bg-[#5B47FB] px-4 py-2 text-xs font-bold text-white hover:bg-[#4935E0] disabled:opacity-50"
             >
               {saving ? t("common.status.saving") : t("analyze.idea.save")}
             </button>
@@ -275,18 +275,18 @@ export function ArticleIdeaCard({
         </form>
       )}
 
-      {idea.hook && <p className="text-xs text-[#1B6F63] font-medium leading-5 mb-2">{idea.hook}</p>}
-      {idea.meta_description && <p className="text-xs text-[#000000] leading-5 mb-3">{idea.meta_description}</p>}
+      {idea.hook && <p className="text-xs text-[#5B47FB] font-medium leading-5 mb-2">{idea.hook}</p>}
+      {idea.meta_description && <p className="text-xs text-[#0D0F23] leading-5 mb-3">{idea.meta_description}</p>}
 
       {/* Entity badge */}
       <div className="flex items-center gap-2 mb-3 flex-wrap">
         <span className={`text-[11px] font-bold px-2.5 py-1 rounded-full ${
-          idea.entity.scope === "primary" ? "bg-[#DCEFEA] text-[#14564C]" : "bg-[#EFEDE6] text-[#000000]"
+          idea.entity.scope === "primary" ? "bg-[#EFEDFF] text-[#4935E0]" : "bg-[#F3F2FB] text-[#0D0F23]"
         }`}>
           {idea.entity.name}
         </span>
         {idea.entity.type && (
-          <span className="text-[11px] text-[#000000]/70 border border-[#DAD5C7] rounded-full px-2 py-0.5">
+          <span className="text-[11px] text-[#0D0F23]/70 border border-[#E4E5F0] rounded-full px-2 py-0.5">
             {idea.entity.type}
           </span>
         )}
@@ -306,7 +306,7 @@ export function ArticleIdeaCard({
     {idea.tags?.map((tag) => (
       <span
         key={tag.id}
-        className="text-[11px] font-medium px-2 py-0.5 rounded-full bg-[#EFEDE6] text-[#000000]/70 border border-[#DAD5C7]"
+        className="text-[11px] font-medium px-2 py-0.5 rounded-full bg-[#F3F2FB] text-[#0D0F23]/70 border border-[#E4E5F0]"
       >
         #{tag.name}
       </span>
@@ -318,8 +318,8 @@ export function ArticleIdeaCard({
       {idea.outline?.length > 0 && (
         <ul className="space-y-1 mb-3">
           {idea.outline.map((o, i) => (
-            <li key={i} className="text-xs text-[#000000] flex items-start gap-2">
-              <span className="mt-1.5 h-1 w-1 rounded-full bg-[#DAD5C7] shrink-0" />
+            <li key={i} className="text-xs text-[#0D0F23] flex items-start gap-2">
+              <span className="mt-1.5 h-1 w-1 rounded-full bg-[#E4E5F0] shrink-0" />
               {o}
             </li>
           ))}
@@ -328,14 +328,14 @@ export function ArticleIdeaCard({
 
       {/* Score breakdown */}
       {isScored && showBreakdown && breakdown && (
-        <div className="mb-3 rounded-xl bg-[#EFEDE6] border border-[#DAD5C7] p-3 space-y-2.5">
+        <div className="mb-3 rounded-xl bg-[#F3F2FB] border border-[#E4E5F0] p-3 space-y-2.5">
           {breakdown.entity_relevance && <ScoreRow label={t("analyze.idea.score.entity")} data={breakdown.entity_relevance} />}
           {breakdown.search_intent && <ScoreRow label={t("analyze.idea.score.intent")} data={breakdown.search_intent} extra={breakdown.search_intent.detected_intent} />}
           {breakdown.business_value && <ScoreRow label={t("analyze.idea.score.business")} data={breakdown.business_value} />}
           {breakdown.serp_opportunity && <ScoreRow label={t("analyze.idea.score.serp")} data={breakdown.serp_opportunity} />}
           {breakdown.overall_recommendation && (
-            <p className="text-xs text-[#000000] leading-5 pt-1.5 border-t border-[#DAD5C7]">
-              <strong className="text-[#1E2A28]">{t("analyze.idea.score.summary")} </strong>
+            <p className="text-xs text-[#0D0F23] leading-5 pt-1.5 border-t border-[#E4E5F0]">
+              <strong className="text-[#0D0F23]">{t("analyze.idea.score.summary")} </strong>
               {breakdown.overall_recommendation}
             </p>
           )}
@@ -366,14 +366,14 @@ export function ArticleIdeaCard({
   return (
     <>
       <div className="flex items-center gap-1.5 flex-wrap">
-        <span className="text-xs font-bold text-[#14564C] shrink-0">🔗 {t("analyze.idea.linksLabel")}</span>
+        <span className="text-xs font-bold text-[#4935E0] shrink-0">🔗 {t("analyze.idea.linksLabel")}</span>
         {allLinks.map((link) => (
           <a
             key={link.key}
             href={link.url}
             target="_blank"
             rel="noreferrer"
-            className="inline-flex items-center text-xs text-[#14564C] font-semibold bg-[#DCEFEA] rounded-lg px-2.5 py-1.5"
+            className="inline-flex items-center text-xs text-[#4935E0] font-semibold bg-[#EFEDFF] rounded-lg px-2.5 py-1.5"
           >
             {link.title}
           </a>
@@ -386,13 +386,13 @@ export function ArticleIdeaCard({
   );
 })()}
       {/* دکمه تولید مقاله / مشاهده مقاله */}
-      <div className="mt-3 pt-3 border-t border-[#DAD5C7] flex justify-end">
+      <div className="mt-3 pt-3 border-t border-[#E4E5F0] flex justify-end">
         {hasArticle ? (
           <button
             type="button"
             onClick={onViewArticle}
             title={t("analyze.idea.viewArticleHint")}
-            className="inline-flex items-center gap-1.5 rounded-xl text-xs font-bold px-4 py-2 transition-all duration-300 bg-[#DCEFEA] text-[#14564C] hover:bg-[#c9e6df] shadow-none"
+            className="inline-flex items-center gap-1.5 rounded-xl text-xs font-bold px-4 py-2 transition-all duration-300 bg-[#EFEDFF] text-[#4935E0] hover:bg-[#DDD8FF] shadow-none"
           >
             {t("analyze.idea.viewArticle")}
             <svg className="w-3.5 h-3.5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
@@ -408,8 +408,8 @@ export function ArticleIdeaCard({
             title={isGenerating ? t("analyze.idea.generatingHint") : undefined}
             className={`inline-flex items-center gap-1.5 rounded-xl text-xs font-bold px-4 py-2 transition-all duration-300 ${
               isGenerating
-                ? "bg-[#EFEDE6] text-[#9BA69F] cursor-not-allowed shadow-none"
-                : "bg-gradient-to-r rtl:bg-gradient-to-l from-[#1B6F63] to-[#14564C] text-white hover:from-[#1F8073] hover:to-[#1B6F63] shadow-md shadow-[#1B6F63]/20"
+                ? "bg-[#F3F2FB] text-[#9A9DB8] cursor-not-allowed shadow-none"
+                : "bg-gradient-to-r rtl:bg-gradient-to-l from-[#5B47FB] to-[#4935E0] text-white hover:from-[#6C5BFF] hover:to-[#5B47FB] shadow-md shadow-[#5B47FB]/20"
             }`}
           >
             {isGenerating ? t("analyze.ideasBar.generating") : t("dashboard.opportunities.generate")}

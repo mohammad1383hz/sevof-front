@@ -19,7 +19,7 @@ export const InternalLinksBadge: React.FC<{ audit: SeoAudit }> = ({ audit }) => 
   if (!audit.audited || !audit.internal_links) return null;
   const enough = audit.recommended_links === null || audit.internal_links >= audit.recommended_links;
   return (
-    <span className={enough ? "text-[#14564C]" : "text-[#B3453A]"}>
+    <span className={enough ? "text-[#4935E0]" : "text-[#B3453A]"}>
       {t("growth.audit.internalLinks", { count: audit.internal_links })}{!enough && audit.recommended_links ? ` (${t("growth.audit.suggested", { count: fa(audit.recommended_links) })})` : ""}
     </span>
   );
@@ -29,7 +29,7 @@ export const InternalLinksBadge: React.FC<{ audit: SeoAudit }> = ({ audit }) => 
 export const SeoIssueList: React.FC<{ audit: SeoAudit; compact?: boolean }> = ({ audit, compact }) => {
   if (audit.issues.length === 0) {
     return compact ? null : (
-      <p className="text-xs leading-6 text-[#14564C]">
+      <p className="text-xs leading-6 text-[#4935E0]">
         {audit.audited ? t("growth.audit.clean") : t("growth.audit.notAudited")}
       </p>
     );
@@ -50,7 +50,7 @@ export const SeoIssueList: React.FC<{ audit: SeoAudit; compact?: boolean }> = ({
   return (
     <ul className="space-y-2">
       {audit.issues.map((i) => (
-        <li key={i.code} className="text-[11px] leading-5 text-[#384B43]">
+        <li key={i.code} className="text-[11px] leading-5 text-[#3B3F5C]">
           <span className={`ml-1 rounded-full px-2 py-0.5 font-bold ${SEVERITY_CLS[i.severity]}`}>{i.label}</span>
           {i.detail}
         </li>
@@ -63,20 +63,20 @@ export const SeoIssueList: React.FC<{ audit: SeoAudit; compact?: boolean }> = ({
 export const NewLinksList: React.FC<{ links: RefreshNewLink[]; onShow?: (n: number) => void }> = ({ links, onShow }) => {
   if (links.length === 0) return null;
   return (
-    <div className="rounded-2xl border border-[#DAD5C7] bg-white p-4">
-      <h3 className="mb-2 text-xs font-black text-[#1E2A28]">{t("growth.audit.newLinks", { count: fa(links.length) })}</h3>
+    <div className="rounded-2xl border border-[#E4E5F0] bg-white p-4">
+      <h3 className="mb-2 text-xs font-black text-[#0D0F23]">{t("growth.audit.newLinks", { count: fa(links.length) })}</h3>
       <ul className="space-y-2">
         {links.map((l) => (
-          <li key={`${l.n}-${l.url}`} className="rounded-xl border border-[#DAD5C7]/70 p-2.5 text-[11px] leading-5">
+          <li key={`${l.n}-${l.url}`} className="rounded-xl border border-[#E4E5F0]/70 p-2.5 text-[11px] leading-5">
             <button type="button" onClick={() => onShow?.(l.n)} className="w-full text-right" disabled={!onShow}>
-              <span className="font-bold text-[#1B6F63]">«{l.anchor}»</span>
-              <span className="text-[#6B7A73]"> ← {l.title}</span>
+              <span className="font-bold text-[#5B47FB]">«{l.anchor}»</span>
+              <span className="text-[#6C7193]"> ← {l.title}</span>
             </button>
-            <span className="mt-0.5 flex items-center justify-between gap-2 text-[10px] text-[#9BA69F]">
+            <span className="mt-0.5 flex items-center justify-between gap-2 text-[10px] text-[#9A9DB8]">
               <span>
                 {KIND_LABEL[l.kind]} · {t("growth.audit.change", { n: fa(l.n) })}
               </span>
-              <a href={l.url} target="_blank" rel="noopener noreferrer" className="truncate hover:text-[#1B6F63]" dir="ltr">
+              <a href={l.url} target="_blank" rel="noopener noreferrer" className="truncate hover:text-[#5B47FB]" dir="ltr">
                 {l.url.replace(/^https?:\/\//, "")}
               </a>
             </span>

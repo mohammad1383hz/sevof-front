@@ -81,7 +81,7 @@ const SubmitButton: React.FC<{
   <button
     type="submit"
     disabled={loading}
-    className="w-full rounded bg-[#1B6F63] text-white text-sm font-bold py-2.5 min-h-[44px] hover:bg-[#14564C] transition-colors disabled:opacity-60 disabled:cursor-not-allowed shadow-sm focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[#1B6F63]"
+    className="w-full rounded bg-[#5B47FB] text-white text-sm font-bold py-2.5 min-h-[44px] hover:bg-[#4935E0] transition-colors disabled:opacity-60 disabled:cursor-not-allowed shadow-sm focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[#5B47FB]"
   >
     {loading ? busy : idle}
   </button>
@@ -93,23 +93,23 @@ const StepHeading: React.FC<{
   children: React.ReactNode;
 }> = ({ eyebrow, title, children }) => (
   <>
-    <p className="text-[#1B6F63] text-center font-semibold mb-2 text-xs font-mono">
+    <p className="text-[#5B47FB] text-center font-semibold mb-2 text-xs font-mono">
       {eyebrow}
     </p>
-    <h1 className="text-base text-center sm:text-lg font-bold text-[#1E2A28] mb-1">
+    <h1 className="text-base text-center sm:text-lg font-bold text-[#0D0F23] mb-1">
       {title}
     </h1>
-    <p className="text-xs text-center sm:text-sm text-[#3D453F] mb-4 sm:mb-6">
+    <p className="text-xs text-center sm:text-sm text-[#3B3F5C] mb-4 sm:mb-6">
       {children}
     </p>
   </>
 );
 
 const inputBase =
-  "w-full rounded border border-[#DAD5C7] bg-[#FBFAF6] px-3 sm:px-3.5 text-[#1E2A28] focus:outline-none focus:ring-2 focus:ring-[#1B6F63]/40 focus:border-[#1B6F63] read-only:opacity-70 read-only:cursor-not-allowed";
+  "w-full rounded border border-[#E4E5F0] bg-[#FAFAFE] px-3 sm:px-3.5 text-[#0D0F23] focus:outline-none focus:ring-2 focus:ring-[#5B47FB]/40 focus:border-[#5B47FB] read-only:opacity-70 read-only:cursor-not-allowed";
 // ورودی‌ها dir="ltr" هستند؛ text-start باعث می‌شود متن راهنما در صفحه‌ی راست‌به‌چپ، راست‌چین بماند
-const textInput = `${inputBase} py-2.5 text-sm text-start placeholder:text-[#9BA69F]`;
-const labelCls = "block text-sm font-medium text-[#3D453F] mb-1.5";
+const textInput = `${inputBase} py-2.5 text-sm text-start placeholder:text-[#9A9DB8]`;
+const labelCls = "block text-sm font-medium text-[#3B3F5C] mb-1.5";
 
 /* ────────────────────────────────────────────────────────────────────────────
  * بخش ۳: سه قدم تا شروع
@@ -123,7 +123,7 @@ const getSteps = () => [
 
 const StepsSection: React.FC<{ onStart: () => void }> = ({ onStart }) => (
   <section id="how" className="relative z-10 mx-auto max-w-[1100px] px-6 pb-4 pt-6 sm:px-8 sm:pt-8" aria-labelledby="steps-title">
-    <h2 id="steps-title" className="mb-6 text-center text-xl font-bold text-[#1E2A28] sm:text-2xl md:mb-8">
+    <h2 id="steps-title" className="mb-6 text-center text-xl font-bold text-[#0D0F23] sm:text-2xl md:mb-8">
       {t("landing.steps.title")}
     </h2>
 
@@ -140,10 +140,10 @@ const StepsSection: React.FC<{ onStart: () => void }> = ({ onStart }) => (
             />
           </div>
           <div className="space-y-2">
-            <h3 className="text-base font-bold text-[#1E2A28] sm:text-lg">
+            <h3 className="text-base font-bold text-[#0D0F23] sm:text-lg">
               {formatNumber(s.n)}. {s.title}
             </h3>
-            <p className="text-sm leading-7 text-[#5B645E]">{s.text}</p>
+            <p className="text-sm leading-7 text-[#5A5F80]">{s.text}</p>
           </div>
         </li>
       ))}
@@ -153,7 +153,7 @@ const StepsSection: React.FC<{ onStart: () => void }> = ({ onStart }) => (
       <button
         type="button"
         onClick={onStart}
-        className="rounded-full bg-[#1B6F63] px-8 py-3 text-sm font-bold text-white shadow-sm transition-colors hover:bg-[#14564C] focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[#1B6F63]"
+        className="rounded-full bg-[#5B47FB] px-8 py-3 text-sm font-bold text-white shadow-sm transition-colors hover:bg-[#4935E0] focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[#5B47FB]"
       >
         {t("landing.steps.cta")}
       </button>
@@ -351,16 +351,16 @@ const LoginPage: React.FC<LoginPageProps> = ({ onLogin }) => {
   };
 
   const resendLabel = cooldown > 0 ? t("auth.otp.resendIn", { seconds: cooldown }) : t("auth.otp.resend");
-  const linkBtn = "text-[#3D453F] hover:text-[#1B6F63] transition-colors disabled:opacity-60 disabled:cursor-not-allowed";
+  const linkBtn = "text-[#3B3F5C] hover:text-[#5B47FB] transition-colors disabled:opacity-60 disabled:cursor-not-allowed";
   const resendBtn =
-    "text-[#1B6F63] hover:text-[#14564C] disabled:text-[#9BA69F] disabled:cursor-not-allowed transition-colors";
+    "text-[#5B47FB] hover:text-[#4935E0] disabled:text-[#9A9DB8] disabled:cursor-not-allowed transition-colors";
   const ltrValue = (value: string) => (
-    <span dir="ltr" className="font-medium text-[#1E2A28]">{value}</span>
+    <span dir="ltr" className="font-medium text-[#0D0F23]">{value}</span>
   );
 
   return (
-    <div className="relative min-h-screen bg-[#EFEDE6] text-[#1E2A28] selection:bg-[#CBE0DA] selection:text-[#1E2A28]">
-      <div className="fixed inset-0 opacity-50 pointer-events-none bg-[radial-gradient(ellipse_at_top,_var(--tw-gradient-stops))] from-[#E3DFD1] via-[#EFEDE6] to-[#F9F8F3]" />
+    <div className="relative min-h-screen bg-[#F3F2FB] text-[#0D0F23] selection:bg-[#D9D4FF] selection:text-[#0D0F23]">
+      <div className="fixed inset-0 opacity-50 pointer-events-none bg-[radial-gradient(ellipse_at_top,_var(--tw-gradient-stops))] from-[#E6E5F1] via-[#F3F2FB] to-[#FAFAFE]" />
 
       {/* انتخاب زبان — در موبایل در یک ردیف جدا بالای لوگو، تا روی آن نیفتد */}
       <div className="relative z-20 flex justify-end px-4 pt-4 sm:absolute sm:end-4 sm:top-4 sm:p-0">
@@ -371,11 +371,11 @@ const LoginPage: React.FC<LoginPageProps> = ({ onLogin }) => {
       <header className="relative z-10 flex flex-col items-center px-4 pb-2 pt-3 sm:pt-12">
           <div className="w-full max-w-sm">
             <div className="mb-4 flex items-center justify-center gap-2">
-              <img src="/logo.png" alt="Sevof" className="h-8 w-8 sm:h-9 sm:w-9 object-contain" />
-              <span className="text-2xl font-bold text-[#1B6F63] tracking-tighter">Sevof</span>
+              <img src="/logo.svg" alt="Sevof" className="h-8 w-8 sm:h-9 sm:w-9 object-contain" />
+              <span className="text-2xl font-bold text-[#5B47FB] tracking-tighter">Sevof</span>
             </div>
 
-            <div className="bg-[#FBFAF6] rounded-2xl shadow-md ring-1 ring-black/[0.03] border border-[#DAD5C7] p-5 sm:p-7">
+            <div className="bg-[#FAFAFE] rounded-2xl shadow-md ring-1 ring-black/[0.03] border border-[#E4E5F0] p-5 sm:p-7">
               {step === "email" && (
                 <>
                   {GOOGLE_CLIENT_ID && (
@@ -385,14 +385,14 @@ const LoginPage: React.FC<LoginPageProps> = ({ onLogin }) => {
                           <div ref={googleBtnRef} />
                         </div>
                         {googleLoading && (
-                          <p className="text-center text-xs text-[#5B645E] mt-2">{t("auth.login.googleSigningIn")}</p>
+                          <p className="text-center text-xs text-[#5A5F80] mt-2">{t("auth.login.googleSigningIn")}</p>
                         )}
                       </div>
 
                       <div className="flex items-center gap-3 mb-5" aria-hidden="true">
-                        <div className="h-px flex-1 bg-[#DAD5C7]" />
-                        <span className="text-xs text-[#5B645E]">{t("landing.or")}</span>
-                        <div className="h-px flex-1 bg-[#DAD5C7]" />
+                        <div className="h-px flex-1 bg-[#E4E5F0]" />
+                        <span className="text-xs text-[#5A5F80]">{t("landing.or")}</span>
+                        <div className="h-px flex-1 bg-[#E4E5F0]" />
                       </div>
                     </>
                   )}
@@ -510,7 +510,7 @@ const LoginPage: React.FC<LoginPageProps> = ({ onLogin }) => {
         <ValueProposition />
       </main>
 
-      <footer className="relative z-10 border-t border-[#DAD5C7] px-4 py-6 text-center text-xs text-[#5B645E]">
+      <footer className="relative z-10 border-t border-[#E4E5F0] px-4 py-6 text-center text-xs text-[#5A5F80]">
         {t("landing.footer", { year: String(new Date().getFullYear()) })}
       </footer>
     </div>

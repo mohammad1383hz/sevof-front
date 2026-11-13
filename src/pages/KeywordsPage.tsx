@@ -95,14 +95,14 @@ const toKeywordRows = (
 
 // const TrendIcon: React.FC<{ trend: KeywordRow["trend"] }> = ({ trend }) => {
 //   if (trend === "up")
-//     return <TrendingUp size={14} className="text-[#1B6F63] inline" />;
+//     return <TrendingUp size={14} className="text-[#5B47FB] inline" />;
 //   if (trend === "down")
 //     return <TrendingDown size={14} className="text-rose-500 inline" />;
-//   return <Minus size={14} className="text-[#9BA69F] inline" />;
+//   return <Minus size={14} className="text-[#9A9DB8] inline" />;
 // };
 
 const difficultyStyles: Record<KeywordRow["difficulty"], string> = {
-  Low: "bg-[#DCEFEA] text-[#1B6F63]",
+  Low: "bg-[#EFEDFF] text-[#5B47FB]",
   Medium: "bg-[#EDE3CF] text-[#B08D57]",
   High: "bg-rose-50 text-rose-500",
   Unknown: "bg-slate-100 text-slate-500",
@@ -181,7 +181,7 @@ const KeywordsPage: React.FC = () => {
       render: (value, row) => (
         <span className="inline-flex items-center gap-2">
           {(row as KeywordRow).is_primary && (
-            <span className="text-[10px] font-black rounded-full px-2 py-0.5 bg-[#1B6F63]/10 text-[#1B6F63]">
+            <span className="text-[10px] font-black rounded-full px-2 py-0.5 bg-[#5B47FB]/10 text-[#5B47FB]">
               {t("dashboard.keywords.primary")}
             </span>
           )}
@@ -257,7 +257,7 @@ const KeywordsPage: React.FC = () => {
           <button
             type="button"
             onClick={() => navigate(`/sites/${siteId}/dashboard`)}
-            className="text-xs font-black text-[#1B6F63] border border-[#1B6F63]/30 bg-[#DCEFEA] rounded-lg px-3 py-2 hover:bg-[#c9e6df] transition-colors"
+            className="text-xs font-black text-[#5B47FB] border border-[#5B47FB]/30 bg-[#EFEDFF] rounded-lg px-3 py-2 hover:bg-[#DDD8FF] transition-colors"
           >
             {t("billing.payment.backToDashboard")}
           </button>

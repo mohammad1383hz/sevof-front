@@ -33,7 +33,7 @@ const statusStyles: Record<
   ArticleRow["status"],
   { label: string; cls: string }
 > = {
-  published: { label: "dashboard.publishStatus.published", cls: "bg-[#DCEFEA] text-[#1B6F63]" },
+  published: { label: "dashboard.publishStatus.published", cls: "bg-[#EFEDFF] text-[#5B47FB]" },
   draft: { label: "dashboard.publishStatus.draft", cls: "bg-[#EDE3CF] text-[#B08D57]" },
 };
 
@@ -129,7 +129,7 @@ const ArticlesWrittenPage: React.FC = () => {
           <button
             type="button"
             onClick={() => navigate(`/sites/${siteId}/dashboard`)}
-            className="text-xs font-black text-[#1B6F63] border border-[#1B6F63]/30 bg-[#DCEFEA] rounded-lg px-3 py-2 hover:bg-[#c9e6df] transition-colors"
+            className="text-xs font-black text-[#5B47FB] border border-[#5B47FB]/30 bg-[#EFEDFF] rounded-lg px-3 py-2 hover:bg-[#DDD8FF] transition-colors"
           >
             {t("billing.payment.backToDashboard")}
           </button>

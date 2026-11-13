@@ -889,12 +889,12 @@ const ideaGenLimitReached = isFreePlan
 const creditLimitBanner = (
   <span>
     {tx("analyze.credits.banner", {
-      still: <span className="font-bold text-[#1B6F63]">{t("analyze.credits.bannerStill")}</span>,
+      still: <span className="font-bold text-[#5B47FB]">{t("analyze.credits.bannerStill")}</span>,
     })}
     {" "}
     <Link
       to="/subscription"
-      className="font-black text-[#1B6F63] underline underline-offset-2 hover:text-[#14564C]"
+      className="font-black text-[#5B47FB] underline underline-offset-2 hover:text-[#4935E0]"
     >
       {t("analyze.credits.viewPlans")}
     </Link>
@@ -1889,8 +1889,8 @@ const viewArticleForIdea = (idea: ArticleIdea) => {
               disabled={!chatNavCanUp}
               title={t("analyze.nav.previous")}
               aria-label={t("analyze.nav.previous")}
-              className={`flex h-7 w-7 items-center justify-center rounded-full border border-[#DAD5C7] bg-white/90 shadow-sm backdrop-blur transition-colors ${
-                chatNavCanUp ? "text-[#384B43] hover:bg-white cursor-pointer" : "text-[#B9C0BB] opacity-50 cursor-not-allowed"
+              className={`flex h-7 w-7 items-center justify-center rounded-full border border-[#E4E5F0] bg-white/90 shadow-sm backdrop-blur transition-colors ${
+                chatNavCanUp ? "text-[#3B3F5C] hover:bg-white cursor-pointer" : "text-[#B6B8CE] opacity-50 cursor-not-allowed"
               }`}
             >
               <svg className="h-3.5 w-3.5" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true">
@@ -1903,8 +1903,8 @@ const viewArticleForIdea = (idea: ArticleIdea) => {
               disabled={!chatNavCanDown}
               title={t("analyze.nav.next")}
               aria-label={t("analyze.nav.next")}
-              className={`flex h-7 w-7 items-center justify-center rounded-full border border-[#DAD5C7] bg-white/90 shadow-sm backdrop-blur transition-colors ${
-                chatNavCanDown ? "text-[#384B43] hover:bg-white cursor-pointer" : "text-[#B9C0BB] opacity-50 cursor-not-allowed"
+              className={`flex h-7 w-7 items-center justify-center rounded-full border border-[#E4E5F0] bg-white/90 shadow-sm backdrop-blur transition-colors ${
+                chatNavCanDown ? "text-[#3B3F5C] hover:bg-white cursor-pointer" : "text-[#B6B8CE] opacity-50 cursor-not-allowed"
               }`}
             >
               <svg className="h-3.5 w-3.5" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true">
@@ -1926,7 +1926,7 @@ const viewArticleForIdea = (idea: ArticleIdea) => {
             {/* Empty / welcome state */}
             {bootstrapping ? (
               <div className="flex items-center justify-center h-full py-24">
-                <div className="h-6 w-6 border-2 border-[#DAD5C7] border-t-[#1B6F63] rounded-full animate-spin" />
+                <div className="h-6 w-6 border-2 border-[#E4E5F0] border-t-[#5B47FB] rounded-full animate-spin" />
               </div>
             ) : (
               phase === "idle" && <EmptyState />
@@ -1948,9 +1948,9 @@ const viewArticleForIdea = (idea: ArticleIdea) => {
                         <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.5} d="M12 9v3.75m9-.75a9 9 0 11-18 0 9 9 0 0118 0zm-9 3.75h.008v.008H12v-.008z" />
                       </svg>
                     </div>
-                    <div className="flex-1 bg-[#FBFAF6] rounded-3xl rounded-ss-lg border border-[#E3C4BC] p-5 shadow-sm">
+                    <div className="flex-1 bg-[#FAFAFE] rounded-3xl rounded-ss-lg border border-[#E3C4BC] p-5 shadow-sm">
                       <p className="text-sm font-bold text-[#B3453A] mb-1">{t("analyze.failed")}</p>
-                      <p className="text-xs text-[#000000] leading-6 mb-3">
+                      <p className="text-xs text-[#0D0F23] leading-6 mb-3">
                         {site.error_message || t("common.errors.generic")}
                       </p>
                       <button
@@ -2000,27 +2000,27 @@ const viewArticleForIdea = (idea: ArticleIdea) => {
                           </div>
                         )}
                         {sessionLoading && !chatSession && (
-                          <div className="mb-4 rounded-2xl border border-[#DAD5C7] bg-[#FBFAF6] px-4 py-3 text-xs font-bold text-[#65716B]">
+                          <div className="mb-4 rounded-2xl border border-[#E4E5F0] bg-[#FAFAFE] px-4 py-3 text-xs font-bold text-[#6C7193]">
                             {t("analyze.chat.preparing")}
                           </div>
                         )}
 
                         {!showSiteAnalysis && !sessionLoading && conversationMessages.length === 0 && (
                           <div className="flex flex-col items-center justify-center text-center py-16 px-6">
-                            <div className="h-14 w-14 rounded-3xl bg-gradient-to-br rtl:bg-gradient-to-bl from-[#1B6F63] to-[#14564C] flex items-center justify-center text-white mb-5 shadow-xl shadow-[#1B6F63]/25">
+                            <div className="h-14 w-14 rounded-3xl bg-gradient-to-br rtl:bg-gradient-to-bl from-[#5B47FB] to-[#4935E0] flex items-center justify-center text-white mb-5 shadow-xl shadow-[#5B47FB]/25">
                               <svg className="w-7 h-7" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true">
                                 <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.5} d="M12 3.75l1.55 4.7a2.7 2.7 0 001.7 1.7l4.7 1.55-4.7 1.55a2.7 2.7 0 00-1.7 1.7L12 19.65l-1.55-4.7a2.7 2.7 0 00-1.7-1.7l-4.7-1.55 4.7-1.55a2.7 2.7 0 001.7-1.7L12 3.75z" />
                               </svg>
                             </div>
-                            <h3 className="text-lg font-black text-[#1E2A28] mb-2">
+                            <h3 className="text-lg font-black text-[#0D0F23] mb-2">
                               {t("analyze.welcome.title", { domain: site.domain })}
                             </h3>
-                            {/* <p className="text-sm text-[#000000] leading-7 max-w-md">
+                            {/* <p className="text-sm text-[#0D0F23] leading-7 max-w-md">
                               کل محتوا، حوزه فعالیت و Entity‌های این سایت بررسی شده است.
                               هر سوالی درباره استراتژی محتوا، کلمات کلیدی، ایده مقاله یا تحلیل رقبا دارید، همین‌جا بپرسید.
                             </p> */}
-                            <p className="text-sm leading-7 text-[#384B43] font-bold">
-  {tx("analyze.welcome.hello", { domain: <span className="font-black text-[#1B6F63]">{site.domain}</span> })}
+                            <p className="text-sm leading-7 text-[#3B3F5C] font-bold">
+  {tx("analyze.welcome.hello", { domain: <span className="font-black text-[#5B47FB]">{site.domain}</span> })}
   <br />
   {t("analyze.welcome.what")}
   <br />
@@ -2030,7 +2030,7 @@ const viewArticleForIdea = (idea: ArticleIdea) => {
                         )}
 {/* {!showSiteAnalysis && !sessionLoading && conversationMessages.length === 0 && (
   <div className="flex flex-col items-center justify-center text-center py-16 px-6">
-    <div className="h-20 w-20 rounded-3xl overflow-hidden mb-5 shadow-xl shadow-[#1B6F63]/25">
+    <div className="h-20 w-20 rounded-3xl overflow-hidden mb-5 shadow-xl shadow-[#5B47FB]/25">
       <video
         className="w-full h-full object-cover"
         src="/videos/agent.mp4"
@@ -2043,13 +2043,13 @@ const viewArticleForIdea = (idea: ArticleIdea) => {
       />
     </div>
 
-    <h3 className="text-lg font-black text-[#1E2A28] mb-2">
+    <h3 className="text-lg font-black text-[#0D0F23] mb-2">
       ایجنت سئوی سایت {site.domain}
     </h3>
 
-    <p className="text-sm leading-7 text-[#384B43] font-bold">
+    <p className="text-sm leading-7 text-[#3B3F5C] font-bold">
       سلام! من دستیار سئوی سایت{" "}
-      <span className="font-black text-[#1B6F63]">{site.domain}</span> هستم.
+      <span className="font-black text-[#5B47FB]">{site.domain}</span> هستم.
       <br />
       می‌تونم کلمات کلیدی مهم، فرصت‌های جدید محتوا و رقبات رو بررسی کنم
       و بهت بگم روی چه موضوعاتی کار کنی تا سایتت بهتر رشد کنه.
@@ -2106,7 +2106,7 @@ const viewArticleForIdea = (idea: ArticleIdea) => {
 {/* Input bar / Chat-mode action bar */}
 {/* Chat bar */}
 <div className="absolute inset-x-0 bottom-0 z-20 pointer-events-none">
-  <div className="absolute inset-x-0 bottom-0 h-20 bg-gradient-to-t from-[#EFEDE6] via-[#EFEDE6]/95 to-transparent pointer-events-none" />
+  <div className="absolute inset-x-0 bottom-0 h-20 bg-gradient-to-t from-[#F3F2FB] via-[#F3F2FB]/95 to-transparent pointer-events-none" />
 
   <div
     ref={chatBarRef}
@@ -2120,7 +2120,7 @@ const viewArticleForIdea = (idea: ArticleIdea) => {
           type="button"
           onClick={jumpToLatestMessage}
           title={t("analyze.nav.latest")}
-          className="flex items-center gap-1.5 rounded-full border border-[#DAD5C7] bg-white/90 px-3 py-1.5 text-[11px] font-bold text-[#384B43] shadow-sm backdrop-blur transition-colors hover:bg-white"
+          className="flex items-center gap-1.5 rounded-full border border-[#E4E5F0] bg-white/90 px-3 py-1.5 text-[11px] font-bold text-[#3B3F5C] shadow-sm backdrop-blur transition-colors hover:bg-white"
         >
           <svg className="h-3.5 w-3.5" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true">
             <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M19 9l-7 7-7-7" />

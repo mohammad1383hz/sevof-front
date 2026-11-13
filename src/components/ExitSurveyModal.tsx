@@ -82,17 +82,17 @@ const ExitSurveyModal: React.FC<ExitSurveyModalProps> = ({
           /* ---------------- مرحله‌ی اول: پرسیدن دلیل ---------------- */
           <>
             <div className="mb-1 flex items-center justify-between">
-              <h2 className="text-[15px] font-bold text-[#1E2A28]">{t("billing.exitSurvey.title")}</h2>
+              <h2 className="text-[15px] font-bold text-[#0D0F23]">{t("billing.exitSurvey.title")}</h2>
               <button
                 type="button"
                 onClick={onDismiss}
                 aria-label={t("common.actions.close")}
-                className="rounded-full p-1.5 text-[#9BA69F] transition-colors hover:bg-[#F1EFE8]"
+                className="rounded-full p-1.5 text-[#9A9DB8] transition-colors hover:bg-[#F3F3FA]"
               >
                 <XIcon />
               </button>
             </div>
-            <p className="mb-4 text-[12px] font-normal leading-relaxed text-[#6B7570]">
+            <p className="mb-4 text-[12px] font-normal leading-relaxed text-[#6C7193]">
              {t("billing.exitSurvey.question")}
             </p>
 
@@ -103,7 +103,7 @@ const ExitSurveyModal: React.FC<ExitSurveyModalProps> = ({
   type="button"
   disabled={submitting}
   onClick={() => onSubmit(opt.key)}
-  className="flex items-center gap-2.5 rounded-xl border border-[#E3DFD3] bg-white px-3.5 py-3 text-start text-[13px] font-medium text-[#1E2A28] transition-colors hover:border-[#1B6F63] hover:bg-[#F7FBFA] disabled:cursor-not-allowed disabled:opacity-50"
+  className="flex items-center gap-2.5 rounded-xl border border-[#E6E5F1] bg-white px-3.5 py-3 text-start text-[13px] font-medium text-[#0D0F23] transition-colors hover:border-[#5B47FB] hover:bg-[#F7FBFA] disabled:cursor-not-allowed disabled:opacity-50"
 >
   <img src={opt.icon} alt="" className="h-7 w-7 shrink-0 object-contain" />
   {t(opt.labelKey)}
@@ -112,7 +112,7 @@ const ExitSurveyModal: React.FC<ExitSurveyModalProps> = ({
             </div>
 
             {submitting && (
-              <p className="mt-3 text-center text-[11px] font-medium text-[#9BA69F]">
+              <p className="mt-3 text-center text-[11px] font-medium text-[#9A9DB8]">
                 {t("common.status.submitting")}
               </p>
             )}
@@ -120,33 +120,33 @@ const ExitSurveyModal: React.FC<ExitSurveyModalProps> = ({
         ) : (
           /* ---------------- مرحله‌ی دوم: نمایش کد تخفیف ---------------- */
           <div className="text-center">
-            <div className="mx-auto mb-3 flex h-12 w-12 items-center justify-center rounded-full bg-[#DCEFEA] text-2xl">
+            <div className="mx-auto mb-3 flex h-12 w-12 items-center justify-center rounded-full bg-[#EFEDFF] text-2xl">
               🎉
             </div>
-            <h2 className="text-[15px] font-bold text-[#1E2A28]">
+            <h2 className="text-[15px] font-bold text-[#0D0F23]">
               {t("billing.exitSurvey.offerTitle")}
             </h2>
-            <p className="mx-auto mt-1.5 max-w-xs text-[12px] font-normal leading-relaxed text-[#6B7570]">
+            <p className="mx-auto mt-1.5 max-w-xs text-[12px] font-normal leading-relaxed text-[#6C7193]">
               {tx("billing.exitSurvey.offerBody", {
-                percent: <span className="font-bold text-[#1E2A28]">{formatPercent(grantedDiscount.percentage)}</span>,
+                percent: <span className="font-bold text-[#0D0F23]">{formatPercent(grantedDiscount.percentage)}</span>,
               })}
             </p>
 
             <button
               type="button"
               onClick={handleCopy}
-              className="mx-auto mt-4 flex items-center gap-2 rounded-xl border-2 border-dashed border-[#B08D57] bg-[#FBF3E6] px-4 py-2.5 font-mono text-[17px] font-black tracking-[0.2em] text-[#1E2A28] transition-colors hover:bg-[#F5EBD8]"
+              className="mx-auto mt-4 flex items-center gap-2 rounded-xl border-2 border-dashed border-[#B08D57] bg-[#FBF3E6] px-4 py-2.5 font-mono text-[17px] font-black tracking-[0.2em] text-[#0D0F23] transition-colors hover:bg-[#F5EBD8]"
             >
               {grantedDiscount.code}
               <CopyIcon />
             </button>
-            <p className="mt-1.5 h-3.5 text-[10.5px] font-medium text-[#1B6F63]">
+            <p className="mt-1.5 h-3.5 text-[10.5px] font-medium text-[#5B47FB]">
               {copied ? t("billing.discount.copied") : ""}
             </p>
 
             <div
               className={`mt-2 inline-flex items-center gap-1.5 rounded-full px-3.5 py-1.5 text-[12px] font-bold text-white ${
-                secondsLeft <= 60 ? "bg-rose-500" : "bg-[#1E2A28]"
+                secondsLeft <= 60 ? "bg-rose-500" : "bg-[#0D0F23]"
               }`}
             >
               ⏳ {t("billing.discount.timeLeft", { time: formatCountdown(secondsLeft) })}
@@ -155,14 +155,14 @@ const ExitSurveyModal: React.FC<ExitSurveyModalProps> = ({
             <button
               type="button"
               onClick={onContinueWithDiscount}
-              className="mt-6 flex h-11 w-full items-center justify-center rounded-xl bg-[#1B6F63] text-[13px] font-bold text-white transition-colors hover:bg-[#14564C]"
+              className="mt-6 flex h-11 w-full items-center justify-center rounded-xl bg-[#5B47FB] text-[13px] font-bold text-white transition-colors hover:bg-[#4935E0]"
             >
               {t("billing.exitSurvey.stay")}
             </button>
             <button
               type="button"
               onClick={onDismiss}
-              className="mt-1.5 flex h-9 w-full items-center justify-center rounded-xl text-[12px] font-medium text-[#9BA69F] transition-colors hover:text-[#6B7570]"
+              className="mt-1.5 flex h-9 w-full items-center justify-center rounded-xl text-[12px] font-medium text-[#9A9DB8] transition-colors hover:text-[#6C7193]"
             >
               {t("billing.exitSurvey.leave")}
             </button>

@@ -17,33 +17,33 @@ const UserIcon: React.FC<{ className?: string }> = ({ className }) => (
 );
 
 const TrustBadge: React.FC<{ className?: string }> = ({ className = "mb-4 sm:mb-5" }) => {
-  const avatarTints = ["#CBE0DA", "#DAD5C7", "#E3DFD1", "#F4EFE2"];
+  const avatarTints = ["#D9D4FF", "#E4E5F0", "#E6E5F1", "#F4EFE2"];
 
   return (
     <div className={`flex justify-center ${className}`}>
-      <div className="inline-flex items-center gap-3 rounded-full bg-[#FBFAF6] border border-[#DAD5C7] shadow-sm px-4 py-2 sm:px-5 sm:py-2.5">
+      <div className="inline-flex items-center gap-3 rounded-full bg-[#FAFAFE] border border-[#E4E5F0] shadow-sm px-4 py-2 sm:px-5 sm:py-2.5">
         {/* آواتارها روی هم می‌افتند؛ در صفحه‌ی راست‌به‌چپ جهت هم‌پوشانی برعکس می‌شود */}
         <div className="flex -space-x-2.5 rtl:space-x-reverse shrink-0">
           {avatarTints.map((tint, i) => (
             <div
               key={i}
-              className="w-7 h-7 sm:w-8 sm:h-8 rounded-full border-2 border-[#FBFAF6] flex items-center justify-center"
+              className="w-7 h-7 sm:w-8 sm:h-8 rounded-full border-2 border-[#FAFAFE] flex items-center justify-center"
               style={{ backgroundColor: tint }}
             >
-              <UserIcon className="w-3.5 h-3.5 sm:w-4 sm:h-4 text-[#1B6F63]/70" />
+              <UserIcon className="w-3.5 h-3.5 sm:w-4 sm:h-4 text-[#5B47FB]/70" />
             </div>
           ))}
         </div>
-        <div className="h-8 w-px bg-[#DAD5C7] shrink-0" />
+        <div className="h-8 w-px bg-[#E4E5F0] shrink-0" />
         <div className="flex flex-col items-center gap-0.5">
           <div className="flex items-center justify-center gap-0.5" aria-hidden="true">
             {Array.from({ length: 5 }).map((_, i) => (
               <StarIcon key={i} className="w-3 h-3 sm:w-3.5 sm:h-3.5 text-[#B08D57]" />
             ))}
           </div>
-          <p className="text-[11px] sm:text-xs text-[#3D453F] text-center whitespace-nowrap">
+          <p className="text-[11px] sm:text-xs text-[#3B3F5C] text-center whitespace-nowrap">
             {tx("auth.login.trustedBy", {
-              count: <span className="font-bold text-[#1E2A28]">{t("auth.login.trustedCount")}</span>,
+              count: <span className="font-bold text-[#0D0F23]">{t("auth.login.trustedCount")}</span>,
             })}
           </p>
         </div>

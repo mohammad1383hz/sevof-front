@@ -46,7 +46,7 @@ type Msg = { id: string | number; role: "user" | "assistant"; content: string };
 
 const segClass = (active: boolean) =>
   `inline-flex h-9 items-center gap-1.5 rounded-xl px-3 text-xs font-black transition disabled:cursor-not-allowed disabled:opacity-60 ${
-    active ? "bg-white text-[#14564C] shadow-sm" : "text-[#65716B] hover:text-[#1E2A28]"
+    active ? "bg-white text-[#4935E0] shadow-sm" : "text-[#6C7193] hover:text-[#0D0F23]"
   }`;
 
 const ProductSeoPage: React.FC = () => {
@@ -420,7 +420,7 @@ const ProductSeoPage: React.FC = () => {
               <button
                 type="button"
                 onClick={backToIdeas}
-                className="mb-3 inline-flex h-10 items-center gap-1.5 rounded-xl border border-[#DAD5C7] bg-[#FBFAF6] px-4 text-xs font-bold text-[#1E2A28] transition hover:bg-[#EFEDE6] focus-visible:outline focus-visible:outline-2 focus-visible:outline-[#1B6F63]"
+                className="mb-3 inline-flex h-10 items-center gap-1.5 rounded-xl border border-[#E4E5F0] bg-[#FAFAFE] px-4 text-xs font-bold text-[#0D0F23] transition hover:bg-[#F3F2FB] focus-visible:outline focus-visible:outline-2 focus-visible:outline-[#5B47FB]"
               >
                 <span aria-hidden className="inline-block rtl:-scale-x-100">←</span> {t("product.seo.backToIdeas")}
               </button>
@@ -442,7 +442,7 @@ const ProductSeoPage: React.FC = () => {
                 <div className="mx-auto max-w-2xl py-6 text-center sm:py-12">
                   <div
                     aria-hidden
-                    className="mx-auto mb-4 flex h-14 w-14 items-center justify-center rounded-2xl bg-[#DCEFEA] text-[#14564C]"
+                    className="mx-auto mb-4 flex h-14 w-14 items-center justify-center rounded-2xl bg-[#EFEDFF] text-[#4935E0]"
                   >
                     <svg
                       viewBox="0 0 24 24"
@@ -457,10 +457,10 @@ const ProductSeoPage: React.FC = () => {
                     </svg>
                   </div>
 
-                  <h3 className="mb-3 text-lg font-black leading-8 text-[#1E2A28] sm:text-2xl">
+                  <h3 className="mb-3 text-lg font-black leading-8 text-[#0D0F23] sm:text-2xl">
                     {t("product.seo.heroTitle", { store: domain || t("product.seo.yourStore") })}
                   </h3>
-                  <p className="mx-auto max-w-xl text-sm leading-8 text-[#000000] sm:text-base">
+                  <p className="mx-auto max-w-xl text-sm leading-8 text-[#0D0F23] sm:text-base">
                     {t("product.seo.heroBody")}
                   </p>
 
@@ -468,11 +468,11 @@ const ProductSeoPage: React.FC = () => {
                     {BENEFITS.map((b) => (
                       <li
                         key={b.title}
-                        className="flex flex-col items-center rounded-2xl border border-[#DAD5C7] bg-[#FBFAF6] px-2 py-3 text-center sm:items-start sm:px-4 sm:py-4 sm:text-start"
+                        className="flex flex-col items-center rounded-2xl border border-[#E4E5F0] bg-[#FAFAFE] px-2 py-3 text-center sm:items-start sm:px-4 sm:py-4 sm:text-start"
                       >
                         <span
                           aria-hidden
-                          className="mb-1.5 flex h-8 w-8 items-center justify-center rounded-xl bg-[#DCEFEA] text-[#14564C] sm:mb-2 sm:h-9 sm:w-9"
+                          className="mb-1.5 flex h-8 w-8 items-center justify-center rounded-xl bg-[#EFEDFF] text-[#4935E0] sm:mb-2 sm:h-9 sm:w-9"
                         >
                           <svg
                             viewBox="0 0 24 24"
@@ -486,8 +486,8 @@ const ProductSeoPage: React.FC = () => {
                             <path d={b.icon} />
                           </svg>
                         </span>
-                        <p className="text-[11px] font-black leading-5 text-[#1E2A28] sm:text-sm">{b.title}</p>
-                        <p className="mt-1 hidden text-xs leading-6 text-[#65716B] sm:block">{b.text}</p>
+                        <p className="text-[11px] font-black leading-5 text-[#0D0F23] sm:text-sm">{b.title}</p>
+                        <p className="mt-1 hidden text-xs leading-6 text-[#6C7193] sm:block">{b.text}</p>
                       </li>
                     ))}
                   </ul>
@@ -499,8 +499,8 @@ const ProductSeoPage: React.FC = () => {
                   <div
                     className={`max-w-[88%] whitespace-pre-wrap break-words rounded-2xl px-4 py-2.5 text-sm leading-7 sm:max-w-[75%] ${
                       m.role === "user"
-                        ? "rounded-ee-md bg-[#1B6F63] text-white"
-                        : "rounded-es-md border border-[#DAD5C7] bg-[#FBFAF6] text-[#1E2A28]"
+                        ? "rounded-ee-md bg-[#5B47FB] text-white"
+                        : "rounded-es-md border border-[#E4E5F0] bg-[#FAFAFE] text-[#0D0F23]"
                     }`}
                   >
                     {m.content}
@@ -512,14 +512,14 @@ const ProductSeoPage: React.FC = () => {
                 <>
                   <div
                     role="status"
-                    className="flex items-center gap-3 rounded-2xl border border-[#DAD5C7] bg-[#FBFAF6] px-4 py-3 text-xs leading-6 text-[#384B43] sm:text-sm"
+                    className="flex items-center gap-3 rounded-2xl border border-[#E4E5F0] bg-[#FAFAFE] px-4 py-3 text-xs leading-6 text-[#3B3F5C] sm:text-sm"
                   >
-                    <span className="h-4 w-4 shrink-0 animate-spin rounded-full border-2 border-[#1B6F63]/30 border-t-[#1B6F63]" />
+                    <span className="h-4 w-4 shrink-0 animate-spin rounded-full border-2 border-[#5B47FB]/30 border-t-[#5B47FB]" />
                     {t("product.seo.working")}
                   </div>
                   <div className="grid grid-cols-1 gap-4 sm:grid-cols-2 lg:grid-cols-3" aria-hidden>
                     {[0, 1, 2].map((i) => (
-                      <div key={i} className="h-36 animate-pulse rounded-2xl border border-[#DAD5C7] bg-[#EFEDE6]" />
+                      <div key={i} className="h-36 animate-pulse rounded-2xl border border-[#E4E5F0] bg-[#F3F2FB]" />
                     ))}
                   </div>
                 </>
@@ -548,7 +548,7 @@ const ProductSeoPage: React.FC = () => {
                           type="button"
                           onClick={() => setEditingIdea(idea)}
                           disabled={selectingId !== null}
-                          className="inline-flex h-10 w-full items-center justify-center gap-2 rounded-xl border border-[#DAD5C7] bg-[#FBFAF6] text-xs font-bold text-[#1E2A28] transition hover:border-[#1B6F63]/50 hover:bg-[#EFEDE6] focus-visible:outline focus-visible:outline-2 focus-visible:outline-[#1B6F63] disabled:opacity-60"
+                          className="inline-flex h-10 w-full items-center justify-center gap-2 rounded-xl border border-[#E4E5F0] bg-[#FAFAFE] text-xs font-bold text-[#0D0F23] transition hover:border-[#5B47FB]/50 hover:bg-[#F3F2FB] focus-visible:outline focus-visible:outline-2 focus-visible:outline-[#5B47FB] disabled:opacity-60"
                         >
                           <Icon d={ICONS.pencil} className="h-4 w-4" />
                           {t("product.seo.editIdea")}
@@ -565,10 +565,10 @@ const ProductSeoPage: React.FC = () => {
         {/* نوار ورودی فقط در نمای ایده‌ها */}
         {!showArticle && (
           <div className="shrink-0 px-3 pt-4 pb-[max(1rem,env(safe-area-inset-bottom))] sm:px-5 sm:pt-5 sm:pb-4">
-            <div className="mx-auto max-w-4xl rounded-3xl border border-[#DAD5C7] bg-white shadow-sm transition-all focus-within:border-[#1B6F63]/60 focus-within:ring-4 focus-within:ring-[#1B6F63]/10">
+            <div className="mx-auto max-w-4xl rounded-3xl border border-[#E4E5F0] bg-white shadow-sm transition-all focus-within:border-[#5B47FB]/60 focus-within:ring-4 focus-within:ring-[#5B47FB]/10">
               {/* روش انتخاب محصول: خودکار / دستی */}
               <div className="flex flex-wrap items-center gap-x-3 gap-y-2 px-3 pt-3">
-                <div role="group" aria-label={t("product.seo.selectionMethod")} className="inline-flex rounded-2xl bg-[#EFEDE6] p-1">
+                <div role="group" aria-label={t("product.seo.selectionMethod")} className="inline-flex rounded-2xl bg-[#F3F2FB] p-1">
                   <button type="button" onClick={useAutoMode} disabled={busy} aria-pressed={!isManual} className={segClass(!isManual)}>
                     <Icon d={ICONS.sparkles} className="h-4 w-4" />
                     {t("product.seo.auto")}
@@ -583,13 +583,13 @@ const ProductSeoPage: React.FC = () => {
                     <Icon d={ICONS.bag} className="h-4 w-4" />
                     {t("product.seo.manual")}
                     {isManual && (
-                      <span className="rounded-full bg-[#1B6F63] px-1.5 text-[10px] leading-4 text-white">
+                      <span className="rounded-full bg-[#5B47FB] px-1.5 text-[10px] leading-4 text-white">
                         {faNum(manualProducts.length)}
                       </span>
                     )}
                   </button>
                 </div>
-                <p className="min-w-0 flex-1 text-[11px] leading-5 text-[#65716B]">
+                <p className="min-w-0 flex-1 text-[11px] leading-5 text-[#6C7193]">
                   {isManual
                     ? t("product.seo.manualHint")
                     : t("product.seo.autoHint")}
@@ -602,7 +602,7 @@ const ProductSeoPage: React.FC = () => {
                     {manualProducts.map((p) => (
                       <span
                         key={p.id}
-                        className="inline-flex max-w-[12rem] shrink-0 items-center gap-1 rounded-full bg-[#DCEFEA] py-1 pe-1.5 ps-3 text-[11px] font-bold text-[#14564C]"
+                        className="inline-flex max-w-[12rem] shrink-0 items-center gap-1 rounded-full bg-[#EFEDFF] py-1 pe-1.5 ps-3 text-[11px] font-bold text-[#4935E0]"
                       >
                         <span className="truncate">{p.name}</span>
                         <button
@@ -621,7 +621,7 @@ const ProductSeoPage: React.FC = () => {
                     type="button"
                     onClick={() => setPickerOpen(true)}
                     disabled={busy}
-                    className="shrink-0 rounded-lg px-2 py-1 text-[11px] font-black text-[#1B6F63] hover:bg-[#DCEFEA]"
+                    className="shrink-0 rounded-lg px-2 py-1 text-[11px] font-black text-[#5B47FB] hover:bg-[#EFEDFF]"
                   >
                     {t("analyze.idea.editShort")}
                   </button>
@@ -643,14 +643,14 @@ const ProductSeoPage: React.FC = () => {
                       ? t("product.seo.placeholderManual")
                       : t("product.seo.placeholderAuto")
                   }
-                  className="max-h-40 min-h-[5.5rem] flex-1 resize-none bg-transparent px-2 py-1.5 text-sm leading-7 text-[#17231E] outline-none placeholder:text-[#9BA69F] disabled:cursor-not-allowed disabled:opacity-60 sm:min-h-0"
+                  className="max-h-40 min-h-[5.5rem] flex-1 resize-none bg-transparent px-2 py-1.5 text-sm leading-7 text-[#0A0B1E] outline-none placeholder:text-[#9A9DB8] disabled:cursor-not-allowed disabled:opacity-60 sm:min-h-0"
                 />
                 <button
                   type="button"
                   onClick={send}
                   disabled={busy || !siteId}
                   aria-label={t("product.seo.generate")}
-                  className="inline-flex h-11 shrink-0 self-center items-center justify-center gap-2 rounded-2xl bg-gradient-to-r rtl:bg-gradient-to-l from-[#1B6F63] to-[#14564C] px-4 text-sm font-black text-white shadow-lg shadow-[#1B6F63]/20 transition-all hover:from-[#1F8073] hover:to-[#1B6F63] active:scale-95 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[#1B6F63] disabled:cursor-not-allowed disabled:opacity-50 sm:px-5"
+                  className="inline-flex h-11 shrink-0 self-center items-center justify-center gap-2 rounded-2xl bg-gradient-to-r rtl:bg-gradient-to-l from-[#5B47FB] to-[#4935E0] px-4 text-sm font-black text-white shadow-lg shadow-[#5B47FB]/20 transition-all hover:from-[#6C5BFF] hover:to-[#5B47FB] active:scale-95 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[#5B47FB] disabled:cursor-not-allowed disabled:opacity-50 sm:px-5"
                 >
                   {busy ? (
                     <>
@@ -669,7 +669,7 @@ const ProductSeoPage: React.FC = () => {
               </div>
             </div>
 
-            <p className="mx-auto mt-2 hidden max-w-4xl px-2 text-[11px] leading-5 text-[#65716B] sm:block">
+            <p className="mx-auto mt-2 hidden max-w-4xl px-2 text-[11px] leading-5 text-[#6C7193] sm:block">
               {t("product.seo.keyHint")}
             </p>
           </div>

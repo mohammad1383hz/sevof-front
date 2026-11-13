@@ -44,8 +44,8 @@ const STATUS_CONFIG: Record<
 > = {
   connected: {
     label: "dashboard.wp.status.connected",
-    dot: "bg-[#1B6F63]",
-    badge: "bg-[#DCEFEA] text-[#1B6F63] border-[#1B6F63]/30",
+    dot: "bg-[#5B47FB]",
+    badge: "bg-[#EFEDFF] text-[#5B47FB] border-[#5B47FB]/30",
   },
   pending: {
     label: "dashboard.wp.status.pending",
@@ -54,15 +54,15 @@ const STATUS_CONFIG: Record<
   },
   disconnected: {
     label: "dashboard.wp.status.disconnected",
-    dot: "bg-[#9BA69F]",
-    badge: "bg-[#EFEDE6] text-[#000000] border-[#DAD5C7]",
+    dot: "bg-[#9A9DB8]",
+    badge: "bg-[#F3F2FB] text-[#0D0F23] border-[#E4E5F0]",
   },
 };
 
 const HEALTH_CONFIG: Record<WordPressHealthStatus, { label: string; className: string }> = {
-  healthy: { label: "dashboard.wp.health.healthy", className: "text-[#1B6F63]" },
+  healthy: { label: "dashboard.wp.health.healthy", className: "text-[#5B47FB]" },
   unhealthy: { label: "dashboard.wp.health.unhealthy", className: "text-rose-600" },
-  unreachable: { label: "dashboard.wp.health.unreachable", className: "text-[#000000]" },
+  unreachable: { label: "dashboard.wp.health.unreachable", className: "text-[#0D0F23]" },
 };
 
 /** آدرس پیش‌فرض دانلود افزونه‌ی وردپرس (در صورت نبود prop سفارشی) */
@@ -119,8 +119,8 @@ const EduVideoLink: React.FC<{
     onClick={onNavigate}
     className={
       pill
-        ? "inline-flex items-center gap-1.5 rounded-full border border-[#8B3F63]/30 bg-[#8B3F63]/5 px-2.5 py-1 text-xs font-medium text-[#8B3F63] hover:bg-[#8B3F63]/10 hover:border-[#8B3F63]/50 transition-colors"
-        : "inline-flex items-center gap-1.5 text-xs font-medium text-[#8B3F63] hover:text-[#6E2E4E] hover:underline underline-offset-2"
+        ? "inline-flex items-center gap-1.5 rounded-full border border-[#5B47FB]/30 bg-[#5B47FB]/5 px-2.5 py-1 text-xs font-medium text-[#5B47FB] hover:bg-[#5B47FB]/10 hover:border-[#5B47FB]/50 transition-colors"
+        : "inline-flex items-center gap-1.5 text-xs font-medium text-[#5B47FB] hover:text-[#9B5CFF] hover:underline underline-offset-2"
     }
   >
     <PlayCircle className="h-4 w-4" />
@@ -158,7 +158,7 @@ const CopyField: React.FC<{ label: string; value: string; secret?: boolean }> = 
   return (
     <div>
       <div className="flex items-center justify-between mb-1.5">
-        <span className="text-xs font-medium text-[#000000]">{label}</span>
+        <span className="text-xs font-medium text-[#0D0F23]">{label}</span>
         {secret && (
           <span className="inline-flex items-center gap-1 text-[11px] text-amber-600 font-medium">
             <AlertTriangle className="h-3 w-3" />
@@ -169,7 +169,7 @@ const CopyField: React.FC<{ label: string; value: string; secret?: boolean }> = 
       <div className="flex items-stretch gap-2">
         <code
           dir="ltr"
-          className="flex-1 px-3 py-2 rounded-lg bg-[#EFEDE6] border border-[#DAD5C7] text-[#000000] text-xs font-mono overflow-x-auto whitespace-nowrap"
+          className="flex-1 px-3 py-2 rounded-lg bg-[#F3F2FB] border border-[#E4E5F0] text-[#0D0F23] text-xs font-mono overflow-x-auto whitespace-nowrap"
         >
           {value}
         </code>
@@ -177,10 +177,10 @@ const CopyField: React.FC<{ label: string; value: string; secret?: boolean }> = 
           type="button"
           onClick={handleCopy}
           aria-label={t("dashboard.wp.copy", { label })}
-          className="shrink-0 inline-flex items-center justify-center h-9 w-9 rounded-lg border border-[#DAD5C7] text-[#000000] hover:text-[#1B6F63] hover:border-[#1B6F63]/40 hover:bg-[#DCEFEA] transition-colors"
+          className="shrink-0 inline-flex items-center justify-center h-9 w-9 rounded-lg border border-[#E4E5F0] text-[#0D0F23] hover:text-[#5B47FB] hover:border-[#5B47FB]/40 hover:bg-[#EFEDFF] transition-colors"
         >
           {copied ? (
-            <Check className="h-4 w-4 text-[#1B6F63]" />
+            <Check className="h-4 w-4 text-[#5B47FB]" />
           ) : (
             <Copy className="h-4 w-4" />
           )}
@@ -209,7 +209,7 @@ const PluginDownloadCard: React.FC<{
         <a
           href={downloadUrl}
           download
-          className="inline-flex items-center gap-1.5 text-xs font-medium text-[#1B6F63] hover:text-[#14564C] hover:underline underline-offset-2"
+          className="inline-flex items-center gap-1.5 text-xs font-medium text-[#5B47FB] hover:text-[#4935E0] hover:underline underline-offset-2"
         >
           <Download className="h-3.5 w-3.5" />
           {t("dashboard.wp.downloadLatest")}
@@ -221,18 +221,18 @@ const PluginDownloadCard: React.FC<{
   }
 
   return (
-    <div className="flex flex-col sm:flex-row sm:items-center gap-3 sm:gap-4 rounded-2xl border border-[#1B6F63]/25 bg-[#DCEFEA]/60 p-4">
-      <span className="hidden sm:inline-flex h-11 w-11 shrink-0 items-center justify-center rounded-2xl bg-[#1B6F63] text-white">
+    <div className="flex flex-col sm:flex-row sm:items-center gap-3 sm:gap-4 rounded-2xl border border-[#5B47FB]/25 bg-[#EFEDFF]/60 p-4">
+      <span className="hidden sm:inline-flex h-11 w-11 shrink-0 items-center justify-center rounded-2xl bg-[#5B47FB] text-white">
         <Package className="h-5 w-5" />
       </span>
 
       <div className="flex-1 min-w-0">
-        <p className="text-sm font-bold text-[#1E2A28] flex items-center gap-1.5 sm:hidden">
-          <Package className="h-4 w-4 text-[#1B6F63]" />
+        <p className="text-sm font-bold text-[#0D0F23] flex items-center gap-1.5 sm:hidden">
+          <Package className="h-4 w-4 text-[#5B47FB]" />
           {t("dashboard.wp.plugin")}
         </p>
-        <p className="hidden sm:block text-sm font-bold text-[#1E2A28]">{t("dashboard.wp.plugin")}</p>
-        <p className="text-xs text-[#14564C]/80 mt-0.5 leading-relaxed">
+        <p className="hidden sm:block text-sm font-bold text-[#0D0F23]">{t("dashboard.wp.plugin")}</p>
+        <p className="text-xs text-[#4935E0]/80 mt-0.5 leading-relaxed">
           {t("dashboard.wp.pluginBody")}
         </p>
         <div className="mt-2 flex flex-wrap items-center gap-x-3 gap-y-2">
@@ -244,7 +244,7 @@ const PluginDownloadCard: React.FC<{
       <a
         href={downloadUrl}
         download
-        className="inline-flex w-full sm:w-auto items-center justify-center gap-2 rounded-xl bg-[#1B6F63] px-4 py-2.5 text-sm font-medium text-white shadow-sm hover:bg-[#14564C] active:scale-[0.98] transition-all"
+        className="inline-flex w-full sm:w-auto items-center justify-center gap-2 rounded-xl bg-[#5B47FB] px-4 py-2.5 text-sm font-medium text-white shadow-sm hover:bg-[#4935E0] active:scale-[0.98] transition-all"
       >
         <Download className="h-4 w-4" />
         {t("dashboard.wp.download")}
@@ -274,19 +274,19 @@ const CredentialsModal: React.FC<{
 
   return (
     <div
-      className="fixed inset-0 z-50 flex items-center justify-center bg-[#1E2A28]/40 backdrop-blur-sm p-4"
+      className="fixed inset-0 z-50 flex items-center justify-center bg-[#0D0F23]/40 backdrop-blur-sm p-4"
       role="dialog"
       aria-modal="true"
       aria-labelledby="wp-credentials-title"
     >
-      <div className="w-full max-w-lg rounded-2xl bg-white shadow-xl border border-[#DAD5C7] overflow-hidden max-h-[90vh] overflow-y-auto">
-        <div className="flex items-start justify-between px-6 pt-5 pb-4 border-b border-[#DAD5C7]/60">
+      <div className="w-full max-w-lg rounded-2xl bg-white shadow-xl border border-[#E4E5F0] overflow-hidden max-h-[90vh] overflow-y-auto">
+        <div className="flex items-start justify-between px-6 pt-5 pb-4 border-b border-[#E4E5F0]/60">
           <div className="flex items-start gap-3">
-            <span className="mt-0.5 inline-flex h-9 w-9 items-center justify-center rounded-full bg-[#DCEFEA] text-[#1B6F63]">
+            <span className="mt-0.5 inline-flex h-9 w-9 items-center justify-center rounded-full bg-[#EFEDFF] text-[#5B47FB]">
               <KeyRound className="h-4.5 w-4.5" />
             </span>
             <div>
-              <h2 id="wp-credentials-title" className="text-base font-bold text-[#1E2A28]">
+              <h2 id="wp-credentials-title" className="text-base font-bold text-[#0D0F23]">
                 {t("dashboard.wp.credentials.title")}
               </h2>
               <p className="text-xs text-bold text-black mt-0.5">
@@ -298,7 +298,7 @@ const CredentialsModal: React.FC<{
             type="button"
             onClick={onClose}
             aria-label={t("common.actions.close")}
-            className="text-[#9BA69F] hover:text-[#000000] rounded-lg p-1"
+            className="text-[#9A9DB8] hover:text-[#0D0F23] rounded-lg p-1"
           >
             <X className="h-4.5 w-4.5" />
           </button>
@@ -324,11 +324,11 @@ const CredentialsModal: React.FC<{
           </div>
         </div>
 
-        <div className="flex justify-end gap-2 px-6 py-4 bg-[#EFEDE6] border-t border-[#DAD5C7]/60">
+        <div className="flex justify-end gap-2 px-6 py-4 bg-[#F3F2FB] border-t border-[#E4E5F0]/60">
           <button
             type="button"
             onClick={onClose}
-            className="px-4 py-2 rounded-lg bg-[#1B6F63] text-white text-sm font-medium hover:bg-[#14564C] transition-colors"
+            className="px-4 py-2 rounded-lg bg-[#5B47FB] text-white text-sm font-medium hover:bg-[#4935E0] transition-colors"
           >
             {t("dashboard.wp.credentials.done")}
           </button>
@@ -352,19 +352,19 @@ const ConfirmDialog: React.FC<{
   onCancel: () => void;
 }> = ({ title, description, confirmLabel, danger, busy, onConfirm, onCancel }) => (
   <div
-    className="fixed inset-0 z-50 flex items-center justify-center bg-[#1E2A28]/40 backdrop-blur-sm p-4"
+    className="fixed inset-0 z-50 flex items-center justify-center bg-[#0D0F23]/40 backdrop-blur-sm p-4"
     role="dialog"
     aria-modal="true"
   >
-    <div className="w-full max-w-sm rounded-2xl bg-white shadow-xl border border-[#DAD5C7] p-6">
-      <h3 className="text-sm font-bold text-[#1E2A28]">{title}</h3>
-      <p className="text-sm text-[#000000] mt-2 leading-relaxed">{description}</p>
+    <div className="w-full max-w-sm rounded-2xl bg-white shadow-xl border border-[#E4E5F0] p-6">
+      <h3 className="text-sm font-bold text-[#0D0F23]">{title}</h3>
+      <p className="text-sm text-[#0D0F23] mt-2 leading-relaxed">{description}</p>
       <div className="flex justify-end gap-2 mt-5">
         <button
           type="button"
           onClick={onCancel}
           disabled={busy}
-          className="px-4 py-2 rounded-lg text-sm font-medium text-[#000000] hover:bg-[#F4F2EC] transition-colors disabled:opacity-50"
+          className="px-4 py-2 rounded-lg text-sm font-medium text-[#0D0F23] hover:bg-[#F6F6FB] transition-colors disabled:opacity-50"
         >
           {t("common.actions.cancel")}
         </button>
@@ -373,7 +373,7 @@ const ConfirmDialog: React.FC<{
           onClick={onConfirm}
           disabled={busy}
           className={`px-4 py-2 rounded-lg text-sm font-medium text-white transition-colors disabled:opacity-60 inline-flex items-center gap-2 ${
-            danger ? "bg-rose-600 hover:bg-rose-700" : "bg-[#1B6F63] hover:bg-[#14564C]"
+            danger ? "bg-rose-600 hover:bg-rose-700" : "bg-[#5B47FB] hover:bg-[#4935E0]"
           }`}
         >
           {busy && <Loader2 className="h-3.5 w-3.5 animate-spin motion-reduce:animate-none" />}
@@ -519,15 +519,15 @@ const WordPressConnectionCard: React.FC<WordPressConnectionCardProps> = ({
 
   return (
     <>
-      <section className="rounded-2xl border border-[#DAD5C7] bg-white shadow-sm overflow-hidden">
-        <div className="flex items-center justify-between gap-3 px-5 sm:px-6 py-3 border-b border-[#DAD5C7]/60">
+      <section className="rounded-2xl border border-[#E4E5F0] bg-white shadow-sm overflow-hidden">
+        <div className="flex items-center justify-between gap-3 px-5 sm:px-6 py-3 border-b border-[#E4E5F0]/60">
           <div className="flex items-center gap-3">
-            <span className="inline-flex h-9 w-9 items-center justify-center rounded-xl bg-[#1E2A28] text-white">
+            <span className="inline-flex h-9 w-9 items-center justify-center rounded-xl bg-[#0D0F23] text-white">
               <Globe className="h-4.5 w-4.5" />
             </span>
             <div>
-              <h2 className="text-sm font-bold text-[#1E2A28]">{t("dashboard.wp.title")}</h2>
-              <p className="text-xs text-[#9BA69F] mt-0.5">
+              <h2 className="text-sm font-bold text-[#0D0F23]">{t("dashboard.wp.title")}</h2>
+              <p className="text-xs text-[#9A9DB8] mt-0.5">
                 {t("dashboard.wp.subtitle")}
               </p>
             </div>
@@ -553,7 +553,7 @@ const WordPressConnectionCard: React.FC<WordPressConnectionCardProps> = ({
 
         <div className="px-5 sm:px-6 py-4">
           {loading && (
-            <div className="flex items-center gap-2 text-sm text-[#9BA69F] py-3">
+            <div className="flex items-center gap-2 text-sm text-[#9A9DB8] py-3">
               <Loader2 className="h-4 w-4 animate-spin motion-reduce:animate-none" />
               {t("dashboard.wp.checking")}
             </div>
@@ -570,7 +570,7 @@ const WordPressConnectionCard: React.FC<WordPressConnectionCardProps> = ({
             <div
               className={`mb-3 flex items-start gap-2 rounded-xl p-3 text-sm border ${
                 banner.type === "success"
-                  ? "bg-[#DCEFEA] border-[#1B6F63]/30 text-[#14564C]"
+                  ? "bg-[#EFEDFF] border-[#5B47FB]/30 text-[#4935E0]"
                   : "bg-rose-50 border-rose-200 text-rose-600"
               }`}
             >
@@ -588,14 +588,14 @@ const WordPressConnectionCard: React.FC<WordPressConnectionCardProps> = ({
               <PluginDownloadCard downloadUrl={pluginDownloadUrl} siteId={siteId} />
 
               <div className="flex flex-col items-center text-center gap-3 py-2">
-                <span className="inline-flex h-11 w-11 items-center justify-center rounded-2xl bg-[#EFEDE6] border border-[#DAD5C7] text-[#9BA69F]">
+                <span className="inline-flex h-11 w-11 items-center justify-center rounded-2xl bg-[#F3F2FB] border border-[#E4E5F0] text-[#9A9DB8]">
                   <Link2 className="h-5 w-5" />
                 </span>
                 <div>
-                  <p className="text-sm font-medium text-[#000000]">
+                  <p className="text-sm font-medium text-[#0D0F23]">
                     {t("dashboard.wp.empty")}
                   </p>
-                  <p className="text-xs text-[#9BA69F] mt-1 max-w-sm">
+                  <p className="text-xs text-[#9A9DB8] mt-1 max-w-sm">
                     {t("dashboard.wp.emptyBody")}
                   </p>
                 </div>
@@ -603,7 +603,7 @@ const WordPressConnectionCard: React.FC<WordPressConnectionCardProps> = ({
                   type="button"
                   onClick={handleConnect}
                   disabled={connecting}
-                  className="inline-flex w-full sm:w-auto items-center justify-center gap-2 rounded-lg bg-[#1B6F63] px-4 py-2 text-sm font-medium text-white hover:bg-[#14564C] transition-colors disabled:opacity-60"
+                  className="inline-flex w-full sm:w-auto items-center justify-center gap-2 rounded-lg bg-[#5B47FB] px-4 py-2 text-sm font-medium text-white hover:bg-[#4935E0] transition-colors disabled:opacity-60"
                 >
                   {connecting ? (
                     <Loader2 className="h-4 w-4 animate-spin motion-reduce:animate-none" />
@@ -635,7 +635,7 @@ const WordPressConnectionCard: React.FC<WordPressConnectionCardProps> = ({
                   type="button"
                   onClick={handleTest}
                   disabled={testing}
-                  className="inline-flex items-center gap-2 rounded-lg border border-[#DAD5C7] px-3.5 py-2 text-sm font-medium text-[#000000] hover:bg-[#F4F2EC] transition-colors disabled:opacity-60"
+                  className="inline-flex items-center gap-2 rounded-lg border border-[#E4E5F0] px-3.5 py-2 text-sm font-medium text-[#0D0F23] hover:bg-[#F6F6FB] transition-colors disabled:opacity-60"
                 >
                   {testing ? (
                     <Loader2 className="h-3.5 w-3.5 animate-spin motion-reduce:animate-none" />
@@ -647,7 +647,7 @@ const WordPressConnectionCard: React.FC<WordPressConnectionCardProps> = ({
                 <button
                   type="button"
                   onClick={() => setConfirmKind("reconnect")}
-                  className="inline-flex items-center gap-2 rounded-lg border border-[#DAD5C7] px-3.5 py-2 text-sm font-medium text-[#000000] hover:bg-[#F4F2EC] transition-colors"
+                  className="inline-flex items-center gap-2 rounded-lg border border-[#E4E5F0] px-3.5 py-2 text-sm font-medium text-[#0D0F23] hover:bg-[#F6F6FB] transition-colors"
                 >
                   <KeyRound className="h-3.5 w-3.5" />
                   {t("dashboard.wp.newCredentials")}
@@ -659,8 +659,8 @@ const WordPressConnectionCard: React.FC<WordPressConnectionCardProps> = ({
           {!loading && !loadError && connection && connection.status === "connected" && (
             <div className="space-y-3">
               <div className="grid sm:grid-cols-2 gap-2">
-                <div className="rounded-xl border border-[#DAD5C7] p-2.5">
-                  <p className="text-[11px] text-[#9BA69F] mb-1">{t("dashboard.wp.siteUrl")}</p>
+                <div className="rounded-xl border border-[#E4E5F0] p-2.5">
+                  <p className="text-[11px] text-[#9A9DB8] mb-1">{t("dashboard.wp.siteUrl")}</p>
                   {connection.wp_url ? (
                     <a
                       href={connection.wp_url}
@@ -672,23 +672,23 @@ const WordPressConnectionCard: React.FC<WordPressConnectionCardProps> = ({
                       {connection.wp_url}
                     </a>
                   ) : (
-                    <p className="text-sm text-[#9BA69F]">—</p>
+                    <p className="text-sm text-[#9A9DB8]">—</p>
                   )}
                 </div>
-                <div className="rounded-xl border border-[#DAD5C7] p-2.5">
-                  <p className="text-[11px] text-[#9BA69F] mb-1">{t("dashboard.wp.versions")}</p>
-                  <p className="text-sm font-medium text-[#000000]">
+                <div className="rounded-xl border border-[#E4E5F0] p-2.5">
+                  <p className="text-[11px] text-[#9A9DB8] mb-1">{t("dashboard.wp.versions")}</p>
+                  <p className="text-sm font-medium text-[#0D0F23]">
                     {connection.wp_version ?? "—"}
                     {connection.plugin_version ? ` · ${t("dashboard.wp.pluginVersion", { version: connection.plugin_version })}` : ""}
                   </p>
                 </div>
-                <div className="rounded-xl border border-[#DAD5C7] p-2.5">
-                  <p className="text-[11px] text-[#9BA69F] mb-1">{t("dashboard.wp.healthTitle")}</p>
+                <div className="rounded-xl border border-[#E4E5F0] p-2.5">
+                  <p className="text-[11px] text-[#9A9DB8] mb-1">{t("dashboard.wp.healthTitle")}</p>
                   <p
                     className={`text-sm font-medium flex items-center gap-1.5 ${
                       connection.last_health_status
                         ? HEALTH_CONFIG[connection.last_health_status].className
-                        : "text-[#9BA69F]"
+                        : "text-[#9A9DB8]"
                     }`}
                   >
                     {connection.last_health_status
@@ -696,12 +696,12 @@ const WordPressConnectionCard: React.FC<WordPressConnectionCardProps> = ({
                       : "—"}
                   </p>
                 </div>
-                <div className="rounded-xl border border-[#DAD5C7] p-2.5">
-                  <p className="text-[11px] text-[#9BA69F] mb-1 flex items-center gap-1">
+                <div className="rounded-xl border border-[#E4E5F0] p-2.5">
+                  <p className="text-[11px] text-[#9A9DB8] mb-1 flex items-center gap-1">
                     <Clock className="h-3 w-3" />
                     {t("dashboard.wp.lastCheck")}
                   </p>
-                  <p className="text-sm font-medium text-[#000000]">
+                  <p className="text-sm font-medium text-[#0D0F23]">
                     {relativeTime(connection.last_health_check_at)}
                   </p>
                 </div>
@@ -719,7 +719,7 @@ const WordPressConnectionCard: React.FC<WordPressConnectionCardProps> = ({
                   type="button"
                   onClick={handleTest}
                   disabled={testing}
-                  className="inline-flex items-center gap-2 rounded-lg border border-[#DAD5C7] px-3.5 py-2 text-sm font-medium text-[#000000] hover:bg-[#F4F2EC] transition-colors disabled:opacity-60"
+                  className="inline-flex items-center gap-2 rounded-lg border border-[#E4E5F0] px-3.5 py-2 text-sm font-medium text-[#0D0F23] hover:bg-[#F6F6FB] transition-colors disabled:opacity-60"
                 >
                   {testing ? (
                     <Loader2 className="h-3.5 w-3.5 animate-spin motion-reduce:animate-none" />
@@ -731,7 +731,7 @@ const WordPressConnectionCard: React.FC<WordPressConnectionCardProps> = ({
                 <button
                   type="button"
                   onClick={() => setConfirmKind("reconnect")}
-                  className="inline-flex items-center gap-2 rounded-lg border border-[#DAD5C7] px-3.5 py-2 text-sm font-medium text-[#000000] hover:bg-[#F4F2EC] transition-colors"
+                  className="inline-flex items-center gap-2 rounded-lg border border-[#E4E5F0] px-3.5 py-2 text-sm font-medium text-[#0D0F23] hover:bg-[#F6F6FB] transition-colors"
                 >
                   <KeyRound className="h-3.5 w-3.5" />
                   {t("dashboard.wp.reconnect")}

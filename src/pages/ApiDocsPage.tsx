@@ -37,7 +37,7 @@ type Group = {
 const CodeBlock: React.FC<{ children: string }> = ({ children }) => (
   <pre
     dir="ltr"
-    className="bg-[#1E2A28] text-[#E8E5DC] text-xs sm:text-[13px] leading-relaxed rounded-lg p-4 overflow-x-auto"
+    className="bg-[#0D0F23] text-[#E8E5DC] text-xs sm:text-[13px] leading-relaxed rounded-lg p-4 overflow-x-auto"
   >
     <code>{children}</code>
   </pre>
@@ -45,7 +45,7 @@ const CodeBlock: React.FC<{ children: string }> = ({ children }) => (
 
 const Section: React.FC<{ id?: string; title: string; children: React.ReactNode }> = ({ id, title, children }) => (
   <section id={id} className="space-y-3 scroll-mt-20">
-    <h2 className="text-base font-bold text-[#1E2A28]">{title}</h2>
+    <h2 className="text-base font-bold text-[#0D0F23]">{title}</h2>
     {children}
   </section>
 );
@@ -62,31 +62,31 @@ const EndpointCard: React.FC<{ endpoint: Endpoint }> = ({ endpoint }) => {
   const { method, path, description, params, response } = endpoint;
   const methodColor = method === "GET" ? "bg-emerald-50 text-emerald-700" : "bg-blue-50 text-blue-700";
   return (
-    <div dir="ltr" className="bg-white border border-[#DAD5C7] rounded-xl p-4 space-y-3 text-left">
+    <div dir="ltr" className="bg-white border border-[#E4E5F0] rounded-xl p-4 space-y-3 text-left">
       <div className="flex items-center gap-2 flex-wrap">
         <span className={`text-xs font-mono font-bold rounded px-2 py-0.5 ${methodColor}`}>{method}</span>
-        <code className="text-sm text-[#1E2A28] break-all">{path}</code>
+        <code className="text-sm text-[#0D0F23] break-all">{path}</code>
       </div>
-      <p className="text-sm text-[#5B6560] leading-relaxed">{description}</p>
+      <p className="text-sm text-[#5A5F80] leading-relaxed">{description}</p>
       {params && params.length > 0 && (
         <div className="overflow-x-auto">
           <table className="w-full text-xs text-left">
-            <thead className="text-[#9BA69F]">
+            <thead className="text-[#9A9DB8]">
               <tr>
                 <th className="py-1.5 pr-3 font-medium">Parameter</th>
                 <th className="py-1.5 pr-3 font-medium">Type</th>
                 <th className="py-1.5 font-medium">Description</th>
               </tr>
             </thead>
-            <tbody className="divide-y divide-[#EFEBE1]">
+            <tbody className="divide-y divide-[#EEEEF6]">
               {params.map((p) => (
                 <tr key={p.name} className="align-top">
                   <td className="py-1.5 pr-3 whitespace-nowrap">
-                    <code className="text-[#1E2A28]">{p.name}</code>
+                    <code className="text-[#0D0F23]">{p.name}</code>
                     {p.required && <span className="ml-1 text-[10px] text-rose-600">required</span>}
                   </td>
-                  <td className="py-1.5 pr-3 text-[#9BA69F] whitespace-nowrap">{p.type}</td>
-                  <td className="py-1.5 text-[#5B6560] leading-5">{p.description}</td>
+                  <td className="py-1.5 pr-3 text-[#9A9DB8] whitespace-nowrap">{p.type}</td>
+                  <td className="py-1.5 text-[#5A5F80] leading-5">{p.description}</td>
                 </tr>
               ))}
             </tbody>
@@ -408,12 +408,12 @@ const ApiDocsPage: React.FC = () => {
       <div className="p-3 sm:p-4 lg:p-5 max-w-3xl mx-auto space-y-6">
         <div className="flex items-start justify-between gap-3 flex-wrap">
           <div>
-            <h1 className="text-lg sm:text-xl font-bold text-[#1E2A28]">{t("developer.docs.title")}</h1>
-            <p className="text-xs text-[#9BA69F] mt-0.5">{t("developer.docs.subtitle")}</p>
+            <h1 className="text-lg sm:text-xl font-bold text-[#0D0F23]">{t("developer.docs.title")}</h1>
+            <p className="text-xs text-[#9A9DB8] mt-0.5">{t("developer.docs.subtitle")}</p>
           </div>
           <button
             onClick={() => navigate("/developer/api-keys")}
-            className="shrink-0 bg-[#1B6F63] text-white text-sm font-medium rounded-lg px-4 py-2"
+            className="shrink-0 bg-[#5B47FB] text-white text-sm font-medium rounded-lg px-4 py-2"
           >
             {t("developer.docs.createKey")}
           </button>
@@ -425,18 +425,18 @@ const ApiDocsPage: React.FC = () => {
               <a
                 key={g.id}
                 href={`#${g.id}`}
-                className="text-xs font-medium rounded-full border border-[#DAD5C7] bg-white px-3 py-1.5 text-[#1B6F63] hover:border-[#1B6F63]"
+                className="text-xs font-medium rounded-full border border-[#E4E5F0] bg-white px-3 py-1.5 text-[#5B47FB] hover:border-[#5B47FB]"
               >
                 {g.title}
               </a>
             ))}
-            <a href="#errors" className="text-xs font-medium rounded-full border border-[#DAD5C7] bg-white px-3 py-1.5 text-[#1B6F63] hover:border-[#1B6F63]">
+            <a href="#errors" className="text-xs font-medium rounded-full border border-[#E4E5F0] bg-white px-3 py-1.5 text-[#5B47FB] hover:border-[#5B47FB]">
               Errors
             </a>
           </nav>
 
           <Section title="Authentication">
-            <p className="text-sm text-[#5B6560] leading-relaxed">
+            <p className="text-sm text-[#5A5F80] leading-relaxed">
               Send your API key with every request in one of these two forms. Create keys on the API keys page — a key
               is shown only once, when it is created, so store it somewhere safe right away. Each key can only access
               the site it was created for, and usage is billed to that account's credit.
@@ -449,7 +449,7 @@ Authorization: Bearer sk_agent_xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx`}</CodeB
 
           <Section title="Base URL">
             <CodeBlock>{BASE}</CodeBlock>
-            <p className="text-sm text-[#5B6560] leading-relaxed">
+            <p className="text-sm text-[#5A5F80] leading-relaxed">
               POST bodies are JSON (<code>Content-Type: application/json</code>). Long jobs (articles, ideas, product
               checks and updates) run in the background: the request answers <code>202</code> right away and you poll
               the status about every 30 seconds.
@@ -458,18 +458,18 @@ Authorization: Bearer sk_agent_xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx`}</CodeB
 
           {GROUPS.map((group) => (
             <Section key={group.id} id={group.id} title={group.title}>
-              <p className="text-sm text-[#5B6560] leading-relaxed">{group.intro}</p>
+              <p className="text-sm text-[#5A5F80] leading-relaxed">{group.intro}</p>
               {group.steps && (
-                <ol className="list-decimal pl-5 space-y-1 text-sm text-[#3D453F]">
+                <ol className="list-decimal pl-5 space-y-1 text-sm text-[#3B3F5C]">
                   {group.steps.map((s) => (
                     <li key={s}>{s}</li>
                   ))}
                 </ol>
               )}
               {group.statuses && (
-                <div className="text-xs text-[#5B6560] leading-6 space-y-1">
-                  <p className="font-bold text-[#3D453F]">Statuses:</p>
-                  <code className="block bg-white border border-[#DAD5C7] rounded-lg px-3 py-2 text-[#1E2A28] overflow-x-auto whitespace-nowrap">
+                <div className="text-xs text-[#5A5F80] leading-6 space-y-1">
+                  <p className="font-bold text-[#3B3F5C]">Statuses:</p>
+                  <code className="block bg-white border border-[#E4E5F0] rounded-lg px-3 py-2 text-[#0D0F23] overflow-x-auto whitespace-nowrap">
                     {group.statuses}
                   </code>
                   {group.statusNote && <p>{group.statusNote}</p>}
@@ -482,23 +482,23 @@ Authorization: Bearer sk_agent_xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx`}</CodeB
           ))}
 
           <Section id="errors" title="Errors">
-            <p className="text-sm text-[#5B6560]">Every error explains the reason in plain language in <code>message</code>:</p>
+            <p className="text-sm text-[#5A5F80]">Every error explains the reason in plain language in <code>message</code>:</p>
             <CodeBlock>{`{
   "message": "You don't have enough credit left.",
   "code": "insufficient_credit"
 }`}</CodeBlock>
-            <div className="bg-white border border-[#DAD5C7] rounded-xl divide-y divide-[#EFEBE1]">
+            <div className="bg-white border border-[#E4E5F0] rounded-xl divide-y divide-[#EEEEF6]">
               {ERRORS.map(([code, text]) => (
                 <div key={code} className="flex gap-3 px-4 py-2.5 text-sm">
-                  <code className="shrink-0 w-16 font-bold text-[#1E2A28]">{code}</code>
-                  <span className="text-[#5B6560]">{text}</span>
+                  <code className="shrink-0 w-16 font-bold text-[#0D0F23]">{code}</code>
+                  <span className="text-[#5A5F80]">{text}</span>
                 </div>
               ))}
             </div>
           </Section>
 
           <Section title="Notes">
-            <ul className="list-disc pl-5 space-y-1 text-sm text-[#5B6560]">
+            <ul className="list-disc pl-5 space-y-1 text-sm text-[#5A5F80]">
               <li>Ids are 26-character strings, not numbers. Older numeric ids are still accepted, but use the new ids. Product ids (product_ids) are numbers.</li>
               <li>Revoking a key cuts off its access immediately.</li>
               <li>Publishing (articles, product changes, article updates) goes through the WordPress or Shopify connection you set up in the app.</li>

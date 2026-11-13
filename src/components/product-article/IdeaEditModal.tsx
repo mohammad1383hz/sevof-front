@@ -28,8 +28,8 @@ const TITLE_SOFT = 60; // عنوان بلندتر در گوگل بریده می�
 
 const SectionLabel: React.FC<{ icon: string; title: string; hint?: React.ReactNode }> = ({ icon, title, hint }) => (
   <div className="mb-2 flex items-center justify-between gap-2">
-    <h3 className="flex items-center gap-2 text-xs font-black text-[#1E2A28]">
-      <span className="flex h-6 w-6 items-center justify-center rounded-lg bg-[#DCEFEA] text-[#14564C]">
+    <h3 className="flex items-center gap-2 text-xs font-black text-[#0D0F23]">
+      <span className="flex h-6 w-6 items-center justify-center rounded-lg bg-[#EFEDFF] text-[#4935E0]">
         <Icon d={icon} className="h-3.5 w-3.5" />
       </span>
       {title}
@@ -117,7 +117,7 @@ const IdeaEditModal: React.FC<{
         type="button"
         onClick={onClose}
         disabled={saving}
-        className="h-11 rounded-2xl px-4 text-sm font-bold text-[#65716B] transition hover:bg-[#EFEDE6] disabled:opacity-50"
+        className="h-11 rounded-2xl px-4 text-sm font-bold text-[#6C7193] transition hover:bg-[#F3F2FB] disabled:opacity-50"
       >
         {t("common.actions.cancel")}
       </button>
@@ -125,7 +125,7 @@ const IdeaEditModal: React.FC<{
         type="button"
         onClick={save}
         disabled={!dirty || !valid || saving}
-        className="inline-flex h-11 min-w-[8rem] items-center justify-center gap-2 rounded-2xl bg-gradient-to-r rtl:bg-gradient-to-l from-[#1B6F63] to-[#14564C] px-5 text-sm font-black text-white shadow-lg shadow-[#1B6F63]/20 transition active:scale-95 disabled:cursor-not-allowed disabled:opacity-50"
+        className="inline-flex h-11 min-w-[8rem] items-center justify-center gap-2 rounded-2xl bg-gradient-to-r rtl:bg-gradient-to-l from-[#5B47FB] to-[#4935E0] px-5 text-sm font-black text-white shadow-lg shadow-[#5B47FB]/20 transition active:scale-95 disabled:cursor-not-allowed disabled:opacity-50"
       >
         {saving && <span className="h-4 w-4 animate-spin rounded-full border-2 border-white/30 border-t-white" />}
         {t("analyze.idea.save")}
@@ -148,7 +148,7 @@ const IdeaEditModal: React.FC<{
               icon={ICONS.pencil}
               title={t("article.target.title")}
               hint={
-                <span className={`text-[11px] ${title.length > TITLE_SOFT ? "text-[#B3453A]" : "text-[#65716B]"}`}>
+                <span className={`text-[11px] ${title.length > TITLE_SOFT ? "text-[#B3453A]" : "text-[#6C7193]"}`}>
                   {faNum(title.length)} / {faNum(TITLE_MAX)}
                 </span>
               }
@@ -159,9 +159,9 @@ const IdeaEditModal: React.FC<{
               onChange={(e) => setTitle(e.target.value)}
               maxLength={TITLE_MAX}
               aria-label={t("article.target.title")}
-              className="h-12 w-full rounded-2xl border border-[#DAD5C7] bg-white px-4 text-base font-bold text-[#17231E] outline-none transition focus:border-[#1B6F63]/60 focus:ring-4 focus:ring-[#1B6F63]/10 sm:text-sm"
+              className="h-12 w-full rounded-2xl border border-[#E4E5F0] bg-white px-4 text-base font-bold text-[#0A0B1E] outline-none transition focus:border-[#5B47FB]/60 focus:ring-4 focus:ring-[#5B47FB]/10 sm:text-sm"
             />
-            <p className="mt-1.5 text-[11px] leading-5 text-[#65716B]">
+            <p className="mt-1.5 text-[11px] leading-5 text-[#6C7193]">
               {t("product.editIdea.titleHint", { max: TITLE_SOFT })}
             </p>
           </section>
@@ -172,7 +172,7 @@ const IdeaEditModal: React.FC<{
               icon={ICONS.bag}
               title={t("product.editIdea.products")}
               hint={
-                <span className="text-[11px] text-[#65716B]">
+                <span className="text-[11px] text-[#6C7193]">
                   {faNum(products.length)} of {faNum(MAX_PRODUCTS)}
                 </span>
               }
@@ -188,19 +188,19 @@ const IdeaEditModal: React.FC<{
             ) : (
               <ul className="space-y-2">
                 {products.map((p) => (
-                  <li key={p.id} className="flex items-center gap-3 rounded-2xl border border-[#DAD5C7] bg-white p-2.5">
+                  <li key={p.id} className="flex items-center gap-3 rounded-2xl border border-[#E4E5F0] bg-white p-2.5">
                     <ProductThumb src={p.image} className="h-12 w-12" />
                     <span className="min-w-0 flex-1">
-                      <span className="block text-[13px] font-bold leading-6 text-[#1E2A28]" style={clamp2}>
+                      <span className="block text-[13px] font-bold leading-6 text-[#0D0F23]" style={clamp2}>
                         {p.name}
                       </span>
-                      <span className="block text-[11px] text-[#65716B]">{formatPrice(p.price, p.currency)}</span>
+                      <span className="block text-[11px] text-[#6C7193]">{formatPrice(p.price, p.currency)}</span>
                     </span>
                     <button
                       type="button"
                       onClick={() => setProducts((l) => l.filter((x) => x.id !== p.id))}
                       aria-label={t("product.editIdea.removeProduct", { name: p.name })}
-                      className="flex h-9 w-9 shrink-0 items-center justify-center rounded-xl text-[#65716B] transition hover:bg-[#F7EEEA] hover:text-[#B3453A]"
+                      className="flex h-9 w-9 shrink-0 items-center justify-center rounded-xl text-[#6C7193] transition hover:bg-[#F7EEEA] hover:text-[#B3453A]"
                     >
                       <Icon d={ICONS.x} className="h-4 w-4" />
                     </button>
@@ -212,7 +212,7 @@ const IdeaEditModal: React.FC<{
             <button
               type="button"
               onClick={() => setPickerOpen(true)}
-              className="mt-2 flex h-11 w-full items-center justify-center gap-2 rounded-2xl border border-dashed border-[#1B6F63]/50 bg-[#DCEFEA]/40 text-xs font-black text-[#14564C] transition hover:bg-[#DCEFEA]"
+              className="mt-2 flex h-11 w-full items-center justify-center gap-2 rounded-2xl border border-dashed border-[#5B47FB]/50 bg-[#EFEDFF]/40 text-xs font-black text-[#4935E0] transition hover:bg-[#EFEDFF]"
             >
               <Icon d={ICONS.plus} className="h-4 w-4" stroke={2.2} />
               {t("product.editIdea.changeProducts")}
@@ -222,7 +222,7 @@ const IdeaEditModal: React.FC<{
           {/* لینک داخلی */}
           <section>
             <SectionLabel icon={ICONS.link} title={t("product.editIdea.link")} />
-            <p className="mb-2 text-[11px] leading-5 text-[#65716B]">
+            <p className="mb-2 text-[11px] leading-5 text-[#6C7193]">
               {t("product.editIdea.linkHint")}
             </p>
 
@@ -248,11 +248,11 @@ const IdeaEditModal: React.FC<{
 
                 {/* آدرسی که مقاله به آن لینک می‌دهد */}
                 {selectedCategory?.url ? (
-                  <p dir="ltr" className="mt-1.5 truncate text-start text-[11px] text-[#9BA69F]">
+                  <p dir="ltr" className="mt-1.5 truncate text-start text-[11px] text-[#9A9DB8]">
                     {selectedCategory.url.replace(/^https?:\/\//, "")}
                   </p>
                 ) : targetId === null && idea.target_url && !targetChanged ? (
-                  <p dir="ltr" className="mt-1.5 truncate text-start text-[11px] text-[#9BA69F]">
+                  <p dir="ltr" className="mt-1.5 truncate text-start text-[11px] text-[#9A9DB8]">
                     {idea.target_url.replace(/^https?:\/\//, "")}
                   </p>
                 ) : null}

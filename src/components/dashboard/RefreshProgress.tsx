@@ -55,16 +55,16 @@ const RefreshProgress: React.FC<RefreshProgressProps> = ({ status, stage, since,
   const activeIndex = GENERATE_STEPS.findIndex((s) => s.key === current);
 
   return (
-    <div className="mt-3 rounded-xl border border-[#1B6F63]/20 bg-[#DCEFEA]/30 p-3" role="status" aria-live="polite">
+    <div className="mt-3 rounded-xl border border-[#5B47FB]/20 bg-[#EFEDFF]/30 p-3" role="status" aria-live="polite">
       <div className="flex items-center justify-between gap-2 text-[11px] sm:text-xs">
-        <span className="font-bold text-[#14564C]">
+        <span className="font-bold text-[#4935E0]">
           {publishing ? t("growth.progress.publishing") : `${GENERATE_STEPS[Math.max(0, activeIndex)].label}…`}
         </span>
-        <span className="text-[#6B7A73]">{elapsed > 0 ? t("growth.progress.seconds", { seconds: fa(elapsed) }) : ""}</span>
+        <span className="text-[#6C7193]">{elapsed > 0 ? t("growth.progress.seconds", { seconds: fa(elapsed) }) : ""}</span>
       </div>
 
       <div className="mt-2 h-1.5 overflow-hidden rounded-full bg-white" aria-hidden="true">
-        <div className="h-full rounded-full bg-[#1B6F63] transition-[width] duration-1000 ease-linear" style={{ width: `${percent}%` }} />
+        <div className="h-full rounded-full bg-[#5B47FB] transition-[width] duration-1000 ease-linear" style={{ width: `${percent}%` }} />
       </div>
 
       {!publishing && (
@@ -76,15 +76,15 @@ const RefreshProgress: React.FC<RefreshProgressProps> = ({ status, stage, since,
               <li key={step.key} className="flex items-start gap-1.5 text-[11px] leading-5">
                 <span
                   className={`mt-0.5 flex h-4 w-4 shrink-0 items-center justify-center rounded-full text-[9px] font-black ${
-                    done ? "bg-[#1B6F63] text-white" : active ? "border-2 border-[#1B6F63] bg-white" : "border border-[#DAD5C7] bg-white"
+                    done ? "bg-[#5B47FB] text-white" : active ? "border-2 border-[#5B47FB] bg-white" : "border border-[#E4E5F0] bg-white"
                   }`}
                   aria-hidden="true"
                 >
-                  {done ? "✓" : active ? <span className="h-1.5 w-1.5 animate-pulse rounded-full bg-[#1B6F63] motion-reduce:animate-none" /> : null}
+                  {done ? "✓" : active ? <span className="h-1.5 w-1.5 animate-pulse rounded-full bg-[#5B47FB] motion-reduce:animate-none" /> : null}
                 </span>
-                <span className={done || active ? "text-[#1E2A28]" : "text-[#9BA69F]"}>
+                <span className={done || active ? "text-[#0D0F23]" : "text-[#9A9DB8]"}>
                   <span className={active ? "font-bold" : ""}>{step.label}</span>
-                  {active && <span className="block text-[10px] text-[#6B7A73]">{step.hint}</span>}
+                  {active && <span className="block text-[10px] text-[#6C7193]">{step.hint}</span>}
                 </span>
               </li>
             );
@@ -92,7 +92,7 @@ const RefreshProgress: React.FC<RefreshProgressProps> = ({ status, stage, since,
         </ol>
       )}
 
-      <p className="mt-2 text-[10px] leading-5 text-[#6B7A73]">
+      <p className="mt-2 text-[10px] leading-5 text-[#6C7193]">
         {publishing
           ? t("growth.progress.sending")
           : t("growth.progress.background")}

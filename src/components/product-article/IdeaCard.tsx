@@ -22,26 +22,26 @@ const getState = (idea: IdeaWithArticle): IdeaState => {
   return "progress";
 };
 
-const outline = (c: string) => `border ${c} bg-white hover:bg-[#EFEDE6]`;
+const outline = (c: string) => `border ${c} bg-white hover:bg-[#F3F2FB]`;
 
 const UI: Record<IdeaState, { card: string; badge?: string; text?: string; button: string; label: string }> = {
   new: {
-    card: "border-[#DAD5C7] bg-[#FBFAF6] hover:border-[#1B6F63]/50 hover:shadow-md",
-    button: "bg-[#1B6F63] text-white hover:bg-[#14564C]",
+    card: "border-[#E4E5F0] bg-[#FAFAFE] hover:border-[#5B47FB]/50 hover:shadow-md",
+    button: "bg-[#5B47FB] text-white hover:bg-[#4935E0]",
     get label() { return t("dashboard.opportunities.generate"); },
   },
   progress: {
-    card: "border-[#1B6F63]/40 bg-[#F4F9F7]",
-    badge: "bg-[#DCEFEA] text-[#14564C]",
+    card: "border-[#5B47FB]/40 bg-[#F4F9F7]",
+    badge: "bg-[#EFEDFF] text-[#4935E0]",
     get text() { return t("analyze.ideasBar.generating"); },
-    button: outline("border-[#1B6F63] text-[#1B6F63]"),
+    button: outline("border-[#5B47FB] text-[#5B47FB]"),
     get label() { return t("product.idea.viewProgress"); },
   },
   completed: {
-    card: "border-[#1B6F63]/40 bg-[#F1F8F5]",
-    badge: "bg-[#1B6F63] text-white",
+    card: "border-[#5B47FB]/40 bg-[#F1F8F5]",
+    badge: "bg-[#5B47FB] text-white",
     get text() { return t("product.idea.generated"); },
-    button: outline("border-[#1B6F63] text-[#1B6F63]"),
+    button: outline("border-[#5B47FB] text-[#5B47FB]"),
     get label() { return t("analyze.idea.viewArticle"); },
   },
   failed: {
@@ -113,7 +113,7 @@ const IdeaCard: React.FC<IdeaCardProps> = ({ idea, loading = false, onSelect }) 
     <article className={`flex h-full flex-col gap-3 rounded-2xl border p-4 transition sm:p-5 ${ui.card}`}>
       {/* نشان‌ها */}
       <div className="flex min-h-[28px] items-center justify-between gap-2">
-        <span className="rounded-full bg-[#EFEDE6] px-2.5 py-1 text-[11px] font-bold text-[#1B6F63]">
+        <span className="rounded-full bg-[#F3F2FB] px-2.5 py-1 text-[11px] font-bold text-[#5B47FB]">
           {STYLE_LABELS[idea.content_style] || idea.content_style}
         </span>
         {ui.badge && (
@@ -127,8 +127,8 @@ const IdeaCard: React.FC<IdeaCardProps> = ({ idea, loading = false, onSelect }) 
 
       {/* عنوان (۲ خط ثابت) و دسته‌ها (۱ خط) */}
       <div>
-        <h4 className="line-clamp-2 min-h-[56px] text-[15px] font-black leading-7 text-[#1E2A28]">{idea.title}</h4>
-        <p className="mt-1 h-4 truncate text-[11px] text-[#65716B]">{categories}</p>
+        <h4 className="line-clamp-2 min-h-[56px] text-[15px] font-black leading-7 text-[#0D0F23]">{idea.title}</h4>
+        <p className="mt-1 h-4 truncate text-[11px] text-[#6C7193]">{categories}</p>
       </div>
 
       {/* همه‌ی محصولات؛ این بخش فضای اضافه را می‌گیرد تا لینک و دکمه هم‌تراز پایین بمانند */}
@@ -136,31 +136,31 @@ const IdeaCard: React.FC<IdeaCardProps> = ({ idea, loading = false, onSelect }) 
         {products.map((p) => {
           const thumb = thumbOf(p);
           return (
-            <li key={p.id} className="flex items-center gap-2.5 rounded-xl bg-white/60 p-1.5 ring-1 ring-[#DAD5C7]/60">
-              <span className="flex h-10 w-10 shrink-0 items-center justify-center overflow-hidden rounded-lg bg-[#EFEDE6] text-[#9AA39D]">
+            <li key={p.id} className="flex items-center gap-2.5 rounded-xl bg-white/60 p-1.5 ring-1 ring-[#E4E5F0]/60">
+              <span className="flex h-10 w-10 shrink-0 items-center justify-center overflow-hidden rounded-lg bg-[#F3F2FB] text-[#9AA39D]">
                 {thumb ? (
                   <img src={thumb} alt="" loading="lazy" className="h-full w-full object-cover" />
                 ) : (
                   <Icon d={BOX} className="h-4 w-4" />
                 )}
               </span>
-              <span className="line-clamp-2 text-xs leading-5 text-[#384B43]">{p.name}</span>
+              <span className="line-clamp-2 text-xs leading-5 text-[#3B3F5C]">{p.name}</span>
             </li>
           );
         })}
       </ul>
 
       {/* لینک داخلی: عنوان + آدرس (ارتفاع ثابت) */}
-      <div className="h-[68px] rounded-xl border border-[#1B6F63]/20 bg-[#EAF4F1]/70 px-3 py-2">
-        <p className="flex items-center gap-1.5 text-[10px] font-bold text-[#1B6F63]">
+      <div className="h-[68px] rounded-xl border border-[#5B47FB]/20 bg-[#EAF4F1]/70 px-3 py-2">
+        <p className="flex items-center gap-1.5 text-[10px] font-bold text-[#5B47FB]">
           <Icon d={LINK} className="h-3 w-3 shrink-0" />
           {t("product.idea.internalLink")}
         </p>
-        <p className="mt-0.5 truncate text-xs font-black text-[#1E2A28]">{linkTitle || "—"}</p>
+        <p className="mt-0.5 truncate text-xs font-black text-[#0D0F23]">{linkTitle || "—"}</p>
         <p
           dir="ltr"
           title={url}
-          className={`truncate text-start text-[11px] ${url ? "text-[#65716B]" : "text-amber-700"}`}
+          className={`truncate text-start text-[11px] ${url ? "text-[#6C7193]" : "text-amber-700"}`}
         >
           {url ? prettyUrl(url) : "—"}
         </p>

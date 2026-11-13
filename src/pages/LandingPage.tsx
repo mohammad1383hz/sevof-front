@@ -25,17 +25,17 @@ interface FaqItemProps {
 
 /*
   Palette (warm neutral, medium contrast — built for trust, not for "SaaS pastel"):
-  --ink        #1E2A28   deep teal-charcoal, primary text & dark panel
-  --ink-soft   #5B655F   secondary text
-  --paper      #EFEDE6   page background, warm stone (not white, not blue)
-  --surface    #FBFAF6   card surface
-  --line       #DAD5C7   hairline borders
-  --teal       #1B6F63   primary accent (trust / growth)
-  --teal-dark  #14564C   accent hover
-  --teal-tint  #DCEFEA   accent background tint (checkmarks, chips)
+  --ink        #0D0F23   deep teal-charcoal, primary text & dark panel
+  --ink-soft   #5A5F80   secondary text
+  --paper      #F3F2FB   page background, warm stone (not white, not blue)
+  --surface    #FAFAFE   card surface
+  --line       #E4E5F0   hairline borders
+  --teal       #5B47FB   primary accent (trust / growth)
+  --teal-dark  #4935E0   accent hover
+  --teal-tint  #EFEDFF   accent background tint (checkmarks, chips)
   --bronze     #B08D57   secondary accent (badges, highlights)
   --bronze-tint#EDE3CF   secondary accent tint
-  --cream      #F5F1E8   text-on-dark
+  --cream      #F6F6FB   text-on-dark
 */
 
 const faqData = [
@@ -113,7 +113,7 @@ const RainOverlay = () => (
           height={h}
           viewBox={`0 0 ${w} ${h}`}
         >
-          <path d={path} fill="#1B6F63" />
+          <path d={path} fill="#5B47FB" />
         </svg>
       );
     })}
@@ -139,9 +139,9 @@ const RainOverlay = () => (
 );
 
 const FeatureTag = ({ icon, title, isNew }: FeatureTagProps) => (
-  <div className="flex items-center justify-center gap-3 border border-[#DAD5C7] bg-[#FBFAF6] shadow-sm px-4 py-3 rounded hover:border-[#1B6F63]/50 transition-colors cursor-default">
-    <span className="text-[#1B6F63] font-bold">{icon}</span>
-    <span className="text-[#1E2A28] text-sm md:text-base">{title}</span>
+  <div className="flex items-center justify-center gap-3 border border-[#E4E5F0] bg-[#FAFAFE] shadow-sm px-4 py-3 rounded hover:border-[#5B47FB]/50 transition-colors cursor-default">
+    <span className="text-[#5B47FB] font-bold">{icon}</span>
+    <span className="text-[#0D0F23] text-sm md:text-base">{title}</span>
     {isNew && (
       <span className="bg-[#EDE3CF] text-[#8A6A2F] text-xs px-2 py-0.5 rounded ml-2 font-semibold">
         New
@@ -151,15 +151,15 @@ const FeatureTag = ({ icon, title, isNew }: FeatureTagProps) => (
 );
 
 const ArticleCard = ({ tag, title, description }: ArticleCardProps) => (
-  <div className="border border-[#DAD5C7] bg-[#FBFAF6] shadow-sm rounded-lg p-6 hover:border-[#1B6F63]/50 hover:shadow-md transition-all flex flex-col items-center text-center h-full">
-    <div className="bg-[#1B6F63] text-white font-bold text-xs inline-block px-3 py-1 mb-4 rounded-sm">
+  <div className="border border-[#E4E5F0] bg-[#FAFAFE] shadow-sm rounded-lg p-6 hover:border-[#5B47FB]/50 hover:shadow-md transition-all flex flex-col items-center text-center h-full">
+    <div className="bg-[#5B47FB] text-white font-bold text-xs inline-block px-3 py-1 mb-4 rounded-sm">
       {tag}
     </div>
-    <h3 className="text-xl font-bold mb-3 text-[#1E2A28]">{title}</h3>
-    <p className="text-[#000000] text-sm mb-6 flex-grow leading-relaxed">
+    <h3 className="text-xl font-bold mb-3 text-[#0D0F23]">{title}</h3>
+    <p className="text-[#0D0F23] text-sm mb-6 flex-grow leading-relaxed">
       {description}
     </p>
-    <a href="#" className="text-[#1B6F63] font-bold text-sm hover:underline flex items-center justify-center gap-2">
+    <a href="#" className="text-[#5B47FB] font-bold text-sm hover:underline flex items-center justify-center gap-2">
       Read more <span className="text-lg">←</span>
     </a>
   </div>
@@ -169,15 +169,15 @@ const FaqAccordionItem = ({ question, answer, index }: FaqItemProps) => {
   const [isOpen, setIsOpen] = useState(false);
 
   return (
-    <div className="border border-[#DAD5C7] rounded-lg bg-[#FBFAF6] shadow-sm overflow-hidden mb-3">
+    <div className="border border-[#E4E5F0] rounded-lg bg-[#FAFAFE] shadow-sm overflow-hidden mb-3">
       <button
         onClick={() => setIsOpen(!isOpen)}
-        className="w-full flex items-center justify-between p-5 text-left hover:bg-[#F4F2EC] transition-colors focus:outline-none"
+        className="w-full flex items-center justify-between p-5 text-left hover:bg-[#F6F6FB] transition-colors focus:outline-none"
       >
-        <span className="font-bold text-sm md:text-base text-[#1E2A28] flex-grow">
+        <span className="font-bold text-sm md:text-base text-[#0D0F23] flex-grow">
           {index + 1}. {question}
         </span>
-        <span className={`text-[#1B6F63] transform transition-transform duration-200 ${isOpen ? 'rotate-180' : ''}`}>
+        <span className={`text-[#5B47FB] transform transition-transform duration-200 ${isOpen ? 'rotate-180' : ''}`}>
           <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
             <polyline points="6 9 12 15 18 9"></polyline>
           </svg>
@@ -186,7 +186,7 @@ const FaqAccordionItem = ({ question, answer, index }: FaqItemProps) => {
       <div
         className={`transition-all duration-300 ease-in-out ${isOpen ? 'max-h-96 opacity-100' : 'max-h-0 opacity-0'}`}
       >
-        <div className="p-5 pt-0 text-[#000000] text-sm md:text-base leading-relaxed border-t border-[#DAD5C7] mt-2 text-left text-justify">
+        <div className="p-5 pt-0 text-[#0D0F23] text-sm md:text-base leading-relaxed border-t border-[#E4E5F0] mt-2 text-left text-justify">
           {answer}
         </div>
       </div>
@@ -197,9 +197,9 @@ const FaqAccordionItem = ({ question, answer, index }: FaqItemProps) => {
 const LandingPage = () => {
   return (
     <>
-      <div dir="ltr" className="min-h-screen bg-[#EFEDE6] text-[#1E2A28] selection:bg-[#CBE0DA] selection:text-[#1E2A28] pb-20">
+      <div dir="ltr" className="min-h-screen bg-[#F3F2FB] text-[#0D0F23] selection:bg-[#D9D4FF] selection:text-[#0D0F23] pb-20">
         {/* Background Overlay */}
-        <div className="fixed inset-0 z-0 opacity-50 pointer-events-none bg-[radial-gradient(ellipse_at_top,_var(--tw-gradient-stops))] from-[#E3DFD1] via-[#EFEDE6] to-[#F9F8F3]"></div>
+        <div className="fixed inset-0 z-0 opacity-50 pointer-events-none bg-[radial-gradient(ellipse_at_top,_var(--tw-gradient-stops))] from-[#E6E5F1] via-[#F3F2FB] to-[#FAFAFE]"></div>
 
         {/* Ambient rain-line overlay — sits above the paper background, below all content */}
         <RainOverlay />
@@ -211,21 +211,21 @@ const LandingPage = () => {
 <div className="sticky top-0 z-50 w-full">
   <nav className="flex items-center justify-between w-full max-w-6xl mx-auto px-6 lg:px-8 py-4">
     
-    <div className="text-2xl font-bold text-[#1B6F63] tracking-tighter" dir="ltr">
+    <div className="text-2xl font-bold text-[#5B47FB] tracking-tighter" dir="ltr">
       Seobot
     </div>
 
     <div className="hidden md:flex items-center justify-center gap-8 text-sm">
       <a 
         href="#" 
-        className="text-[#000000] hover:text-[#1B6F63] transition-colors font-medium"
+        className="text-[#0D0F23] hover:text-[#5B47FB] transition-colors font-medium"
       >
         Plans
       </a>
 
       <Link
         to="/login"
-        className="bg-[#1B6F63] hover:bg-[#14564C] text-white font-semibold py-2 px-6 rounded transition-colors shadow-sm"
+        className="bg-[#5B47FB] hover:bg-[#4935E0] text-white font-semibold py-2 px-6 rounded transition-colors shadow-sm"
       >
         Get started for free
       </Link>
@@ -235,29 +235,29 @@ const LandingPage = () => {
 </div>
           {/* --- Hero Section --- */}
         <section className="pt-24 pb-10 max-w-3xl flex flex-col items-center text-center">
-<p className="text-[#1B6F63] font-semibold mb-6 text-sm font-mono" dir="ltr">
+<p className="text-[#5B47FB] font-semibold mb-6 text-sm font-mono" dir="ltr">
   // Powered by AI and GPT agents
 </p>
 
   
 
 <h1
-  className="text-4xl md:text-5xl font-bold mb-8 text-[#1E2A28] leading-[1.35]"
+  className="text-4xl md:text-5xl font-bold mb-8 text-[#0D0F23] leading-[1.35]"
    style={{ lineHeight: "1.3" }}
 >
   Seobot{" "}
-  <span className="text-[#1B6F63] font-extrabold">
+  <span className="text-[#5B47FB] font-extrabold">
     Youtix
   </span>
   <br />
   AI-powered SEO content assistant
 </h1>
-<p className="text-[#000000] mb-10 text-lg leading-relaxed max-w-2xl">
-  <span className="font-semibold text-[#1B6F63]">Youtix Seobot</span>{" "}
+<p className="text-[#0D0F23] mb-10 text-lg leading-relaxed max-w-2xl">
+  <span className="font-semibold text-[#5B47FB]">Youtix Seobot</span>{" "}
   It analyzes your website and competitors, uncovers new opportunities, writes SEO-optimized articles, and can publish them directly to your site.
 </p>
   <div className="flex flex-col items-center gap-4 mb-12">
-    <button className="bg-[#1B6F63] hover:bg-[#14564C] text-white font-bold py-3 px-8 rounded transition-colors shadow-md">
+    <button className="bg-[#5B47FB] hover:bg-[#4935E0] text-white font-bold py-3 px-8 rounded transition-colors shadow-md">
   Get started for free
     </button>
   </div>
@@ -266,26 +266,26 @@ const LandingPage = () => {
 </section>
           {/* --- Stats Section --- */}
           {/* <section className="pt-20 pb-16 w-full flex flex-col items-center text-center">
-            <p className="text-[#1B6F63] font-semibold mb-4 text-sm font-mono" dir="ltr">// ساخت وبلاگ بهینه‌شده برای سئو</p>
-            <h2 className="text-3xl md:text-4xl font-bold mb-4 text-[#1E2A28]">سئوبات تاکنون بیش از ۲۰۰ هزار مقاله تولید کرده است!</h2>
-            <p className="text-[#000000] mb-16 text-lg">خلق ارزش با ایجاد ۱.۲ میلیارد بازدید و ۳۰ میلیون کلیک ارگانیک.</p>
+            <p className="text-[#5B47FB] font-semibold mb-4 text-sm font-mono" dir="ltr">// ساخت وبلاگ بهینه‌شده برای سئو</p>
+            <h2 className="text-3xl md:text-4xl font-bold mb-4 text-[#0D0F23]">سئوبات تاکنون بیش از ۲۰۰ هزار مقاله تولید کرده است!</h2>
+            <p className="text-[#0D0F23] mb-16 text-lg">خلق ارزش با ایجاد ۱.۲ میلیارد بازدید و ۳۰ میلیون کلیک ارگانیک.</p>
 
             <div className="grid grid-cols-1 md:grid-cols-2 gap-8 relative w-full max-w-5xl mx-auto" dir="ltr">
                <div className="relative transform -rotate-2 hover:rotate-0 transition-transform duration-300">
                  <div className="absolute -top-4 -left-4 bg-[#B08D57] text-white font-bold px-4 py-1 z-10 rotate-6 shadow-md rounded-sm">devhunt.org</div>
-                 <div className="bg-[#FBFAF6] border border-[#DAD5C7] shadow-sm rounded overflow-hidden"><img src="/final.jpg" alt="Chart" className="w-full" /></div>
+                 <div className="bg-[#FAFAFE] border border-[#E4E5F0] shadow-sm rounded overflow-hidden"><img src="/final.jpg" alt="Chart" className="w-full" /></div>
                </div>
                <div className="relative transform rotate-2 hover:rotate-0 transition-transform duration-300">
                  <div className="absolute -top-4 -left-4 bg-[#B08D57] text-white font-bold px-4 py-1 z-10 rotate-[10deg] shadow-md rounded-sm">filmgrail.com</div>
-                 <div className="bg-[#FBFAF6] border border-[#DAD5C7] shadow-sm rounded overflow-hidden"><img src="/final.jpg" alt="Chart" className="w-full" /></div>
+                 <div className="bg-[#FAFAFE] border border-[#E4E5F0] shadow-sm rounded overflow-hidden"><img src="/final.jpg" alt="Chart" className="w-full" /></div>
                </div>
                <div className="relative transform rotate-1 hover:rotate-0 transition-transform duration-300">
                  <div className="absolute -top-4 left-10 bg-[#B08D57] text-white font-bold px-4 py-1 z-10 rotate-[-5deg] shadow-md rounded-sm">nextjsstarter.com</div>
-                 <div className="bg-[#FBFAF6] border border-[#DAD5C7] shadow-sm rounded overflow-hidden"><img src="/final.jpg" alt="Chart" className="w-full" /></div>
+                 <div className="bg-[#FAFAFE] border border-[#E4E5F0] shadow-sm rounded overflow-hidden"><img src="/final.jpg" alt="Chart" className="w-full" /></div>
                </div>
                <div className="relative transform -rotate-1 hover:rotate-0 transition-transform duration-300">
                  <div className="absolute -top-4 -left-2 bg-[#B08D57] text-white font-bold px-4 py-1 z-10 rotate-[8deg] shadow-md rounded-sm">llmmodels.org</div>
-                 <div className="bg-[#FBFAF6] border border-[#DAD5C7] shadow-sm rounded overflow-hidden"><img src="/final.jpg" alt="Chart" className="w-full" /></div>
+                 <div className="bg-[#FAFAFE] border border-[#E4E5F0] shadow-sm rounded overflow-hidden"><img src="/final.jpg" alt="Chart" className="w-full" /></div>
                </div>
             </div>
           </section> */}
@@ -293,11 +293,11 @@ const LandingPage = () => {
 
 <section className="pt-24 pb-24 w-full flex flex-col items-center">
 
-  <p className="text-[#1B6F63] font-semibold mb-4 text-sm font-mono">
+  <p className="text-[#5B47FB] font-semibold mb-4 text-sm font-mono">
     // Seobot demo
   </p>
 
-  <h2 className="text-3xl md:text-4xl font-bold text-center mb-6 text-[#1E2A28]">
+  <h2 className="text-3xl md:text-4xl font-bold text-center mb-6 text-[#0D0F23]">
 What does Youtix do?
   </h2>
 
@@ -307,8 +307,8 @@ What does Youtix do?
       max-w-4xl
       rounded-2xl
       overflow-hidden
-      border border-[#DAD5C7]
-      bg-[#FBFAF6]
+      border border-[#E4E5F0]
+      bg-[#FAFAFE]
       shadow-xl
     "
   >
@@ -321,14 +321,14 @@ What does Youtix do?
         items-center
         justify-between
         border-b
-        border-[#DAD5C7]
+        border-[#E4E5F0]
       "
     >
-      <span className="font-semibold text-[#1E2A28]">
+      <span className="font-semibold text-[#0D0F23]">
         Demo.mp4
       </span>
 
-      <span className="text-sm text-[#000000]">
+      <span className="text-sm text-[#0D0F23]">
         About 2 minutes
       </span>
     </div>
@@ -364,8 +364,8 @@ What does Youtix do?
 
           {/* --- Features Section --- */}
           <section className="pt-20 pb-20 w-full flex flex-col items-center text-center">
-            <p className="text-[#1B6F63] font-semibold mb-4 text-sm font-mono" dir="ltr">// Youtix Seobot features</p>
-            <h2 className="text-3xl md:text-4xl font-bold mb-10 text-[#1E2A28]">Powerful features to grow your website</h2>
+            <p className="text-[#5B47FB] font-semibold mb-4 text-sm font-mono" dir="ltr">// Youtix Seobot features</p>
+            <h2 className="text-3xl md:text-4xl font-bold mb-10 text-[#0D0F23]">Powerful features to grow your website</h2>
             <div className="flex flex-wrap justify-center gap-4 items-center max-w-4xl mx-auto">
               <FeatureTag icon="+" title="Turn YouTube videos into articles" isNew={true} />
               <FeatureTag icon="+" title="Build backlinks to boost domain authority" isNew={true} />
@@ -385,8 +385,8 @@ What does Youtix do?
 
           {/* --- Integrations Section --- */}
           <section className="pt-10 pb-20 w-full flex flex-col items-center text-center">
-            <p className="text-[#1B6F63] font-semibold mb-4 text-sm font-mono" dir="ltr">// Connect automatically to popular platforms</p>
-            <h2 className="text-3xl md:text-4xl font-bold mb-12 text-[#1E2A28]">Integrations</h2>
+            <p className="text-[#5B47FB] font-semibold mb-4 text-sm font-mono" dir="ltr">// Connect automatically to popular platforms</p>
+            <h2 className="text-3xl md:text-4xl font-bold mb-12 text-[#0D0F23]">Integrations</h2>
 
            <div className="flex flex-wrap justify-center items-center gap-10 md:gap-20" dir="ltr">
   {[
@@ -414,8 +414,8 @@ What does Youtix do?
       />
 
       <div className="flex items-center justify-center gap-2">
-        <div className="w-2 h-2 rounded-full bg-[#1B6F63]"></div>
-        <span className="font-bold text-sm md:text-base text-[#1E2A28] text-center">
+        <div className="w-2 h-2 rounded-full bg-[#5B47FB]"></div>
+        <span className="font-bold text-sm md:text-base text-[#0D0F23] text-center">
           {item.name}
         </span>
       </div>
@@ -426,9 +426,9 @@ What does Youtix do?
 
           {/* --- Articles Examples Section --- */}
           <section className="pt-10 pb-20 w-full flex flex-col items-center text-center">
-            <p className="text-[#1B6F63] font-semibold mb-6 text-sm font-mono" dir="ltr">// Sample articles</p>
-            <div className="w-full max-w-4xl h-[1px] bg-[#DAD5C7] mb-12 relative flex justify-center">
-              <div className="absolute left-0 top-0 h-full bg-[#1B6F63] w-1/4"></div>
+            <p className="text-[#5B47FB] font-semibold mb-6 text-sm font-mono" dir="ltr">// Sample articles</p>
+            <div className="w-full max-w-4xl h-[1px] bg-[#E4E5F0] mb-12 relative flex justify-center">
+              <div className="absolute left-0 top-0 h-full bg-[#5B47FB] w-1/4"></div>
             </div>
 
             <div className="grid grid-cols-1 md:grid-cols-3 gap-6 w-full">
@@ -453,12 +453,12 @@ What does Youtix do?
 
           {/* --- Pricing Section --- */}
           <section className="pt-10 pb-20 w-full flex flex-col items-center text-center">
-            <p className="text-[#1B6F63] font-semibold mb-4 text-sm font-mono" dir="ltr">// Subscription pricing</p>
-            <h2 className="text-3xl md:text-4xl font-bold mb-10 text-[#1E2A28]">The best ROI for your business</h2>
+            <p className="text-[#5B47FB] font-semibold mb-4 text-sm font-mono" dir="ltr">// Subscription pricing</p>
+            <h2 className="text-3xl md:text-4xl font-bold mb-10 text-[#0D0F23]">The best ROI for your business</h2>
 
-            <div className="border border-[#DAD5C7] rounded-xl bg-[#FBFAF6] shadow-lg overflow-hidden flex flex-col md:flex-row w-full max-w-5xl">
+            <div className="border border-[#E4E5F0] rounded-xl bg-[#FAFAFE] shadow-lg overflow-hidden flex flex-col md:flex-row w-full max-w-5xl">
               {/* Right Column (Features Checklist) */}
-              <div className="p-8 md:p-12 md:w-7/12 flex flex-col justify-center items-center md:order-1 order-2 border-l border-[#DAD5C7]">
+              <div className="p-8 md:p-12 md:w-7/12 flex flex-col justify-center items-center md:order-1 order-2 border-l border-[#E4E5F0]">
                  <div className="flex flex-col gap-6 text-left">
                    {[
                      'Fully automated setup—just enter your website URL and click "Start."',
@@ -470,35 +470,35 @@ What does Youtix do?
                      'An intelligent fact-checking system that reduces hallucinations and cites credible sources.'
                    ].map((text, idx) => (
                      <div key={idx} className="flex items-start justify-start gap-3">
-                       <span className="bg-[#DCEFEA] text-[#1B6F63] text-xs font-bold rounded-full flex items-center justify-center mt-1 min-w-[24px] h-[24px]">
+                       <span className="bg-[#EFEDFF] text-[#5B47FB] text-xs font-bold rounded-full flex items-center justify-center mt-1 min-w-[24px] h-[24px]">
                          ✓
                        </span>
-                       <span className="text-[#3D453F] text-sm md:text-base leading-relaxed font-medium">{text}</span>
+                       <span className="text-[#3B3F5C] text-sm md:text-base leading-relaxed font-medium">{text}</span>
                      </div>
                    ))}
                  </div>
               </div>
 
               {/* Left Column (Quote & Price) — the signature dark panel */}
-              <div className="p-8 md:p-12 md:w-5/12 flex flex-col items-center text-center bg-[#1E2A28] md:order-2 order-1">
+              <div className="p-8 md:p-12 md:w-5/12 flex flex-col items-center text-center bg-[#0D0F23] md:order-2 order-1">
                 <div className="flex-grow flex flex-col items-center">
-                  <p className="text-[#C8CFC9] italic mb-4 leading-relaxed font-light">
+                  <p className="text-[#C9CBDD] italic mb-4 leading-relaxed font-light">
                     Jon Rausch: “I created Seobut because I desperately needed a tool like this myself.
                   </p>
-                  <p className="text-[#C8CFC9] italic mb-4 leading-relaxed font-light">
+                  <p className="text-[#C9CBDD] italic mb-4 leading-relaxed font-light">
                     I currently use this system for 11 SaaS projects and 20 personal directories.
                   </p>
-                  <p className="text-[#C8CFC9] italic mb-10 leading-relaxed font-light">
+                  <p className="text-[#C9CBDD] italic mb-10 leading-relaxed font-light">
                     Our mission is to lead the way in AI assistants that create useful content for readers while driving organic traffic for founders. Our users have generated more than 600 million visits so far.”
                   </p>
                 </div>
                 <div className="flex flex-col items-center w-full">
                   <div className="flex items-start justify-center mb-2" dir="ltr">
                     <span className="text-[#B08D57] mt-1 ml-1 text-lg font-bold">$</span>
-                    <span className="text-6xl font-bold text-[#F5F1E8]">49</span>
-                    <span className="self-end mb-2 mr-1 text-[#9BA69F] text-sm font-semibold">/ month</span>
+                    <span className="text-6xl font-bold text-[#F6F6FB]">49</span>
+                    <span className="self-end mb-2 mr-1 text-[#9A9DB8] text-sm font-semibold">/ month</span>
                   </div>
-                  <p className="text-[#9BA69F] text-xs md:text-sm mb-8 font-medium">Plans start at</p>
+                  <p className="text-[#9A9DB8] text-xs md:text-sm mb-8 font-medium">Plans start at</p>
                   <button className="w-full max-w-xs bg-[#B08D57] hover:bg-[#9A7A49] text-white font-bold py-4 px-6 rounded transition-colors text-center shadow-md flex justify-center items-center gap-2">
                     Start growing your traffic <span>←</span>
                   </button>
@@ -509,12 +509,12 @@ What does Youtix do?
 
           {/* --- FAQ Section --- */}
           <section className="pt-10 pb-20 w-full max-w-3xl flex flex-col items-center text-center">
-            <p className="text-[#1B6F63] font-semibold mb-4 text-sm font-mono" dir="ltr">// Frequently asked questions</p>
-            <h2 className="text-3xl md:text-4xl font-bold mb-6 text-[#1E2A28]">Have a question?</h2>
-            <p className="text-[#000000] mb-2 font-medium">
-              Via <a href="#" className="underline hover:text-[#1B6F63] transition-colors">LinkedIn</a>,  <a href="#" className="underline hover:text-[#1B6F63] transition-colors">Twitter</a>, or <a href="#" className="underline hover:text-[#1B6F63] transition-colors">email</a> get in touch with me directly.
+            <p className="text-[#5B47FB] font-semibold mb-4 text-sm font-mono" dir="ltr">// Frequently asked questions</p>
+            <h2 className="text-3xl md:text-4xl font-bold mb-6 text-[#0D0F23]">Have a question?</h2>
+            <p className="text-[#0D0F23] mb-2 font-medium">
+              Via <a href="#" className="underline hover:text-[#5B47FB] transition-colors">LinkedIn</a>,  <a href="#" className="underline hover:text-[#5B47FB] transition-colors">Twitter</a>, or <a href="#" className="underline hover:text-[#5B47FB] transition-colors">email</a> get in touch with me directly.
             </p>
-            <p className="text-[#000000] mb-10">
+            <p className="text-[#0D0F23] mb-10">
               Or find your answer in the FAQs below 👇
             </p>
 

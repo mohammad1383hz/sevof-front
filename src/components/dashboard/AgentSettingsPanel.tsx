@@ -111,10 +111,10 @@ const CreditBadge: React.FC<{ cost?: number; selected?: boolean; compact?: boole
     <div
       className={`w-full border-t border-dashed flex items-center justify-between gap-1 ${
         compact ? "mt-0.5 pt-1" : "mt-1 pt-2"
-      } ${selected ? "border-[#1B6F63]/30" : "border-[#DAD5C7]"}`}
+      } ${selected ? "border-[#5B47FB]/30" : "border-[#E4E5F0]"}`}
     >
-      <span className="text-[10px] text-[#000000]/55">{t("dashboard.settings.perImage")}</span>
-      <span className={`inline-flex items-center gap-1 rounded-full px-2 py-0.5 text-[11px] font-black ${selected ? "bg-[#1B6F63] text-white" : "bg-[#EDE3CF] text-[#8A6A2F]"}`}>
+      <span className="text-[10px] text-[#0D0F23]/55">{t("dashboard.settings.perImage")}</span>
+      <span className={`inline-flex items-center gap-1 rounded-full px-2 py-0.5 text-[11px] font-black ${selected ? "bg-[#5B47FB] text-white" : "bg-[#EDE3CF] text-[#8A6A2F]"}`}>
         <CoinIcon />
         {t("dashboard.settings.credits", { count: formatFa(cost) })}
       </span>
@@ -126,11 +126,11 @@ interface FieldShellProps { label: string; hint?: string; trailing?: React.React
 const FieldShell: React.FC<FieldShellProps> = ({ label, hint, trailing, children }) => (
   <div>
     <div className="flex items-center justify-between mb-1.5 gap-2">
-      <label className="block text-xs font-medium text-[#000000]">{label}</label>
+      <label className="block text-xs font-medium text-[#0D0F23]">{label}</label>
       {trailing}
     </div>
     {children}
-    {hint && <p className="text-[11px] text-[#6B6459] mt-1.5">{hint}</p>}
+    {hint && <p className="text-[11px] text-[#63667F] mt-1.5">{hint}</p>}
   </div>
 );
 
@@ -160,20 +160,20 @@ function CustomSelect<T extends string | number>({ value, options, onChange, max
   return (
     <div ref={containerRef} className="relative">
       <button type="button" onClick={() => setOpen((v) => !v)} aria-haspopup="listbox" aria-expanded={open}
-        className="flex w-full items-center justify-between gap-2 rounded-xl border border-[#DAD5C7] bg-white px-3.5 py-2.5 text-sm text-[#000000] shadow-sm transition-colors duration-150 hover:border-[#1B6F63]/50 focus:outline-none focus:border-[#1B6F63] focus:ring-4 focus:ring-[#1B6F63]/10">
+        className="flex w-full items-center justify-between gap-2 rounded-xl border border-[#E4E5F0] bg-white px-3.5 py-2.5 text-sm text-[#0D0F23] shadow-sm transition-colors duration-150 hover:border-[#5B47FB]/50 focus:outline-none focus:border-[#5B47FB] focus:ring-4 focus:ring-[#5B47FB]/10">
         <span className="truncate">{selected?.label ?? ""}</span>
-        <svg className={`h-4 w-4 shrink-0 text-[#9C9581] transition-transform duration-150 ${open ? "rotate-180 text-[#1B6F63]" : ""}`} viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth={2} strokeLinecap="round" strokeLinejoin="round">
+        <svg className={`h-4 w-4 shrink-0 text-[#9A9DB8] transition-transform duration-150 ${open ? "rotate-180 text-[#5B47FB]" : ""}`} viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth={2} strokeLinecap="round" strokeLinejoin="round">
           <polyline points="6 9 12 15 18 9" />
         </svg>
       </button>
       {open && (
-        <ul role="listbox" className={`absolute z-20 mt-1.5 w-full overflow-y-auto rounded-xl border border-[#DAD5C7] bg-white p-1 shadow-lg ${maxListHeightClass}`}>
+        <ul role="listbox" className={`absolute z-20 mt-1.5 w-full overflow-y-auto rounded-xl border border-[#E4E5F0] bg-white p-1 shadow-lg ${maxListHeightClass}`}>
           {options.map((opt) => {
             const isSelected = opt.value === value;
             return (
               <li key={String(opt.value)} role="option" aria-selected={isSelected}>
                 <button type="button" onClick={() => { onChange(opt.value); setOpen(false); }}
-                  className={`w-full rounded-lg px-3 py-2 text-start text-sm transition-colors ${isSelected ? "bg-[#1B6F63] text-white" : "text-[#000000] hover:bg-[#1B6F63]/10"}`}>
+                  className={`w-full rounded-lg px-3 py-2 text-start text-sm transition-colors ${isSelected ? "bg-[#5B47FB] text-white" : "text-[#0D0F23] hover:bg-[#5B47FB]/10"}`}>
                   {opt.label}
                 </button>
               </li>
@@ -189,16 +189,16 @@ interface NumberStepperProps { value: number; min: number; max: number; onChange
 const NumberStepper: React.FC<NumberStepperProps> = ({ value, min, max, onChange }) => {
   const clamp = (v: number) => Math.min(max, Math.max(min, v));
   return (
-    <div className="flex items-center overflow-hidden rounded-xl border border-[#DAD5C7] bg-white shadow-sm transition-colors duration-150 focus-within:border-[#1B6F63] focus-within:ring-4 focus-within:ring-[#1B6F63]/10 hover:border-[#1B6F63]/50">
+    <div className="flex items-center overflow-hidden rounded-xl border border-[#E4E5F0] bg-white shadow-sm transition-colors duration-150 focus-within:border-[#5B47FB] focus-within:ring-4 focus-within:ring-[#5B47FB]/10 hover:border-[#5B47FB]/50">
       <button type="button" onClick={() => onChange(clamp(value - 1))} disabled={value <= min} aria-label={t("dashboard.settings.decrease")}
-        className="flex h-10 w-10 shrink-0 items-center justify-center text-lg leading-none text-[#1B6F63] transition-colors hover:bg-[#1B6F63]/10 disabled:text-[#C9C3B2] disabled:hover:bg-transparent">
+        className="flex h-10 w-10 shrink-0 items-center justify-center text-lg leading-none text-[#5B47FB] transition-colors hover:bg-[#5B47FB]/10 disabled:text-[#CFCDE0] disabled:hover:bg-transparent">
         −
       </button>
       <input type="number" inputMode="numeric" min={min} max={max} value={value}
         onChange={(e) => onChange(clamp(Number(e.target.value) || min))}
-        className="w-full border-x border-[#DAD5C7] bg-transparent py-2.5 text-center text-sm text-[#000000] focus:outline-none [-moz-appearance:textfield] [&::-webkit-inner-spin-button]:appearance-none [&::-webkit-outer-spin-button]:appearance-none" />
+        className="w-full border-x border-[#E4E5F0] bg-transparent py-2.5 text-center text-sm text-[#0D0F23] focus:outline-none [-moz-appearance:textfield] [&::-webkit-inner-spin-button]:appearance-none [&::-webkit-outer-spin-button]:appearance-none" />
       <button type="button" onClick={() => onChange(clamp(value + 1))} disabled={value >= max} aria-label={t("dashboard.settings.increase")}
-        className="flex h-10 w-10 shrink-0 items-center justify-center text-lg leading-none text-[#1B6F63] transition-colors hover:bg-[#1B6F63]/10 disabled:text-[#C9C3B2] disabled:hover:bg-transparent">
+        className="flex h-10 w-10 shrink-0 items-center justify-center text-lg leading-none text-[#5B47FB] transition-colors hover:bg-[#5B47FB]/10 disabled:text-[#CFCDE0] disabled:hover:bg-transparent">
         +
       </button>
     </div>
@@ -211,26 +211,26 @@ interface ModelOptionCardProps {
 }
 const ModelOptionCard: React.FC<ModelOptionCardProps> = ({ label, description, icon, badge, isLocked, recommended, selected, creditCost, compact, onSelect }) => (
   <button type="button" onClick={onSelect}
-    className={`relative flex flex-col items-start gap-1 rounded-xl border text-start transition-colors duration-150 ${compact ? "p-1.5" : "p-3"} ${selected ? "border-[#1B6F63] bg-[#1B6F63]/5 ring-2 ring-[#1B6F63]/15" : "border-[#DAD5C7] bg-white hover:border-[#1B6F63]/40"}`}>
+    className={`relative flex flex-col items-start gap-1 rounded-xl border text-start transition-colors duration-150 ${compact ? "p-1.5" : "p-3"} ${selected ? "border-[#5B47FB] bg-[#5B47FB]/5 ring-2 ring-[#5B47FB]/15" : "border-[#E4E5F0] bg-white hover:border-[#5B47FB]/40"}`}>
     {recommended && (
-      <span className={`absolute -top-2 start-3 rounded-full bg-[#1B6F63] px-2 py-0.5 font-bold text-white shadow-sm ${compact ? "text-[9px]" : "text-[10px]"}`}>
+      <span className={`absolute -top-2 start-3 rounded-full bg-[#5B47FB] px-2 py-0.5 font-bold text-white shadow-sm ${compact ? "text-[9px]" : "text-[10px]"}`}>
         {t("dashboard.settings.recommended")}
       </span>
     )}
     <div className="flex w-full items-center justify-between gap-2">
       <div className="flex items-center gap-1.5 min-w-0">
         {icon && <img src={icon} alt="" className={`shrink-0 rounded object-contain ${compact ? "h-4 w-4" : "h-5 w-5"}`} />}
-        <span className={`truncate font-bold text-[#000000] ${compact ? "text-xs" : "text-sm"}`}>{label}</span>
+        <span className={`truncate font-bold text-[#0D0F23] ${compact ? "text-xs" : "text-sm"}`}>{label}</span>
       </div>
       <div className="flex shrink-0 items-center gap-1.5">
         {(badge || isLocked) && <span className="rounded-md bg-[#E9C46A]/20 px-1.5 py-0.5 text-[10px] font-bold text-[#8A6D1D]">{badge ?? t("layout.plan.pro")}</span>}
-        <span className={`flex items-center justify-center rounded-full border ${compact ? "h-3.5 w-3.5" : "h-4 w-4"} ${selected ? "border-[#1B6F63] bg-[#1B6F63]" : "border-[#DAD5C7]"}`}>
+        <span className={`flex items-center justify-center rounded-full border ${compact ? "h-3.5 w-3.5" : "h-4 w-4"} ${selected ? "border-[#5B47FB] bg-[#5B47FB]" : "border-[#E4E5F0]"}`}>
           {selected && <span className={`rounded-full bg-white ${compact ? "h-1 w-1" : "h-1.5 w-1.5"}`} />}
         </span>
       </div>
     </div>
     {description && (
-      <p className={`text-[#6B6459] ${compact ? "text-[10px] leading-4 line-clamp-1" : "text-[11px] leading-5"}`}>{description}</p>
+      <p className={`text-[#63667F] ${compact ? "text-[10px] leading-4 line-clamp-1" : "text-[11px] leading-5"}`}>{description}</p>
     )}
     <CreditBadge cost={creditCost} selected={selected} compact={compact} />
   </button>
@@ -245,7 +245,7 @@ const PromptField: React.FC<PromptFieldProps> = ({ label, hint, value, onChange,
     label={label}
     hint={hint}
     trailing={
-      <span className={`text-[10px] tabular-nums ${value.length >= maxLength ? "text-rose-500 font-bold" : "text-[#9C9581]"}`}>
+      <span className={`text-[10px] tabular-nums ${value.length >= maxLength ? "text-rose-500 font-bold" : "text-[#9A9DB8]"}`}>
         {formatNumber(value.length)}/{formatNumber(maxLength)}
       </span>
     }
@@ -256,7 +256,7 @@ const PromptField: React.FC<PromptFieldProps> = ({ label, hint, value, onChange,
       maxLength={maxLength}
       rows={rows}
       placeholder={placeholder}
-      className="w-full resize-y rounded-xl border border-[#DAD5C7] bg-white px-3.5 py-2.5 text-sm text-[#000000] shadow-sm transition-colors duration-150 placeholder:text-[#9C9581] hover:border-[#1B6F63]/50 focus:outline-none focus:border-[#1B6F63] focus:ring-4 focus:ring-[#1B6F63]/10"
+      className="w-full resize-y rounded-xl border border-[#E4E5F0] bg-white px-3.5 py-2.5 text-sm text-[#0D0F23] shadow-sm transition-colors duration-150 placeholder:text-[#9A9DB8] hover:border-[#5B47FB]/50 focus:outline-none focus:border-[#5B47FB] focus:ring-4 focus:ring-[#5B47FB]/10"
     />
   </FieldShell>
 );
@@ -362,8 +362,8 @@ const AgentSettingsPanel: React.FC<AgentSettingsPanelProps> = ({ agent, onSave }
   };
 
   return (
-    <div className="mt-4 border-t border-[#DAD5C7]/60 pt-4">
-      <h3 className="text-sm font-bold text-[#000000] mb-3">{t("dashboard.settings.title")}</h3>
+    <div className="mt-4 border-t border-[#E4E5F0]/60 pt-4">
+      <h3 className="text-sm font-bold text-[#0D0F23] mb-3">{t("dashboard.settings.title")}</h3>
 
       {/* ردیف اول: همیشه ۵ ستونه تا چیزی به خط بعد نیفتد */}
       <div className="grid sm:grid-cols-2 lg:grid-cols-5 gap-4">
@@ -404,7 +404,7 @@ const AgentSettingsPanel: React.FC<AgentSettingsPanelProps> = ({ agent, onSave }
       </div>
 
       <div className="mt-6">
-        <h4 className="text-xs font-bold text-[#000000] mb-2">{t("dashboard.settings.articleModel")}</h4>
+        <h4 className="text-xs font-bold text-[#0D0F23] mb-2">{t("dashboard.settings.articleModel")}</h4>
 
         {/* موبایل: به‌جای کارت‌ها یک اینپوت کشویی ساده */}
         <div className="sm:hidden">
@@ -431,7 +431,7 @@ const AgentSettingsPanel: React.FC<AgentSettingsPanelProps> = ({ agent, onSave }
 
       {/* تولید تصویر برای مقالات: همیشه فعال است */}
       <div className="mt-6">
-        <h4 className="text-xs font-bold text-[#000000] mb-2">{t("dashboard.settings.imagesTitle")}</h4>
+        <h4 className="text-xs font-bold text-[#0D0F23] mb-2">{t("dashboard.settings.imagesTitle")}</h4>
 
         {/* موبایل: مدل تصویر به‌صورت اینپوت کشویی + تعداد تصویر کنارش */}
         <div className="sm:hidden space-y-3">
@@ -488,13 +488,13 @@ const AgentSettingsPanel: React.FC<AgentSettingsPanelProps> = ({ agent, onSave }
       </div>
 
       {/* تنظیمات پیشرفته: پرامپت مقاله + پرامپت تصویر کنار هم، و تعداد بخش‌های مقاله */}
-      <div className="mt-6 rounded-xl border border-[#DAD5C7]/70 bg-[#FAF8F2]/60">
+      <div className="mt-6 rounded-xl border border-[#E4E5F0]/70 bg-[#FAFAFE]/60">
         <button type="button" onClick={() => setAdvancedOpen((v) => !v)} className="flex w-full items-center justify-between gap-2 px-4 py-3">
           <div className="text-start">
-            <h4 className="text-xs font-bold text-[#000000]">{t("dashboard.settings.advanced")}</h4>
-            <p className="text-[11px] text-[#6B6459] mt-0.5">{t("dashboard.settings.advancedHint")}</p>
+            <h4 className="text-xs font-bold text-[#0D0F23]">{t("dashboard.settings.advanced")}</h4>
+            <p className="text-[11px] text-[#63667F] mt-0.5">{t("dashboard.settings.advancedHint")}</p>
           </div>
-          <svg className={`h-4 w-4 shrink-0 text-[#6B6459] transition-transform duration-150 ${advancedOpen ? "rotate-180" : ""}`} viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth={2} strokeLinecap="round" strokeLinejoin="round">
+          <svg className={`h-4 w-4 shrink-0 text-[#63667F] transition-transform duration-150 ${advancedOpen ? "rotate-180" : ""}`} viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth={2} strokeLinecap="round" strokeLinejoin="round">
             <polyline points="6 9 12 15 18 9" />
           </svg>
         </button>
@@ -525,20 +525,20 @@ const AgentSettingsPanel: React.FC<AgentSettingsPanelProps> = ({ agent, onSave }
         )}
       </div>
 
-      <div className="mt-4 inline-flex items-center rounded-full bg-[#1B6F63]/10 px-3 py-1.5 text-xs font-medium text-[#14564C]">
+      <div className="mt-4 inline-flex items-center rounded-full bg-[#5B47FB]/10 px-3 py-1.5 text-xs font-medium text-[#4935E0]">
         {shortPreview}
       </div>
 
-      <div className="mt-3 rounded-xl border border-[#1B6F63]/20 bg-[#FAF8F2] p-4">
-        <p className="text-xs font-bold text-[#000000] mb-1">{t("dashboard.settings.summary")}</p>
-        <p className="text-sm leading-6 text-[#000000]">{fullPreview}</p>
+      <div className="mt-3 rounded-xl border border-[#5B47FB]/20 bg-[#FAFAFE] p-4">
+        <p className="text-xs font-bold text-[#0D0F23] mb-1">{t("dashboard.settings.summary")}</p>
+        <p className="text-sm leading-6 text-[#0D0F23]">{fullPreview}</p>
       </div>
 
       <div className="flex items-center gap-3 mt-4">
-        <button onClick={handleSave} disabled={saving} className="bg-[#1B6F63] hover:bg-[#14564C] disabled:opacity-60 text-white text-sm font-bold px-4 py-2 rounded-lg transition-colors">
+        <button onClick={handleSave} disabled={saving} className="bg-[#5B47FB] hover:bg-[#4935E0] disabled:opacity-60 text-white text-sm font-bold px-4 py-2 rounded-lg transition-colors">
           {saving ? t("common.status.saving") : t("dashboard.settings.save")}
         </button>
-        {saved && <span className="text-xs text-[#1B6F63] font-medium">{t("common.status.saved")}</span>}
+        {saved && <span className="text-xs text-[#5B47FB] font-medium">{t("common.status.saved")}</span>}
       </div>
     </div>
   );

@@ -175,7 +175,7 @@ export const PublishToWordPressBar: React.FC<PublishToWordPressBarProps> = ({
   // چون باعث می‌شد دو هدر روی هم بیفتد و فضای زیادی از بالای صفحه گرفته شود.
   // در موبایل باید WordPressHeaderControl را داخل هدر Layout قرار دهید.
   const headerClassName = embedded
-    ? "hidden lg:block fixed inset-x-0 top-0 z-40 border-b border-[#DAD5C7] bg-[#FBFAF6]/95 px-4 py-2.5 shadow-sm backdrop-blur lg:start-[var(--layout-content-right)] sm:px-6"
+    ? "hidden lg:block fixed inset-x-0 top-0 z-40 border-b border-[#E4E5F0] bg-[#FAFAFE]/95 px-4 py-2.5 shadow-sm backdrop-blur lg:start-[var(--layout-content-right)] sm:px-6"
     : "sticky top-0 z-20 mb-4 border-b border-slate-200 bg-white/85 px-4 py-3 backdrop-blur sm:px-6";
 
   return (
@@ -419,7 +419,7 @@ export const WordPressHeaderControl: React.FC<
       {menuOpen && (
         <>
           <div
-            className="fixed end-4 start-4 top-16 z-50 mx-auto max-w-xs rounded-xl border border-[#DAD5C7] bg-[#FBFAF6] p-2 shadow-lg"
+            className="fixed end-4 start-4 top-16 z-50 mx-auto max-w-xs rounded-xl border border-[#E4E5F0] bg-[#FAFAFE] p-2 shadow-lg"
           >
             {checkingConnection && (
               <div className="flex items-center gap-2 px-2 py-2 text-xs font-bold text-slate-400">

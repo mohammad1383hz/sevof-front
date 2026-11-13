@@ -329,7 +329,7 @@ const TicketsPage: React.FC = () => {
       <div className="p-3 sm:p-4 lg:p-5 max-w-4xl mx-auto space-y-4">
         <div className="flex items-center justify-between gap-3">
           <div>
-            <h1 className="text-lg sm:text-xl font-bold text-[#1E2A28]">{t("layout.nav.support")}</h1>
+            <h1 className="text-lg sm:text-xl font-bold text-[#0D0F23]">{t("layout.nav.support")}</h1>
           </div>
           <div className="flex items-center gap-2 shrink-0">
             <button
@@ -343,7 +343,7 @@ const TicketsPage: React.FC = () => {
             </button>
             <button
               onClick={() => setShowForm((v) => !v)}
-              className="bg-[#1B6F63] hover:bg-[#155850] text-white text-sm font-medium px-4 py-2 rounded-xl transition-colors"
+              className="bg-[#5B47FB] hover:bg-[#4935E0] text-white text-sm font-medium px-4 py-2 rounded-xl transition-colors"
             >
               + {t("support.newTicket")}
             </button>
@@ -354,10 +354,10 @@ const TicketsPage: React.FC = () => {
           <form
             onSubmit={handleSubmit}
             noValidate
-            className="bg-white border border-[#DAD5C7] rounded-2xl p-4 sm:p-5 space-y-3"
+            className="bg-white border border-[#E4E5F0] rounded-2xl p-4 sm:p-5 space-y-3"
           >
             <div>
-              <label className="text-xs font-medium text-[#1E2A28] block mb-1.5">{t("support.form.topic")}</label>
+              <label className="text-xs font-medium text-[#0D0F23] block mb-1.5">{t("support.form.topic")}</label>
               <div className="flex flex-wrap gap-1.5 mb-2">
                 {SUBJECT_TOPICS.map((topic) => {
                   const isActive = selectedTopic === t(topic.label);
@@ -368,8 +368,8 @@ const TicketsPage: React.FC = () => {
                       onClick={() => handlePickTopic(t(topic.label))}
                       className={`inline-flex items-center gap-1 rounded-full border px-3 py-1.5 text-xs font-medium transition-all duration-150 ${
                         isActive
-                          ? "border-[#1B6F63] bg-[#DCEFEA] text-[#14564C] shadow-sm"
-                          : "border-[#DAD5C7] bg-white text-[#65716B] hover:border-[#1B6F63]/40 hover:bg-[#F5FBF8]"
+                          ? "border-[#5B47FB] bg-[#EFEDFF] text-[#4935E0] shadow-sm"
+                          : "border-[#E4E5F0] bg-white text-[#6C7193] hover:border-[#5B47FB]/40 hover:bg-[#F7F6FF]"
                       }`}
                     >
                       {t(topic.label)}
@@ -382,24 +382,24 @@ const TicketsPage: React.FC = () => {
                 onChange={(e) => handleSubjectChange(e.target.value)}
                 maxLength={SUBJECT_MAX_LENGTH}
                 placeholder={t("support.form.subjectPlaceholder")}
-                className="w-full border border-[#DAD5C7] rounded-xl px-3 py-2 text-sm focus:outline-none focus:ring-2 focus:ring-[#1B6F63]/30"
+                className="w-full border border-[#E4E5F0] rounded-xl px-3 py-2 text-sm focus:outline-none focus:ring-2 focus:ring-[#5B47FB]/30"
               />
-              <p className="text-[10px] text-[#9BA69F] mt-1 text-start">
+              <p className="text-[10px] text-[#9A9DB8] mt-1 text-start">
                 {subject.trim().length}/{SUBJECT_MAX_LENGTH}
               </p>
             </div>
 
             <div>
-              <label className="text-xs font-medium text-[#1E2A28] block mb-1.5">{t("support.form.description")}</label>
+              <label className="text-xs font-medium text-[#0D0F23] block mb-1.5">{t("support.form.description")}</label>
               <textarea
                 value={message}
                 onChange={(e) => handleMessageChange(e.target.value)}
                 maxLength={MESSAGE_MAX_LENGTH}
                 rows={4}
                 placeholder={t("support.form.descriptionPlaceholder")}
-                className="w-full border border-[#DAD5C7] rounded-xl px-3 py-2 text-sm focus:outline-none focus:ring-2 focus:ring-[#1B6F63]/30 resize-none"
+                className="w-full border border-[#E4E5F0] rounded-xl px-3 py-2 text-sm focus:outline-none focus:ring-2 focus:ring-[#5B47FB]/30 resize-none"
               />
-              <p className="text-[10px] text-[#9BA69F] mt-1 text-start">
+              <p className="text-[10px] text-[#9A9DB8] mt-1 text-start">
                 {message.trim().length}/{MESSAGE_MAX_LENGTH}
               </p>
             </div>
@@ -407,7 +407,7 @@ const TicketsPage: React.FC = () => {
             {/* اگه کاربر شماره موبایل ثبت‌شده نداشته باشه (مثلاً با گوگل یا ایمیل وارد شده)، ازش می‌خوایم اینجا وارد کنه */}
             {!checkingPhone && needsPhone && (
               <div>
-                <label className="text-xs font-medium text-[#1E2A28] block mb-1.5">{t("support.form.phone")}</label>
+                <label className="text-xs font-medium text-[#0D0F23] block mb-1.5">{t("support.form.phone")}</label>
                 <input
                   value={phone}
                   onChange={(e) => handlePhoneChange(e.target.value)}
@@ -415,21 +415,21 @@ const TicketsPage: React.FC = () => {
                   maxLength={11}
                   placeholder="09xxxxxxxxx"
                   dir="ltr"
-                  className="w-full border border-[#DAD5C7] rounded-xl px-3 py-2 text-sm text-start focus:outline-none focus:ring-2 focus:ring-[#1B6F63]/30"
+                  className="w-full border border-[#E4E5F0] rounded-xl px-3 py-2 text-sm text-start focus:outline-none focus:ring-2 focus:ring-[#5B47FB]/30"
                 />
-                <p className="text-[10px] text-[#9BA69F] mt-1">
+                <p className="text-[10px] text-[#9A9DB8] mt-1">
                   {t("support.form.phoneHint")}
                 </p>
               </div>
             )}
 
             <div>
-              <label className="text-xs font-medium text-[#1E2A28] block mb-1.5">{t("support.form.image")}</label>
+              <label className="text-xs font-medium text-[#0D0F23] block mb-1.5">{t("support.form.image")}</label>
 
               {imagePreviews.length > 0 && (
                 <div className="flex flex-wrap gap-2 mb-2">
                   {imagePreviews.map((url, idx) => (
-                    <div key={url} className="relative w-16 h-16 rounded-lg overflow-hidden border border-[#DAD5C7]">
+                    <div key={url} className="relative w-16 h-16 rounded-lg overflow-hidden border border-[#E4E5F0]">
                       <img src={url} alt={t("support.attachment", { index: idx + 1 })} className="w-full h-full object-cover" />
                       <button
                         type="button"
@@ -447,7 +447,7 @@ const TicketsPage: React.FC = () => {
                 type="button"
                 onClick={handlePickImages}
                 disabled={selectedImages.length >= MAX_IMAGES}
-                className="inline-flex items-center gap-1.5 text-xs font-medium text-[#1B6F63] border border-[#DAD5C7] rounded-xl px-3 py-2 hover:bg-[#F5FBF8] disabled:opacity-50 transition-colors"
+                className="inline-flex items-center gap-1.5 text-xs font-medium text-[#5B47FB] border border-[#E4E5F0] rounded-xl px-3 py-2 hover:bg-[#F7F6FF] disabled:opacity-50 transition-colors"
               >
                 <PaperclipIcon className="h-4 w-4" />
                 {selectedImages.length > 0 ? t("support.form.imagesSelected", { count: selectedImages.length, max: MAX_IMAGES }) : t("support.form.addImage")}
@@ -463,12 +463,12 @@ const TicketsPage: React.FC = () => {
             </div>
 
             <div>
-              <label className="text-xs font-medium text-[#1E2A28] block mb-1.5">{t("support.form.priority")}</label>
+              <label className="text-xs font-medium text-[#0D0F23] block mb-1.5">{t("support.form.priority")}</label>
               <div className="grid grid-cols-3 gap-2">
                 {(
                   [
-                    { value: "low", label: t("support.priority.low"), dot: "bg-[#9BA69F]" },
-                    { value: "normal", label: t("support.priority.normal"), dot: "bg-[#1B6F63]" },
+                    { value: "low", label: t("support.priority.low"), dot: "bg-[#9A9DB8]" },
+                    { value: "normal", label: t("support.priority.normal"), dot: "bg-[#5B47FB]" },
                     { value: "high", label: t("support.priority.high"), dot: "bg-[#B3453A]" },
                   ] as { value: TicketPriority; label: string; dot: string }[]
                 ).map((opt) => {
@@ -480,8 +480,8 @@ const TicketsPage: React.FC = () => {
                       onClick={() => setPriority(opt.value)}
                       className={`flex items-center justify-center gap-1.5 rounded-xl border px-3 py-2 text-sm font-medium transition-all duration-150 ${
                         isActive
-                          ? "border-[#1B6F63] bg-[#DCEFEA] text-[#14564C] shadow-sm"
-                          : "border-[#DAD5C7] bg-white text-[#65716B] hover:border-[#1B6F63]/40 hover:bg-[#F5FBF8]"
+                          ? "border-[#5B47FB] bg-[#EFEDFF] text-[#4935E0] shadow-sm"
+                          : "border-[#E4E5F0] bg-white text-[#6C7193] hover:border-[#5B47FB]/40 hover:bg-[#F7F6FF]"
                       }`}
                     >
                       <span className={`h-1.5 w-1.5 rounded-full shrink-0 ${opt.dot}`} />
@@ -502,14 +502,14 @@ const TicketsPage: React.FC = () => {
               <button
                 type="submit"
                 disabled={submitting || !isFormValid}
-                className="bg-[#1B6F63] hover:bg-[#155850] disabled:opacity-60 disabled:cursor-not-allowed text-white text-sm font-medium px-4 py-2 rounded-xl transition-colors"
+                className="bg-[#5B47FB] hover:bg-[#4935E0] disabled:opacity-60 disabled:cursor-not-allowed text-white text-sm font-medium px-4 py-2 rounded-xl transition-colors"
               >
                 {submitting ? t("common.status.submitting") : t("support.form.submit")}
               </button>
               <button
                 type="button"
                 onClick={handleCancel}
-                className="text-sm text-[#9BA69F] px-3 py-2"
+                className="text-sm text-[#9A9DB8] px-3 py-2"
               >
                 {t("common.actions.cancel")}
               </button>
@@ -519,7 +519,7 @@ const TicketsPage: React.FC = () => {
 
         {loading && (
           <div className="flex justify-center items-center py-10">
-            <div className="h-8 w-8 border-2 border-[#DAD5C7] border-t-[#1B6F63] rounded-full animate-spin motion-reduce:animate-none" />
+            <div className="h-8 w-8 border-2 border-[#E4E5F0] border-t-[#5B47FB] rounded-full animate-spin motion-reduce:animate-none" />
           </div>
         )}
 
@@ -528,7 +528,7 @@ const TicketsPage: React.FC = () => {
         )}
 
         {!loading && !error && tickets.length === 0 && (
-          <div className="text-center py-12 text-[#9BA69F] text-sm">
+          <div className="text-center py-12 text-[#9A9DB8] text-sm">
             {t("support.empty")}
           </div>
         )}
@@ -547,11 +547,11 @@ const TicketsPage: React.FC = () => {
               <button
                 key={ticket.id}
                 onClick={() => navigate(siteId ? `/support/${ticket.id}?site=${siteId}` : `/support/${ticket.id}`)}
-                className="w-full text-start bg-white border border-[#DAD5C7] rounded-2xl p-4 hover:border-[#1B6F63]/40 transition-colors flex items-center justify-between gap-3"
+                className="w-full text-start bg-white border border-[#E4E5F0] rounded-2xl p-4 hover:border-[#5B47FB]/40 transition-colors flex items-center justify-between gap-3"
               >
                 <div className="min-w-0">
-                  <p className="text-sm font-medium text-[#1E2A28] truncate">{ticket.subject}</p>
-                  <p className="text-xs text-[#9BA69F] mt-1">
+                  <p className="text-sm font-medium text-[#0D0F23] truncate">{ticket.subject}</p>
+                  <p className="text-xs text-[#9A9DB8] mt-1">
                     {createdLabel}
                     {ticket.replies_count ? ` · ${t("support.messages", { count: ticket.replies_count })}` : ""}
                   </p>

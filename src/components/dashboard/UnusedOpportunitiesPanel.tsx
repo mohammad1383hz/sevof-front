@@ -110,25 +110,25 @@ const UnusedOpportunitiesPanel: React.FC<UnusedOpportunitiesPanelProps> = ({ sit
   return (
     <section
       aria-labelledby="unused-opportunities-title"
-      className="bg-white border border-[#DAD5C7] rounded-2xl p-3.5 sm:p-5 lg:p-6 overflow-hidden"
+      className="bg-white border border-[#E4E5F0] rounded-2xl p-3.5 sm:p-5 lg:p-6 overflow-hidden"
     >
       <div className="flex items-center justify-between gap-2 mb-3">
-        <h2 id="unused-opportunities-title" className="font-bold text-sm sm:text-base text-[#1E2A28]">
+        <h2 id="unused-opportunities-title" className="font-bold text-sm sm:text-base text-[#0D0F23]">
           {t("growth.unused.title")}
         </h2>
         {!loading && !loadError && (
-          <span className="text-[11px] sm:text-xs font-bold text-[#1B6F63] bg-[#DCEFEA] rounded-full px-2.5 py-0.5 shrink-0">
+          <span className="text-[11px] sm:text-xs font-bold text-[#5B47FB] bg-[#EFEDFF] rounded-full px-2.5 py-0.5 shrink-0">
             {t("growth.gsc.opportunitiesCount", { count: counts.all })}
           </span>
         )}
       </div>
 
       {/* توضیح رفتار سیستم: کاربر باید بداند خاموش کردن دقیقاً چه می‌کند */}
-      <div className="flex gap-2.5 rounded-xl bg-[#EFEDE6]/70 border border-[#DAD5C7]/70 p-3 mb-3">
-        <svg className="w-4 h-4 mt-0.5 shrink-0 text-[#1B6F63]" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true">
+      <div className="flex gap-2.5 rounded-xl bg-[#F3F2FB]/70 border border-[#E4E5F0]/70 p-3 mb-3">
+        <svg className="w-4 h-4 mt-0.5 shrink-0 text-[#5B47FB]" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true">
           <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.8} d="M11.25 11.25l.041-.02a.75.75 0 011.063.852l-.708 2.836a.75.75 0 001.063.853l.041-.021M21 12a9 9 0 11-18 0 9 9 0 0118 0zm-9-3.75h.008v.008H12V8.25z" />
         </svg>
-        <p className="text-[11px] sm:text-xs leading-6 text-[#384B43]">
+        <p className="text-[11px] sm:text-xs leading-6 text-[#3B3F5C]">
           {t("growth.unused.body")}
         </p>
       </div>
@@ -142,7 +142,7 @@ const UnusedOpportunitiesPanel: React.FC<UnusedOpportunitiesPanelProps> = ({ sit
       {loading && (
         <div className="space-y-2" aria-busy="true" aria-label={t("growth.unused.loading")}>
           {Array.from({ length: 3 }).map((_, i) => (
-            <div key={i} className="h-14 rounded-xl bg-[#EFEDE6] animate-pulse motion-reduce:animate-none" />
+            <div key={i} className="h-14 rounded-xl bg-[#F3F2FB] animate-pulse motion-reduce:animate-none" />
           ))}
         </div>
       )}
@@ -153,7 +153,7 @@ const UnusedOpportunitiesPanel: React.FC<UnusedOpportunitiesPanelProps> = ({ sit
           <button
             type="button"
             onClick={load}
-            className="mt-3 text-[11px] sm:text-xs font-bold text-[#14564C] bg-[#DCEFEA] rounded-lg px-3 py-1.5 hover:bg-[#c9e6de] transition-colors"
+            className="mt-3 text-[11px] sm:text-xs font-bold text-[#4935E0] bg-[#EFEDFF] rounded-lg px-3 py-1.5 hover:bg-[#DDD8FF] transition-colors"
           >
             {t("growth.gsc.retry")}
           </button>
@@ -161,14 +161,14 @@ const UnusedOpportunitiesPanel: React.FC<UnusedOpportunitiesPanelProps> = ({ sit
       )}
 
       {!loading && !loadError && counts.all === 0 && (
-        <div className="text-center py-8 sm:py-10 text-[#9BA69F] text-xs sm:text-sm border border-dashed border-[#DAD5C7] rounded-xl px-4 leading-6">
+        <div className="text-center py-8 sm:py-10 text-[#9A9DB8] text-xs sm:text-sm border border-dashed border-[#E4E5F0] rounded-xl px-4 leading-6">
           {t("growth.unused.allUsed")}
         </div>
       )}
 
       {!loading && !loadError && counts.all > 0 && (
         <>
-          <div role="tablist" aria-label={t("growth.unused.filter")} className="flex gap-1 p-1 mb-3 rounded-xl bg-[#EFEDE6] overflow-x-auto">
+          <div role="tablist" aria-label={t("growth.unused.filter")} className="flex gap-1 p-1 mb-3 rounded-xl bg-[#F3F2FB] overflow-x-auto">
             {filters.map((f) => (
               <button
                 key={f.key}
@@ -180,17 +180,17 @@ const UnusedOpportunitiesPanel: React.FC<UnusedOpportunitiesPanelProps> = ({ sit
                   setShowAll(false);
                 }}
                 className={`flex-1 whitespace-nowrap rounded-lg px-2.5 py-1.5 text-[11px] sm:text-xs font-bold transition-all ${
-                  filter === f.key ? "bg-white text-[#1E2A28] shadow-sm" : "text-[#6B7A73] hover:text-[#1E2A28]"
+                  filter === f.key ? "bg-white text-[#0D0F23] shadow-sm" : "text-[#6C7193] hover:text-[#0D0F23]"
                 }`}
               >
                 {f.label}
-                <span className="mr-1 text-[#9BA69F]">({f.count.toLocaleString("fa-IR")})</span>
+                <span className="mr-1 text-[#9A9DB8]">({f.count.toLocaleString("fa-IR")})</span>
               </button>
             ))}
           </div>
 
           {visible.length === 0 ? (
-            <div className="text-center py-6 text-[#9BA69F] text-xs sm:text-sm border border-dashed border-[#DAD5C7] rounded-xl">
+            <div className="text-center py-6 text-[#9A9DB8] text-xs sm:text-sm border border-dashed border-[#E4E5F0] rounded-xl">
               {filter === "excluded" ? t("growth.unused.noneExcluded") : t("growth.unused.allExcluded")}
             </div>
           ) : (
@@ -203,13 +203,13 @@ const UnusedOpportunitiesPanel: React.FC<UnusedOpportunitiesPanelProps> = ({ sit
                   <li
                     key={idea.id}
                     className={`flex items-center gap-3 rounded-xl border p-2.5 sm:p-3 min-w-0 transition-colors ${
-                      excluded ? "border-[#DAD5C7]/60 bg-[#EFEDE6]/50" : "border-[#DAD5C7] bg-white"
+                      excluded ? "border-[#E4E5F0]/60 bg-[#F3F2FB]/50" : "border-[#E4E5F0] bg-white"
                     }`}
                   >
                     <div className="min-w-0 flex-1">
                       <p
                         className={`text-xs sm:text-sm font-bold leading-6 line-clamp-2 ${
-                          excluded ? "text-[#9BA69F]" : "text-[#1E2A28]"
+                          excluded ? "text-[#9A9DB8]" : "text-[#0D0F23]"
                         }`}
                         title={idea.title}
                       >
@@ -217,16 +217,16 @@ const UnusedOpportunitiesPanel: React.FC<UnusedOpportunitiesPanelProps> = ({ sit
                       </p>
                       <div className="flex flex-wrap items-center gap-1.5 mt-1">
                         {idea.entity?.name && (
-                          <span className="text-[11px] text-[#9BA69F] truncate max-w-[12rem]">{idea.entity.name}</span>
+                          <span className="text-[11px] text-[#9A9DB8] truncate max-w-[12rem]">{idea.entity.name}</span>
                         )}
                         {idea.seo_score !== null && (
-                          <span className="text-[11px] font-bold text-[#1B6F63] bg-[#DCEFEA] rounded-full px-2 py-0.5">
+                          <span className="text-[11px] font-bold text-[#5B47FB] bg-[#EFEDFF] rounded-full px-2 py-0.5">
                             {t("growth.unused.score", { score: idea.seo_score })}
                           </span>
                         )}
                         <span
                           className={`text-[11px] font-bold rounded-full px-2 py-0.5 ${
-                            excluded ? "bg-[#F7EEEA] text-[#B3453A]" : "bg-[#EFEDE6] text-[#384B43]"
+                            excluded ? "bg-[#F7EEEA] text-[#B3453A]" : "bg-[#F3F2FB] text-[#3B3F5C]"
                           }`}
                         >
                           {excluded ? t("growth.unused.notUsed") : t("growth.unused.active")}
@@ -250,7 +250,7 @@ const UnusedOpportunitiesPanel: React.FC<UnusedOpportunitiesPanelProps> = ({ sit
             <button
               type="button"
               onClick={() => setShowAll((v) => !v)}
-              className="mt-3 w-full rounded-xl border border-[#DAD5C7] py-2 text-[11px] sm:text-xs font-bold text-[#14564C] hover:bg-[#DCEFEA]/50 transition-colors"
+              className="mt-3 w-full rounded-xl border border-[#E4E5F0] py-2 text-[11px] sm:text-xs font-bold text-[#4935E0] hover:bg-[#EFEDFF]/50 transition-colors"
             >
               {showAll ? t("growth.gsc.showLess") : t("growth.gsc.showAll", { count: formatNumber(filteredTotal) })}
             </button>

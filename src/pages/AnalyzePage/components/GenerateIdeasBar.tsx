@@ -17,14 +17,14 @@ export function GenerateIdeasBar({
   const navigate = useNavigate();
 
   return (
-    <div className="border-t border-[#DAD5C7]/60 bg-[#FBFAF6]/80 backdrop-blur-md">
+    <div className="border-t border-[#E4E5F0]/60 bg-[#FAFAFE]/80 backdrop-blur-md">
       <div className="max-w-5xl md:max-w-6xl xl:max-w-7xl mx-auto px-6 py-2.5 flex items-center justify-center gap-3">
         {!disabled ? (
           <button
             type="button"
             onClick={onGenerate}
             disabled={generating}
-            className="rounded-2xl bg-gradient-to-r rtl:bg-gradient-to-l from-[#1B6F63] to-[#14564C] text-white text-sm font-bold px-6 py-2.5 hover:from-[#1F8073] hover:to-[#1B6F63] transition-all duration-300 disabled:opacity-50 disabled:cursor-not-allowed shadow-lg shadow-[#1B6F63]/25 flex items-center gap-2"
+            className="rounded-2xl bg-gradient-to-r rtl:bg-gradient-to-l from-[#5B47FB] to-[#4935E0] text-white text-sm font-bold px-6 py-2.5 hover:from-[#6C5BFF] hover:to-[#5B47FB] transition-all duration-300 disabled:opacity-50 disabled:cursor-not-allowed shadow-lg shadow-[#5B47FB]/25 flex items-center gap-2"
           >
             {generating ? (
               <>
@@ -39,7 +39,7 @@ export function GenerateIdeasBar({
           <button
             type="button"
             onClick={() => navigate("/subscription")}
-            className="flex items-center gap-2 rounded-2xl bg-[#EFEDE6] text-[#9BA69F] text-sm font-bold px-6 py-2.5 cursor-pointer border border-[#DAD5C7] hover:bg-[#DCEFEA] hover:text-[#1B6F63] hover:border-[#1B6F63]/30 transition-all duration-300"
+            className="flex items-center gap-2 rounded-2xl bg-[#F3F2FB] text-[#9A9DB8] text-sm font-bold px-6 py-2.5 cursor-pointer border border-[#E4E5F0] hover:bg-[#EFEDFF] hover:text-[#5B47FB] hover:border-[#5B47FB]/30 transition-all duration-300"
             title={limitMessage}
           >
             <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
